@@ -1,4 +1,6 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) {exit('No direct script access allowed');
+}
+
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -36,15 +38,13 @@
 | This route will tell the Router what URI segments to use if those provided
 | in the URL cannot be matched to a valid route.
 |
-*/
+ */
 
-$route['default_controller'] = "index";
-$route['404_override'] = 'Notfound';
-
+$route['default_controller'] = "login";
+$route['404_override']       = 'Notfound';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
-
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +52,7 @@ $route['404_override'] = 'Notfound';
 |--------------------------------------------------------------------------
 
 |
-*/
-$route['mail/(:any)'] = 'email/index/$1';
+ */
+$route['mail/(:any)']    = 'email/index/$1';
 $route['mailVet/(:any)'] = 'email/vet/$1';
-$route['maps'] = 'mascotas/mapas';
-
-
+$route['maps']           = 'mascotas/mapas';

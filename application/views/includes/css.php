@@ -1,15 +1,7 @@
     <!-- font-awesome -->
-    <link href="<?=base_url()?>/principal/font-awesome.min.css" rel="stylesheet">
-    <link href="<?=base_url()?>/principal/bootstrap.css" rel="stylesheet">
-    <link href="<?=base_url()?>/principal/style.css" rel="stylesheet">
-    <!-- JavaScript -->
-    <script type="text/javascript" src="<?=base_url()?>/principal/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>/principal/bootstrap.js"></script>
-    <!-- script type="text/javascript" src="<?=base_url()?>/Recursos/js/md5-min.js"></script-->
-    <script type="text/javascript" src="<?=base_url()?>/principal/plugins.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>/principal/banzhow.js"></script>
-
-
-
-
-
+    <!-- <link href="<?=base_url()?>/principal/font-awesome.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>/principal/bootstrap.css" rel="stylesheet"> -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://fezvrasta.github.io/bootstrap-material-design/dist/css/bootstrap-material-design.css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="http://fezvrasta.github.io/bootstrap-material-design/dist/css/ripples.min.css" media="screen" title="no title" charset="utf-8">
+ <link href="<?=base_url()?>/principal/css/style.css" rel="stylesheet">

@@ -2,9 +2,8 @@
 
 class Notfound extends CI_Controller {
 
-  public function index()
-  {
-    $data['main_cont'] = 'Notfound';
-    $this->load->view('includes/template_index',$data);
-  }
+        public function index(){
+                $data['main_cont'] = 'Notfound';
+                $this->load->view('includes/template_app',$data);
+        }
 }

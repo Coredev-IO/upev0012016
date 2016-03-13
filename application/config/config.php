@@ -16,7 +16,6 @@ include "server_file.php";
 | path to your installation.
 |
  */
-//$config['base_url']	= 'http://www.coredev.com.mx/petCloud/';
 $config['base_url'] = $localsys['base_url'];
 
 /*
