@@ -12,7 +12,14 @@ class Login extends CI_Controller {
 			$session_data      = $this->session->userdata('logged_in');
 			$data['main_cont'] = 'home/index';
 			$data['username']  = $session_data['username'];
+                         $data['rol'] = $session_data['rol'];
 			$this->load->view('includes/template_app', $data);
+                        //Se determina la actividad del rol
+                        // if($session_data['rol']==1){
+                        //         //Admin
+                        // }else{
+                        //
+                        // }
 
 		} else {
 			$this->load->helper(array('form'));//Carga las sesiones
