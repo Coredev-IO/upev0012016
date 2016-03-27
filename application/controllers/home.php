@@ -10,9 +10,16 @@ class Home extends CI_Controller {
 
 	function index() {
 		if ($this->session->userdata('logged_in')) {
-			$data['datos']     = $this->session->userdata('logged_in');
-			$data['main_cont'] = 'home/index';
-			$this->load->view('includes/template_app', $data);
+			$data['datos'] = $this->session->userdata('logged_in');
+			if ($data['datos']['idRoles'] == 1) {
+				//Admin
+				echo "Permiso denegado";
+
+			} else {
+				//Escuela
+				$data['main_cont'] = 'home/index';
+				$this->load->view('includes/template_app', $data);
+			}
 		} else {
 			//If no session, redirect to login page
 			redirect('login', 'refresh');

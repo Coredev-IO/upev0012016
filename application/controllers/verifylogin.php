@@ -10,9 +10,15 @@ class VerifyLogin extends CI_Controller {
 	function index() {
 		//Se valida si existe una session
 		if ($this->session->userdata('logged_in')) {
-			$data['datos']     = $this->session->userdata('logged_in');
-			$data['main_cont'] = 'home/index';
-			$this->load->view('includes/template_app', $data);
+			$data['datos'] = $this->session->userdata('logged_in');
+			if ($data['datos']['idRoles'] == 1) {
+				//Admin
+				echo "Permiso denegado";
+
+			} else {
+				$data['main_cont'] = 'home/index';
+				$this->load->view('includes/template_app', $data);
+			}
 		} else {
 			//This method will have the credentials validation
 			$this->load->library('form_validation');

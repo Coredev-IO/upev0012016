@@ -9,15 +9,15 @@ class Login extends CI_Controller {
 	public function index() {
 
 		if ($this->session->userdata('logged_in')) {
-			$data['datos']     = $this->session->userdata('logged_in');
-			$data['main_cont'] = 'home/index';
-			$this->load->view('includes/template_app', $data);
-			//Se determina la actividad del rol
-			// if($session_data['rol']==1){
-			//         //Admin
-			// }else{
-			//
-			// }
+			$data['datos'] = $this->session->userdata('logged_in');
+			if ($data['datos']['idRoles'] == 1) {
+				//Admin
+				echo "Permiso denegado";
+
+			} else {
+				$data['main_cont'] = 'home/index';
+				$this->load->view('includes/template_app', $data);
+			}
 
 		} else {
 			$this->load->helper(array('form'));//Carga ldap_add(link_identifier, dn, entry)s sesiones
