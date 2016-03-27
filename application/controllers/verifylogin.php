@@ -8,18 +8,25 @@ class VerifyLogin extends CI_Controller {
 	}
 
 	function index() {
-		//This method will have the credentials validation
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
-
-		if ($this->form_validation->run() == FALSE) {
-			//Field validation failed.&nbsp; User redirected to login page
-			$data['main_cont'] = 'login/index';
-			$this->load->view('includes/template_login', $data);
+		//Se valida si existe una session
+		if ($this->session->userdata('logged_in')) {
+			$data['datos']     = $this->session->userdata('logged_in');
+			$data['main_cont'] = 'home/index';
+			$this->load->view('includes/template_app', $data);
 		} else {
-			//Go to private area
-			redirect('home', 'refresh');
+			//This method will have the credentials validation
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
+
+			if ($this->form_validation->run() == FALSE) {
+				//Field validation failed.&nbsp; User redirected to login page
+				$data['main_cont'] = 'login/index';
+				$this->load->view('includes/template_login', $data);
+			} else {
+				//Go to private area
+				redirect('home', 'refresh');
+			}
 		}
 
 	}
@@ -32,10 +39,19 @@ class VerifyLogin extends CI_Controller {
 		if ($result) {
 			$sess_array = array();
 			foreach ($result as $row) {
+
 				$sess_array = array(
-					'id'       => $row->id,
-				        'username' => $row->username,
-                                          'rol' => $row->rol
+					'idUsuarios'      => $row->idUsuarios,
+					'Username'        => $row->Username,
+					'idRoles'         => $row->idRoles,
+					'idUnidad'        => $row->idUnidad,
+					'Nombre'          => $row->Nombre,
+					'ApellidoPaterno' => $row->ApellidoPaterno,
+					'ApellidoMaterno' => $row->ApellidoMaterno,
+					'Email'           => $row->Email,
+					'Telefono'        => $row->Telefono,
+					'NombreUnidad'    => $row->NombreUnidad,
+					'Nivel'           => $row->Nivel
 				);
 				$this->session->set_userdata('logged_in', $sess_array);
 			}

@@ -9,10 +9,8 @@ class Login extends CI_Controller {
 	public function index() {
 
 		if ($this->session->userdata('logged_in')) {
-			$session_data      = $this->session->userdata('logged_in');
+			$data['datos']     = $this->session->userdata('logged_in');
 			$data['main_cont'] = 'home/index';
-			$data['username']  = $session_data['username'];
-			$data['idRoles']   = $session_data['idRoles'];
 			$this->load->view('includes/template_app', $data);
 			//Se determina la actividad del rol
 			// if($session_data['rol']==1){

@@ -1,10 +1,11 @@
 <?php
 Class User extends CI_Model {
 	function login($username, $password) {
-		$this->db->select('idUsuarios, username, password');
+		$this->db->select('');
 		$this->db->from('Usuarios');
-		$this->db->where('username', $username);
-		$this->db->where('password', $password);
+		$this->db->where('Username', $username);
+		$this->db->where('Password', $password);
+		$this->db->join('Unidad', 'Unidad.idUnidad = Usuarios.idUnidad');
 		$this->db->limit(1);
 
 		$query = $this->db->get();
@@ -17,3 +18,5 @@ Class User extends CI_Model {
 	}
 }
 ?>
+
+
