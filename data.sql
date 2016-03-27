@@ -309,6 +309,7 @@ CREATE TABLE `Evaluacion` (
   `Ra_inversion` float DEFAULT '0',
   `Ra_cal_inversion` int(11) DEFAULT '0',
   `Ra_Total` float DEFAULT '0',
+  `CreateDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idEvaluacion`,`idUnidad`),
   KEY `idUnidadFK_idx` (`idUnidad`),
   CONSTRAINT `idUnidad2` FOREIGN KEY (`idUnidad`) REFERENCES `Unidad` (`idUnidad`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -716,30 +717,31 @@ LOCK TABLES `Tutorias` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Unidad`
+-- Table structure for table `UNidad`
 --
 
-DROP TABLE IF EXISTS `Unidad`;
+DROP TABLE IF EXISTS `UNidad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Unidad` (
+CREATE TABLE `UNidad` (
   `idUnidad` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(200) NOT NULL,
   `Siglas` varchar(45) NOT NULL,
   `Extension` int(11) DEFAULT NULL,
   `Direccion` varchar(300) DEFAULT NULL,
+  `Nivel` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`idUnidad`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Unidad`
+-- Dumping data for table `UNidad`
 --
 
-LOCK TABLES `Unidad` WRITE;
-/*!40000 ALTER TABLE `Unidad` DISABLE KEYS */;
-INSERT INTO `Unidad` VALUES (1,'Escuela Test','TEST',22,NULL);
-/*!40000 ALTER TABLE `Unidad` ENABLE KEYS */;
+LOCK TABLES `UNidad` WRITE;
+/*!40000 ALTER TABLE `UNidad` DISABLE KEYS */;
+INSERT INTO `UNidad` VALUES (1,'Escuela Test','TEST',22,NULL,NULL);
+/*!40000 ALTER TABLE `UNidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -814,4 +816,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-27  4:56:39
+-- Dump completed on 2016-03-27 12:21:43
