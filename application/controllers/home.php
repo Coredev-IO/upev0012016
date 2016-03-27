@@ -6,6 +6,7 @@ class Home extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
+		$this->load->model('evaluacion', '', TRUE);
 	}
 
 	function index() {
@@ -14,10 +15,13 @@ class Home extends CI_Controller {
 			if ($data['datos']['idRoles'] == 1) {
 				//Admin
 				echo "Permiso denegado";
+				// $result                  = $this->evaluacion->getEvaluaciones();
+				// $data['AllEvaluaciones'] = $result;
 
 			} else {
 				//Escuela
-				$data['main_cont'] = 'home/index';
+				$data['AllEvaluacionesUnidad'] = $this->evaluacion->getEvaluacionUnidad($data['datos']['idUnidad']);
+				$data['main_cont']             = 'home/index';
 				$this->load->view('includes/template_app', $data);
 			}
 		} else {
