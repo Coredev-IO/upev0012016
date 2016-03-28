@@ -15,19 +15,19 @@
           </tr>
         </thead>
         <tbody>
-        <?php
-        $array = $AllEvaluacionesUnidad;
-        foreach ($array as &$elemento) {
-        echo "<tr><td>".$elemento->Nombre."</td><td>".$elemento->Descripcion."</td></tr>";
-        }
-        ?>
+<?php
+$array = $AllEvaluacionesUnidad;
+foreach ($array as &$elemento) {
+	echo "<tr><td>".$elemento->Nombre."</td><td>".$elemento->Descripcion."</td></tr>";
+}
+?>
         </tbody>
         </table>
       </div>
-      <div class="col-md-3 col-md-offset-9">      
+      <div class="col-md-3 col-md-offset-9">
       <a class="btn btn-raised btn-primary" href="<?=base_url()?>index.php/nuevaevaluacion">Nueva Evaluación</a>
       </div>
-        
+
 
 
 </div>

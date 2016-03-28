@@ -36,7 +36,7 @@ CREATE TABLE `Alumnos` (
   PRIMARY KEY (`idAlumnos`,`idEvaluacion`),
   KEY `fk_Alumnos_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `idEvaluacion` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `Alumnos` (
 
 LOCK TABLES `Alumnos` WRITE;
 /*!40000 ALTER TABLE `Alumnos` DISABLE KEYS */;
+INSERT INTO `Alumnos` VALUES (2,19,0,0,0,0,0,0,0,0),(3,20,0,0,0,0,0,0,0,0),(4,21,0,0,0,0,0,0,0,0),(5,22,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `Alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +64,7 @@ CREATE TABLE `AlumnosInvestigacion` (
   PRIMARY KEY (`idAlumnosInvestigacion`,`idEvaluacion`),
   KEY `fk_AlumnosInvestigacion_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_AlumnosInvestigacion_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +73,7 @@ CREATE TABLE `AlumnosInvestigacion` (
 
 LOCK TABLES `AlumnosInvestigacion` WRITE;
 /*!40000 ALTER TABLE `AlumnosInvestigacion` DISABLE KEYS */;
+INSERT INTO `AlumnosInvestigacion` VALUES (1,19,0,0),(2,20,0,0),(3,21,0,0),(4,22,0,0);
 /*!40000 ALTER TABLE `AlumnosInvestigacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +100,7 @@ CREATE TABLE `ApoyoEducativo` (
   PRIMARY KEY (`idApoyoEducativo`,`idEvaluacion`),
   KEY `fk_ApoyoEducativo_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_ApoyoEducativo_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,6 +109,7 @@ CREATE TABLE `ApoyoEducativo` (
 
 LOCK TABLES `ApoyoEducativo` WRITE;
 /*!40000 ALTER TABLE `ApoyoEducativo` DISABLE KEYS */;
+INSERT INTO `ApoyoEducativo` VALUES (2,19,0,0,0,0,0,0,0,0,0,0),(3,20,0,0,0,0,0,0,0,0,0,0),(4,21,0,0,0,0,0,0,0,0,0,0),(5,22,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `ApoyoEducativo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +128,7 @@ CREATE TABLE `Becas` (
   PRIMARY KEY (`idBecas`,`idEvaluacion`),
   KEY `fk_Becas_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_Becas_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,6 +137,7 @@ CREATE TABLE `Becas` (
 
 LOCK TABLES `Becas` WRITE;
 /*!40000 ALTER TABLE `Becas` DISABLE KEYS */;
+INSERT INTO `Becas` VALUES (2,19,0,0),(3,20,0,0),(4,21,0,0),(5,22,0,0);
 /*!40000 ALTER TABLE `Becas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,7 +191,7 @@ CREATE TABLE `Docentes` (
   PRIMARY KEY (`idDocentes`,`idEvaluacion`),
   KEY `fk_Docentes_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_Docentes_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,6 +200,7 @@ CREATE TABLE `Docentes` (
 
 LOCK TABLES `Docentes` WRITE;
 /*!40000 ALTER TABLE `Docentes` DISABLE KEYS */;
+INSERT INTO `Docentes` VALUES (2,19,0,0,0,0,0,0,0,0),(3,20,0,0,0,0,0,0,0,0),(4,21,0,0,0,0,0,0,0,0),(5,22,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `Docentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -313,7 +318,7 @@ CREATE TABLE `Evaluacion` (
   PRIMARY KEY (`idEvaluacion`,`idUnidad`),
   KEY `idUnidadFK_idx` (`idUnidad`),
   CONSTRAINT `idUnidad2` FOREIGN KEY (`idUnidad`) REFERENCES `Unidad` (`idUnidad`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -322,6 +327,7 @@ CREATE TABLE `Evaluacion` (
 
 LOCK TABLES `Evaluacion` WRITE;
 /*!40000 ALTER TABLE `Evaluacion` DISABLE KEYS */;
+INSERT INTO `Evaluacion` VALUES (1,1,'Test Unidad 1',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-27 20:05:49'),(2,2,'Test Unidad 2',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-27 20:06:45'),(3,2,'TEst Isnsert','hola',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-27 21:12:04'),(4,2,'qww','qwqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:33:47'),(5,2,'asas','saasas',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:42:46'),(6,2,'qwqw','qwqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:46:18'),(7,2,'qwwq','qwqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:47:17'),(8,2,'wqqw','qwwq',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:48:34'),(9,2,'qwqw','wqqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:48:56'),(10,2,'abc','abc',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:57:24'),(11,2,'qw','qw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:58:11'),(12,2,'wr','wrwr',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 00:59:59'),(13,2,'qwqw','qwqwqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 01:02:36'),(14,2,'qwqw','qwqwqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 01:03:09'),(15,2,'wqw','qwwq',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 01:03:28'),(16,2,'qwwq','qwwq',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 01:08:06'),(17,2,'wqqwq','wqqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 01:35:26'),(18,2,'abc','abc',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 01:36:10'),(19,2,'hola','hola',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 01:48:24'),(20,2,'qwqw','qwqwqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 01:54:32'),(21,2,'qwqw','qwqw',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 02:02:12'),(22,2,'wqq','qwwq',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-03-28 02:32:53');
 /*!40000 ALTER TABLE `Evaluacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -423,6 +429,10 @@ CREATE TABLE `Indicador3` (
   `Indicadores` varchar(200) NOT NULL,
   `Descripcion` varchar(1000) DEFAULT NULL,
   `Valor` float DEFAULT NULL,
+  `campo1` varchar(400) DEFAULT NULL,
+  `campo1id` varchar(50) DEFAULT NULL,
+  `campo2` varchar(400) DEFAULT NULL,
+  `campo2id` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idIndicador3`,`idIndicador2`,`idIndicador1`),
   KEY `fk_Indicador3_Indicador21_idx` (`idIndicador2`,`idIndicador1`),
   CONSTRAINT `fk_Indicador3_Indicador21` FOREIGN KEY (`idIndicador2`, `idIndicador1`) REFERENCES `Indicador2` (`idIndicador2`, `idIndicador1`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -435,7 +445,7 @@ CREATE TABLE `Indicador3` (
 
 LOCK TABLES `Indicador3` WRITE;
 /*!40000 ALTER TABLE `Indicador3` DISABLE KEYS */;
-INSERT INTO `Indicador3` VALUES (1,1,1,'Rendimiento','Alumnos en situación escolar regular','Porcentaje de alumnos que han aprobado todas las unidades de aprendizaje en las que han estado inscritos por Unidad  académica',35),(2,1,1,'Eficiencia terminal','Eficiencia  termina','Porcentaje de alumnos que egresan por cohorte generacional por programa académico ',25),(3,1,1,'Titulación','Alumnos titulados ','Porcentaje de alumnos titulados hasta tres años después de egresar por programa académico',5),(4,1,1,'Promoción de NMS a NS','Promoción  de alumnos por nivel educativo','Porcentaje de alumnos de NMS del IPN que concluyeron el último semestre y presentaron examen de admision  y ocuparon un lugar en NS del IPN',35),(5,2,1,'Aprovechamiento de la planta docente','Aprovechamiento de la Planta Docente','Total de horas frente a grupo por profesores de base por academia  25%',20),(6,2,1,'Docentes de asignatura activos en el sector productivo','Docentes de Asignatura activos en el Sector Productivo','Porcentaje de docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen 25%',15),(7,2,1,'Docentes actualizados en el área diciplinar','Docentes actualizados en el Área Disciplinar','Porcentaje de profesores con por  lo menos una acción de actualización en su área disciplinar en los últimos dos años   25%',25),(8,2,1,'Desempeño docente por academia','Desempeño Docente ','Promedio de las evaluaciones individuales del cuestionario de apreciación estudiantil \r25%',40),(9,3,2,'Programas académicos evaluados','Programas Académicos Evaluados','Porcentaje de   programas académicos con evaluación favorable en los últimos 4 años ',100),(10,4,2,'Capacidad de atención alumnos en relación a talleres y laboratorios','Capacidad de atención alumnos en relación a talleres y laboratorios','Capacidad de atención a alumnos por talleres y laboratorios por unidad académica y semestre\rSuma de Capacidad instalada de atención en laboratorios y talleres por el total de semestres, identificando la capacidad del taller o laboratotio con menor capacidad de cada semestre\r ',35),(11,4,2,'Aulas Equipadas','Aulas Equipadas','Aulas equipadas conforme al modelo ideal por unidad académica \r(Cañon, Internet, CPU, Pantalla, Pizarron, Butacas, Escritorio)\r',35),(12,4,2,'Laboratorios Equipado','Laboratorios Equipado','Laboratorios equipados conforme currícula por programa académico por unidad académica y año',30),(13,5,3,'Becas de Manutención ','Becas','Porcentaje de alumnos que cuentan con algun tipo de beca registrada en el SIBA por año por unidad académca ',100),(14,6,3,'Alumnos Tutorados','Alumnos Tutorados','Porcentaje de alumnos tutorados por periodo semestral y  programa académico ',100),(15,7,3,'Bibliotecas','Títulos Actualizados','Porcentaje de alumnos tutorados por periodo semestral y  programa académico ',17.5),(16,7,3,'Bibliotecas ','Número de libros por alumno','Total de ejemplares por programa académico 50%',17.5),(17,7,3,'Equipo de cómputo','Cobertura de Acceso a Internet ','Capacidad instalada de acceso a internet en la unidad académica',30),(18,7,3,'Mantenimiento y limpieza','Cumplimiento del programa de mantenimiento','Porcentaje de cumpliemito del programa de mantenimiento 50%',17.5),(19,7,3,'Mantenimiento y limpieza','Cumplimiento del programa de limpieza','Porcentaje de cumpliemito del programa de limpieza 50%',17.5),(20,8,4,'Alumnos Inscritos Participando en Servicio Social','Alumnos Inscritos Participando en Servicio Social','Número de alumnos inscritos en alguno de los programas de servicio social por unidad académica ',100),(21,9,4,'Alumnos en Visitas Escolares','Porcentaje de Alumnos en Visitas Escolares','Número de alumnos  realizando visitas escolares por unidad académica por semestre',100),(22,10,4,'Proyectos Vinculados','Proyectos Vinculados','Número de proyectos vinculados por unidad académica',100),(23,11,5,'Profesores de carrera que están involucrados en investigaciones','Profesores de carrera realizando investigación','Profesores contratados con dictamén de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP ',100),(24,12,5,'Profesores que presentan trabajos en eventos de investigación con la participación de alumnos','Profesores que presentan trabajos en eventos de investigación con la participación de alumnos','Profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores',100),(25,13,5,'Innovaciones Educativas','Innovaciones Educativas','Tasa de variación del  número de Innovaciones educativas identificadas, incubadas o escaladas por unidad académica 50%',50),(26,13,5,'Investigaciones Educativas de impacto en el aula','Investigaciones Educativas de impacto en el aula','Tasa de variación del número de investigaciones educativas publicadas con impacto en el aula por unidad académica y por año',50),(27,14,6,'Inversión de los recursos autogenerados','% de  Recursos autogenerados dedicados al  mantenimiento del inmueble y mantenimiento del equipo','Monto de los recursos netos autogenerados que se destinan al pago de Servicios de mantenimiento del inmueble y mantenimiento del equipo ',100);
+INSERT INTO `Indicador3` VALUES (1,1,1,'Rendimiento','Alumnos en situación escolar regular','Porcentaje de alumnos que han aprobado todas las unidades de aprendizaje en las que han estado inscritos por Unidad  académica',35,'Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos','AlumnosAcreditados','Total de matrícula inscrita','AlumnosInscritos'),(2,1,1,'Eficiencia terminal','Eficiencia  termina','Porcentaje de alumnos que egresan por cohorte generacional por programa académico ',25,'? 1 n   Número de alumnos del cohorte A que egresan  en el año n','AlumnosEgresadosCohorte','total de alumnos en el cohorte A','AlumnosTotalesCohorte'),(3,1,1,'Titulación','Alumnos titulados ','Porcentaje de alumnos titulados hasta tres años después de egresar por programa académico',5,'Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico','AlumnosTituladosGeneracion','total de la matrícula de egreso del mismo periodo por programa académico','AlumnosEgresadosGeneracion'),(4,1,1,'Promoción de NMS a NS','Promoción  de alumnos por nivel educativo','Porcentaje de alumnos de NMS del IPN que concluyeron el último semestre y presentaron examen de admision  y ocuparon un lugar en NS del IPN',35,'Número de alumnos de NMS del IPN que concluyeron el último semestre y presentaron examen de admision  y ocuparon un lugar en NS del IPN por programa académico','AlumnosInscritosNSIPN',' Total de alumnos del NMS del IPN que presentaron examen de ingreso al NS del IPN','AlumnosExamenNSIPN'),(5,2,1,'Aprovechamiento de la planta docente','Aprovechamiento de la Planta Docente','Total de horas frente a grupo por profesores de base por academia  25%',20,NULL,NULL,NULL,NULL),(6,2,1,'Docentes de asignatura activos en el sector productivo','Docentes de Asignatura activos en el Sector Productivo','Porcentaje de docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen 25%',15,NULL,NULL,NULL,NULL),(7,2,1,'Docentes actualizados en el área diciplinar','Docentes actualizados en el Área Disciplinar','Porcentaje de profesores con por  lo menos una acción de actualización en su área disciplinar en los últimos dos años   25%',25,NULL,NULL,NULL,NULL),(8,2,1,'Desempeño docente por academia','Desempeño Docente ','Promedio de las evaluaciones individuales del cuestionario de apreciación estudiantil \r25%',40,NULL,NULL,NULL,NULL),(9,3,2,'Programas académicos evaluados','Programas Académicos Evaluados','Porcentaje de   programas académicos con evaluación favorable en los últimos 4 años ',100,NULL,NULL,NULL,NULL),(10,4,2,'Capacidad de atención alumnos en relación a talleres y laboratorios','Capacidad de atención alumnos en relación a talleres y laboratorios','Capacidad de atención a alumnos por talleres y laboratorios por unidad académica y semestre\rSuma de Capacidad instalada de atención en laboratorios y talleres por el total de semestres, identificando la capacidad del taller o laboratotio con menor capacidad de cada semestre\r ',35,NULL,NULL,NULL,NULL),(11,4,2,'Aulas Equipadas','Aulas Equipadas','Aulas equipadas conforme al modelo ideal por unidad académica \r(Cañon, Internet, CPU, Pantalla, Pizarron, Butacas, Escritorio)\r',35,NULL,NULL,NULL,NULL),(12,4,2,'Laboratorios Equipado','Laboratorios Equipado','Laboratorios equipados conforme currícula por programa académico por unidad académica y año',30,NULL,NULL,NULL,NULL),(13,5,3,'Becas de Manutención ','Becas','Porcentaje de alumnos que cuentan con algun tipo de beca registrada en el SIBA por año por unidad académca ',100,NULL,NULL,NULL,NULL),(14,6,3,'Alumnos Tutorados','Alumnos Tutorados','Porcentaje de alumnos tutorados por periodo semestral y  programa académico ',100,NULL,NULL,NULL,NULL),(15,7,3,'Bibliotecas','Títulos Actualizados','Porcentaje de alumnos tutorados por periodo semestral y  programa académico ',17.5,NULL,NULL,NULL,NULL),(16,7,3,'Bibliotecas ','Número de libros por alumno','Total de ejemplares por programa académico 50%',17.5,NULL,NULL,NULL,NULL),(17,7,3,'Equipo de cómputo','Cobertura de Acceso a Internet ','Capacidad instalada de acceso a internet en la unidad académica',30,NULL,NULL,NULL,NULL),(18,7,3,'Mantenimiento y limpieza','Cumplimiento del programa de mantenimiento','Porcentaje de cumpliemito del programa de mantenimiento 50%',17.5,NULL,NULL,NULL,NULL),(19,7,3,'Mantenimiento y limpieza','Cumplimiento del programa de limpieza','Porcentaje de cumpliemito del programa de limpieza 50%',17.5,NULL,NULL,NULL,NULL),(20,8,4,'Alumnos Inscritos Participando en Servicio Social','Alumnos Inscritos Participando en Servicio Social','Número de alumnos inscritos en alguno de los programas de servicio social por unidad académica ',100,NULL,NULL,NULL,NULL),(21,9,4,'Alumnos en Visitas Escolares','Porcentaje de Alumnos en Visitas Escolares','Número de alumnos  realizando visitas escolares por unidad académica por semestre',100,NULL,NULL,NULL,NULL),(22,10,4,'Proyectos Vinculados','Proyectos Vinculados','Número de proyectos vinculados por unidad académica',100,NULL,NULL,NULL,NULL),(23,11,5,'Profesores de carrera que están involucrados en investigaciones','Profesores de carrera realizando investigación','Profesores contratados con dictamén de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP ',100,NULL,NULL,NULL,NULL),(24,12,5,'Profesores que presentan trabajos en eventos de investigación con la participación de alumnos','Profesores que presentan trabajos en eventos de investigación con la participación de alumnos','Profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores',100,NULL,NULL,NULL,NULL),(25,13,5,'Innovaciones Educativas','Innovaciones Educativas','Tasa de variación del  número de Innovaciones educativas identificadas, incubadas o escaladas por unidad académica 50%',50,NULL,NULL,NULL,NULL),(26,13,5,'Investigaciones Educativas de impacto en el aula','Investigaciones Educativas de impacto en el aula','Tasa de variación del número de investigaciones educativas publicadas con impacto en el aula por unidad académica y por año',50,NULL,NULL,NULL,NULL),(27,14,6,'Inversión de los recursos autogenerados','% de  Recursos autogenerados dedicados al  mantenimiento del inmueble y mantenimiento del equipo','Monto de los recursos netos autogenerados que se destinan al pago de Servicios de mantenimiento del inmueble y mantenimiento del equipo ',100,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Indicador3` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -458,7 +468,7 @@ CREATE TABLE `Infraestructura` (
   PRIMARY KEY (`idInfraestructura`,`idEvaluacion`),
   KEY `fk_Infraestructura_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_Infraestructura_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -467,6 +477,7 @@ CREATE TABLE `Infraestructura` (
 
 LOCK TABLES `Infraestructura` WRITE;
 /*!40000 ALTER TABLE `Infraestructura` DISABLE KEYS */;
+INSERT INTO `Infraestructura` VALUES (2,19,0,0,0,0,0,0),(3,20,0,0,0,0,0,0),(4,21,0,0,0,0,0,0),(5,22,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `Infraestructura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -487,7 +498,7 @@ CREATE TABLE `InnovacionEducativa` (
   PRIMARY KEY (`idInnovacionEducativa`,`idEvaluacion`),
   KEY `fk_InnovacionEducativa_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_InnovacionEducativa_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -496,6 +507,7 @@ CREATE TABLE `InnovacionEducativa` (
 
 LOCK TABLES `InnovacionEducativa` WRITE;
 /*!40000 ALTER TABLE `InnovacionEducativa` DISABLE KEYS */;
+INSERT INTO `InnovacionEducativa` VALUES (1,19,0,0,0,0),(2,20,0,0,0,0),(3,21,0,0,0,0),(4,22,0,0,0,0);
 /*!40000 ALTER TABLE `InnovacionEducativa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -514,7 +526,7 @@ CREATE TABLE `InvestigacionDocencia` (
   PRIMARY KEY (`idInvestigacionDocencia`,`idEvaluacion`),
   KEY `fk_InvestigacionDocencia_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_InvestigacionDocencia_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -523,6 +535,7 @@ CREATE TABLE `InvestigacionDocencia` (
 
 LOCK TABLES `InvestigacionDocencia` WRITE;
 /*!40000 ALTER TABLE `InvestigacionDocencia` DISABLE KEYS */;
+INSERT INTO `InvestigacionDocencia` VALUES (1,19,0,0),(2,20,0,0),(3,21,0,0),(4,22,0,0);
 /*!40000 ALTER TABLE `InvestigacionDocencia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -571,7 +584,7 @@ CREATE TABLE `ProgramasAcademicos` (
   PRIMARY KEY (`idProgramasAcademicos`,`idEvaluacion`),
   KEY `fk_ProgramasAcademicos_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_ProgramasAcademicos_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -580,6 +593,7 @@ CREATE TABLE `ProgramasAcademicos` (
 
 LOCK TABLES `ProgramasAcademicos` WRITE;
 /*!40000 ALTER TABLE `ProgramasAcademicos` DISABLE KEYS */;
+INSERT INTO `ProgramasAcademicos` VALUES (2,19,0,0),(3,20,0,0),(4,21,0,0),(5,22,0,0);
 /*!40000 ALTER TABLE `ProgramasAcademicos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -598,7 +612,7 @@ CREATE TABLE `ProyectosVinculados` (
   PRIMARY KEY (`idProyectosVinculados`,`idEvaluacion`),
   KEY `fk_ProyectosVinculados_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_ProyectosVinculados_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -607,6 +621,7 @@ CREATE TABLE `ProyectosVinculados` (
 
 LOCK TABLES `ProyectosVinculados` WRITE;
 /*!40000 ALTER TABLE `ProyectosVinculados` DISABLE KEYS */;
+INSERT INTO `ProyectosVinculados` VALUES (1,19,0,0),(2,20,0,0),(3,21,0,0),(4,22,0,0);
 /*!40000 ALTER TABLE `ProyectosVinculados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -625,7 +640,7 @@ CREATE TABLE `RecursosAutogenerados` (
   PRIMARY KEY (`idRecursosAutogenerados`,`idEvaluacion`),
   KEY `fk_RecursosAutogenerados_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_RecursosAutogenerados_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -634,6 +649,7 @@ CREATE TABLE `RecursosAutogenerados` (
 
 LOCK TABLES `RecursosAutogenerados` WRITE;
 /*!40000 ALTER TABLE `RecursosAutogenerados` DISABLE KEYS */;
+INSERT INTO `RecursosAutogenerados` VALUES (1,19,0,0),(2,20,0,0),(3,21,0,0),(4,22,0,0);
 /*!40000 ALTER TABLE `RecursosAutogenerados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -646,10 +662,10 @@ DROP TABLE IF EXISTS `Roles`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Roles` (
   `idRoles` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombre` varchar(45) NOT NULL,
+  `NombreRol` varchar(200) DEFAULT NULL,
   `Descripcion` varchar(200) NOT NULL,
   PRIMARY KEY (`idRoles`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -658,7 +674,7 @@ CREATE TABLE `Roles` (
 
 LOCK TABLES `Roles` WRITE;
 /*!40000 ALTER TABLE `Roles` DISABLE KEYS */;
-INSERT INTO `Roles` VALUES (1,'Admin','');
+INSERT INTO `Roles` VALUES (1,'Admin',''),(2,'Escuela','');
 /*!40000 ALTER TABLE `Roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -677,7 +693,7 @@ CREATE TABLE `ServicioSocial` (
   PRIMARY KEY (`idServicioSocial`,`idEvaluacion`),
   KEY `fk_ServicioSocial_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_ServicioSocial_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -686,6 +702,7 @@ CREATE TABLE `ServicioSocial` (
 
 LOCK TABLES `ServicioSocial` WRITE;
 /*!40000 ALTER TABLE `ServicioSocial` DISABLE KEYS */;
+INSERT INTO `ServicioSocial` VALUES (2,19,0,0),(3,20,0,0),(4,21,0,0),(5,22,0,0);
 /*!40000 ALTER TABLE `ServicioSocial` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -704,7 +721,7 @@ CREATE TABLE `Tutorias` (
   PRIMARY KEY (`idTutorias`,`idEvaluacion`),
   KEY `fk_Tutorias_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_Tutorias_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -713,35 +730,36 @@ CREATE TABLE `Tutorias` (
 
 LOCK TABLES `Tutorias` WRITE;
 /*!40000 ALTER TABLE `Tutorias` DISABLE KEYS */;
+INSERT INTO `Tutorias` VALUES (2,19,0,0),(3,20,0,0),(4,21,0,0),(5,22,0,0);
 /*!40000 ALTER TABLE `Tutorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `UNidad`
+-- Table structure for table `Unidad`
 --
 
-DROP TABLE IF EXISTS `UNidad`;
+DROP TABLE IF EXISTS `Unidad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `UNidad` (
+CREATE TABLE `Unidad` (
   `idUnidad` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombre` varchar(200) NOT NULL,
+  `NombreUnidad` varchar(200) DEFAULT NULL,
   `Siglas` varchar(45) NOT NULL,
   `Extension` int(11) DEFAULT NULL,
   `Direccion` varchar(300) DEFAULT NULL,
   `Nivel` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`idUnidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `UNidad`
+-- Dumping data for table `Unidad`
 --
 
-LOCK TABLES `UNidad` WRITE;
-/*!40000 ALTER TABLE `UNidad` DISABLE KEYS */;
-INSERT INTO `UNidad` VALUES (1,'Escuela Test','TEST',22,NULL,NULL);
-/*!40000 ALTER TABLE `UNidad` ENABLE KEYS */;
+LOCK TABLES `Unidad` WRITE;
+/*!40000 ALTER TABLE `Unidad` DISABLE KEYS */;
+INSERT INTO `Unidad` VALUES (1,'Escuela Test','TEST',22,NULL,'MED'),(2,'Escuela 2','DOS',23,NULL,'MED');
+/*!40000 ALTER TABLE `Unidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -776,7 +794,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (1,1,1,'Admin','',NULL,'admin','21232f297a57a5a743894a0e4a801fc3','',NULL);
+INSERT INTO `Usuarios` VALUES (1,2,2,'Admin','MArtinez','Camp','admin','21232f297a57a5a743894a0e4a801fc3','aaa@aaa.com',55666);
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -795,7 +813,7 @@ CREATE TABLE `VisitasEscolares` (
   PRIMARY KEY (`idVisitasEscolares`,`idEvaluacion`),
   KEY `fk_VisitasEscolares_Evaluacion1_idx` (`idEvaluacion`),
   CONSTRAINT `fk_VisitasEscolares_Evaluacion1` FOREIGN KEY (`idEvaluacion`) REFERENCES `Evaluacion` (`idEvaluacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -804,6 +822,7 @@ CREATE TABLE `VisitasEscolares` (
 
 LOCK TABLES `VisitasEscolares` WRITE;
 /*!40000 ALTER TABLE `VisitasEscolares` DISABLE KEYS */;
+INSERT INTO `VisitasEscolares` VALUES (2,19,0,0),(3,20,0,0),(4,21,0,0),(5,22,0,0);
 /*!40000 ALTER TABLE `VisitasEscolares` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -816,4 +835,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-27 12:21:43
+-- Dump completed on 2016-03-27 22:15:55

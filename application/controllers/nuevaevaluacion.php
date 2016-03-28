@@ -50,10 +50,15 @@ class Nuevaevaluacion extends CI_Controller {
 						"Nombre"      => $this->input->post('Nombre'),
 						"Descripcion" => $this->input->post('Descripcion'));
 					$this->evaluacion->crearEvaluacion($array);
+					$lasEvaluacion = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
 
-					// // echo "Se inserto";
-					// $data['main_cont'] = 'evaluaciones/nueva';
-					// $this->load->view('includes/template_app', $data);
+					foreach ($lasEvaluacion as &$Evaluacion) {
+						$data['lastEvaluacion'] = $Evaluacion->idEvaluacion;
+					}
+
+					// $data['main_cont'] = 'desempeno/index';
+					// $this->load->view('includes/template_principal', $data);
+					redirect(base_url().'index.php/desempeno/reg/'.$data['lastEvaluacion']);
 
 				} else {
 					$data['main_cont'] = 'evaluaciones/nueva';
