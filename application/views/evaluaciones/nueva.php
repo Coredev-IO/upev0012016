@@ -12,7 +12,7 @@
                                 <input type="text" class="form-control" id="Descripcion" name="Descripcion" value="">
                                 <span class="help-block">HELP</span>
                         </div>
-                        <hr>
+                        <br>
                         <button type="submit" name="btn-submit" class="btn btn-raised btn-success">Continuar<div class="ripple-container"></div></button>
                         <a href="<?=base_url()?>index.php/home" name="btn-submit" class="btn btn-raised btn-danger">Cancelar<div class="ripple-container"></div></a>
 <?php
@@ -22,5 +22,5 @@ echo validation_errors();
 echo "</div>";
 ?>
 </div>
-        </div>
+</div>
 </div>
