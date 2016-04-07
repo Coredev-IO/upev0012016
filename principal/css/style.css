@@ -1,6 +1,5 @@
 
 body .container .well, body .container-fluid .well, body .container .jumbotron, body .container-fluid .jumbotron {
-    background-color: #fff;
     padding: 19px;
     margin-bottom: 20px;
     -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.1);
@@ -18,4 +17,68 @@ body .container .well, body .container-fluid .well, body .container .jumbotron, 
         color: #ed3131;
         font-weight: 500;
 }
+
+
+html, body { 
+  background: url(../img/fondo.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.cnt-body{
+    background: rgba(0,0,0,0);
+}
+
+
+body .container .well, body .container-fluid .well, body .container .jumbotron, body .container-fluid .jumbotron, body .container .well-default, body .container-fluid .well-default, body .container .jumbotron-default, body .container-fluid .jumbotron-default {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.help-block{
+    color: #fff;
+}
+
+
+.btn{
+    margin-top: 20px;
+}
+
+.header-ipn{
+    background: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.right{
+    text-align: right;
+}
+
+
+.menu-op{
+    background: url(../img/menu.png) no-repeat center;  
+    height: 80px;
+    width: 100%;
+    background-size:100%;
+}
+
+
+.menu-cont{
+    background: #ebebeb;
+    margin-bottom: 40px;
+}
+
+.menu-top{
+        background: #e4e5e7;
+        padding-top: 25px;
+        height: 80px;
+        font-size: 20px;
+}
+
+
+
 
