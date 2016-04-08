@@ -2,7 +2,40 @@
 <html lang="es">
 <?php $this->load->view('includes/head')?>
         <body>
-                 <div class="container cnt-body">
+         <div class="header-ipn">
+        	<div class="container">
+        		<div class="col-md-6">
+					<img src="<?=base_url()?>/principal/img/sep.png" alt="">
+        		</div>
+        		<div class="col-md-6 right">
+					<img src="<?=base_url()?>/principal/img/ipn.png" alt="">
+        		</div>
+        	</div>
+        </div>
+        <div class="menu-top">
+        <center>Sistema Institucional de Evaluación del Desempeño de Las Unidades Académicas</center>
+
+        </div>
+
+
+<div class="container cnt-body">
+
+
+
+<div class="well page active  col-md-12 menu-res">
+      <div class="col-md-6" id="input" style="display: block;">
+      <label class="header"><?php echo $datos['Username'].",".$datos['Nombre']." ".$datos['ApellidoPaterno']." ".$datos['ApellidoMaterno']." ".$datos['NombreUnidad']."idUnidad: ".$datos['idUnidad'].", Nivel: ".$datos['Email']?></label>
+      </div>
+      <div class="col-md-3 col-md-offset-3" id="input" style="display: block;">
+      <label class="header"> <?php echo $datos['NombreUnidad']."idUnidad: ".$datos['idUnidad']?></label>
+      </div>
+
+
+
+
+</div>
+
+
                  <!-- Navbar principal -->
 					<div class="bs-component">
 					        <div class="navbar navbar-default">
@@ -19,7 +52,7 @@
 					                                <ul class="nav navbar-nav">
 					                                </ul>
 					                                <ul class="nav navbar-nav navbar-right">
-					                                        <li><a href="<?=base_url()?>index.php/logout">Salir</a></li>
+					                                        <li><a href="<?=base_url()?>index.php/logout">SALIR</a></li>
 					                                </ul>
 					                        </div>
 					                </div>
@@ -41,7 +74,7 @@ $this->load->view("includes/menuApp");?>
 							                            <div class="container-fluid">
 							                              <div class="navbar-header"><a href="#" class="navbar-brand"><i class="fa fa-r fa-certificate"></i>&nbsp;
 							                &nbsp;
-<?php echo $nivel1['Nombre']." ".$nivel1['Valor']."%";?></a></div>
+<?php echo $nivel1['Nombre'];?></a></div>
 							                            </div>
 							                          </nav>
 

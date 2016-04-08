@@ -34,9 +34,17 @@ html, body {
 
 
 body .container .well, body .container-fluid .well, body .container .jumbotron, body .container-fluid .jumbotron, body .container .well-default, body .container-fluid .well-default, body .container .jumbotron-default, body .container-fluid .jumbotron-default {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
 }
 
+.navbar, .navbar.navbar-default {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgba(255,255,255, 0.84);
+}
+
+.nav-tabs {
+    background-color: rgba(0, 0, 0, 0.7);
+}
 
 
 .help-block{
@@ -66,6 +74,9 @@ body .container .well, body .container-fluid .well, body .container .jumbotron, 
     background-size:100%;
 }
 
+h1{
+    color: #fff;
+}
 
 .menu-cont{
     background: #ebebeb;
@@ -80,5 +91,18 @@ body .container .well, body .container-fluid .well, body .container .jumbotron, 
 }
 
 
+.form-control{
+    color: #fff;
+}
 
+.menu-res{
+    z-index: 99999;
+}
 
+.nav-tabs {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.row{
+    color: #fff;
+}

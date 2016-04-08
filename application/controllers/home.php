@@ -22,7 +22,13 @@ class Home extends CI_Controller {
 				//Escuela
 				$data['AllEvaluacionesUnidad'] = $this->evaluacion->getEvaluacionUnidad($data['datos']['idUnidad']);
 				$data['main_cont']             = 'home/index';
-				$this->load->view('includes/template_app', $data);
+				// Se obtiene si la escuela tiene una evaluacion en curso
+				if ($this->evaluacion->getLastEvaluacion($data['datos']['idUnidad'])) {
+					$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+					redirect('desempeno/reg/'.$eval[0]->idEvaluacion, 'refresh');
+				} else {
+					$this->load->view('includes/template_app', $data);
+				}
 			}
 		} else {
 			//If no session, redirect to login page

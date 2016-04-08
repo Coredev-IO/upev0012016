@@ -18,7 +18,8 @@ class Login extends CI_Controller {
 			} else {
 				$data['AllEvaluacionesUnidad'] = $this->evaluacion->getEvaluacionUnidad($data['datos']['idUnidad']);
 				$data['main_cont']             = 'home/index';
-				$this->load->view('includes/template_app', $data);
+				// $this->load->view('includes/template_app', $data);
+				redirect('home', 'refresh');
 			}
 
 		} else {

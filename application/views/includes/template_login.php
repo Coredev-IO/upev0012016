@@ -16,14 +16,14 @@
         <center>Sistema Institucional de Evaluación del Desempeño de Las Unidades Académicas</center>
 
         </div>
-        <div class="menu-cont">
+ <!--        <div class="menu-cont">
 
        <div class="container">
         	<div class="menu-op">
 
         	</div></div>
 
-        </div>
+        </div> -->
                  <div class="container cnt-body">
 <?php
 $this->load->view($main_cont);
