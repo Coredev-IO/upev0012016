@@ -45,6 +45,33 @@ class VerifyLogin extends CI_Controller {
 		//query the database
 		$result = $this->user->login($username, md5($password));
 		if ($result) {
+
+			// //Se verifica se la evaluacion ya tiene los subniveles por bloque
+			// if ($this->evaluacion->getLastEvaluacion($data['datos']['idUnidad'])) {
+
+			// 	if ($this->evaluacion->getEvaluacionSubnivel($data['datos']['idUnidad'])) {
+			// 		// Ya hay subnivel
+			// 	} else {
+			// 		//Se obtienen bloques
+			// 		$bloque = $this->evaluacion->getBloque($data['datos']['idUnidad']);
+			// 		$eval   = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+			// 		$i      = 1;
+			// 		foreach ($bloque as $row) {
+			// 			$datos = array(
+			// 				"idUnidad"     => $data['datos']['idUnidad'],
+			// 				"idBloque"     => $row->idBloques,
+			// 				"idEvaluacion" => $eval[0]->idEvaluacion,
+			// 				"idCampo"      => 'b'.$i,
+			// 			);
+
+			// 			$i = $i+1;
+			// 			$this->evaluacion->insert_subnivel($datos);
+
+			// 		}
+			// 	}
+
+			// }
+
 			$sess_array = array();
 			foreach ($result as $row) {
 

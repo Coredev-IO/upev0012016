@@ -71,10 +71,24 @@ class Gestion extends CI_Controller {
 								'campo1'      => $row->campo1,
 								'campo1id'    => $row->campo1id,
 								'campo2'      => $row->campo2,
-								'campo2id'    => $row->campo2id
+								'campo2id'    => $row->campo2id,
+								'Despegable'  => $row->Despegable
 							);
 							array_push($a, $array);
 							$data["Recursos"] = $a;
+						}
+					}
+					//Bloque
+					if ($this->evaluacion->getBloque($data['datos']['idUnidad'])) {
+						$bloque = $this->evaluacion->getBloque($data['datos']['idUnidad']);
+						$a      = array();
+						foreach ($bloque as $row) {
+							$array = array(
+								'idBloques' => $row->idBloques,
+								'Nombre'    => $row->Nombre,
+							);
+							array_push($a, $array);
+							$data["bloques"] = $a;
 						}
 					}
 

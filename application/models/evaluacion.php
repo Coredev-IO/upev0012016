@@ -37,6 +37,40 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	//Evaluaciones subnivel de bloque
+	function getEvaluacionSubnivel($unidad) {
+		$this->db->select('');
+		$this->db->from('IndicadorMs');
+		$this->db->where('idUnidad', $unidad);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	//Bloque de unidad
+	function getBloque($unidad) {
+		$this->db->select('');
+		$this->db->from('Bloques');
+		$this->db->where('idUnidad', $unidad);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	//Se insertan datos de subnivel
+	function insert_subnivel($datos) {
+		$data = array(
+			'idUnidad'     => $datos['idUnidad'],
+			'idBloque'     => $datos['idBloque'],
+			'idEvaluacion' => $datos['idEvaluacion'],
+			'idCampo'      => $datos['idCampo'],
+		);
+		$this->db->insert('IndicadorMs', $data);
+
+	}
+
 	function getEvaluacionId($id, $unidad) {
 		$this->db->select('');
 		$this->db->from('Evaluacion');

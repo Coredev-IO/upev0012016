@@ -119,5 +119,12 @@ h1{
 .inputs-form input{
   margin-top: -10px;
 }
+.row-bloque{
+    margin-bottom: 100px;
+}
 
+
+.title-row{
+    background: rgba(0, 0, 0, 0.7);
+}
 
