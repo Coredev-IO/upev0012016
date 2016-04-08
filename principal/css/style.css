@@ -106,3 +106,18 @@ h1{
 .row{
     color: #fff;
 }
+
+
+.inputs-form{
+  margin-bottom: -30px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.inputs-form input{
+  margin-top: -10px;
+}
+
+
