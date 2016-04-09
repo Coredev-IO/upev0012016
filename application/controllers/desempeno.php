@@ -8,6 +8,97 @@ class Desempeno extends CI_Controller {
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
 	}
+	//update apartado de alumnos
+	public function updateAlumnos() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			// a Rendimiento BAlumnosRegulares
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'a') !== false) {
+							$datos = array(
+								"BAlumnosRegulares" => $this->input->post($row),
+								"idUnidad"          => $data['datos']['idUnidad'],
+								"idBloque"          => substr($row, 0, 3),
+								"idEvaluacion"      => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BAlumnosRegulares($datos);
+
+						}
+					}
+				}
+			}
+
+			// b Eficiencia terminal BEficienciaTerminal
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'b') !== false) {
+							$datos = array(
+								"BEficienciaTerminal" => $this->input->post($row),
+								"idUnidad"            => $data['datos']['idUnidad'],
+								"idBloque"            => substr($row, 0, 3),
+								"idEvaluacion"        => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BEficienciaTerminal($datos);
+
+						}
+					}
+				}
+			}
+
+			// c Titulación
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'c') !== false) {
+							$datos = array(
+								"BAlumnosTitulados" => $this->input->post($row),
+								"idUnidad"          => $data['datos']['idUnidad'],
+								"idBloque"          => substr($row, 0, 3),
+								"idEvaluacion"      => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BAlumnosTitulados($datos);
+
+						}
+					}
+				}
+			}
+
+			// d Promoción de NMS a NS
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'd') !== false) {
+							$datos = array(
+								"BPromocionNS" => $this->input->post($row),
+								"idUnidad"     => $data['datos']['idUnidad'],
+								"idBloque"     => substr($row, 0, 3),
+								"idEvaluacion" => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BPromocionNS($datos);
+
+						}
+					}
+				}
+			}
+
+			redirect('desempeno/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
 
 	public function reg() {
 		if ($this->session->userdata('logged_in')) {
@@ -113,6 +204,9 @@ class Desempeno extends CI_Controller {
 							$data["bloques"] = $a;
 						}
 					}
+
+					//Se obtine el registro de los valores del subnivel
+					$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
 					$data['main_cont'] = 'desempeno/index';
 					$this->load->view('includes/template_principal', $data);
