@@ -99,6 +99,97 @@ class Desempeno extends CI_Controller {
 		}
 
 	}
+	//update apartado de docencia
+	public function updateDocencia() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			// e Aprovechamiento de la planta docente BHorasFrenteGrupo
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'e') !== false) {
+							$datos = array(
+								"BHorasFrenteGrupo" => $this->input->post($row),
+								"idUnidad"          => $data['datos']['idUnidad'],
+								"idBloque"          => substr($row, 0, 3),
+								"idEvaluacion"      => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BHorasFrenteGrupo($datos);
+
+						}
+					}
+				}
+			}
+
+			// f Docentes de asignatura activos en el sector productivo BProfesoresActivos
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'f') !== false) {
+							$datos = array(
+								"BProfesoresActivos" => $this->input->post($row),
+								"idUnidad"           => $data['datos']['idUnidad'],
+								"idBloque"           => substr($row, 0, 3),
+								"idEvaluacion"       => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BProfesoresActivos($datos);
+
+						}
+					}
+				}
+			}
+
+			// g Docentes actualizados en el área diciplinar BProfesoresActualizados
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'g') !== false) {
+							$datos = array(
+								"BProfesoresActualizados" => $this->input->post($row),
+								"idUnidad"                => $data['datos']['idUnidad'],
+								"idBloque"                => substr($row, 0, 3),
+								"idEvaluacion"            => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BProfesoresActualizados($datos);
+
+						}
+					}
+				}
+			}
+
+			// h Desempeño docente por academia BEvaluacionesIndividuales
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'h') !== false) {
+							$datos = array(
+								"BEvaluacionesIndividuales" => $this->input->post($row),
+								"idUnidad"                  => $data['datos']['idUnidad'],
+								"idBloque"                  => substr($row, 0, 3),
+								"idEvaluacion"              => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BEvaluacionesIndividuales($datos);
+
+						}
+					}
+				}
+			}
+
+			redirect('desempeno/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
 
 	public function reg() {
 		if ($this->session->userdata('logged_in')) {

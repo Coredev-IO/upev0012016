@@ -12,13 +12,6 @@
 <?php echo form_open('desempeno/updateAlumnos');?>
 <!-- <div class="row"> -->
 <?php
-$cars = array
-(
-	array("Volvo", 22, 18),
-	array("BMW", 15, 13),
-	array("Saab", 5, 2),
-	array("Land Rover", 17, 15)
-);
 
 $i            = 0;
 $arrPrincipal = array();
@@ -108,7 +101,7 @@ echo "</div>";
 <!-- </div> -->
                         </div>
                         <div id="profile" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade">
-<?php echo form_open('docentes');?>
+<?php echo form_open('desempeno/updateDocencia');?>
 <!-- <div class="row"> -->
 <?php
 foreach ($nivelDocentes as $row) {
@@ -146,7 +139,7 @@ foreach ($nivelDocentes as $row) {
 				// 	$valor = $value[5];
 				// }
 			}
-			echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$roww["Nombre"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$valor.'" class="form-control" id='.$varID.$i.' name='.$varID.$i.'></div><br></div></div></div>';
+			echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$roww["Nombre"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$valor.'" class="form-control" id='.$roww["idBloques"].'-'.$varID.'-'.$i.' name='.$roww["idBloques"].'-'.$varID.'-'.$i.'></div><br></div></div></div>';
 			$i = $i+1;
 			$prinArr++;
 		}
@@ -162,8 +155,8 @@ foreach ($nivelDocentes as $row) {
 	}
 	$idBloq++;
 }
-// echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
-echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
+echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
+// echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
 echo form_close();
 echo "<hr><div class='errors'>";
 echo validation_errors();

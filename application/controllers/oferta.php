@@ -9,6 +9,76 @@ class Oferta extends CI_Controller {
 		$this->load->model('niveles', '', TRUE);
 	}
 
+	//update apartado de programas academicos
+	public function updateProgramasAcademicos() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			// a  BProgramasAcademicos
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'a') !== false) {
+							$datos = array(
+								"BProgramasAcademicos" => $this->input->post($row),
+								"idUnidad"             => $data['datos']['idUnidad'],
+								"idBloque"             => substr($row, 0, 3),
+								"idEvaluacion"         => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BProgramasAcademicos($datos);
+
+						}
+					}
+				}
+			}
+
+			redirect('oferta/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
+
+	//update laboratorios
+	public function update_Laboratorios() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			// a  BProgramasAcademicos
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'b') !== false) {
+							$datos = array(
+								"BLaboratoriosEquipados" => $this->input->post($row),
+								"idUnidad"               => $data['datos']['idUnidad'],
+								"idBloque"               => substr($row, 0, 3),
+								"idEvaluacion"           => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BLaboratoriosEquipados($datos);
+
+						}
+					}
+				}
+			}
+
+			redirect('oferta/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
+
 	public function reg() {
 		if ($this->session->userdata('logged_in')) {
 			$data['datos'] = $this->session->userdata('logged_in');
@@ -112,6 +182,8 @@ class Oferta extends CI_Controller {
 							$data["bloques"] = $a;
 						}
 					}
+					//Se obtine el registro de los valores del subnivel
+					$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
 					$data['main_cont'] = 'oferta/index';
 					$this->load->view('includes/template_principal', $data);
