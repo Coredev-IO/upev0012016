@@ -249,5 +249,62 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	// ----------- ***
+	function update_BAlumnosTutorados($datos) {
+		$data = array(
+			'BAlumnosTutorados' => $datos['BAlumnosTutorados'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BlibrosTitulosEditados($datos) {
+		$data = array(
+			'BlibrosTitulosEditados' => $datos['BlibrosTitulosEditados'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BTotalEjemplares($datos) {
+		$data = array(
+			'BTotalEjemplares' => $datos['BTotalEjemplares'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	// -------------- ***
+	function update_BAlumnosServicioSocial($datos) {
+		$data = array(
+			'BAlumnosServicioSocial' => $datos['BAlumnosServicioSocial'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BALumnosVisitas($datos) {
+		$data = array(
+			'BALumnosVisitas' => $datos['BALumnosVisitas'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
 }
 ?>

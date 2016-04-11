@@ -9,6 +9,93 @@ class Apoyo extends CI_Controller {
 		$this->load->model('niveles', '', TRUE);
 	}
 
+	//update apartado de update_Tutorias
+	public function update_Tutorias() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			// a Rendimiento BAlumnosRegulares
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'a') !== false) {
+							$datos = array(
+								"BAlumnosTutorados" => $this->input->post($row),
+								"idUnidad"          => $data['datos']['idUnidad'],
+								"idBloque"          => substr($row, 0, 3),
+								"idEvaluacion"      => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BAlumnosTutorados($datos);
+
+						}
+					}
+				}
+			}
+			redirect('apoyo/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
+
+	//update apartado de update_ServicioApoyo
+	public function update_ServicioApoyo() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			// a Rendimiento BAlumnosRegulares
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'b') !== false) {
+							$datos = array(
+								"BlibrosTitulosEditados" => $this->input->post($row),
+								"idUnidad"               => $data['datos']['idUnidad'],
+								"idBloque"               => substr($row, 0, 3),
+								"idEvaluacion"           => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BlibrosTitulosEditados($datos);
+
+						}
+					}
+				}
+			}
+			//BTotalEjemplares
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'c') !== false) {
+							$datos = array(
+								"BTotalEjemplares" => $this->input->post($row),
+								"idUnidad"         => $data['datos']['idUnidad'],
+								"idBloque"         => substr($row, 0, 3),
+								"idEvaluacion"     => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BTotalEjemplares($datos);
+
+						}
+					}
+				}
+			}
+
+			redirect('apoyo/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
+
 	public function reg() {
 		if ($this->session->userdata('logged_in')) {
 			$data['datos'] = $this->session->userdata('logged_in');
@@ -133,6 +220,9 @@ class Apoyo extends CI_Controller {
 							$data["bloques"] = $a;
 						}
 					}
+
+					//Se obtine el registro de los valores del subnivel
+					$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
 					$data['main_cont'] = 'apoyo/index';
 					$this->load->view('includes/template_principal', $data);

@@ -9,6 +9,74 @@ class Vinculacion extends CI_Controller {
 		$this->load->model('niveles', '', TRUE);
 	}
 
+	//update apartado de update_ServicioSocial
+	public function update_ServicioSocial() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			// a Rendimiento BAlumnosServicioSocial
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'a') !== false) {
+							$datos = array(
+								"BAlumnosServicioSocial" => $this->input->post($row),
+								"idUnidad"               => $data['datos']['idUnidad'],
+								"idBloque"               => substr($row, 0, 3),
+								"idEvaluacion"           => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BAlumnosServicioSocial($datos);
+
+						}
+					}
+				}
+			}
+			redirect('vinculacion/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
+
+	//update apartado de update_VisitasEscolares
+	public function update_VisitasEscolares() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			// a Rendimiento BALumnosVisitas
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'b') !== false) {
+							$datos = array(
+								"BALumnosVisitas" => $this->input->post($row),
+								"idUnidad"        => $data['datos']['idUnidad'],
+								"idBloque"        => substr($row, 0, 3),
+								"idEvaluacion"    => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BALumnosVisitas($datos);
+
+						}
+					}
+				}
+			}
+			redirect('vinculacion/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
+
 	public function reg() {
 		if ($this->session->userdata('logged_in')) {
 			$data['datos'] = $this->session->userdata('logged_in');
@@ -133,6 +201,9 @@ class Vinculacion extends CI_Controller {
 							$data["bloques"] = $a;
 						}
 					}
+
+					//Se obtine el registro de los valores del subnivel
+					$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
 					$data['main_cont'] = 'vinculacion/index';
 					$this->load->view('includes/template_principal', $data);

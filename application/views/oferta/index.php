@@ -124,7 +124,7 @@ foreach ($nivelInfraestructura as $row) {
 			// echo "<br>---------------><br>";
 			// print_r($arrsec);
 			// echo "#";
-			echo $idBloq;
+			// echo $idBloq;
 			if ($arrsec[2] == $roww["idBloques"]) {
 				$valor = $arrsec[$idBloq];
 			}
