@@ -7,6 +7,7 @@ class Vinculacion extends CI_Controller {
 		parent::__construct();
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
+		$this->load->model('modelvinculacion', '', TRUE);
 	}
 
 	//update apartado de update_ServicioSocial
@@ -16,6 +17,13 @@ class Vinculacion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'AlumnosServicioAnterior' => $this->input->post('b20'),
+				'idEvaluacion'            => $eval[0]->idEvaluacion,
+			);
+			$this->modelvinculacion->update_ss($dataNivel1);
 
 			// a Rendimiento BAlumnosServicioSocial
 			foreach ($keys as $row) {
@@ -51,6 +59,13 @@ class Vinculacion extends CI_Controller {
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
 
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'TotalMatricula' => $this->input->post('b21'),
+				'idEvaluacion'   => $eval[0]->idEvaluacion,
+			);
+			$this->modelvinculacion->update_vs($dataNivel1);
+
 			// a Rendimiento BALumnosVisitas
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
@@ -77,6 +92,29 @@ class Vinculacion extends CI_Controller {
 
 	}
 
+	public function update_ProyectosVinculados() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'ProyectosVinculadosAct' => $this->input->post('a22'),
+				'ProyectosVinculadosAnt' => $this->input->post('b22'),
+				'idEvaluacion'           => $eval[0]->idEvaluacion,
+			);
+			$this->modelvinculacion->update_pv($dataNivel1);
+
+			redirect('vinculacion/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
+
 	public function reg() {
 		if ($this->session->userdata('logged_in')) {
 			$data['datos'] = $this->session->userdata('logged_in');
@@ -95,6 +133,9 @@ class Vinculacion extends CI_Controller {
 
 				//Si existe lo deja continuar
 				if ($result) {
+					$data['ServicioSocialServ']      = $this->evaluacion->getServicioSocial($idUrl);
+					$data['VisitasEscolaresServ']    = $this->evaluacion->getVisitasEscolares($idUrl);
+					$data['ProyectosVinculadosServ'] = $this->evaluacion->getProyectosVinculados($idUrl);
 					// Obtener informacion de las tablas
 					// $data['ProgramasAcademicos'] = $this->evaluacion->getProgramasAcademicos($idUrl);
 					// $data['Infraestructura']     = $this->evaluacion->getInfraestructura($idUrl);

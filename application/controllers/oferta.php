@@ -7,6 +7,8 @@ class Oferta extends CI_Controller {
 		parent::__construct();
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
+		$this->load->model('programas', '', TRUE);
+		$this->load->model('infraestructura', '', TRUE);
 	}
 
 	//update apartado de programas academicos
@@ -16,6 +18,13 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'TotalProgramas' => $this->input->post('b9'),
+				'idEvaluacion'   => $eval[0]->idEvaluacion,
+			);
+			$this->programas->update($dataNivel1);
 
 			// a  BProgramasAcademicos
 			foreach ($keys as $row) {
@@ -51,6 +60,17 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'AlumnosInscritos'   => $this->input->post('a10'),
+				'CapacidadInstalada' => $this->input->post('b10'),
+				'AulasEquipadas'     => $this->input->post('a11'),
+				'TotalAulas'         => $this->input->post('b11'),
+				'TotalLaboratorios'  => $this->input->post('b12'),
+				'idEvaluacion'       => $eval[0]->idEvaluacion,
+			);
+			$this->infraestructura->update($dataNivel1);
 
 			// a  BProgramasAcademicos
 			foreach ($keys as $row) {

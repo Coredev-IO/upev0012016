@@ -7,6 +7,8 @@ class Desempeno extends CI_Controller {
 		parent::__construct();
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
+		$this->load->model('alumnos', '', TRUE);
+		$this->load->model('docentes', '', TRUE);
 	}
 	//update apartado de alumnos
 	public function updateAlumnos() {
@@ -15,6 +17,16 @@ class Desempeno extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'AlumnosInscritos'           => $this->input->post('b1'),
+				'AlumnosTotalesCohorte'      => $this->input->post('b2'),
+				'AlumnosEgresadosGeneracion' => $this->input->post('b3'),
+				'AlumnosExamenNSIPN'         => $this->input->post('b4'),
+				'idEvaluacion'               => $eval[0]->idEvaluacion,
+			);
+			$this->alumnos->update_Alumnos($dataNivel1);
 
 			// a Rendimiento BAlumnosRegulares
 			foreach ($keys as $row) {
@@ -106,6 +118,16 @@ class Desempeno extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'TotalHorasReglamento'               => $this->input->post('b5'),
+				'TotalDocentesContratadosAsignatura' => $this->input->post('b6'),
+				'TotalProfesores'                    => $this->input->post('b7'),
+				'DocentesPertenecientes'             => $this->input->post('b8'),
+				'idEvaluacion'                       => $eval[0]->idEvaluacion,
+			);
+			$this->docentes->update_Docentes($dataNivel1);
 
 			// e Aprovechamiento de la planta docente BHorasFrenteGrupo
 			foreach ($keys as $row) {

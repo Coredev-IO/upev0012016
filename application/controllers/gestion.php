@@ -7,6 +7,30 @@ class Gestion extends CI_Controller {
 		parent::__construct();
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
+		$this->load->model('recursos', '', TRUE);
+	}
+
+	public function update_rcursos() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'RecursosEjercidos'     => $this->input->post('a27'),
+				'RecursosAutogenerados' => $this->input->post('b27'),
+				'idEvaluacion'          => $eval[0]->idEvaluacion,
+			);
+			$this->recursos->update($dataNivel1);
+
+			redirect('gestion/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
 	}
 
 	public function reg() {
@@ -30,7 +54,7 @@ class Gestion extends CI_Controller {
 					// Obtener informacion de las tablas
 					// $data['ProgramasAcademicos'] = $this->evaluacion->getProgramasAcademicos($idUrl);
 					// $data['Infraestructura']     = $this->evaluacion->getInfraestructura($idUrl);
-
+					$data['gestion'] = $this->evaluacion->getGestion($idUrl);
 					//Obtiene informacion de los titulos
 					// Nivel 1
 					if ($this->niveles->nivel1(6)) {

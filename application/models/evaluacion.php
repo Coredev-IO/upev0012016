@@ -137,6 +137,102 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function getBecas($id) {
+		$this->db->select('');
+		$this->db->from('Becas');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+	function getTutorias($id) {
+		$this->db->select('');
+		$this->db->from('Tutorias');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+	function getServicios($id) {
+		$this->db->select('');
+		$this->db->from('ApoyoEducativo');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getServicioSocial($id) {
+		$this->db->select('');
+		$this->db->from('ServicioSocial');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getVisitasEscolares($id) {
+		$this->db->select('');
+		$this->db->from('VisitasEscolares');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getProyectosVinculados($id) {
+		$this->db->select('');
+		$this->db->from('ProyectosVinculados');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getApoyoDocencia($id) {
+		$this->db->select('');
+		$this->db->from('InvestigacionDocencia');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+	function getParticipacionAlmunnos($id) {
+		$this->db->select('');
+		$this->db->from('AlumnosInvestigacion');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getGestion($id) {
+		$this->db->select('');
+		$this->db->from('RecursosAutogenerados');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
 	// --- **************
 	function update_BAlumnosRegulares($datos) {
 		$data = array(

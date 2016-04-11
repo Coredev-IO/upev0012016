@@ -7,6 +7,54 @@ class Investigacion extends CI_Controller {
 		parent::__construct();
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
+		$this->load->model('investigacionmodel', '', TRUE);
+	}
+
+	//update apartado de update_Becas
+	public function update_Profesores() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'DocentesInvestigacion' => $this->input->post('a23'),
+				'TotalDocentes'         => $this->input->post('b23'),
+				'idEvaluacion'          => $eval[0]->idEvaluacion,
+			);
+			$this->investigacionmodel->update_id($dataNivel1);
+
+			redirect('investigacion/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
+	}
+
+	public function update_Alumnos() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'AlumnosCoautores'       => $this->input->post('a24'),
+				'ProfesoresConProyectos' => $this->input->post('b24'),
+				'idEvaluacion'           => $eval[0]->idEvaluacion,
+			);
+			$this->investigacionmodel->update_ia($dataNivel1);
+
+			redirect('investigacion/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
 	}
 
 	public function reg() {
@@ -30,7 +78,8 @@ class Investigacion extends CI_Controller {
 					// Obtener informacion de las tablas
 					// $data['ProgramasAcademicos'] = $this->evaluacion->getProgramasAcademicos($idUrl);
 					// $data['Infraestructura']     = $this->evaluacion->getInfraestructura($idUrl);
-
+					$data['ApoyoDocenciaServ']         = $this->evaluacion->getApoyoDocencia($idUrl);
+					$data['ParticipacionAlmunnosServ'] = $this->evaluacion->getParticipacionAlmunnos($idUrl);
 					//Obtiene informacion de los titulos
 					// Nivel 1
 					if ($this->niveles->nivel1(5)) {

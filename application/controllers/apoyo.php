@@ -7,6 +7,33 @@ class Apoyo extends CI_Controller {
 		parent::__construct();
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
+		$this->load->model('becas', '', TRUE);
+		$this->load->model('tutorias', '', TRUE);
+		$this->load->model('apoyoserv', '', TRUE);
+	}
+
+	//update apartado de update_Becas
+	public function update_Becas() {
+		if ($this->session->userdata('logged_in')) {
+			$data['datos'] = $this->session->userdata('logged_in');
+			// print_r(array_keys($this->input->post()));
+			$keys = array_keys($this->input->post());
+			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			//Se obtienen valores del primer nivel
+			$dataNivel1 = array(
+				'AlumnosBeca'  => $this->input->post('a13'),
+				'TotalAlumnos' => $this->input->post('b13'),
+				'idEvaluacion' => $eval[0]->idEvaluacion,
+			);
+			$this->becas->update($dataNivel1);
+
+			redirect('apoyo/reg/'.$eval[0]->idEvaluacion, 'refresh');
+
+		} else {
+			redirect('login', 'refresh');
+		}
+
 	}
 
 	//update apartado de update_Tutorias
@@ -16,6 +43,12 @@ class Apoyo extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			$dataNivel1 = array(
+				'TotalAlumnos' => $this->input->post('b14'),
+				'idEvaluacion' => $eval[0]->idEvaluacion,
+			);
+			$this->tutorias->update($dataNivel1);
 
 			// a Rendimiento BAlumnosRegulares
 			foreach ($keys as $row) {
@@ -50,6 +83,19 @@ class Apoyo extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+			$dataNivel1 = array(
+				'TotalAcervoLibros'       => $this->input->post('b15'),
+				'TotalLibrosFisicos'      => $this->input->post('b16'),
+				'CapacidadInternet'       => $this->input->post('a17'),
+				'UsuariosInternet'        => $this->input->post('b17'),
+				'MantenimientoAtendido'   => $this->input->post('a18'),
+				'MantenimientoSolicitado' => $this->input->post('b18'),
+				'LimpiezaAtendida'        => $this->input->post('a19'),
+				'LimpiezaProgramada'      => $this->input->post('b19'),
+				'idEvaluacion'            => $eval[0]->idEvaluacion,
+			);
+			$this->apoyoserv->update($dataNivel1);
 
 			// a Rendimiento BAlumnosRegulares
 			foreach ($keys as $row) {
@@ -108,6 +154,10 @@ class Apoyo extends CI_Controller {
 				//Se obtiene id de la url
 				$idUrl         = $this->uri->segment(3);
 				$data['idUrl'] = $idUrl;
+
+				$data['BecasArr']  = $this->evaluacion->getBecas($idUrl);
+				$data['Tutorias']  = $this->evaluacion->getTutorias($idUrl);
+				$data['Servicios'] = $this->evaluacion->getServicios($idUrl);
 
 				//Se valida si el registro pertenece a la unidad
 				$result = $this->evaluacion->getEvaluacionId($idUrl, $data['datos']['idUnidad']);
