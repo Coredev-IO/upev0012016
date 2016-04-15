@@ -79,8 +79,15 @@ $this->load->view("includes/menuApp");?>
 							                          </nav>
 
 
-
 <?php
+if (isset($message)) {
+	if ($message == "insert") {
+		echo '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>La información se actualizó correctamente</div>';
+	}
+
+}?>
+<?php
+
 $this->load->view($main_cont);
 $this->load->view('includes/js');
 ?>
