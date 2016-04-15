@@ -877,24 +877,24 @@ UNLOCK TABLES;
 -- Dump completed on 2016-04-14 22:09:00
 
 DELIMITER $$
-USE upev0012016-sup$$
-CREATE DEFINER = CURRENT_USER TRIGGER upev0012016-sup.Evaluacion_AFTER_INSERT AFTER INSERT ON Evaluacion FOR EACH ROW
+USE upev0012016sup$$
+CREATE DEFINER = CURRENT_USER TRIGGER upev0012016sup.Evaluacion_AFTER_INSERT AFTER INSERT ON Evaluacion FOR EACH ROW
 BEGIN
 
-  INSERT INTO upev0012016-sup.Alumnos (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.ApoyoEducativo (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.Docentes (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.ProgramasAcademicos (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.Tutorias (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.Becas (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.Infraestructura (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.ServicioSocial (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.VisitasEscolares (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.ProyectosVinculados (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.RecursosAutogenerados (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.InvestigacionDocencia (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.AlumnosInvestigacion (idEvaluacion) VALUES (NEW.idEvaluacion);
-  INSERT INTO upev0012016-sup.InnovacionEducativa (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Alumnos (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.ApoyoEducativo (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Docentes (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.ProgramasAcademicos (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Tutorias (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Becas (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Infraestructura (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.ServicioSocial (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.VisitasEscolares (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.ProyectosVinculados (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.RecursosAutogenerados (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.InvestigacionDocencia (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.AlumnosInvestigacion (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.InnovacionEducativa (idEvaluacion) VALUES (NEW.idEvaluacion);
 
 END
 $$
