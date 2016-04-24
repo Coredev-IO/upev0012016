@@ -11,6 +11,11 @@ Class Apoyoserv extends CI_Model {
 			'MantenimientoSolicitado' => $datos['MantenimientoSolicitado'],
 			'LimpiezaAtendida'        => $datos['LimpiezaAtendida'],
 			'LimpiezaProgramada'      => $datos['LimpiezaProgramada'],
+			'comprobante1'      => $datos['comprobante1'],
+			'comprobante2'      => $datos['comprobante2'],
+			'comprobante3'      => $datos['comprobante3'],
+			'comprobante4'      => $datos['comprobante4'],
+			'comprobante5'      => $datos['comprobante5'],
 		);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('ApoyoEducativo', $data);

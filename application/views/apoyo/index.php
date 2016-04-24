@@ -11,7 +11,7 @@
           <div id="myTabContent" class="tab-content">
 
 <div id="becas" role="tabpanel" aria-labelledby="becas-tab" class="tab-pane fade active in">
-<?php echo form_open('apoyo/update_Becas');?>
+<?php echo form_open_multipart('apoyo/update_Becas');?>
 <!-- <div class="row"> -->
 <?php
 
@@ -46,6 +46,10 @@ $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
+
+$NumeroArchivo=4;
+
+$fileInput = 1;
 
 foreach ($Becas as $row) {
 
@@ -98,6 +102,15 @@ foreach ($Becas as $row) {
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	}
+
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	if(strlen($al[$NumeroArchivo])>0){
+	$splName = explode('/', $al[$NumeroArchivo]);
+	if(strlen($splName[4])>=6){echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
+	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	$fileInput++;
+	$NumeroArchivo++;
+
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
@@ -111,7 +124,7 @@ echo "</div>";
 
 
 <div id="tutorias" role="tabpanel" aria-labelledby="tutorias-tab" class="tab-pane fade">
-<?php echo form_open('apoyo/update_Tutorias');?>
+<?php echo form_open_multipart('apoyo/update_Tutorias');?>
 <!-- <div class="row"> -->
 <?php
 $idComplete = 2;
@@ -120,6 +133,9 @@ $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
+$NumeroArchivo=4;
+
+$fileInput = 1;
 
 foreach ($Tutoria as $row) {
 
@@ -174,6 +190,15 @@ foreach ($Tutoria as $row) {
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	}
+
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	if(strlen($al[$NumeroArchivo])>0){
+	$splName = explode('/', $al[$NumeroArchivo]);
+	if(strlen($splName[4])>=6){echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
+	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	$fileInput++;
+	$NumeroArchivo++;
+
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
@@ -187,7 +212,7 @@ echo "</div>";
 
 
 <div id="servicio" role="tabpanel" aria-labelledby="servicio-tab" class="tab-pane fade">
-<?php echo form_open('apoyo/update_ServicioApoyo');?>
+<?php echo form_open_multipart('apoyo/update_ServicioApoyo');?>
 <!-- <div class="row"> -->
 <?php
 $idComplete = 2;
@@ -196,6 +221,10 @@ $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
+
+$NumeroArchivo=12;
+
+$fileInput = 1;
 
 foreach ($ServicioApoyo as $row) {
 
@@ -251,6 +280,15 @@ foreach ($ServicioApoyo as $row) {
 		$idComplete++;
 		echo '<div class="divider"></div></div>';
 	}
+
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	if(strlen($al[$NumeroArchivo])>0){
+	$splName = explode('/', $al[$NumeroArchivo]);
+	if(strlen($splName[4])>=6){echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
+	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	$fileInput++;
+	$NumeroArchivo++;
+	
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';

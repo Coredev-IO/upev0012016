@@ -20,11 +20,61 @@ class Apoyo extends CI_Controller {
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
 
+			//Se prepara para adjuntar el archivo
+			$nameurlfile = '/uploads/apoyo/becas';
+			$config['upload_path']   = './uploads/apoyo/becas';
+			$config['allowed_types'] = 'gif|jpg|png|pdf|xls|doc|docx|xlsx|ppt|pptx|txt';
+			$config['overwrite']     = TRUE;
+			$config['encrypt_name']  = TRUE;
+			$this->load->library('upload');
+
+			$rutafiles     = array();
+			$indicadorFile = 1;
+
+			//SE RECORRE LA CANTIDAD DE ARCHIVOS POR NIVEL NECESARIOS
+			for ($p = 0; $p < 1; $p++) {
+				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$new_name            = $eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$config['file_name'] = $new_name;
+
+				//Initialize
+				$this->upload->initialize($config);
+
+				if(strlen($this->input->post('dataSrc'.$indicadorFile))>0){
+					// echo "trae archivo";
+					$rutafiles[$p]       = $this->input->post('dataSrc'.$indicadorFile);
+					if(strlen($_FILES['datafile'.$indicadorFile]['name'])>0){
+						// echo "Nombre input nuevo";
+						$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
+							echo $this->upload->display_errors();
+
+						} else {
+							$dataFile = array('upload_data' => $this->upload->data());
+						}
+
+					}
+
+				}else{
+
+					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
+						echo $this->upload->display_errors();
+
+					} else {
+						$dataFile = array('upload_data' => $this->upload->data());
+					}
+				}
+
+				$indicadorFile++;
+
+			}
+
 			//Se obtienen valores del primer nivel
 			$dataNivel1 = array(
 				'AlumnosBeca'  => $this->input->post('a13'),
 				'TotalAlumnos' => $this->input->post('b13'),
 				'idEvaluacion' => $eval[0]->idEvaluacion,
+				'comprobante1'               => $rutafiles[0],
 			);
 			$this->becas->update($dataNivel1);
 
@@ -162,9 +212,59 @@ class Apoyo extends CI_Controller {
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
 
+			//Se prepara para adjuntar el archivo
+			$nameurlfile = '/uploads/apoyo/tutorias';
+			$config['upload_path']   = './uploads/apoyo/tutorias';
+			$config['allowed_types'] = 'gif|jpg|png|pdf|xls|doc|docx|xlsx|ppt|pptx|txt';
+			$config['overwrite']     = TRUE;
+			$config['encrypt_name']  = TRUE;
+			$this->load->library('upload');
+
+			$rutafiles     = array();
+			$indicadorFile = 1;
+
+			//SE RECORRE LA CANTIDAD DE ARCHIVOS POR NIVEL NECESARIOS
+			for ($p = 0; $p < 1; $p++) {
+				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$new_name            = $eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$config['file_name'] = $new_name;
+
+				//Initialize
+				$this->upload->initialize($config);
+
+				if(strlen($this->input->post('dataSrc'.$indicadorFile))>0){
+					// echo "trae archivo";
+					$rutafiles[$p]       = $this->input->post('dataSrc'.$indicadorFile);
+					if(strlen($_FILES['datafile'.$indicadorFile]['name'])>0){
+						// echo "Nombre input nuevo";
+						$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
+							echo $this->upload->display_errors();
+
+						} else {
+							$dataFile = array('upload_data' => $this->upload->data());
+						}
+
+					}
+
+				}else{
+
+					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
+						echo $this->upload->display_errors();
+
+					} else {
+						$dataFile = array('upload_data' => $this->upload->data());
+					}
+				}
+
+				$indicadorFile++;
+
+			}
+
 			$dataNivel1 = array(
 				'TotalAlumnos' => $this->input->post('b14'),
 				'idEvaluacion' => $eval[0]->idEvaluacion,
+				'comprobante1'               => $rutafiles[0],
 			);
 			$this->tutorias->update($dataNivel1);
 
@@ -320,6 +420,56 @@ class Apoyo extends CI_Controller {
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
 
+			//Se prepara para adjuntar el archivo
+			$nameurlfile = '/uploads/apoyo/apoyoEducativo';
+			$config['upload_path']   = './uploads/apoyo/apoyoEducativo';
+			$config['allowed_types'] = 'gif|jpg|png|pdf|xls|doc|docx|xlsx|ppt|pptx|txt';
+			$config['overwrite']     = TRUE;
+			$config['encrypt_name']  = TRUE;
+			$this->load->library('upload');
+
+			$rutafiles     = array();
+			$indicadorFile = 1;
+
+			//SE RECORRE LA CANTIDAD DE ARCHIVOS POR NIVEL NECESARIOS
+			for ($p = 0; $p < 5; $p++) {
+				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$new_name            = $eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$config['file_name'] = $new_name;
+
+				//Initialize
+				$this->upload->initialize($config);
+
+				if(strlen($this->input->post('dataSrc'.$indicadorFile))>0){
+					// echo "trae archivo";
+					$rutafiles[$p]       = $this->input->post('dataSrc'.$indicadorFile);
+					if(strlen($_FILES['datafile'.$indicadorFile]['name'])>0){
+						// echo "Nombre input nuevo";
+						$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
+							echo $this->upload->display_errors();
+
+						} else {
+							$dataFile = array('upload_data' => $this->upload->data());
+						}
+
+					}
+
+				}else{
+
+					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
+						echo $this->upload->display_errors();
+
+					} else {
+						$dataFile = array('upload_data' => $this->upload->data());
+					}
+				}
+
+				$indicadorFile++;
+
+			}
+
+
 			$dataNivel1 = array(
 				'TotalAcervoLibros'       => $this->input->post('b15'),
 				'TotalLibrosFisicos'      => $this->input->post('b16'),
@@ -330,6 +480,11 @@ class Apoyo extends CI_Controller {
 				'LimpiezaAtendida'        => $this->input->post('a19'),
 				'LimpiezaProgramada'      => $this->input->post('b19'),
 				'idEvaluacion'            => $eval[0]->idEvaluacion,
+				'comprobante1'               => $rutafiles[0],
+				'comprobante2'               => $rutafiles[1],
+				'comprobante3'               => $rutafiles[2],
+				'comprobante4'               => $rutafiles[3],
+				'comprobante5'               => $rutafiles[4],
 			);
 			$this->apoyoserv->update($dataNivel1);
 
