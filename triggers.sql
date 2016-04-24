@@ -22,3 +22,10 @@ END
 $$
 
 DELIMITER ;
+
+
+alter table Infraestructura add column comprobante1 varchar(1000);
+alter table Infraestructura add column comprobante2 varchar(1000);
+alter table Infraestructura add column comprobante3 varchar(1000);
+
+'/uploads/oferta/infraestructura';
