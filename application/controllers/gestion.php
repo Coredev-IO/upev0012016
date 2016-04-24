@@ -17,11 +17,61 @@ class Gestion extends CI_Controller {
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
 
+			//Se prepara para adjuntar el archivo
+			$nameurlfile = '/uploads/gestion/recursos';
+			$config['upload_path']   = './uploads/gestion/recursos';
+			$config['allowed_types'] = 'gif|jpg|png|pdf|xls|doc|docx|xlsx|ppt|pptx|txt';
+			$config['overwrite']     = TRUE;
+			$config['encrypt_name']  = TRUE;
+			$this->load->library('upload');
+
+			$rutafiles     = array();
+			$indicadorFile = 1;
+
+			//SE RECORRE LA CANTIDAD DE ARCHIVOS POR NIVEL NECESARIOS
+			for ($p = 0; $p < 1; $p++) {
+				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$new_name            = $eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$config['file_name'] = $new_name;
+
+				//Initialize
+				$this->upload->initialize($config);
+
+				if(strlen($this->input->post('dataSrc'.$indicadorFile))>0){
+					// echo "trae archivo";
+					$rutafiles[$p]       = $this->input->post('dataSrc'.$indicadorFile);
+					if(strlen($_FILES['datafile'.$indicadorFile]['name'])>0){
+						// echo "Nombre input nuevo";
+						$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
+							// echo $this->upload->display_errors();
+
+						} else {
+							$dataFile = array('upload_data' => $this->upload->data());
+						}
+
+					}
+
+				}else{
+
+					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
+						// echo $this->upload->display_errors();
+
+					} else {
+						$dataFile = array('upload_data' => $this->upload->data());
+					}
+				}
+
+				$indicadorFile++;
+
+			}
+
 			//Se obtienen valores del primer nivel
 			$dataNivel1 = array(
 				'RecursosEjercidos'     => $this->input->post('a27'),
 				'RecursosAutogenerados' => $this->input->post('b27'),
 				'idEvaluacion'          => $eval[0]->idEvaluacion,
+				'comprobante1'               => $rutafiles[0],
 			);
 			$this->recursos->update($dataNivel1);
 

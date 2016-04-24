@@ -11,7 +11,7 @@
           <div id="myTabContent" class="tab-content">
 
 <div id="servicios" role="tabpanel" aria-labelledby="servicios-tab" class="tab-pane fade active in">
-<?php echo form_open('vinculacion/update_ServicioSocial');?>
+<?php echo form_open_multipart('vinculacion/update_ServicioSocial');?>
 <!-- <div class="row"> -->
 <?php
 
@@ -46,6 +46,12 @@ $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
+
+
+$NumeroArchivo=4;
+
+$fileInput = 1;
+
 
 foreach ($ServicioSocial as $row) {
 
@@ -99,6 +105,13 @@ foreach ($ServicioSocial as $row) {
 		$idComplete++;
 		echo '<div class="divider"></div></div>';
 	}
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	if(strlen($al[$NumeroArchivo])>0){
+	$splName = explode('/', $al[$NumeroArchivo]);
+	if(strlen($splName[4])>=6){echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
+	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	$fileInput++;
+	$NumeroArchivo++;
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
@@ -112,7 +125,7 @@ echo "</div>";
 
 
 <div id="visitas" role="tabpanel" aria-labelledby="visitas-tab" class="tab-pane fade">
-<?php echo form_open('vinculacion/update_VisitasEscolares');?>
+<?php echo form_open_multipart('vinculacion/update_VisitasEscolares');?>
 <!-- <div class="row"> -->
 <?php
 $idComplete = 2;
@@ -121,6 +134,13 @@ $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
+
+
+$NumeroArchivo=4;
+
+$fileInput = 1;
+
+
 foreach ($VisitasEscolares as $row) {
 
 	// echo '<div class="col-md-4">'.$row["Nombre"].' '.$row["Valor"].'%</div>';
@@ -174,6 +194,13 @@ foreach ($VisitasEscolares as $row) {
 		$idComplete++;
 		echo '<div class="divider"></div></div>';
 	}
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	if(strlen($al[$NumeroArchivo])>0){
+	$splName = explode('/', $al[$NumeroArchivo]);
+	if(strlen($splName[4])>=6){echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
+	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	$fileInput++;
+	$NumeroArchivo++;
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
@@ -187,7 +214,7 @@ echo "</div>";
 
 
 <div id="proyectos" role="tabpanel" aria-labelledby="proyectos-tab" class="tab-pane fade">
-<?php echo form_open('vinculacion/update_ProyectosVinculados');?>
+<?php echo form_open_multipart('vinculacion/update_ProyectosVinculados');?>
 <!-- <div class="row"> -->
 <?php
 $idComplete = 2;
@@ -196,6 +223,11 @@ $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
+
+$NumeroArchivo=4;
+
+$fileInput = 1;
+
 foreach ($ProyectosVinculados as $row) {
 
 	// echo '<div class="col-md-4">'.$row["Nombre"].' '.$row["Valor"].'%</div>';
@@ -248,6 +280,13 @@ foreach ($ProyectosVinculados as $row) {
 		$idComplete++;
 		echo '<div class="divider"></div></div>';
 	}
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	if(strlen($al[$NumeroArchivo])>0){
+	$splName = explode('/', $al[$NumeroArchivo]);
+	if(strlen($splName[4])>=6){echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
+	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	$fileInput++;
+	$NumeroArchivo++;
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';

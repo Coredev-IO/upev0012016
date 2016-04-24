@@ -29,3 +29,35 @@ alter table Infraestructura add column comprobante2 varchar(1000);
 alter table Infraestructura add column comprobante3 varchar(1000);
 
 '/uploads/oferta/infraestructura';
+
+
+
+
+ALTER TABLE `upev0012016`.`ServicioSocial` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `AlumnosServicioAnterior`;
+'/uploads/vinculacion/servicio'
+
+
+
+
+ALTER TABLE `upev0012016`.`VisitasEscolares` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalMatricula`;
+'/uploads/vinculacion/visitas';
+
+
+
+ALTER TABLE `upev0012016`.`ProyectosVinculados` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `ProyectosVinculadosAnt`;
+
+'/uploads/vinculacion/proyectos'
+
+
+
+ALTER TABLE `upev0012016`.`RecursosAutogenerados` 
+ADD COLUMN `comprobante1` VARCHAR(100) NULL AFTER `RecursosAutogenerados`;
+'/uploads/gestion/recursos'
+
+
+
+
+
