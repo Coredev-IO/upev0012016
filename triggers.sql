@@ -24,13 +24,37 @@ $$
 DELIMITER ;
 
 
+
+-- Becas
+--  direccion donde se guardan los archivos 
+-- /uploads/apoyo/becas
+ALTER TABLE `upev0012016`.`Becas` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalAlumnos`;
+
+-- Tutorias
+--  direccion donde se guardan los archivos 
+-- /uploads/apoyo/tutorias
+ALTER TABLE `upev0012016`.`Tutorias` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalAlumnos`;
+
+
+-- Apoyo Educativo 
+--  direccion donde se guardan los archivos 
+-- /uploads/apoyo/apoyoEducativo
+ALTER TABLE `upev0012016`.`ApoyoEducativo` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `LimpiezaProgramada`,
+ADD COLUMN `comprobante2` VARCHAR(1000) NULL AFTER `comprobante1`,
+ADD COLUMN `comprobante3` VARCHAR(1000) NULL AFTER `comprobante2`,
+ADD COLUMN `comprobante4` VARCHAR(1000) NULL AFTER `comprobante3`,
+ADD COLUMN `comprobante5` VARCHAR(1000) NULL AFTER `comprobante4`;
+
+
+
 alter table Infraestructura add column comprobante1 varchar(1000);
 alter table Infraestructura add column comprobante2 varchar(1000);
 alter table Infraestructura add column comprobante3 varchar(1000);
 
 '/uploads/oferta/infraestructura';
-
-
 
 
 ALTER TABLE `upev0012016`.`ServicioSocial` 
@@ -59,5 +83,17 @@ ADD COLUMN `comprobante1` VARCHAR(100) NULL AFTER `RecursosAutogenerados`;
 
 
 
+-- Investigación Docentes 
+--  direccion donde se guardan los archivos 
+-- /uploads/investigacion/docente
+ALTER TABLE `upev0012016`.`InvestigacionDocencia` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalDocentes`;
+
+
+-- Alumnos Investigación 
+--  direccion donde se guardan los archivos 
+-- /uploads/investigacion/alumnos
+ALTER TABLE `upev0012016`.`AlumnosInvestigacion` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `ProfesoresConProyectos`;
 
 
