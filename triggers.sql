@@ -24,6 +24,7 @@ $$
 DELIMITER ;
 
 
+
 -- Becas
 --  direccion donde se guardan los archivos 
 -- /uploads/apoyo/becas
@@ -48,3 +49,9 @@ ADD COLUMN `comprobante4` VARCHAR(1000) NULL AFTER `comprobante3`,
 ADD COLUMN `comprobante5` VARCHAR(1000) NULL AFTER `comprobante4`;
 
 
+
+alter table Infraestructura add column comprobante1 varchar(1000);
+alter table Infraestructura add column comprobante2 varchar(1000);
+alter table Infraestructura add column comprobante3 varchar(1000);
+
+'/uploads/oferta/infraestructura';
