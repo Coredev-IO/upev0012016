@@ -55,3 +55,17 @@ alter table Infraestructura add column comprobante2 varchar(1000);
 alter table Infraestructura add column comprobante3 varchar(1000);
 
 '/uploads/oferta/infraestructura';
+
+-- Investigación Docentes 
+--  direccion donde se guardan los archivos 
+-- /uploads/investigacion/docente
+ALTER TABLE `upev0012016`.`InvestigacionDocencia` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalDocentes`;
+
+
+-- Alumnos Investigación 
+--  direccion donde se guardan los archivos 
+-- /uploads/investigacion/alumnos
+ALTER TABLE `upev0012016`.`AlumnosInvestigacion` 
+ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `ProfesoresConProyectos`;
+

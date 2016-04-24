@@ -5,6 +5,7 @@ Class InvestigacionModel extends CI_Model {
 		$data = array(
 			'DocentesInvestigacion' => $datos['DocentesInvestigacion'],
 			'TotalDocentes'         => $datos['TotalDocentes'],
+			'comprobante1'      => $datos['comprobante1'],
 		);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('InvestigacionDocencia', $data);
@@ -15,6 +16,7 @@ Class InvestigacionModel extends CI_Model {
 		$data = array(
 			'AlumnosCoautores'       => $datos['AlumnosCoautores'],
 			'ProfesoresConProyectos' => $datos['ProfesoresConProyectos'],
+			'comprobante1'      => $datos['comprobante1'],
 		);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('AlumnosInvestigacion', $data);
