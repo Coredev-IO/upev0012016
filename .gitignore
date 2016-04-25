@@ -2,3 +2,4 @@ application/config/server_file.php
 application/config/server_file.php-tmp
 *.php-tmp
 .DS_Store
+uploads/test
