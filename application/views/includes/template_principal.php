@@ -23,12 +23,10 @@
 
 
 <div class="well page active  col-md-12 menu-res">
-      <div class="col-md-6" id="input" style="display: block;">
-      <label class="header"><?php echo $datos['Username'].",".$datos['Nombre']." ".$datos['ApellidoPaterno']." ".$datos['ApellidoMaterno']." ".$datos['NombreUnidad']."idUnidad: ".$datos['idUnidad'].", Nivel: ".$datos['Email']?></label>
+      <div class="col-md-12" id="input" style="display: block;">
+      <label class="header"><?php echo "USUARIO: ".strtoupper($datos['Username'])."<br>UNIDAD: ".$datos['NombreUnidad']."<br>CORREO: ".$datos['Email']?></label>
       </div>
-      <div class="col-md-3 col-md-offset-3" id="input" style="display: block;">
-      <label class="header"> <?php echo $datos['NombreUnidad']."idUnidad: ".$datos['idUnidad']?></label>
-      </div>
+
 
 
 

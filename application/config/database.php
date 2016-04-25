@@ -67,21 +67,21 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
-$db['sup']['hostname'] = $localsys['db_hostname_sup'];
-$db['sup']['username'] = $localsys['db_username_sup'];
-$db['sup']['password'] = $localsys['db_password_sup'];
-$db['sup']['database'] = $localsys['db_database_sup'];
-$db['sup']['dbdriver'] = 'mysql';
-$db['sup']['dbprefix'] = '';
-$db['sup']['pconnect'] = TRUE;
-$db['sup']['db_debug'] = TRUE;
-$db['sup']['cache_on'] = FALSE;
-$db['sup']['cachedir'] = '';
-$db['sup']['char_set'] = 'utf8';
-$db['sup']['dbcollat'] = 'utf8_general_ci';
-$db['sup']['swap_pre'] = '';
-$db['sup']['autoinit'] = TRUE;
-$db['sup']['stricton'] = FALSE;
+// $db['sup']['hostname'] = $localsys['db_hostname_sup'];
+// $db['sup']['username'] = $localsys['db_username_sup'];
+// $db['sup']['password'] = $localsys['db_password_sup'];
+// $db['sup']['database'] = $localsys['db_database_sup'];
+// $db['sup']['dbdriver'] = 'mysql';
+// $db['sup']['dbprefix'] = '';
+// $db['sup']['pconnect'] = TRUE;
+// $db['sup']['db_debug'] = TRUE;
+// $db['sup']['cache_on'] = FALSE;
+// $db['sup']['cachedir'] = '';
+// $db['sup']['char_set'] = 'utf8';
+// $db['sup']['dbcollat'] = 'utf8_general_ci';
+// $db['sup']['swap_pre'] = '';
+// $db['sup']['autoinit'] = TRUE;
+// $db['sup']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
