@@ -136,3 +136,13 @@ h1{
     margin-top: -50px;
 }
 
+
+.title-principal{
+    color: #fff;
+    font-size: 16px;
+    background-color: #6c1645;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: -18px;
+}
+
