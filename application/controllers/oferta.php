@@ -96,6 +96,25 @@ class Oferta extends CI_Controller {
 				}
 			}
 
+			// z  BProgramasAcademicosT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'z') !== false) {
+							$datos = array(
+								"BProgramasAcademicosT" => $this->input->post($row),
+								"idUnidad"             => $data['datos']['idUnidad'],
+								"idBloque"             => substr($row, 0, 3),
+								"idEvaluacion"         => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BProgramasAcademicosT($datos);
+
+						}
+					}
+				}
+			}
+
 			// Obtener informacion de las tablas
 			$idUrl           = $eval[0]->idEvaluacion;
 			$data['idUrl']   = $eval[0]->idEvaluacion;
@@ -267,7 +286,7 @@ class Oferta extends CI_Controller {
 			);
 			$this->infraestructura->update($dataNivel1);
 
-			// a  BProgramasAcademicos
+			// b  BLaboratoriosEquipados
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
 					if (strpos($row, '-') !== false) {
@@ -280,6 +299,25 @@ class Oferta extends CI_Controller {
 
 							);
 							$this->evaluacion->update_BLaboratoriosEquipados($datos);
+
+						}
+					}
+				}
+			}
+
+			// y  BLaboratoriosEquipadosT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'y') !== false) {
+							$datos = array(
+								"BLaboratoriosEquipadosT" => $this->input->post($row),
+								"idUnidad"               => $data['datos']['idUnidad'],
+								"idBloque"               => substr($row, 0, 3),
+								"idEvaluacion"           => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BLaboratoriosEquipadosT($datos);
 
 						}
 					}

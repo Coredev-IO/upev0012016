@@ -434,6 +434,25 @@ class Desempeno extends CI_Controller {
 				}
 			}
 
+			// v Aprovechamiento de la planta docente BHorasFrenteGrupoT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'v') !== false) {
+							$datos = array(
+								"BHorasFrenteGrupoT" => $this->input->post($row),
+								"idUnidad"          => $data['datos']['idUnidad'],
+								"idBloque"          => substr($row, 0, 3),
+								"idEvaluacion"      => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BHorasFrenteGrupoT($datos);
+
+						}
+					}
+				}
+			}
+
 			// f Docentes de asignatura activos en el sector productivo BProfesoresActivos
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
@@ -447,6 +466,25 @@ class Desempeno extends CI_Controller {
 
 							);
 							$this->evaluacion->update_BProfesoresActivos($datos);
+
+						}
+					}
+				}
+			}
+
+			// u Docentes de asignatura activos en el sector productivo BProfesoresActivosT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'u') !== false) {
+							$datos = array(
+								"BProfesoresActivosT" => $this->input->post($row),
+								"idUnidad"           => $data['datos']['idUnidad'],
+								"idBloque"           => substr($row, 0, 3),
+								"idEvaluacion"       => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BProfesoresActivosT($datos);
 
 						}
 					}
@@ -472,6 +510,25 @@ class Desempeno extends CI_Controller {
 				}
 			}
 
+			// t Docentes actualizados en el área diciplinar BProfesoresActualizadosT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 't') !== false) {
+							$datos = array(
+								"BProfesoresActualizadosT" => $this->input->post($row),
+								"idUnidad"                => $data['datos']['idUnidad'],
+								"idBloque"                => substr($row, 0, 3),
+								"idEvaluacion"            => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BProfesoresActualizadosT($datos);
+
+						}
+					}
+				}
+			}
+
 			// h Desempeño docente por academia BEvaluacionesIndividuales
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
@@ -485,6 +542,25 @@ class Desempeno extends CI_Controller {
 
 							);
 							$this->evaluacion->update_BEvaluacionesIndividuales($datos);
+
+						}
+					}
+				}
+			}
+
+			// s Desempeño docente por academia BEvaluacionesIndividualesT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 's') !== false) {
+							$datos = array(
+								"BEvaluacionesIndividualesT" => $this->input->post($row),
+								"idUnidad"                  => $data['datos']['idUnidad'],
+								"idBloque"                  => substr($row, 0, 3),
+								"idEvaluacion"              => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BEvaluacionesIndividualesT($datos);
 
 						}
 					}

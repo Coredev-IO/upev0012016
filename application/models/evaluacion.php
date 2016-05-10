@@ -333,9 +333,31 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BHorasFrenteGrupoT($datos) {
+		$data = array(
+			'BHorasFrenteGrupoT' => $datos['BHorasFrenteGrupoT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
 	function update_BProfesoresActivos($datos) {
 		$data = array(
 			'BProfesoresActivos' => $datos['BProfesoresActivos'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BProfesoresActivosT($datos) {
+		$data = array(
+			'BProfesoresActivosT' => $datos['BProfesoresActivosT'],
 		);
 		$this->db->where('idUnidad', $datos['idUnidad']);
 		$this->db->where('idBloque', $datos['idBloque']);
@@ -355,9 +377,31 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BProfesoresActualizadosT($datos) {
+		$data = array(
+			'BProfesoresActualizadosT' => $datos['BProfesoresActualizadosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
 	function update_BEvaluacionesIndividuales($datos) {
 		$data = array(
 			'BEvaluacionesIndividuales' => $datos['BEvaluacionesIndividuales'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BEvaluacionesIndividualesT($datos) {
+		$data = array(
+			'BEvaluacionesIndividualesT' => $datos['BEvaluacionesIndividualesT'],
 		);
 		$this->db->where('idUnidad', $datos['idUnidad']);
 		$this->db->where('idBloque', $datos['idBloque']);
@@ -378,9 +422,31 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BProgramasAcademicosT($datos) {
+		$data = array(
+			'BProgramasAcademicosT' => $datos['BProgramasAcademicosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
 	function update_BLaboratoriosEquipados($datos) {
 		$data = array(
 			'BLaboratoriosEquipados' => $datos['BLaboratoriosEquipados'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BLaboratoriosEquipadosT($datos) {
+		$data = array(
+			'BLaboratoriosEquipadosT' => $datos['BLaboratoriosEquipadosT'],
 		);
 		$this->db->where('idUnidad', $datos['idUnidad']);
 		$this->db->where('idBloque', $datos['idBloque']);

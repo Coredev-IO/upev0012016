@@ -37,7 +37,7 @@ foreach ($IndicadorMs as $row) {
 // print_r($arrPrincipal[0]);
 // echo "<br>---------------><br>";
 // print_r($arrPrincipal[1]);
-$idBloq     = 5;
+$idBloq     = 6;
 $idComplete = 2;
 $v1         = $Alumnos[0];
 $al         = array();
@@ -100,7 +100,7 @@ foreach ($nivelAlumnos as $row) {
                                                 <div class="col-md-4"></div>
                                                 <div class="col-md-1">
                                                         <div class="form-group label-floating is-empty">
-                                                                <input type="text" value="'.$valor2.'" class="form-control" id='.$roww["idBloques"].'-'.$varID.'-'.$i.' name='.$roww["idBloques"].'-'.$varID2.'-'.$i.' required>
+                                                                <input type="text" value="'.$valor2.'" class="form-control" id='.$roww["idBloques"].'-'.$varID2.'-'.$i.' name='.$roww["idBloques"].'-'.$varID2.'-'.$i.' required>
                                                         </div>
                                                         <br>
                                                 </div>
@@ -159,9 +159,9 @@ foreach ($v1 as $key) {
 
 $fileInput     = 1;
 $NumeroArchivo = 10;
-
+$idBloq=$idBloq-1;
 foreach ($nivelDocentes as $row) {
-
+  //
 	// echo '<div class="col-md-4">'.$row["Nombre"].' '.$row["Valor"].'%</div>';
 	// echo '<div class="col-md-4">'.$row["Indicadores"].'</div>';
 	// echo '<div class="col-md-4">'.$row["Descripcion"].'</div>';
@@ -169,14 +169,16 @@ foreach ($nivelDocentes as $row) {
 	if ($row["Despegable"]) {
 		echo '<div class="row row-bloque">';
 		echo '<div class="col-md-4">&nbsp;</div>';
-		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-12 title-row">'.$row["campo1"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"></div><br></div></div></div>';
+		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-4 title-row"></div><div class="col-md-4 title-row">'.$row["campo1"].'</div><div class="col-md-4 title-row"></div><div class="col-md-4 title-row">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"></div><br></div></div></div>';
 		$i                                                                                      = 1;
 		$varID                                                                                  = "";
-		if ($row["Nombre"] == "Aprovechamiento de la planta docente") {$varID                   = "e";};
-		if ($row["Nombre"] == "Docentes de asignatura activos en el sector productivo") {$varID = "f";};
-		if ($row["Nombre"] == "Docentes actualizados en el área diciplinar") {$varID           = "g";};
-		if ($row["Nombre"] == "Desempeño docente por academia") {$varID                        = "h";};
-		$prinArr                                                                                = 0;
+    $varID2                                                                                  = "";
+
+		if ($row["Indicadores"] == "Aprovechamiento de la Planta Docente") {$varID = "e"; $varID2 = "v";};
+		if ($row["Indicadores"] == "Docentes de Asignatura activos en el Sector Productivo") {$varID = "f"; $varID2 = "u";};
+		if ($row["Indicadores"] == "Docentes actualizados en el Área Disciplinar") {$varID = "g"; $varID2 = "t";};
+		if ($row["Indicadores"] == "Desempeño Docente") {$varID  = "h"; $varID2 = "s";};
+		$prinArr           = 0;
 
 		foreach ($bloques as $roww) {
 			$prinArr2 = 0;
@@ -188,6 +190,9 @@ foreach ($nivelDocentes as $row) {
 			// print_r($arrsec);
 			if ($arrsec[2] == $roww["idBloques"]) {
 				$valor = $arrsec[$idBloq];
+				$newidBloq = $idBloq+1;
+                                // $idBloq++;
+                                $valor2 = $arrsec[$newidBloq];
 			}
 			foreach ($arrsec as $value) {
 				// print_r($value[$prinArr2]);
@@ -196,13 +201,31 @@ foreach ($nivelDocentes as $row) {
 				// 	$valor = $value[5];
 				// }
 			}
-			echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$roww["Nombre"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$valor.'" class="form-control" id='.$roww["idBloques"].'-'.$varID.'-'.$i.' name='.$roww["idBloques"].'-'.$varID.'-'.$i.' required></div><br></div></div></div>';
+			echo '<div class="col-md-12">
+                                        <div class="row inputs-form">
+                                                <div class="col-md-4">'.$roww["Nombre"].'</div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-1">
+                                                        <div class="form-group label-floating is-empty">
+                                                                <input type="text" value="'.$valor.'" class="form-control" id='.$roww["idBloques"].'-'.$varID.'-'.$i.' name='.$roww["idBloques"].'-'.$varID.'-'.$i.' required>
+                                                        </div>
+                                                        <br>
+                                                </div>
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-1">
+                                                        <div class="form-group label-floating is-empty">
+                                                                <input type="text" value="'.$valor2.'" class="form-control" id='.$roww["idBloques"].'-'.$varID2.'-'.$i.' name='.$roww["idBloques"].'-'.$varID2.'-'.$i.' required>
+                                                        </div>
+                                                        <br>
+                                                </div>
+                                        </div>
+                                </div>';
 			$i = $i+1;
 			$prinArr++;
 		}
 		$idComplete++;
 
-		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
+		// echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	} else {
@@ -223,6 +246,7 @@ foreach ($nivelDocentes as $row) {
 	$NumeroArchivo++;
 
 	$idBloq++;
+		$idBloq++;
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
