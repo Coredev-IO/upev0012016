@@ -245,9 +245,31 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+        function update_BAlumnosRegularesT($datos) {
+                $data = array(
+                        'BAlumnosRegularesT' => $datos['BAlumnosRegularesT'],
+                );
+                $this->db->where('idUnidad', $datos['idUnidad']);
+                $this->db->where('idBloque', $datos['idBloque']);
+                $this->db->where('idEvaluacion', $datos['idEvaluacion']);
+                $this->db->update('IndicadorMs', $data);
+
+        }
+
 	function update_BEficienciaTerminal($datos) {
 		$data = array(
 			'BEficienciaTerminal' => $datos['BEficienciaTerminal'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+        function update_BEficienciaTerminalT($datos) {
+		$data = array(
+			'BEficienciaTerminalT' => $datos['BEficienciaTerminalT'],
 		);
 		$this->db->where('idUnidad', $datos['idUnidad']);
 		$this->db->where('idBloque', $datos['idBloque']);
@@ -267,6 +289,17 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+        function update_BAlumnosTituladosT($datos) {
+		$data = array(
+			'BAlumnosTituladosT' => $datos['BAlumnosTituladosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
 	function update_BPromocionNS($datos) {
 		$data = array(
 			'BPromocionNS' => $datos['BPromocionNS'],
@@ -277,6 +310,17 @@ Class Evaluacion extends CI_Model {
 		$this->db->update('IndicadorMs', $data);
 
 	}
+
+        function update_BPromocionNST($datos) {
+                $data = array(
+                        'BPromocionNST' => $datos['BPromocionNST'],
+                );
+                $this->db->where('idUnidad', $datos['idUnidad']);
+                $this->db->where('idBloque', $datos['idBloque']);
+                $this->db->where('idEvaluacion', $datos['idEvaluacion']);
+                $this->db->update('IndicadorMs', $data);
+
+        }
 
 	function update_BHorasFrenteGrupo($datos) {
 		$data = array(

@@ -103,6 +103,25 @@ class Desempeno extends CI_Controller {
 				}
 			}
 
+                        // z Rendimiento BAlumnosRegulares Total
+                        foreach ($keys as $row) {
+                                if (strlen($row) <= 8) {
+                                        if (strpos($row, '-') !== false) {
+                                                if (strpos($row, 'z') !== false) {
+                                                        $datos = array(
+                                                                "BAlumnosRegularesT" => $this->input->post($row),
+                                                                "idUnidad"          => $data['datos']['idUnidad'],
+                                                                "idBloque"          => substr($row, 0, 3),
+                                                                "idEvaluacion"      => $eval[0]->idEvaluacion,
+
+                                                        );
+                                                        $this->evaluacion->update_BAlumnosRegularesT($datos);
+
+                                                }
+                                        }
+                                }
+                        }
+
 			// b Eficiencia terminal BEficienciaTerminal
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
@@ -116,6 +135,26 @@ class Desempeno extends CI_Controller {
 
 							);
 							$this->evaluacion->update_BEficienciaTerminal($datos);
+
+						}
+					}
+				}
+			}
+
+
+                        // Y Eficiencia terminal BEficienciaTerminal
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'y') !== false) {
+							$datos = array(
+								"BEficienciaTerminalT" => $this->input->post($row),
+								"idUnidad"            => $data['datos']['idUnidad'],
+								"idBloque"            => substr($row, 0, 3),
+								"idEvaluacion"        => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BEficienciaTerminalT($datos);
 
 						}
 					}
@@ -141,6 +180,25 @@ class Desempeno extends CI_Controller {
 				}
 			}
 
+                        // c Titulación
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'x') !== false) {
+							$datos = array(
+								"BAlumnosTituladosT" => $this->input->post($row),
+								"idUnidad"          => $data['datos']['idUnidad'],
+								"idBloque"          => substr($row, 0, 3),
+								"idEvaluacion"      => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BAlumnosTituladosT($datos);
+
+						}
+					}
+				}
+			}
+
 			// d Promoción de NMS a NS
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
@@ -154,6 +212,25 @@ class Desempeno extends CI_Controller {
 
 							);
 							$this->evaluacion->update_BPromocionNS($datos);
+
+						}
+					}
+				}
+			}
+
+                        // d Promoción de NMS a NS
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'w') !== false) {
+							$datos = array(
+								"BPromocionNST" => $this->input->post($row),
+								"idUnidad"     => $data['datos']['idUnidad'],
+								"idBloque"     => substr($row, 0, 3),
+								"idEvaluacion" => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BPromocionNST($datos);
 
 						}
 					}
