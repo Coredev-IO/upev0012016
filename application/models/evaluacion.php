@@ -467,6 +467,17 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BAlumnosTutoradosT($datos) {
+		$data = array(
+			'BAlumnosTutoradosT' => $datos['BAlumnosTutoradosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
 	function update_BlibrosTitulosEditados($datos) {
 		$data = array(
 			'BlibrosTitulosEditados' => $datos['BlibrosTitulosEditados'],
@@ -478,9 +489,31 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BlibrosTitulosEditadosT($datos) {
+		$data = array(
+			'BlibrosTitulosEditadosT' => $datos['BlibrosTitulosEditadosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
 	function update_BTotalEjemplares($datos) {
 		$data = array(
 			'BTotalEjemplares' => $datos['BTotalEjemplares'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BTotalEjemplaresT($datos) {
+		$data = array(
+			'BTotalEjemplaresT' => $datos['BTotalEjemplaresT'],
 		);
 		$this->db->where('idUnidad', $datos['idUnidad']);
 		$this->db->where('idBloque', $datos['idBloque']);

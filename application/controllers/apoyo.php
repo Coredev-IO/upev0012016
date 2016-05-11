@@ -268,7 +268,7 @@ class Apoyo extends CI_Controller {
 			);
 			$this->tutorias->update($dataNivel1);
 
-			// a Rendimiento BAlumnosRegulares
+			// a Rendimiento BAlumnosTutorados
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
 					if (strpos($row, '-') !== false) {
@@ -286,6 +286,26 @@ class Apoyo extends CI_Controller {
 					}
 				}
 			}
+
+			// z Rendimiento BAlumnosTutoradosT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'z') !== false) {
+							$datos = array(
+								"BAlumnosTutoradosT" => $this->input->post($row),
+								"idUnidad"          => $data['datos']['idUnidad'],
+								"idBloque"          => substr($row, 0, 3),
+								"idEvaluacion"      => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BAlumnosTutoradosT($datos);
+
+						}
+					}
+				}
+			}
+
 			// redirect('apoyo/reg/'.$eval[0]->idEvaluacion, 'refresh');
 			$idUrl             = $eval[0]->idEvaluacion;
 			$data['idUrl']     = $eval[0]->idEvaluacion;
@@ -488,7 +508,7 @@ class Apoyo extends CI_Controller {
 			);
 			$this->apoyoserv->update($dataNivel1);
 
-			// a Rendimiento BAlumnosRegulares
+			// b Rendimiento BlibrosTitulosEditados
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
 					if (strpos($row, '-') !== false) {
@@ -506,6 +526,26 @@ class Apoyo extends CI_Controller {
 					}
 				}
 			}
+
+			// y Rendimiento BlibrosTitulosEditadosT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'y') !== false) {
+							$datos = array(
+								"BlibrosTitulosEditadosT" => $this->input->post($row),
+								"idUnidad"               => $data['datos']['idUnidad'],
+								"idBloque"               => substr($row, 0, 3),
+								"idEvaluacion"           => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BlibrosTitulosEditadosT($datos);
+
+						}
+					}
+				}
+			}
+
 			//BTotalEjemplares
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
@@ -519,6 +559,25 @@ class Apoyo extends CI_Controller {
 
 							);
 							$this->evaluacion->update_BTotalEjemplares($datos);
+
+						}
+					}
+				}
+			}
+
+			//c BTotalEjemplaresT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'x') !== false) {
+							$datos = array(
+								"BTotalEjemplaresT" => $this->input->post($row),
+								"idUnidad"         => $data['datos']['idUnidad'],
+								"idBloque"         => substr($row, 0, 3),
+								"idEvaluacion"     => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BTotalEjemplaresT($datos);
 
 						}
 					}
