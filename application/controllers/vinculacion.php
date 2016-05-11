@@ -93,6 +93,26 @@ class Vinculacion extends CI_Controller {
 					}
 				}
 			}
+
+			// Z Rendimiento BAlumnosServicioSocialT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'z') !== false) {
+							$datos = array(
+								"BAlumnosServicioSocialT" => $this->input->post($row),
+								"idUnidad"               => $data['datos']['idUnidad'],
+								"idBloque"               => substr($row, 0, 3),
+								"idEvaluacion"           => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BAlumnosServicioSocialT($datos);
+
+						}
+					}
+				}
+			}
+
 			// redirect('vinculacion/reg/'.$eval[0]->idEvaluacion, 'refresh');
 
 			$idUrl            = $eval[0]->idEvaluacion;
@@ -214,7 +234,7 @@ class Vinculacion extends CI_Controller {
 
 					$data['main_cont'] = 'vinculacion/index';
 					$this->load->view('includes/template_principal', $data);
-				
+
 
 		} else {
 			redirect('login', 'refresh');
@@ -289,7 +309,7 @@ class Vinculacion extends CI_Controller {
 			);
 			$this->modelvinculacion->update_vs($dataNivel1);
 
-			// a Rendimiento BALumnosVisitas
+			// b BALumnosVisitas
 			foreach ($keys as $row) {
 				if (strlen($row) <= 8) {
 					if (strpos($row, '-') !== false) {
@@ -307,6 +327,26 @@ class Vinculacion extends CI_Controller {
 					}
 				}
 			}
+
+			// y BALumnosVisitasT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'y') !== false) {
+							$datos = array(
+								"BALumnosVisitasT" => $this->input->post($row),
+								"idUnidad"        => $data['datos']['idUnidad'],
+								"idBloque"        => substr($row, 0, 3),
+								"idEvaluacion"    => $eval[0]->idEvaluacion,
+
+							);
+							$this->evaluacion->update_BALumnosVisitasT($datos);
+
+						}
+					}
+				}
+			}
+
 			// redirect('vinculacion/reg/'.$eval[0]->idEvaluacion, 'refresh');
 
 			$idUrl            = $eval[0]->idEvaluacion;
@@ -428,7 +468,7 @@ class Vinculacion extends CI_Controller {
 
 					$data['main_cont'] = 'vinculacion/index';
 					$this->load->view('includes/template_principal', $data);
-				
+
 
 		} else {
 			redirect('login', 'refresh');
@@ -623,7 +663,7 @@ class Vinculacion extends CI_Controller {
 
 					$data['main_cont'] = 'vinculacion/index';
 					$this->load->view('includes/template_principal', $data);
-				
+
 
 		} else {
 			redirect('login', 'refresh');

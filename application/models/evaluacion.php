@@ -534,9 +534,31 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BAlumnosServicioSocialT($datos) {
+		$data = array(
+			'BAlumnosServicioSocialT' => $datos['BAlumnosServicioSocialT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
 	function update_BALumnosVisitas($datos) {
 		$data = array(
 			'BALumnosVisitas' => $datos['BALumnosVisitas'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BALumnosVisitasT($datos) {
+		$data = array(
+			'BALumnosVisitasT' => $datos['BALumnosVisitasT'],
 		);
 		$this->db->where('idUnidad', $datos['idUnidad']);
 		$this->db->where('idBloque', $datos['idBloque']);
