@@ -31,15 +31,8 @@ CREATE TABLE `Alumnos` (
   `AlumnosTotalesCohorte` int(11) NOT NULL DEFAULT '0',
   `AlumnosTituladosGeneracion` int(11) NOT NULL DEFAULT '0',
   `AlumnosEgresadosGeneracion` int(11) NOT NULL DEFAULT '0',
-  `AlumnosConAdeudos` int(11) DEFAULT '0',
-  `TotalMatriculasPorPrograma` int(11) DEFAULT '0',
-  `AlumnosMercadoLaboral` int(11) DEFAULT '0',
-  `TotalAlumnosEgresoAcademico` int(11) DEFAULT '0',
-  `comprobante1` varchar(1000) DEFAULT NULL,
-  `comprobante2` varchar(1000) DEFAULT NULL,
-  `comprobante3` varchar(1000) DEFAULT NULL,
-  `comprobante4` varchar(1000) DEFAULT NULL,
-  `comprobante5` varchar(1000) DEFAULT NULL,
+  `AlumnosInscritosNSIPN` int(11) NOT NULL DEFAULT '0',
+  `AlumnosExamenNSIPN` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idAlumnos`,`idEvaluacion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -50,7 +43,7 @@ CREATE TABLE `Alumnos` (
 
 LOCK TABLES `Alumnos` WRITE;
 /*!40000 ALTER TABLE `Alumnos` DISABLE KEYS */;
-INSERT INTO `Alumnos` VALUES (1,1,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(2,2,0,200,0,300,0,400,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(3,3,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(4,4,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(5,5,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(6,6,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(7,7,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(8,8,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(9,9,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(10,10,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(11,11,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(12,12,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(13,13,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(14,14,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(15,15,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(16,16,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(17,17,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(18,18,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(19,19,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(20,23,0,23,0,12,0,12,0,0,0,0,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `Alumnos` VALUES (1,1,0,0,0,0,0,0,0,0),(2,2,0,200,0,300,0,400,0,600),(3,3,0,0,0,0,0,0,0,0),(4,4,0,0,0,0,0,0,0,0),(5,5,0,0,0,0,0,0,0,0),(6,6,0,0,0,0,0,0,0,0),(7,7,0,0,0,0,0,0,0,0),(8,8,0,0,0,0,0,0,0,0),(9,9,0,0,0,0,0,0,0,0),(10,10,0,0,0,0,0,0,0,0),(11,11,0,0,0,0,0,0,0,0),(12,12,0,0,0,0,0,0,0,0),(13,13,0,0,0,0,0,0,0,0),(14,14,0,0,0,0,0,0,0,0),(15,15,0,0,0,0,0,0,0,0),(16,16,0,0,0,0,0,0,0,0),(17,17,0,0,0,0,0,0,0,0),(18,18,0,0,0,0,0,0,0,0),(19,19,0,0,0,0,0,0,0,0),(20,23,0,23,0,12,0,12,0,12);
 /*!40000 ALTER TABLE `Alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +59,6 @@ CREATE TABLE `AlumnosInvestigacion` (
   `idEvaluacion` int(11) NOT NULL,
   `AlumnosCoautores` int(11) DEFAULT '0',
   `ProfesoresConProyectos` int(11) DEFAULT '0',
-  `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idAlumnosInvestigacion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -77,7 +69,7 @@ CREATE TABLE `AlumnosInvestigacion` (
 
 LOCK TABLES `AlumnosInvestigacion` WRITE;
 /*!40000 ALTER TABLE `AlumnosInvestigacion` DISABLE KEYS */;
-INSERT INTO `AlumnosInvestigacion` VALUES (1,1,0,0,NULL),(2,2,34,893,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,23,2,3,NULL);
+INSERT INTO `AlumnosInvestigacion` VALUES (1,1,0,0),(2,2,34,893),(3,3,0,0),(4,4,0,0),(5,5,0,0),(6,6,0,0),(7,7,0,0),(8,8,0,0),(9,9,0,0),(10,10,0,0),(11,11,0,0),(12,12,0,0),(13,13,0,0),(14,14,0,0),(15,15,0,0),(16,16,0,0),(17,17,0,0),(18,18,0,0),(19,19,0,0),(20,23,2,3);
 /*!40000 ALTER TABLE `AlumnosInvestigacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,13 +85,14 @@ CREATE TABLE `ApoyoEducativo` (
   `idEvaluacion` int(11) NOT NULL,
   `LibrosActualizados` int(11) DEFAULT '0',
   `TotalAcervoLibros` int(11) DEFAULT '0',
+  `LibrosDisponibles` int(11) DEFAULT '0',
+  `TotalLibrosFisicos` int(11) DEFAULT '0',
+  `CapacidadInternet` int(11) DEFAULT '0',
+  `UsuariosInternet` int(11) DEFAULT '0',
   `MantenimientoAtendido` int(11) DEFAULT '0',
   `MantenimientoSolicitado` int(11) DEFAULT '0',
   `LimpiezaAtendida` int(11) DEFAULT '0',
   `LimpiezaProgramada` int(11) DEFAULT '0',
-  `comprobante1` varchar(1000) DEFAULT NULL,
-  `comprobante2` varchar(1000) DEFAULT NULL,
-  `comprobante3` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idApoyoEducativo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -110,7 +103,7 @@ CREATE TABLE `ApoyoEducativo` (
 
 LOCK TABLES `ApoyoEducativo` WRITE;
 /*!40000 ALTER TABLE `ApoyoEducativo` DISABLE KEYS */;
-INSERT INTO `ApoyoEducativo` VALUES (1,1,0,0,0,0,0,0,NULL,NULL,NULL),(2,2,0,900,54,45,56,45,NULL,NULL,NULL),(3,3,0,0,0,0,0,0,NULL,NULL,NULL),(4,4,0,0,0,0,0,0,NULL,NULL,NULL),(5,5,0,0,0,0,0,0,NULL,NULL,NULL),(6,6,0,0,0,0,0,0,NULL,NULL,NULL),(7,7,0,0,0,0,0,0,NULL,NULL,NULL),(8,8,0,0,0,0,0,0,NULL,NULL,NULL),(9,9,0,0,0,0,0,0,NULL,NULL,NULL),(10,10,0,0,0,0,0,0,NULL,NULL,NULL),(11,11,0,0,0,0,0,0,NULL,NULL,NULL),(12,12,0,0,0,0,0,0,NULL,NULL,NULL),(13,13,0,0,0,0,0,0,NULL,NULL,NULL),(14,14,0,0,0,0,0,0,NULL,NULL,NULL),(15,15,0,0,0,0,0,0,NULL,NULL,NULL),(16,16,0,0,0,0,0,0,NULL,NULL,NULL),(17,17,0,0,0,0,0,0,NULL,NULL,NULL),(18,18,0,0,0,0,0,0,NULL,NULL,NULL),(19,19,0,0,0,0,0,0,NULL,NULL,NULL),(20,23,0,0,0,0,0,0,NULL,NULL,NULL);
+INSERT INTO `ApoyoEducativo` VALUES (1,1,0,0,0,0,0,0,0,0,0,0),(2,2,0,900,0,100,64,67,54,45,56,45),(3,3,0,0,0,0,0,0,0,0,0,0),(4,4,0,0,0,0,0,0,0,0,0,0),(5,5,0,0,0,0,0,0,0,0,0,0),(6,6,0,0,0,0,0,0,0,0,0,0),(7,7,0,0,0,0,0,0,0,0,0,0),(8,8,0,0,0,0,0,0,0,0,0,0),(9,9,0,0,0,0,0,0,0,0,0,0),(10,10,0,0,0,0,0,0,0,0,0,0),(11,11,0,0,0,0,0,0,0,0,0,0),(12,12,0,0,0,0,0,0,0,0,0,0),(13,13,0,0,0,0,0,0,0,0,0,0),(14,14,0,0,0,0,0,0,0,0,0,0),(15,15,0,0,0,0,0,0,0,0,0,0),(16,16,0,0,0,0,0,0,0,0,0,0),(17,17,0,0,0,0,0,0,0,0,0,0),(18,18,0,0,0,0,0,0,0,0,0,0),(19,19,0,0,0,0,0,0,0,0,0,0),(20,23,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `ApoyoEducativo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,7 +119,6 @@ CREATE TABLE `Becas` (
   `idEvaluacion` int(11) NOT NULL,
   `AlumnosBeca` int(11) DEFAULT '0',
   `TotalAlumnos` int(11) DEFAULT '0',
-  `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idBecas`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -137,7 +129,7 @@ CREATE TABLE `Becas` (
 
 LOCK TABLES `Becas` WRITE;
 /*!40000 ALTER TABLE `Becas` DISABLE KEYS */;
-INSERT INTO `Becas` VALUES (1,1,0,0,NULL),(2,2,2,20,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,23,0,0,NULL);
+INSERT INTO `Becas` VALUES (1,1,0,0),(2,2,2,20),(3,3,0,0),(4,4,0,0),(5,5,0,0),(6,6,0,0),(7,7,0,0),(8,8,0,0),(9,9,0,0),(10,10,0,0),(11,11,0,0),(12,12,0,0),(13,13,0,0),(14,14,0,0),(15,15,0,0),(16,16,0,0),(17,17,0,0),(18,18,0,0),(19,19,0,0),(20,23,0,0);
 /*!40000 ALTER TABLE `Becas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,10 +205,6 @@ CREATE TABLE `Docentes` (
   `TotalProfesores` int(11) DEFAULT '0',
   `EvaluacionIndividual` int(11) DEFAULT '0',
   `DocentesPertenecientes` int(11) DEFAULT '0',
-  `comprobante1` varchar(1000) DEFAULT NULL,
-  `comprobante2` varchar(1000) DEFAULT NULL,
-  `comprobante3` varchar(1000) DEFAULT NULL,
-  `comprobante4` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idDocentes`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -227,7 +215,7 @@ CREATE TABLE `Docentes` (
 
 LOCK TABLES `Docentes` WRITE;
 /*!40000 ALTER TABLE `Docentes` DISABLE KEYS */;
-INSERT INTO `Docentes` VALUES (1,1,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(2,2,0,14444,0,11,0,788,0,78,NULL,NULL,NULL,NULL),(3,3,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(4,4,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(5,5,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(6,6,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(7,7,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(8,8,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(9,9,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(10,10,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(11,11,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(12,12,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(13,13,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(14,14,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(15,15,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(16,16,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(17,17,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(18,18,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(19,19,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(20,23,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL);
+INSERT INTO `Docentes` VALUES (1,1,0,0,0,0,0,0,0,0),(2,2,0,14444,0,11,0,788,0,78),(3,3,0,0,0,0,0,0,0,0),(4,4,0,0,0,0,0,0,0,0),(5,5,0,0,0,0,0,0,0,0),(6,6,0,0,0,0,0,0,0,0),(7,7,0,0,0,0,0,0,0,0),(8,8,0,0,0,0,0,0,0,0),(9,9,0,0,0,0,0,0,0,0),(10,10,0,0,0,0,0,0,0,0),(11,11,0,0,0,0,0,0,0,0),(12,12,0,0,0,0,0,0,0,0),(13,13,0,0,0,0,0,0,0,0),(14,14,0,0,0,0,0,0,0,0),(15,15,0,0,0,0,0,0,0,0),(16,16,0,0,0,0,0,0,0,0),(17,17,0,0,0,0,0,0,0,0),(18,18,0,0,0,0,0,0,0,0),(19,19,0,0,0,0,0,0,0,0),(20,23,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `Docentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -435,7 +423,7 @@ CREATE TABLE `Indicador2` (
 
 LOCK TABLES `Indicador2` WRITE;
 /*!40000 ALTER TABLE `Indicador2` DISABLE KEYS */;
-INSERT INTO `Indicador2` VALUES (1,1,'Alumno',NULL,50),(2,1,'Perfil Docente',NULL,50),(3,2,'Programas Acreditados',NULL,25),(4,2,'Programas Académicos',NULL,25),(5,2,'Infraestructura',NULL,50),(6,3,'Becas',NULL,33),(7,3,'Tutorias',NULL,33),(8,3,'Servicios de apoyo educativo',NULL,34),(9,4,'Servicio Social',NULL,35),(10,4,'Practicas Profesionales',NULL,35),(11,4,'Proyectos Vinculados',NULL,30),(12,5,'Apoyo de la investigación a la docencia',NULL,50),(13,5,'Innovación e investigación educativa',NULL,50),(14,6,'Recursos Autogenerados',NULL,100);
+INSERT INTO `Indicador2` VALUES (1,1,'Alumnos',NULL,50),(2,1,'Pefil Docente',NULL,50),(3,2,'Programas académicos',NULL,50),(4,2,'Infraestructura',NULL,50),(5,3,'Becas',NULL,33),(6,3,'Tutorías',NULL,33),(7,3,'Servicio de apoyo educativo',NULL,34),(8,4,'Servicio social',NULL,30),(9,4,'Visitas escolares',NULL,35),(10,4,'Proyectos vinculados',NULL,35),(11,5,'Apoyo de la investigación a la docencia',NULL,40),(12,5,'Participación de los alumnos en investigaciones',NULL,30),(13,5,'Innovación e investigación educativa',NULL,30),(14,6,'Recursos autogenerados',NULL,100);
 /*!40000 ALTER TABLE `Indicador2` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -463,7 +451,7 @@ CREATE TABLE `Indicador3` (
   PRIMARY KEY (`idIndicador3`,`idIndicador2`,`idIndicador1`),
   KEY `fk_Indicador3_Indicador21_idx` (`idIndicador2`,`idIndicador1`),
   CONSTRAINT `fk_Indicador3_Indicador21` FOREIGN KEY (`idIndicador2`, `idIndicador1`) REFERENCES `Indicador2` (`idIndicador2`, `idIndicador1`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -472,7 +460,7 @@ CREATE TABLE `Indicador3` (
 
 LOCK TABLES `Indicador3` WRITE;
 /*!40000 ALTER TABLE `Indicador3` DISABLE KEYS */;
-INSERT INTO `Indicador3` VALUES (1,1,1,'Rendimiento','Alumno en situación escolar regular ','Porcentaje de alumnos que han aprobado todas las unidades de aprendizaje en las que han estado inscritos por Unidad  académica  ',1,'(Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos  / Total de matrícula inscrita)*100',20,'Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos por programa académico ','a1','Total de matrícula inscrita por programa académico*100','b1'),(2,1,1,'Eficiencia Terminal','Eficiencia Terminal','Porcentaje de alumnos que egresan por cohorte generacional por programa académico',1,'(Sumatoria-Número de alumnos del cohorte A que egresan  en el año n / total de alumnos en el cohorte A)',20,'Sumatoria-Número de alumnos del cohorte A que egresan  en el año n por programa académico','a2','Total de alumnos admitidos al programa académico en el cohorte A','b2'),(3,1,1,'Titulación','Alumnos titulados ','Porcentaje de alumnos titulados hasta tres años después de egresar por programa académico',1,'(Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico /total de la matrícula de egreso del mismo periodo por programa académico)*100',20,'Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico','a3','Total de la matrícula de egreso del mismo periodo por programa académico*100','b3'),(4,1,1,'Fuera de Reglamento','Alumno en riesgo de abandono por situación académica.','Porcentaje de alumnos con unidades de aprendizaje con adeudo, defasadas por 2 o más periodos escolares. ',1,'(Número de alumnos con unidades de aprendizaje con adeudo, desfasadas por 2 0 más periodos escolares / Total de matrícula inscrita por programa académico) *100',20,'Número de alumnos con unidades de aprendizaje defasadas por 2 o más periodos escolares','a4','Total de matrícula inscrita por programa académico por semestre*100','b4'),(5,1,1,'Inserción Laboral ','Recien egresados en inserción laboral','Porcentaje de egresados que se insertan al mercado laboral en coincidencia con el programa académico de formación, en 1 año posterior a su egreso.',1,'(Número de alumnos que se insertan al mercado laboral en coincidencia con el programa académico de egreso en un tiempo máximo de un 1 año/total de alumnos de egreso del programa académico del mismo periodo)*100',20,'Número de alumnos que se insertan al mercado laboral en coincidencia con el programa académico de egreso en un tiempo máximo de un 1 año','a5','Total de alumnos de egreso del programa académico del mismo periodo*100','b5'),(6,2,1,'Aprovechamiento de la planta docente ','Aprovechamiento de la Planta Docente','Total de horas frente a grupo por profesores de base por academia  20%',0,'(Total de horas frente a grupo por profesores de base por periodo semestral por academia/  cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia)',20,'Total de horas frente a grupo por profesores de base por periodo semestral por academia','a6','Cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia','b6'),(7,2,1,'Docentes de Asignatura activos en el Sector Productivo','Docentes de Asignatura activos en el Sector Productivo','Porcentaje de docentes de asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen 20%',0,'(Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica/total de docentes contratados por asignatura  por unidad académica)*100',20,'Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica','a7','Total de docentes contratados por asignatura  por unidad académica *100','b7'),(8,2,1,'Profesores en educación continua para la docencia','Profesores formados para la docencia y/o en educación continua para la docencia en los ultimos 5 años','Porcentaje de profesores actualizados  para la docencia con al menos una acción formativa por año en la unidad académica 20%',0,'(Número de profesores formados para la docencia con por lo menos una acción de formación   por año por unidad académica / total de la planta docente)*100',20,'Número de profesores formados para la docencia con por lo menos una acción de formación   por año por unidad académica','a8','Total de la planta docente *100','b8'),(9,2,1,'Docentes actualizados en el Área Disciplinar ','Docentes actualizados en el Área Disciplinar en los ultimos 2 años.','Porcentaje de profesores con por  lo menos una acción de actualización en su área disciplinar   20%',0,'(Número de profesores con por  lo menos una acción de actualización en su área disciplinar  / total de los profesores)*100',20,'Número de profesores con por  lo menos una acción de actualización en su área disciplinar','a9','Total de los profesores *100','b9'),(10,3,2,'Programas Académicos Acreditados','Programas Académicos Acreditados','Porcentaje de programas académicos acreditados por organismos externos 50%',1,'(Número de programas académicos acreditados por organismos externos por unidad académica/Número de programas académicos ofertados por Unidad Académica) *100 ',50,'Número de programas académicos acreditados por organismos externos por unidad académica/','a10','Número de programas académicos ofertados por Unidad Académica *100 ','b10'),(11,4,2,'Programas Académicos Actualizados','Programas Académicos Actualizados o Rediseñados','Porcentaje de   programas de estudio  actualizados por programa académico en los últimos 4 años 50%',1,'(Número de programas de estudio actualizados/Total de progrmas de estudio de los programas académicos de la Unidad Académica) *100 ',50,'Número de programas de estudio actualizados','a11','Total de progrmas de estudio de los programas académicos de la Unidad Académica *100 ','b11'),(12,5,2,'Capacidad de atención alumnos en relación a talleres y laboratorios','Capacidad de atención a alumnos en relación a talleres y laboratorios','Capacidad de atención a alumnos por talleres y laboratorios por unidad académica y semestre 30%',0,'(Capacidad instalada de atención en laboratorios y talleres por el total de semestres, identificando la capacidad del taller o laboratotio con menor capacidad) ',30,'Capacidad instalada de atención en laboratorios y talleres','a12','Por el total de semestres, identificando la capacidad del taller o laboratotio con menor capacidad','b12'),(13,5,2,'Aulas Equipadas','Aulas Equpadas','Aulas equipadas conforme al modelo ideal por unidad académica (Cañon, Internet, Pantalla, Pizarron, Butacas, Escritorio) 35',0,'(Número de aulas equipadas por unidad académica/el total de aulas)*100',35,'Número de aulas equipadas por unidad académica','a13','El total de aulas *100','b13'),(14,5,2,'Laboratorios Equipado','Laboratorios Equipado','Laboratorios equipados conforme currícula por programa académico por unidad académica y año 35%',0,'(Número de laboratorios equipados conforme currícula por programa académico / total de laboratorios por programa académico)*100',35,'Número de laboratorios equipados conforme currícula por programa académico','a14','Total de laboratorios por programa académico *100','b14'),(15,6,3,'Becas  de Manutención','Becas','Porcentaje de alumnos beneficiados con algun tipo  de beca rgistrada den el SIBA, por año y unidad académica.',1,'(Número de alumnos beneficiados con  algun tipo de beca  rgistrada den el SIBA, por año y unidad académica/matrícula total por unidad académica)*100',100,'Número de alumnos beneficiados con  algun tipo de beca  rgistrada den el SIBA, por año y unidad académica','a15','Matrícula total por unidad académica *100','b15'),(16,7,3,'Alumnos Tutorados ','Alumnos Tutorados ','Porcentaje de alumnos tutorados por periodo escolar y  programa académico ',1,'(Número de alumnos tutorados por periodo escolar / matrícula total )*100',100,'Número de alumnos tutorados por periodo escolar','a16','Matrícula total *100','b16'),(17,8,3,'Bibliotecas','Títulos Actualizados','Porcentaje det títulos impresos y/o digitales disponibles con edición en un tiempo no mayor a 5 años a la fecha 50%',0,'(Número de títulos actualizados impresos o digitales por programa académico / Total del acervo bibliográfico por programa académico)*100',50,'Número de títulos actualizados impresos o digitales por programa académico','a17',' Total del acervo bibliográfico por programa académico *100','b17'),(18,8,3,'Mantenimiento y limpieza','Cumplimiento del programa de mantenimiento','Porcentaje de cumpliemito del programa de mantenimiento 50%',0,'(Número de servicios atendidos / Total servicios solicitados o programados por semestre)*100',50,'Número de servicios atendidos','a18','Total servicios solicitados o programados por semestre *100','b18'),(19,8,3,'Mantenimiento y limpieza','Cumplimiento del programa de limpieza','Porcentaje de cumpliemito del programa de limpieza 50%',0,'(Número de servicios atendidos / Total servicios programados por semestre)*100',50,'Número de servicios atendidos','a19','Total servicios programados por semestre *100','b19'),(20,9,4,'Alumnos Inscritos Participando en Servicio Social','Alumnos Participando en Servicio Social','Porcentaje  de alumnos  en alguno de los programas de servicio social por unidad académica ',1,'(Número de alumnos participando en sevicio social  por programa académico por año  / total de alumnos que deben hacer servicio social por programa académico)*100',35,'Número de alumnos participando en sevicio social  por programa académico por año','a20','Total de alumnos que deben hacer servicio social por programa académico *100','b20'),(21,10,4,'Alumnos insritos Realizando Prácticas Profesionales','Alumnos  Realizando Prácticas Profesionales','Porcentaje  de alumnos realizando prácticas profesionales por programa académico por año',1,'(Número de alumnos realizando prácticas profesionales  por programa académico por año  / total de alumnos que deben hacer prácticas profesionales por programa académico)*100',35,'Número de alumnos realizando prácticas profesionales  por programa académico por año','a21','Total de alumnos que deben hacer prácticas profesionales por programa académico *100','b21'),(22,11,4,'Proyectos Vinculados','Proyectos Vinculados','Tasa de variación del número de  proyectos vinculados por unidad académica. ',0,'(Número de proyectos vinculados por unidad académica por año  / Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100',30,'Número de proyectos vinculados por unidad académica por año','a22','Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100','b22'),(23,12,5,'Profesores de carrera que están involucrados en investigaciones','Profesores de carrera realizando investigación','Profesores  con dictamén de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP ',0,'(Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesoress de carrera de la Unidad Académica)*100',100,'Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP','a23','Total de Profesoress de carrera de la Unidad Académica *100','b23'),(24,13,5,'Innovaciones Educativas ','Innovaciones Educativas','Tasa de variación del  número de Innovaciones educativas identificadas, incubadas o escaladas por unidad académica ',0,'(Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año/ el total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior) -1)*100',100,'Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año','a24','El total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior) -1)*100','b24'),(25,14,6,'Inversión de los recursos autogenerados','Porcentaje de recursos autogenerados netos dedicados al  mantenimiento del inmueble y mantenimiento del equipo','Monto de los recursos autogenerados que se destinan al pago de Servicios de mantenimiento del inmueble y mantenimiento del equipo',0,'(Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo / total de los recursos autogenerados anualmente)*100',100,'Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo','a25','Rotal de los recursos autogenerados anualmente *100','b25');
+INSERT INTO `Indicador3` VALUES (1,1,1,'Rendimiento','Alumnos en situación escolar regular','Porcentaje de alumnos que han aprobado todas las unidades de aprendizaje en las que han estado inscritos por Unidad  académica',1,'(Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos  / Total de matrícula inscrita)*100',35,'Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos','a1','Total de matrícula inscrita','b1'),(2,1,1,'Eficiencia terminal','Eficiencia  termina','Porcentaje de alumnos que egresan por cohorte generacional por programa académico ',1,'( ? 1 n   Número de alumnos del cohorte A que egresan  en el año n / total de alumnos en el cohorte A)',25,'? 1 n   Número de alumnos del cohorte A que egresan  en el año n','a2','total de alumnos en el cohorte A','b2'),(3,1,1,'Titulación','Alumnos titulados ','Porcentaje de alumnos titulados hasta tres años después de egresar por programa académico',1,'(Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico /total de la matrícula de egreso del mismo periodo por programa académico)*100',5,'Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico','a3','total de la matrícula de egreso del mismo periodo por programa académico','b3'),(4,1,1,'Promoción de NMS a NS','Promoción  de alumnos por nivel educativo','Porcentaje de alumnos de NMS del IPN que concluyeron el último semestre y presentaron examen de admision  y ocuparon un lugar en NS del IPN',1,'(Número de alumnos de NMS del IPN que concluyeron el último semestre y presentaron examen de admision  y ocuparon un lugar en NS del IPN por programa académico / Total de alumnos del NMS del IPN que presentaron examen de ingreso al NS del IPN)*100',35,'Número de alumnos de NMS del IPN que concluyeron el último semestre y presentaron examen de admision  y ocuparon un lugar en NS del IPN por programa académico','a4',' Total de alumnos del NMS del IPN que presentaron examen de ingreso al NS del IPN','b4'),(5,2,1,'Aprovechamiento de la planta docente','Aprovechamiento de la Planta Docente','Total de horas frente a grupo por profesores de base por academia  25%',1,'( total de horas frente a grupo por profesores de base por periodo semestral por academia/  cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia)',20,' total de horas frente a grupo por profesores de base por periodo semestral por academia','a5',' cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia','b5'),(6,2,1,'Docentes de asignatura activos en el sector productivo','Docentes de Asignatura activos en el Sector Productivo','Porcentaje de docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen 25%',1,'(Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica/total de docentes contratados por asignatura  por unidad académica)*100',15,'Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica','a6','/total de docentes contratados por asignatura  por unidad académica','b6'),(7,2,1,'Docentes actualizados en el área diciplinar','Docentes actualizados en el Área Disciplinar','Porcentaje de profesores con por  lo menos una acción de actualización en su área disciplinar en los últimos dos años   25%',1,'(Número de profesores con por  lo menos una acción de actualización en su área disciplinar  / total de los profesores)*100',25,'Número de profesores con por  lo menos una acción de actualización en su área disciplinar','a7','total de los profesores','b7'),(8,2,1,'Desempeño docente por academia','Desempeño Docente ','Promedio de las evaluaciones individuales del cuestionario de apreciación estudiantil \r25%',1,'(la suma de la evaluación individual del cuestionario de apreciación estudiantil por docente por periodo semestral  por unidad académica/ entre el total del número docentes perteneciente, por periodo semestral por unidad académica)*100',40,'la suma de la evaluación individual del cuestionario de apreciación estudiantil por docente por periodo semestral  por unidad académica','a8',' entre el total del número docentes perteneciente, por periodo semestral por unidad académica','b8'),(9,3,2,'Programas académicos evaluados','Programas Académicos Evaluados','Porcentaje de   programas académicos con evaluación favorable en los últimos 4 años ',1,'(Número de programas académicos evaluados/Total de programas académicos de la Unidad Académica) *100 ',100,'Número de programas académicos evaluados','a9','Total de programas académicos de la Unidad Académica','b9'),(10,4,2,'Capacidad de atención alumnos en relación a talleres y laboratorios','Capacidad de atención alumnos en relación a talleres y laboratorios','Capacidad de atención a alumnos por talleres y laboratorios por unidad académica y semestre\rSuma de Capacidad instalada de atención en laboratorios y talleres por el total de semestres, identificando la capacidad del taller o laboratotio con menor capacidad de cada semestre\r ',0,'(Total de alumnos inscritos por Unidad Académica/(Capacidad instalada))*100 ',35,'Total de alumnos inscritos por Unidad Académica','a10','Cantidad Instalada','b10'),(11,4,2,'Aulas Equipadas','Aulas Equipadas','Aulas equipadas conforme al modelo ideal por unidad académica \r(Cañon, Internet, CPU, Pantalla, Pizarron, Butacas, Escritorio)\r',0,'(Número de aulas equipadas por unidad académica/el total de aulas)*100',35,'Número de aulas equipadas por unidad académica/','a11','Total de aulas','b11'),(12,4,2,'Laboratorios Equipado','Laboratorios Equipado','Laboratorios equipados conforme currícula por programa académico por unidad académica y año',1,'(Número de laboratorios equipados conforme currícula por programa académico / total de laboratorios por programa académico)*100',30,'Número de laboratorios equipados conforme currícula por programa académico','a12','total de laboratorios por programa académico','b12'),(13,5,3,'Becas de Manutención ','Becas','Porcentaje de alumnos que cuentan con algun tipo de beca registrada en el SIBA por año por unidad académca ',0,'(Número de alumnos que cuentan con beca registrada en el SIBA por año por unidad académica/matrícula total por unidad académica)*100',100,'Número de alumnos que cuentan con beca registrada en el SIBA por año por unidad académica','a13','matrícula total por unidad académica','b13'),(14,6,3,'Alumnos Tutorados','Alumnos Tutorados','Porcentaje de alumnos tutorados por periodo semestral y  programa académico ',1,'(Número de alumnos tutorados por periodo semestral / matrícula total)*100',100,'Número de alumnos tutorados por periodo semestral','a14','matrícula tota','b14'),(15,7,3,'Bibliotecas','Títulos Actualizados','Porcentaje de alumnos tutorados por periodo semestral y  programa académico ',1,'(Número de títulos actualizados impresos o digitales por semestre / Total del acervo bibliográfico por semestre)*100',17.5,'Número de títulos actualizados impresos o digitales por semestre','a15','Total del acervo bibliográfico por semestre','b15'),(16,7,3,'Bibliotecas ','Número de libros por alumno','Total de ejemplares por programa académico 50%',1,'(Número de ejemplares disponibles en sala por semestre/ total de matricula por semestre)',17.5,'Número de ejemplares disponibles en sala por semestre','a16','Total de matricula por semestre','b16'),(17,7,3,'Equipo de cómputo','Cobertura de Acceso a Internet ','Capacidad instalada de acceso a internet en la unidad académica',0,'(Capacidad instalada de acceso a internet / número de usuarios del turno con mayor número de personas de la unidad académica)*100',30,'Capacidad instalada de acceso a internet','a17','número de usuarios del turno con mayor número de personas de la unidad académica','b17'),(18,7,3,'Mantenimiento y limpieza','Cumplimiento del programa de mantenimiento','Porcentaje de cumpliemito del programa de mantenimiento 50%',0,'(Número de servicios atendidos / Total servicios solicitados o programados por semestre)*100',17.5,'Número de servicios atendidos','a18','Total servicios solicitados o programados por semestre','b18'),(19,7,3,'Mantenimiento y limpieza','Cumplimiento del programa de limpieza','Porcentaje de cumpliemito del programa de limpieza 50%',0,'(Número de servicios atendidos / Total servicios programados por semestre)*100',17.5,'Número de servicios atendidos ','a19','Total servicios programados por semestre','b19'),(20,8,4,'Alumnos Inscritos Participando en Servicio Social','Alumnos Inscritos Participando en Servicio Social','Número de alumnos inscritos en alguno de los programas de servicio social por unidad académica ',1,'(Número de alumnos inscritos realizando servicio social por unidad académica por año  / Número de alumnos inscritos realizando servicio social por unidad académica en el año inmediato anterior) -1)*100',100,'Número de alumnos inscritos realizando servicio social por unidad académica por año  ','a20','Número de alumnos inscritos realizando servicio social por unidad académica en el año inmediato anterios','b20'),(21,9,4,'Alumnos en Visitas Escolares','Porcentaje de Alumnos en Visitas Escolares','Número de alumnos  realizando visitas escolares por unidad académica por semestre',1,'(Número de alumnos realizando visitas escolares por unidad académica por semestre  / .total de la matrícula)*100',100,'Número de alumnos realizando visitas escolares por unidad académica por semestre ','a21','total de la matrícula','b21'),(22,10,4,'Proyectos Vinculados','Proyectos Vinculados','Número de proyectos vinculados por unidad académica',0,'(Número de proyectos vinculados por unidad académica por año  / Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100',100,'Número de proyectos vinculados por unidad académica por año','a22','Número de proyectos vinculados por unidad académica en el año inmediato anterior','b22'),(23,11,5,'Profesores de carrera que están involucrados en investigaciones','Profesores de carrera realizando investigación','Profesores contratados con dictamén de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP ',0,'(Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesoress de carrera de la Unidad Académica)*100',100,'Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP','a23','Total de Profesoress de carrera de la Unidad Académica','b23'),(24,12,5,'Profesores que presentan trabajos en eventos de investigación con la participación de alumnos','Profesores que presentan trabajos en eventos de investigación con la participación de alumnos','Profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores',0,'(Número de profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores / total de profesores que tienen proyectos registrados en la SIP)*100',100,'Número de profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores','a24',' total de profesores que tienen proyectos registrados en la SIP','b24'),(25,13,5,'Innovaciones Educativas','Innovaciones Educativas','Tasa de variación del  número de Innovaciones educativas identificadas, incubadas o escaladas por unidad académica 50%',0,'(Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año/ el total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior) -1)*100',50,'Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año','a25','el total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior','b25'),(26,13,5,'Investigaciones Educativas de impacto en el aula','Investigaciones Educativas de impacto en el aula','Tasa de variación del número de investigaciones educativas publicadas con impacto en el aula por unidad académica y por año',0,'(Número de investigaciones educativas publicadas con impacto en el aula por unidad académica y por año/ Número de investigaciones educativas publicadas con impacto en el aula por unidad académica del año inmediato anterior) -1)*100',50,'Número de investigaciones educativas publicadas con impacto en el aula por unidad académica y por año','a26','Número de investigaciones educativas publicadas con impacto en el aula por unidad académica del año inmediato anterio','b26'),(27,14,6,'Inversión de los recursos autogenerados','% de  Recursos autogenerados dedicados al  mantenimiento del inmueble y mantenimiento del equipo','Monto de los recursos netos autogenerados que se destinan al pago de Servicios de mantenimiento del inmueble y mantenimiento del equipo ',0,'(Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo / total de los recursos autogenerados anualmente)*100\r(Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo / total de los recursos autogenerados anualmente)*100',100,'Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo','a27','total de los recursos autogenerados anualmente','b27');
 /*!40000 ALTER TABLE `Indicador3` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -534,9 +522,6 @@ CREATE TABLE `Infraestructura` (
   `TotalAulas` int(11) DEFAULT '0',
   `LaboratoriosEquipados` int(11) DEFAULT '0',
   `TotalLaboratorios` int(11) DEFAULT '0',
-  `comprobante1` varchar(1000) DEFAULT NULL,
-  `comprobante2` varchar(1000) DEFAULT NULL,
-  `comprobante3` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idInfraestructura`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -547,7 +532,7 @@ CREATE TABLE `Infraestructura` (
 
 LOCK TABLES `Infraestructura` WRITE;
 /*!40000 ALTER TABLE `Infraestructura` DISABLE KEYS */;
-INSERT INTO `Infraestructura` VALUES (1,1,0,0,0,0,0,0,NULL,NULL,NULL),(2,2,21,121,34,344,0,122,NULL,NULL,NULL),(3,3,0,0,0,0,0,0,NULL,NULL,NULL),(4,4,0,0,0,0,0,0,NULL,NULL,NULL),(5,5,0,0,0,0,0,0,NULL,NULL,NULL),(6,6,0,0,0,0,0,0,NULL,NULL,NULL),(7,7,0,0,0,0,0,0,NULL,NULL,NULL),(8,8,0,0,0,0,0,0,NULL,NULL,NULL),(9,9,0,0,0,0,0,0,NULL,NULL,NULL),(10,10,0,0,0,0,0,0,NULL,NULL,NULL),(11,11,0,0,0,0,0,0,NULL,NULL,NULL),(12,12,0,0,0,0,0,0,NULL,NULL,NULL),(13,13,0,0,0,0,0,0,NULL,NULL,NULL),(14,14,0,0,0,0,0,0,NULL,NULL,NULL),(15,15,0,0,0,0,0,0,NULL,NULL,NULL),(16,16,0,0,0,0,0,0,NULL,NULL,NULL),(17,17,0,0,0,0,0,0,NULL,NULL,NULL),(18,18,0,0,0,0,0,0,NULL,NULL,NULL),(19,19,0,0,0,0,0,0,NULL,NULL,NULL),(20,23,0,0,0,0,0,0,NULL,NULL,NULL);
+INSERT INTO `Infraestructura` VALUES (1,1,0,0,0,0,0,0),(2,2,21,121,34,344,0,122),(3,3,0,0,0,0,0,0),(4,4,0,0,0,0,0,0),(5,5,0,0,0,0,0,0),(6,6,0,0,0,0,0,0),(7,7,0,0,0,0,0,0),(8,8,0,0,0,0,0,0),(9,9,0,0,0,0,0,0),(10,10,0,0,0,0,0,0),(11,11,0,0,0,0,0,0),(12,12,0,0,0,0,0,0),(13,13,0,0,0,0,0,0),(14,14,0,0,0,0,0,0),(15,15,0,0,0,0,0,0),(16,16,0,0,0,0,0,0),(17,17,0,0,0,0,0,0),(18,18,0,0,0,0,0,0),(19,19,0,0,0,0,0,0),(20,23,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `Infraestructura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -563,6 +548,8 @@ CREATE TABLE `InnovacionEducativa` (
   `idEvaluacion` int(11) NOT NULL,
   `InnovacionesIncubadas` int(11) DEFAULT '0',
   `InnovacionesIncubadasAnt` int(11) DEFAULT '0',
+  `InvestigacionesPublicadas` int(11) DEFAULT '0',
+  `InvestigacionesPublicadasAnt` int(11) DEFAULT '0',
   PRIMARY KEY (`idInnovacionEducativa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -573,7 +560,7 @@ CREATE TABLE `InnovacionEducativa` (
 
 LOCK TABLES `InnovacionEducativa` WRITE;
 /*!40000 ALTER TABLE `InnovacionEducativa` DISABLE KEYS */;
-INSERT INTO `InnovacionEducativa` VALUES (1,1,0,0),(2,2,0,0),(3,3,0,0),(4,4,0,0),(5,5,0,0),(6,6,0,0),(7,7,0,0),(8,8,0,0),(9,9,0,0),(10,10,0,0),(11,11,0,0),(12,12,0,0),(13,13,0,0),(14,14,0,0),(15,15,0,0),(16,16,0,0),(17,17,0,0),(18,18,0,0),(19,19,0,0),(20,23,0,0);
+INSERT INTO `InnovacionEducativa` VALUES (1,1,0,0,0,0),(2,2,0,0,0,0),(3,3,0,0,0,0),(4,4,0,0,0,0),(5,5,0,0,0,0),(6,6,0,0,0,0),(7,7,0,0,0,0),(8,8,0,0,0,0),(9,9,0,0,0,0),(10,10,0,0,0,0),(11,11,0,0,0,0),(12,12,0,0,0,0),(13,13,0,0,0,0),(14,14,0,0,0,0),(15,15,0,0,0,0),(16,16,0,0,0,0),(17,17,0,0,0,0),(18,18,0,0,0,0),(19,19,0,0,0,0),(20,23,0,0,0,0);
 /*!40000 ALTER TABLE `InnovacionEducativa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -634,32 +621,6 @@ INSERT INTO `Limites` VALUES (1,1,1,'Deficiente','Se identifican áreas de atenc
 UNLOCK TABLES;
 
 --
--- Table structure for table `PracticasProfesionales`
---
-
-DROP TABLE IF EXISTS `PracticasProfesionales`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `PracticasProfesionales` (
-  `idVisitasEscolares` int(11) NOT NULL AUTO_INCREMENT,
-  `idEvaluacion` int(11) NOT NULL,
-  `AlumnosPracticas` int(11) DEFAULT '0',
-  `TotalAlumnosPracticas` int(11) DEFAULT '0',
-  PRIMARY KEY (`idVisitasEscolares`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `PracticasProfesionales`
---
-
-LOCK TABLES `PracticasProfesionales` WRITE;
-/*!40000 ALTER TABLE `PracticasProfesionales` DISABLE KEYS */;
-INSERT INTO `PracticasProfesionales` VALUES (1,1,0,0),(2,2,0,234),(3,3,0,0),(4,4,0,0),(5,5,0,0),(6,6,0,0),(7,7,0,0),(8,8,0,0),(9,9,0,0),(10,10,0,0),(11,11,0,0),(12,12,0,0),(13,13,0,0),(14,14,0,0),(15,15,0,0),(16,16,0,0),(17,17,0,0),(18,18,0,0),(19,19,0,0),(20,23,0,87);
-/*!40000 ALTER TABLE `PracticasProfesionales` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `ProgramasAcademicos`
 --
 
@@ -671,8 +632,6 @@ CREATE TABLE `ProgramasAcademicos` (
   `idEvaluacion` int(11) NOT NULL,
   `ProgramasEvaluados` int(11) DEFAULT '0',
   `TotalProgramas` int(11) DEFAULT '0',
-  `comprobante1` varchar(1000) DEFAULT NULL,
-  `comprobante2` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idProgramasAcademicos`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -683,33 +642,8 @@ CREATE TABLE `ProgramasAcademicos` (
 
 LOCK TABLES `ProgramasAcademicos` WRITE;
 /*!40000 ALTER TABLE `ProgramasAcademicos` DISABLE KEYS */;
-INSERT INTO `ProgramasAcademicos` VALUES (1,1,0,0,NULL,NULL),(2,2,0,21,NULL,NULL),(3,3,0,0,NULL,NULL),(4,4,0,0,NULL,NULL),(5,5,0,0,NULL,NULL),(6,6,0,0,NULL,NULL),(7,7,0,0,NULL,NULL),(8,8,0,0,NULL,NULL),(9,9,0,0,NULL,NULL),(10,10,0,0,NULL,NULL),(11,11,0,0,NULL,NULL),(12,12,0,0,NULL,NULL),(13,13,0,0,NULL,NULL),(14,14,0,0,NULL,NULL),(15,15,0,0,NULL,NULL),(16,16,0,0,NULL,NULL),(17,17,0,0,NULL,NULL),(18,18,0,0,NULL,NULL),(19,19,0,0,NULL,NULL),(20,23,0,0,NULL,NULL);
+INSERT INTO `ProgramasAcademicos` VALUES (1,1,0,0),(2,2,0,21),(3,3,0,0),(4,4,0,0),(5,5,0,0),(6,6,0,0),(7,7,0,0),(8,8,0,0),(9,9,0,0),(10,10,0,0),(11,11,0,0),(12,12,0,0),(13,13,0,0),(14,14,0,0),(15,15,0,0),(16,16,0,0),(17,17,0,0),(18,18,0,0),(19,19,0,0),(20,23,0,0);
 /*!40000 ALTER TABLE `ProgramasAcademicos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `ProgramasAcreditados`
---
-
-DROP TABLE IF EXISTS `ProgramasAcreditados`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ProgramasAcreditados` (
-  `idProgramasAcreditados` int(11) NOT NULL DEFAULT '0',
-  `idEvaluacion` int(11) DEFAULT '0',
-  `AcademicosAcreditados` int(11) DEFAULT '0',
-  `OfertadosPorUnidadAcademica` int(11) DEFAULT '0',
-  PRIMARY KEY (`idProgramasAcreditados`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `ProgramasAcreditados`
---
-
-LOCK TABLES `ProgramasAcreditados` WRITE;
-/*!40000 ALTER TABLE `ProgramasAcreditados` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ProgramasAcreditados` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -827,7 +761,6 @@ CREATE TABLE `Tutorias` (
   `idEvaluacion` int(11) NOT NULL,
   `AlumnosTutorados` int(11) DEFAULT '0',
   `TotalAlumnos` int(11) DEFAULT '0',
-  `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idTutorias`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -838,7 +771,7 @@ CREATE TABLE `Tutorias` (
 
 LOCK TABLES `Tutorias` WRITE;
 /*!40000 ALTER TABLE `Tutorias` DISABLE KEYS */;
-INSERT INTO `Tutorias` VALUES (1,1,0,0,NULL),(2,2,0,100,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,23,0,0,NULL);
+INSERT INTO `Tutorias` VALUES (1,1,0,0),(2,2,0,100),(3,3,0,0),(4,4,0,0),(5,5,0,0),(6,6,0,0),(7,7,0,0),(8,8,0,0),(9,9,0,0),(10,10,0,0),(11,11,0,0),(12,12,0,0),(13,13,0,0),(14,14,0,0),(15,15,0,0),(16,16,0,0),(17,17,0,0),(18,18,0,0),(19,19,0,0),(20,23,0,0);
 /*!40000 ALTER TABLE `Tutorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -902,8 +835,34 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (21,2,19,'ESIME ZACATENCO','',NULL,'esimezac','8f52d59b5498d54822627d01e0ebd7b1','ipn@ipn.mx',345),(22,2,20,'ESIME CULHUACAN','',NULL,'esimecul','dc5228484f9e78af0bd9236ca839aa25','ipn@ipn.mx',345),(23,2,21,'ESIME AZCAPOTZALCO','',NULL,'esimeazc','8160388c418d3b7c8339d58dba211d96','ipn@ipn.mx',345),(24,2,22,'ESIME TICOMAN','',NULL,'esimetic','3d923bc92c0e5a65eaf4ad6f26b7dcb8','ipn@ipn.mx',345),(25,2,23,'ESIA ZACATENCO','',NULL,'esiazac','ca3f4e3a10576d20a015a2c0aa0b858d','ipn@ipn.mx',345),(26,2,24,'ESIA TECAMACHALCO','',NULL,'esiatec','e7fadfdcf739a98425bac75e71d3a146','ipn@ipn.mx',345),(27,2,25,'ESIA TICOMAN','',NULL,'esiatic','bc5afe19bda352d8d1bf4e0e5c2f0fcf','ipn@ipn.mx',345),(28,2,26,'ESIT','',NULL,'esit','4981cba4a0f563237cef7f84f9d87f4c','ipn@ipn.mx',345),(29,2,27,'ESIQIE','',NULL,'esiqie','9259022f13d285b7c96fee2557ac93c6','ipn@ipn.mx',345),(30,2,28,'ESFM','',NULL,'esfm','feb2adf96e764b99965c00d5bfc73af3','ipn@ipn.mx',345),(31,2,29,'ESCOM','',NULL,'escom','2adb768b56c36e66a71438f31f1e706a','ipn@ipn.mx',345),(32,2,30,'UPIICSA','',NULL,'upiicsa','74f15c9a7ddaefeecdb607a04407d1b5','ipn@ipn.mx',345),(33,2,31,'UPIITA','',NULL,'upiita','9f5699ef9a16d76cfc88612d8269e219','ipn@ipn.mx',345),(34,2,32,'UPIBI','',NULL,'upibi','55a62bdc84760d7e240d0315999d877e','ipn@ipn.mx',345),(35,2,33,'UPIIG','',NULL,'upiig','ea3c128b6f9357aca9b76ebd2c69b06e','ipn@ipn.mx',345),(36,2,34,'UPIIZ','',NULL,'upiiz','f0e963db2e9b1fa7476fc23593d056d4','ipn@ipn.mx',345),(37,2,35,'UPIIH','',NULL,'upiih','5f03d80751d669d9ba34724f10fd331f','ipn@ipn.mx',345),(38,2,36,'ENCB','',NULL,'encb','7ee60bf477d9c58ff7b6da2328943e66','ipn@ipn.mx',345),(39,2,37,'ESM','',NULL,'esm','218a42548aff025d8feea023a7cc7081','ipn@ipn.mx',345),(40,2,38,'ENMH','',NULL,'enmh','c1fd178010eacd60cb8ed7dfcc2ca63d','ipn@ipn.mx',345),(41,2,39,'ESEO','',NULL,'eso','27d73db252390920d52fd3267ab6117a','ipn@ipn.mx',345),(42,2,40,'CICS MILPA ALTA','',NULL,'cicsma','f23b5c23bb2b51c4cb6b1145ccf01294','ipn@ipn.mx',345),(43,2,41,'CICS SANTO TOMAS','',NULL,'cicsst','bb4747adee224b2423f0e53e27fd7015','ipn@ipn.mx',345),(44,2,42,'ESCA SANTO TOMAS','',NULL,'escast','29ba7c4d91918822d51aef173bd3445d','ipn@ipn.mx',345),(45,2,43,'ESCA TEPEPAN','',NULL,'escatp','de5e5e00aa1c116c5b86b0281cf57b36','ipn@ipn.mx',345),(46,2,44,'ESE','',NULL,'ese','910ff191b0a39beebf59ea89ef4f017d','ipn@ipn.mx',345),(47,2,45,'EST','',NULL,'est','690979f83c6a1dbc067fb75695089f80','ipn@ipn.mx',345);
+INSERT INTO `Usuarios` VALUES (21,2,19,'ESIME ZACATENCO','',NULL,'esimezac','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(22,2,20,'ESIME CULHUACAN','',NULL,'esimecul','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(23,2,21,'ESIME AZCAPOTZALCO','',NULL,'esimeazc','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(24,2,22,'ESIME TICOMAN','',NULL,'esimetic','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(25,2,23,'ESIA ZACATENCO','',NULL,'esiazac','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(26,2,24,'ESIA TECAMACHALCO','',NULL,'esiatec','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(27,2,25,'ESIA TICOMAN','',NULL,'esiatic','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(28,2,26,'ESIT','',NULL,'esit','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(29,2,27,'ESIQIE','',NULL,'esiqie','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(30,2,28,'ESFM','',NULL,'esfm','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(31,2,29,'ESCOM','',NULL,'escom','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(32,2,30,'UPIICSA','',NULL,'upiicsa','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(33,2,31,'UPIITA','',NULL,'upiita','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(34,2,32,'UPIBI','',NULL,'upibi','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(35,2,33,'UPIIG','',NULL,'upiig','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(36,2,34,'UPIIZ','',NULL,'upiiz','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(37,2,35,'UPIIH','',NULL,'upiih','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(38,2,36,'ENCB','',NULL,'encb','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(39,2,37,'ESM','',NULL,'esm','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(40,2,38,'ENMH','',NULL,'enmh','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(41,2,39,'ESEO','',NULL,'eso','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(42,2,40,'CICS MILPA ALTA','',NULL,'cicsma','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(43,2,41,'CICS SANTO TOMAS','',NULL,'cicsst','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(44,2,42,'ESCA SANTO TOMAS','',NULL,'escast','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(45,2,43,'ESCA TEPEPAN','',NULL,'escatp','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(46,2,44,'ESE','',NULL,'ese','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345),(47,2,45,'EST','',NULL,'est','21232f297a57a5a743894a0e4a801fc3','ipn@ipn.mx',345);
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `VisitasEscolares`
+--
+
+DROP TABLE IF EXISTS `VisitasEscolares`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `VisitasEscolares` (
+  `idVisitasEscolares` int(11) NOT NULL AUTO_INCREMENT,
+  `idEvaluacion` int(11) NOT NULL,
+  `AlumnosVisita` int(11) DEFAULT '0',
+  `TotalMatricula` int(11) DEFAULT '0',
+  PRIMARY KEY (`idVisitasEscolares`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VisitasEscolares`
+--
+
+LOCK TABLES `VisitasEscolares` WRITE;
+/*!40000 ALTER TABLE `VisitasEscolares` DISABLE KEYS */;
+INSERT INTO `VisitasEscolares` VALUES (1,1,0,0),(2,2,0,234),(3,3,0,0),(4,4,0,0),(5,5,0,0),(6,6,0,0),(7,7,0,0),(8,8,0,0),(9,9,0,0),(10,10,0,0),(11,11,0,0),(12,12,0,0),(13,13,0,0),(14,14,0,0),(15,15,0,0),(16,16,0,0),(17,17,0,0),(18,18,0,0),(19,19,0,0),(20,23,0,87);
+/*!40000 ALTER TABLE `VisitasEscolares` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -915,4 +874,30 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-18 12:09:04
+-- Dump completed on 2016-04-14 22:09:00
+
+DELIMITER $$
+USE upev0012016sup$$
+CREATE DEFINER = CURRENT_USER TRIGGER upev0012016sup.Evaluacion_AFTER_INSERT AFTER INSERT ON Evaluacion FOR EACH ROW
+BEGIN
+
+  INSERT INTO upev0012016sup.Alumnos (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.ApoyoEducativo (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Docentes (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.ProgramasAcademicos (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Tutorias (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Becas (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.Infraestructura (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.ServicioSocial (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.VisitasEscolares (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.ProyectosVinculados (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.RecursosAutogenerados (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.InvestigacionDocencia (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.AlumnosInvestigacion (idEvaluacion) VALUES (NEW.idEvaluacion);
+  INSERT INTO upev0012016sup.InnovacionEducativa (idEvaluacion) VALUES (NEW.idEvaluacion);
+
+END
+$$
+
+DELIMITER ;
+
