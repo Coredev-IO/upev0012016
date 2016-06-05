@@ -9,7 +9,7 @@
                       <br>
                       <div id="myTabContent" class="tab-content">
                         <div id="home" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade active in">
-<?php echo form_open_multipart('desempeno/updateAlumnos');?>
+<?php echo form_open_multipart('desempeno/updateAlumnosSup');?>
 <!-- <div class="row"> -->
 <?php
 
@@ -45,7 +45,7 @@ foreach ($v1 as $key) {
 	array_push($al, $key);
 }
 
-$NumeroArchivo = 10;
+$NumeroArchivo = 12;
 
 $fileInput = 1;
 
@@ -58,13 +58,14 @@ foreach ($nivelAlumnos as $row) {
 		echo '<div class="row row-bloque">';
 		echo '<div class="col-md-4">&nbsp;</div>';
 		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-4 title-row"></div><div class="col-md-4 title-row">'.$row["campo1"].'</div><div class="col-md-4 title-row"></div><div class="col-md-4 title-row">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"></div><br></div></div></div>';
-		$i                                                      = 1;
-		$varID                                                  = "";
-		if ($row["Nombre"] == "Rendimiento") {$varID            = "a"; $varID2            = "z";};
-		if ($row["Nombre"] == "Eficiencia terminal") {$varID    = "b"; $varID2    = "y";};
-		if ($row["Nombre"] == "Titulación") {$varID            = "c"; $varID2            = "x";};
-		if ($row["Nombre"] == "Promoción de NMS a NS") {$varID = "d"; $varID2 = "w";};
-		$prinArr                                                = 0;
+		$i                                                   = 1;
+		$varID                                               = "";
+		if ($row["Nombre"] == "Rendimiento") {$varID         = "a"; $varID2         = "z";};
+		if ($row["Nombre"] == "Eficiencia Terminal") {$varID = "b"; $varID2 = "y";};
+		if ($row["Nombre"] == "Titulación") {$varID         = "c"; $varID2         = "x";};
+		if ($row["Nombre"] == "Fuera de Reglamento") {$varID = "d"; $varID2 = "w";};
+		if ($row["Nombre"] == "Inserción Laboral") {$varID  = "e"; $varID2  = "v";};
+		$prinArr                                             = 0;
 
 		foreach ($bloques as $roww) {
 			$prinArr2 = 0;
@@ -147,7 +148,7 @@ echo "</div>";
 <!-- </div> -->
                         </div>
                         <div id="profile" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade">
-<?php echo form_open_multipart('desempeno/updateDocencia');?>
+<?php echo form_open_multipart('desempeno/updateDocenciaSup');?>
 <!-- <div class="row"> -->
 <?php
 $idComplete = 2;
@@ -174,10 +175,10 @@ foreach ($nivelDocentes as $row) {
 		$varID  = "";
 		$varID2 = "";
 
-		if ($row["Indicadores"] == "Aprovechamiento de la Planta Docente") {$varID                   = "e"; $varID2                   = "v";};
-		if ($row["Indicadores"] == "Docentes de Asignatura activos en el Sector Productivo") {$varID = "f"; $varID2 = "u";};
-		if ($row["Indicadores"] == "Docentes actualizados en el Área Disciplinar") {$varID          = "g"; $varID2          = "t";};
-		if ($row["Indicadores"] == "Desempeño Docente") {$varID                                     = "h"; $varID2                                     = "s";};
+		if ($row["Indicadores"] == "Aprovechamiento de la Planta Docente") {$varID                   = "f"; $varID2                   = "u";};
+		if ($row["Indicadores"] == "Docentes de asignatura activos en el sector productivo") {$varID = "g"; $varID2 = "t";};
+		if ($row["Indicadores"] == "Docentes actualizados en el Área Disciplinar") {$varID          = "h"; $varID2          = "s";};
+		if ($row["Indicadores"] == "Desempeño docente") {$varID                                     = "i"; $varID2                                     = "r";};
 		$prinArr                                                                                     = 0;
 
 		foreach ($bloques as $roww) {
@@ -231,9 +232,9 @@ foreach ($nivelDocentes as $row) {
 	} else {
 		echo '<div class="row row-bloque">';
 		echo '<div class="col-md-4">&nbsp;</div>';
-		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo1"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="0" class="form-control" id='.$row["campo1id"].' name='.$row["campo1id"].' required></div><br></div></div></div>';
+		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo1"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo1id"].' name='.$row["campo1id"].' required></div><br></div></div></div>';
 		$idComplete++;
-		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="0" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
+		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	}

@@ -37,6 +37,18 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function getLastEvaluacionSup($unidad) {
+		$this->db->select('');
+		$this->db->from('EvaluacionSup');
+		$this->db->where('idUnidad', $unidad);
+		$this->db->order_by("CreateDate", "desc");
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
 	//Evaluaciones subnivel de bloque
 	function getEvaluacionSubnivel($unidad) {
 		$this->db->select('');
@@ -48,10 +60,32 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	//Evaluaciones subnivel de bloque Superior
+	function getEvaluacionSubnivelSup($unidad) {
+		$this->db->select('');
+		$this->db->from('IndicadorSup');
+		$this->db->where('idUnidad', $unidad);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
 	//Evaluaciones subnivel de bloque y evaluacion en especifico
 	function getEvaluacionSubnivelFiltro($unidad, $evaluacion) {
 		$this->db->select('');
 		$this->db->from('IndicadorMs');
+		$this->db->where('idUnidad', $unidad);
+		$this->db->where('idEvaluacion', $evaluacion);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getEvaluacionSubnivelFiltroSup($unidad, $evaluacion) {
+		$this->db->select('');
+		$this->db->from('IndicadorSup');
 		$this->db->where('idUnidad', $unidad);
 		$this->db->where('idEvaluacion', $evaluacion);
 
@@ -83,10 +117,34 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	//Se insertan datos de subnivel Superior
+	function insert_subnivelSup($datos) {
+		$data = array(
+			'idUnidad'     => $datos['idUnidad'],
+			'idBloque'     => $datos['idBloque'],
+			'idEvaluacion' => $datos['idEvaluacion'],
+			'idCampo'      => $datos['idCampo'],
+		);
+		$this->db->insert('IndicadorSup', $data);
+
+	}
+
 	function getEvaluacionId($id, $unidad) {
 		$this->db->select('');
 		$this->db->from('Evaluacion');
 		$this->db->where('idEvaluacion', $id);
+		$this->db->where('idUnidad', $unidad);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getEvaluacionIdSup($id, $unidad) {
+		$this->db->select('');
+		$this->db->from('EvaluacionSup');
+		$this->db->where('idEvaluacionSup', $id);
 		$this->db->where('idUnidad', $unidad);
 		$this->db->limit(1);
 
@@ -105,9 +163,31 @@ Class Evaluacion extends CI_Model {
 		return $query->result();
 
 	}
+
+	function getAlumnosSup($id) {
+		$this->db->select('');
+		$this->db->from('AlumnosSup');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
 	function getDocentes($id) {
 		$this->db->select('');
 		$this->db->from('Docentes');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getDocentesSup($id) {
+		$this->db->select('');
+		$this->db->from('DocentesSup');
 		$this->db->where('idEvaluacion', $id);
 		$this->db->limit(1);
 
@@ -245,16 +325,38 @@ Class Evaluacion extends CI_Model {
 
 	}
 
-        function update_BAlumnosRegularesT($datos) {
-                $data = array(
-                        'BAlumnosRegularesT' => $datos['BAlumnosRegularesT'],
-                );
-                $this->db->where('idUnidad', $datos['idUnidad']);
-                $this->db->where('idBloque', $datos['idBloque']);
-                $this->db->where('idEvaluacion', $datos['idEvaluacion']);
-                $this->db->update('IndicadorMs', $data);
+	function update_BAlumnosRegularesSup($datos) {
+		$data = array(
+			'BAlumnosRegulares' => $datos['BAlumnosRegulares'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
-        }
+	}
+
+	function update_BAlumnosRegularesT($datos) {
+		$data = array(
+			'BAlumnosRegularesT' => $datos['BAlumnosRegularesT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BAlumnosRegularesTSup($datos) {
+		$data = array(
+			'BAlumnosRegularesT' => $datos['BAlumnosRegularesT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
 
 	function update_BEficienciaTerminal($datos) {
 		$data = array(
@@ -267,7 +369,18 @@ Class Evaluacion extends CI_Model {
 
 	}
 
-        function update_BEficienciaTerminalT($datos) {
+	function update_BEficienciaTerminalSup($datos) {
+		$data = array(
+			'BEficienciaTerminal' => $datos['BEficienciaTerminal'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BEficienciaTerminalT($datos) {
 		$data = array(
 			'BEficienciaTerminalT' => $datos['BEficienciaTerminalT'],
 		);
@@ -275,6 +388,61 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BEficienciaTerminalTSup($datos) {
+		$data = array(
+			'BEficienciaTerminalT' => $datos['BEficienciaTerminalT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BAlumnosRiesgoAbandonoSup($datos) {
+		$data = array(
+			'BAlumnosRiesgoAbandono' => $datos['BAlumnosRiesgoAbandono'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BAlumnosRiesgoAbandonoTSup($datos) {
+		$data = array(
+			'BAlumnosRiesgoAbandonoT' => $datos['BAlumnosRiesgoAbandonoT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BRecienEgresadosSup($datos) {
+		$data = array(
+			'BRecienEgresados' => $datos['BRecienEgresados'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BRecienEgresadosTSup($datos) {
+		$data = array(
+			'BRecienEgresadosT' => $datos['BRecienEgresadosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
 	}
 
@@ -289,7 +457,7 @@ Class Evaluacion extends CI_Model {
 
 	}
 
-        function update_BAlumnosTituladosT($datos) {
+	function update_BAlumnosTituladosT($datos) {
 		$data = array(
 			'BAlumnosTituladosT' => $datos['BAlumnosTituladosT'],
 		);
@@ -297,6 +465,28 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BAlumnosTituladosSup($datos) {
+		$data = array(
+			'BAlumnosTitulados' => $datos['BAlumnosTitulados'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BAlumnosTituladosTSup($datos) {
+		$data = array(
+			'BAlumnosTituladosT' => $datos['BAlumnosTituladosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
 	}
 
@@ -311,16 +501,16 @@ Class Evaluacion extends CI_Model {
 
 	}
 
-        function update_BPromocionNST($datos) {
-                $data = array(
-                        'BPromocionNST' => $datos['BPromocionNST'],
-                );
-                $this->db->where('idUnidad', $datos['idUnidad']);
-                $this->db->where('idBloque', $datos['idBloque']);
-                $this->db->where('idEvaluacion', $datos['idEvaluacion']);
-                $this->db->update('IndicadorMs', $data);
+	function update_BPromocionNST($datos) {
+		$data = array(
+			'BPromocionNST' => $datos['BPromocionNST'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorMs', $data);
 
-        }
+	}
 
 	function update_BHorasFrenteGrupo($datos) {
 		$data = array(
@@ -330,6 +520,17 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BHorasFrenteGrupoSup($datos) {
+		$data = array(
+			'BHorasFrenteGrupo' => $datos['BHorasFrenteGrupo'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
 	}
 
@@ -344,6 +545,17 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BHorasFrenteGrupoTSup($datos) {
+		$data = array(
+			'BHorasFrenteGrupoT' => $datos['BHorasFrenteGrupoT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
 	function update_BProfesoresActivos($datos) {
 		$data = array(
 			'BProfesoresActivos' => $datos['BProfesoresActivos'],
@@ -352,6 +564,17 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BProfesoresActivosSup($datos) {
+		$data = array(
+			'BProfesoresActivos' => $datos['BProfesoresActivos'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
 	}
 
@@ -366,6 +589,17 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BProfesoresActivosTSup($datos) {
+		$data = array(
+			'BProfesoresActivosT' => $datos['BProfesoresActivosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
 	function update_BProfesoresActualizados($datos) {
 		$data = array(
 			'BProfesoresActualizados' => $datos['BProfesoresActualizados'],
@@ -374,6 +608,17 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BProfesoresActualizadosSup($datos) {
+		$data = array(
+			'BProfesoresActualizados' => $datos['BProfesoresActualizados'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
 	}
 
@@ -388,6 +633,17 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BProfesoresActualizadosTSup($datos) {
+		$data = array(
+			'BProfesoresActualizadosT' => $datos['BProfesoresActualizadosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
 	function update_BEvaluacionesIndividuales($datos) {
 		$data = array(
 			'BEvaluacionesIndividuales' => $datos['BEvaluacionesIndividuales'],
@@ -399,6 +655,17 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BEvaluacionesIndividualesSup($datos) {
+		$data = array(
+			'BEvaluacionesIndividuales' => $datos['BEvaluacionesIndividuales'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
 	function update_BEvaluacionesIndividualesT($datos) {
 		$data = array(
 			'BEvaluacionesIndividualesT' => $datos['BEvaluacionesIndividualesT'],
@@ -407,6 +674,17 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BEvaluacionesIndividualesTSup($datos) {
+		$data = array(
+			'BEvaluacionesIndividualesT' => $datos['BEvaluacionesIndividualesT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
 	}
 

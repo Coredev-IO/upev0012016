@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for osx10.9 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.19, for osx10.7 (i386)
 --
 -- Host: localhost    Database: upev0012016
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.10-MariaDB
+-- Server version 5.6.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,7 +38,7 @@ CREATE TABLE `Alumnos` (
   `comprobante3` varchar(1000) DEFAULT NULL,
   `comprobante4` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idAlumnos`,`idEvaluacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `Alumnos` (
 
 LOCK TABLES `Alumnos` WRITE;
 /*!40000 ALTER TABLE `Alumnos` DISABLE KEYS */;
-INSERT INTO `Alumnos` VALUES (1,1,0,0,0,0,0,0,0,0,'/uploads/desempeno/alumnos/1_1_js-logo.png','/uploads/desempeno/alumnos/1_2_js-logo.png','/uploads/desempeno/alumnos/1_3_js-logo.png','/uploads/desempeno/alumnos/1_4_js-logo.png'),(2,2,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(3,3,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(4,4,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(5,5,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(6,6,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(7,7,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(8,8,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(9,9,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(10,10,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(11,11,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(12,12,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(13,13,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(14,14,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(15,15,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(16,16,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(17,17,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(18,18,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(19,19,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL);
+INSERT INTO `Alumnos` VALUES (1,1,0,0,0,0,0,0,0,0,'/uploads/desempeno/alumnos/1_1_less.jpg','/uploads/desempeno/alumnos/1_2_less.jpg','/uploads/desempeno/alumnos/1_3_9338635.png','/uploads/desempeno/alumnos/1_4_9338635.png');
 /*!40000 ALTER TABLE `Alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `AlumnosInvestigacion` (
   `ProfesoresConProyectos` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idAlumnosInvestigacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,8 +74,46 @@ CREATE TABLE `AlumnosInvestigacion` (
 
 LOCK TABLES `AlumnosInvestigacion` WRITE;
 /*!40000 ALTER TABLE `AlumnosInvestigacion` DISABLE KEYS */;
-INSERT INTO `AlumnosInvestigacion` VALUES (20,1,0,0,NULL),(21,2,0,0,NULL),(22,3,0,0,NULL),(23,4,0,0,NULL),(24,5,0,0,NULL),(25,6,0,0,NULL),(26,7,0,0,NULL),(27,8,0,0,NULL),(28,9,0,0,NULL),(29,10,0,0,NULL),(30,11,0,0,NULL),(31,12,0,0,NULL),(32,13,0,0,NULL),(33,14,0,0,NULL),(34,15,0,0,NULL),(35,16,0,0,NULL),(36,17,0,0,NULL),(37,18,0,0,NULL),(38,19,0,0,NULL);
+INSERT INTO `AlumnosInvestigacion` VALUES (20,1,0,0,NULL),(21,2,0,0,NULL),(22,3,0,0,NULL),(23,4,0,0,NULL),(24,5,0,0,NULL),(25,6,0,0,NULL),(26,7,0,0,NULL),(27,8,0,0,NULL),(28,9,0,0,NULL),(29,10,0,0,NULL),(30,11,0,0,NULL),(31,12,0,0,NULL),(32,13,0,0,NULL),(33,14,0,0,NULL),(34,15,0,0,NULL),(35,16,0,0,NULL),(36,17,0,0,NULL),(37,18,0,0,NULL),(38,19,0,0,NULL),(39,20,0,0,NULL),(40,21,0,0,NULL),(41,22,0,0,NULL),(42,1,0,0,NULL);
 /*!40000 ALTER TABLE `AlumnosInvestigacion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AlumnosSup`
+--
+
+DROP TABLE IF EXISTS `AlumnosSup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AlumnosSup` (
+  `idAlumnos` int(11) NOT NULL,
+  `idEvaluacion` int(11) NOT NULL,
+  `AlumnosAcreditados` int(11) NOT NULL DEFAULT '0',
+  `AlumnosInscritos` int(11) NOT NULL DEFAULT '0',
+  `AlumnosEgresadosCohorte` int(11) NOT NULL DEFAULT '0',
+  `AlumnosTotalesCohorte` int(11) NOT NULL DEFAULT '0',
+  `AlumnosTituladosGeneracion` int(11) NOT NULL DEFAULT '0',
+  `AlumnosEgresadosGeneracion` int(11) NOT NULL DEFAULT '0',
+  `AlumnosDesfasados` int(11) NOT NULL DEFAULT '0',
+  `AlumnosInscritosGeneracion` int(11) NOT NULL DEFAULT '0',
+  `AlumnosLaboral` int(11) NOT NULL DEFAULT '0',
+  `AlumnosTotalEgresados` int(11) NOT NULL DEFAULT '0',
+  `comprobante1` varchar(1000) NOT NULL,
+  `comprobante2` varchar(1000) NOT NULL,
+  `comprobante3` varchar(1000) NOT NULL,
+  `comprobante4` varchar(1000) NOT NULL,
+  `comprobante5` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AlumnosSup`
+--
+
+LOCK TABLES `AlumnosSup` WRITE;
+/*!40000 ALTER TABLE `AlumnosSup` DISABLE KEYS */;
+INSERT INTO `AlumnosSup` VALUES (0,21,0,0,0,0,0,0,0,0,0,0,'/uploads/desempeno/alumnossup/21_1_less.jpg','/uploads/desempeno/alumnossup/21_2_9338635.png','/uploads/desempeno/alumnossup/21_3_9338635.png','/uploads/desempeno/alumnossup/21_4_less.jpg','/uploads/desempeno/alumnossup/21_5_9338635.png'),(0,22,0,0,0,0,0,0,0,0,0,0,'/uploads/desempeno/alumnossup/22_1_','/uploads/desempeno/alumnossup/22_2_','/uploads/desempeno/alumnossup/22_3_','/uploads/desempeno/alumnossup/22_4_','/uploads/desempeno/alumnossup/22_5_');
+/*!40000 ALTER TABLE `AlumnosSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -104,7 +142,7 @@ CREATE TABLE `ApoyoEducativo` (
   `comprobante4` varchar(1000) DEFAULT NULL,
   `comprobante5` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idApoyoEducativo`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +151,7 @@ CREATE TABLE `ApoyoEducativo` (
 
 LOCK TABLES `ApoyoEducativo` WRITE;
 /*!40000 ALTER TABLE `ApoyoEducativo` DISABLE KEYS */;
-INSERT INTO `ApoyoEducativo` VALUES (20,1,0,0,0,0,7,7,6,6,1,1,'/uploads/apoyo/apoyoEducativo/1_1_','/uploads/apoyo/apoyoEducativo/1_2_','/uploads/apoyo/apoyoEducativo/1_3_','/uploads/apoyo/apoyoEducativo/1_4_','/uploads/apoyo/apoyoEducativo/1_5_'),(21,2,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(22,3,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(23,4,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(24,5,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(25,6,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(26,7,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(27,8,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(28,9,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(29,10,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(30,11,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(31,12,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(32,13,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(33,14,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(34,15,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(35,16,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(36,17,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(37,18,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(38,19,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `ApoyoEducativo` VALUES (20,1,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(21,2,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(22,3,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(23,4,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(24,5,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(25,6,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(26,7,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(27,8,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(28,9,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(29,10,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(30,11,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(31,12,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(32,13,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(33,14,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(34,15,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(35,16,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(36,17,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(37,18,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(38,19,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(39,20,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(40,21,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(41,22,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(42,1,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `ApoyoEducativo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +169,7 @@ CREATE TABLE `Becas` (
   `TotalAlumnos` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idBecas`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +178,7 @@ CREATE TABLE `Becas` (
 
 LOCK TABLES `Becas` WRITE;
 /*!40000 ALTER TABLE `Becas` DISABLE KEYS */;
-INSERT INTO `Becas` VALUES (20,1,0,0,NULL),(21,2,0,0,NULL),(22,3,0,0,NULL),(23,4,0,0,NULL),(24,5,0,0,NULL),(25,6,0,0,NULL),(26,7,0,0,NULL),(27,8,0,0,NULL),(28,9,0,0,NULL),(29,10,0,0,NULL),(30,11,0,0,NULL),(31,12,0,0,NULL),(32,13,0,0,NULL),(33,14,0,0,NULL),(34,15,0,0,NULL),(35,16,0,0,NULL),(36,17,0,0,NULL),(37,18,0,0,NULL),(38,19,0,0,NULL);
+INSERT INTO `Becas` VALUES (20,1,0,0,NULL),(21,2,0,0,NULL),(22,3,0,0,NULL),(23,4,0,0,NULL),(24,5,0,0,NULL),(25,6,0,0,NULL),(26,7,0,0,NULL),(27,8,0,0,NULL),(28,9,0,0,NULL),(29,10,0,0,NULL),(30,11,0,0,NULL),(31,12,0,0,NULL),(32,13,0,0,NULL),(33,14,0,0,NULL),(34,15,0,0,NULL),(35,16,0,0,NULL),(36,17,0,0,NULL),(37,18,0,0,NULL),(38,19,0,0,NULL),(39,20,0,0,NULL),(40,21,0,0,NULL),(41,22,0,0,NULL),(42,1,0,0,NULL);
 /*!40000 ALTER TABLE `Becas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +203,7 @@ CREATE TABLE `Bloques` (
 
 LOCK TABLES `Bloques` WRITE;
 /*!40000 ALTER TABLE `Bloques` DISABLE KEYS */;
-INSERT INTO `Bloques` VALUES (124,1,'	Tronco Común 	'),(125,1,'	Técnico en Construcción	'),(126,1,'	Técnico en Procesos Industriales	'),(127,1,'	Técnico en Sistemas de Control Eléctrico	'),(128,1,'	Técnico en Sistemas Digitales	'),(129,2,'	Tronco Común 	'),(130,2,'	Técnico en Aeronáutica	'),(131,2,'	Técnico en Dibujo Asistido por Computadora	'),(132,2,'	Técnico en Diseño Grafico Digital	'),(133,2,'	Técnico en Máquinas con Sistemas Automatizados	'),(134,2,'	Técnico en Metalurgia	'),(135,2,'	Técnico en Sistemas Automotrices	'),(136,3,'	Tronco Común 	'),(137,3,'	Técnico en Aeronáutica	'),(138,3,'	Técnico en Computación	'),(139,3,'	Técnico en Manufactura Asistida por Computadora	'),(140,3,'	Técnico en Sistemas Automotrices	'),(141,3,'	Técnico en Sistemas de Control Eléctrico	'),(142,3,'	Técnico en Sistemas Digitales	'),(143,4,'	Tronco Común 	'),(144,4,'	Técnico en Aeronáutica	'),(145,4,'	Técnico en Construcción	'),(146,4,'	Técnico en Instalaciones y Mantenimiento Eléctricos	'),(147,4,'	Técnico en Procesos Industriales	'),(148,4,'	Técnico en Sistemas Automotrices	'),(149,7,'	Tronco Común 	'),(150,7,'	Técnico en Aeronáutica	'),(151,7,'	Técnico en Construcción	'),(152,7,'	Técnico en Instalaciones y Mantenimiento Eléctricos	'),(153,7,'	Técnico en Mantenimiento Industrial	'),(154,7,'	Técnico en Sistemas Automotrices	'),(155,7,'	Técnico en Soldadura Industrial	'),(156,8,'	Tronco Común 	'),(157,8,'	Técnico en Computación	'),(158,8,'	Técnico en Mantenimiento Industrial	'),(159,8,'	Técnico en Plásticos	'),(160,8,'	Técnico en Sistemas Automotrices	'),(161,9,'	Tronco Común 	'),(162,9,'	Técnico en Máquinas con Sistemas Automatizados	'),(163,9,'	Técnico en Programación	'),(164,9,'	Técnico en Sistemas Digitales	'),(165,10,'	Tronco Común 	'),(166,10,'	Técnico en Diagnóstico y Mejoramiento Ambiental	'),(167,10,'	Técnico en Metrología y Control de Calidad	'),(168,10,'	Técnico en Telecomunicaciones	'),(169,11,'	Tronco Común 	'),(170,11,'	Técnico en Construcción	'),(171,11,'	Técnico en Instalaciones y Mantenimiento Eléctricos	'),(172,11,'	Técnico en Procesos Industriales	'),(173,11,'	Técnico en Telecomunicaciones	'),(174,18,'	Tronco Común 	'),(175,18,'	Técnico en Automatización y Control Eléctrico Industrial	'),(176,18,'	Técnico en Redes de Cómputo	'),(177,18,'	Técnico en Sistemas Automotrices	'),(178,18,'	Técnico en Sistemas Constructivos Asistidos por Computadora	'),(179,18,'	Técnico en Sistemas Mecánicos Industriales	'),(180,6,'	Tronco Común 	'),(181,6,'	Técnico en Laboratorista Clínico	'),(182,6,'	Técnico en Ecología	'),(183,6,'	Técnico en Enfermería	'),(184,6,'	Técnico  Laboratorista Químico	'),(185,15,'	Tronco Común 	'),(186,15,'	Técnico en Alimentos	'),(187,15,'	Técnico  Laboratorista Clínico	'),(188,15,'	Técnico en Nutrición Humana 	'),(189,12,'	Tronco Común 	'),(190,12,'	Técnico en Administración	'),(191,12,'	Técnico en Contaduría	'),(192,12,'	Técnico en Informática	'),(193,13,'	Tronco Común 	'),(194,13,'	Técnico en Administración	'),(195,13,'	Técnico en Contaduría	'),(196,13,'	Técnico en Informática	'),(197,13,'	Técnico en Administraciòn de Empresas Turìsticas	'),(198,5,'	Tronco Común 	'),(199,5,'	Técnico en Comercio Internacional	'),(200,5,'	Técnico en Contaduría	'),(201,5,'	Técnico en Informática	'),(202,14,'	Tronco Común 	'),(203,14,'	Técnico en Contaduría	'),(204,14,'	Técnico en Informática	'),(205,14,'	Técnico en Mercadotecnia	'),(206,16,'	Tronco Común 	'),(207,16,'	Técnico en Mantenimiento Industrial	'),(208,16,'	Técnico en Procesos Industriales	'),(209,16,'	Técnico en Máquinas con Sistemas Automatizados	'),(210,16,'	Técnico en Enfermería	'),(211,16,'	Técnico en Laboratorista Clínico	'),(212,16,'	Técnico en Comercio Internacional	'),(213,16,'	Técnico en Administración	'),(214,17,'	Tronco Común 	'),(215,17,'	Técnico en Aeronáutica	'),(216,17,'	Técnico en Sistemas Automotrices	'),(217,17,'	Técnico en Metrología y Control de Calidad	'),(218,17,'	Técnico en Alimentos	'),(219,17,'	Técnico en Administracion de  Empresas Turisticas	'),(220,17,'	Técnico en Comercio Internacional	'),(221,19,'Ingeniería en Comunicaciones y Electrónica'),(222,19,'Ingeniería en Control y Automatización'),(223,19,'Ingeniería Eléctrica'),(224,19,'Ingeniería en Sistemas Automotrices'),(225,20,'Ingeniería en Computación'),(226,20,'Ingeniería en Comunicaciones y Electrónica'),(227,20,'Ingeniería Mecánica'),(228,20,'Ingeniería en Sistemas Automotrices'),(229,21,'Ingeniería Mecánica'),(230,21,'Ingeniería en Robótica Industrial'),(231,21,'Ingeniería en Sistemas Automotrices'),(232,22,'Ingeniería en Aeronáutica'),(233,22,'Ingeniería en Sistemas Automotrices'),(234,23,'Ingeniería Civil'),(235,24,'Ingeniero Arquitecto'),(236,25,'Ingeniería Petrolera'),(237,25,'Ingeniería Geológica'),(238,25,'Ingeniería Geofísica'),(239,25,'Ingeniería Topográfica y Fotogramétrica'),(240,26,'Ingeniería Textil'),(241,27,'Ingeniería Química Industrial'),(242,27,'Ingeniería Química Petrolera '),(243,27,'Ingeniería Metalurgia Y Materiales'),(244,28,'Ingeniería Matemática'),(245,28,'Licenciatura en Física y Matemáticas'),(246,29,'Ingeniería en Sistemas Computacionales'),(247,29,'Ingeniería en Sistemas Automotrices'),(248,30,'Licenciatura en Administración Industrial'),(249,30,'Ingeniería Industrial'),(250,30,'Ingeniería en Informática'),(251,30,'Licenciatura en Ciencias de la Informática'),(252,30,'Ingeniería en Transporte'),(253,30,'Ingeniería en Sistemas Automotrices'),(254,31,'Ingeniería Telemática'),(255,31,'Ingeniería Mecatrónica'),(256,31,'Ingeniería Biónica'),(257,31,'Ingeniería en Sistemas Automotrices'),(258,32,'Ingeniería en Alimentos'),(259,32,'Ingeniería Ambiental'),(260,32,'Ingeniería Biomédica'),(261,32,'Ingeniería Biotecnológica'),(262,32,'Ingeniería Farmacéutica'),(263,33,'Ingeniería Biotecnológica'),(264,33,'Ingeniería en Aeronáutica'),(265,33,'Ingeniería en Sistemas Automotrices'),(266,33,'Ingeniería Farmacéutica'),(267,33,'Ingeniería Industrial'),(268,34,'Ingeniería Mecatrónica'),(269,34,'Ingeniería en Alimentos'),(270,34,'Ingeniería en Sistemas Computacionales'),(271,34,'Ingeniería Ambiental'),(272,34,'Ingeniería Metalurgia '),(273,35,'Ingeniería Mecatrónica'),(274,35,'Ingeniería en Sistemas Automotrices'),(275,36,'Licenciatura en Biología'),(276,36,'Ingeniería Bioquímica'),(277,36,'Ingeniería en Sistemas Ambientales'),(278,36,'Químico Bacteriólogo Parasitólogo'),(279,36,'Químico Farmacéutico Industrial'),(280,37,'Médico Cirujano y Partero'),(281,38,'Médico Cirujano y Partero'),(282,38,'Médico Cirujano y Homeópata'),(283,39,'Licenciatura en Enfermería'),(284,39,'Licenciatura en Enfermería y Obstetricia'),(285,40,'Licenciatura en Enfermería'),(286,40,'Médico Cirujano y Partero'),(287,40,'Licenciatura en Nutrición'),(288,40,'Licenciatura en Odontología'),(289,40,'Licenciatura en Optometría'),(290,40,'Licenciatura en Trabajo Social'),(291,41,'Licenciatura en Odontología'),(292,41,'Licenciatura en Optometría'),(293,41,'Licenciatura en Psicología'),(294,42,'Contaduría Pública'),(295,42,'Licenciatura en Negocios Internacionales'),(296,42,'Licenciatura en Relaciones Comerciales'),(297,42,'Licenciatura en Administración y Desarrollo Empresarial ??'),(298,43,'Contaduría Pública'),(299,43,'Licenciatura en Negocios Internacionales'),(300,43,'Licenciatura en Relaciones Comerciales'),(301,45,'Licenciatura en Economía'),(302,46,'Licenciatura en Turismo');
+INSERT INTO `Bloques` VALUES (124,1,' Tronco Común  '),(125,1,' Técnico en Construcción '),(126,1,' Técnico en Procesos Industriales  '),(127,1,' Técnico en Sistemas de Control Eléctrico  '),(128,1,' Técnico en Sistemas Digitales '),(129,2,' Tronco Común  '),(130,2,' Técnico en Aeronáutica  '),(131,2,' Técnico en Dibujo Asistido por Computadora  '),(132,2,' Técnico en Diseño Grafico Digital '),(133,2,' Técnico en Máquinas con Sistemas Automatizados  '),(134,2,' Técnico en Metalurgia '),(135,2,' Técnico en Sistemas Automotrices  '),(136,3,' Tronco Común  '),(137,3,' Técnico en Aeronáutica  '),(138,3,' Técnico en Computación  '),(139,3,' Técnico en Manufactura Asistida por Computadora '),(140,3,' Técnico en Sistemas Automotrices  '),(141,3,' Técnico en Sistemas de Control Eléctrico  '),(142,3,' Técnico en Sistemas Digitales '),(143,4,' Tronco Común  '),(144,4,' Técnico en Aeronáutica  '),(145,4,' Técnico en Construcción '),(146,4,' Técnico en Instalaciones y Mantenimiento Eléctricos '),(147,4,' Técnico en Procesos Industriales  '),(148,4,' Técnico en Sistemas Automotrices  '),(149,7,' Tronco Común  '),(150,7,' Técnico en Aeronáutica  '),(151,7,' Técnico en Construcción '),(152,7,' Técnico en Instalaciones y Mantenimiento Eléctricos '),(153,7,' Técnico en Mantenimiento Industrial '),(154,7,' Técnico en Sistemas Automotrices  '),(155,7,' Técnico en Soldadura Industrial '),(156,8,' Tronco Común  '),(157,8,' Técnico en Computación  '),(158,8,' Técnico en Mantenimiento Industrial '),(159,8,' Técnico en Plásticos  '),(160,8,' Técnico en Sistemas Automotrices  '),(161,9,' Tronco Común  '),(162,9,' Técnico en Máquinas con Sistemas Automatizados  '),(163,9,' Técnico en Programación '),(164,9,' Técnico en Sistemas Digitales '),(165,10,'  Tronco Común  '),(166,10,'  Técnico en Diagnóstico y Mejoramiento Ambiental '),(167,10,'  Técnico en Metrología y Control de Calidad  '),(168,10,'  Técnico en Telecomunicaciones '),(169,11,'  Tronco Común  '),(170,11,'  Técnico en Construcción '),(171,11,'  Técnico en Instalaciones y Mantenimiento Eléctricos '),(172,11,'  Técnico en Procesos Industriales  '),(173,11,'  Técnico en Telecomunicaciones '),(174,18,'  Tronco Común  '),(175,18,'  Técnico en Automatización y Control Eléctrico Industrial  '),(176,18,'  Técnico en Redes de Cómputo '),(177,18,'  Técnico en Sistemas Automotrices  '),(178,18,'  Técnico en Sistemas Constructivos Asistidos por Computadora '),(179,18,'  Técnico en Sistemas Mecánicos Industriales  '),(180,6,' Tronco Común  '),(181,6,' Técnico en Laboratorista Clínico  '),(182,6,' Técnico en Ecología '),(183,6,' Técnico en Enfermería '),(184,6,' Técnico  Laboratorista Químico  '),(185,15,'  Tronco Común  '),(186,15,'  Técnico en Alimentos  '),(187,15,'  Técnico  Laboratorista Clínico  '),(188,15,'  Técnico en Nutrición Humana   '),(189,12,'  Tronco Común  '),(190,12,'  Técnico en Administración '),(191,12,'  Técnico en Contaduría '),(192,12,'  Técnico en Informática  '),(193,13,'  Tronco Común  '),(194,13,'  Técnico en Administración '),(195,13,'  Técnico en Contaduría '),(196,13,'  Técnico en Informática  '),(197,13,'  Técnico en Administraciòn de Empresas Turìsticas  '),(198,5,' Tronco Común  '),(199,5,' Técnico en Comercio Internacional '),(200,5,' Técnico en Contaduría '),(201,5,' Técnico en Informática  '),(202,14,'  Tronco Común  '),(203,14,'  Técnico en Contaduría '),(204,14,'  Técnico en Informática  '),(205,14,'  Técnico en Mercadotecnia  '),(206,16,'  Tronco Común  '),(207,16,'  Técnico en Mantenimiento Industrial '),(208,16,'  Técnico en Procesos Industriales  '),(209,16,'  Técnico en Máquinas con Sistemas Automatizados  '),(210,16,'  Técnico en Enfermería '),(211,16,'  Técnico en Laboratorista Clínico  '),(212,16,'  Técnico en Comercio Internacional '),(213,16,'  Técnico en Administración '),(214,17,'  Tronco Común  '),(215,17,'  Técnico en Aeronáutica  '),(216,17,'  Técnico en Sistemas Automotrices  '),(217,17,'  Técnico en Metrología y Control de Calidad  '),(218,17,'  Técnico en Alimentos  '),(219,17,'  Técnico en Administracion de  Empresas Turisticas '),(220,17,'  Técnico en Comercio Internacional '),(221,19,'Ingeniería en Comunicaciones y Electrónica'),(222,19,'Ingeniería en Control y Automatización'),(223,19,'Ingeniería Eléctrica'),(224,19,'Ingeniería en Sistemas Automotrices'),(225,20,'Ingeniería en Computación'),(226,20,'Ingeniería en Comunicaciones y Electrónica'),(227,20,'Ingeniería Mecánica'),(228,20,'Ingeniería en Sistemas Automotrices'),(229,21,'Ingeniería Mecánica'),(230,21,'Ingeniería en Robótica Industrial'),(231,21,'Ingeniería en Sistemas Automotrices'),(232,22,'Ingeniería en Aeronáutica'),(233,22,'Ingeniería en Sistemas Automotrices'),(234,23,'Ingeniería Civil'),(235,24,'Ingeniero Arquitecto'),(236,25,'Ingeniería Petrolera'),(237,25,'Ingeniería Geológica'),(238,25,'Ingeniería Geofísica'),(239,25,'Ingeniería Topográfica y Fotogramétrica'),(240,26,'Ingeniería Textil'),(241,27,'Ingeniería Química Industrial'),(242,27,'Ingeniería Química Petrolera '),(243,27,'Ingeniería Metalurgia Y Materiales'),(244,28,'Ingeniería Matemática'),(245,28,'Licenciatura en Física y Matemáticas'),(246,29,'Ingeniería en Sistemas Computacionales'),(247,29,'Ingeniería en Sistemas Automotrices'),(248,30,'Licenciatura en Administración Industrial'),(249,30,'Ingeniería Industrial'),(250,30,'Ingeniería en Informática'),(251,30,'Licenciatura en Ciencias de la Informática'),(252,30,'Ingeniería en Transporte'),(253,30,'Ingeniería en Sistemas Automotrices'),(254,31,'Ingeniería Telemática'),(255,31,'Ingeniería Mecatrónica'),(256,31,'Ingeniería Biónica'),(257,31,'Ingeniería en Sistemas Automotrices'),(258,32,'Ingeniería en Alimentos'),(259,32,'Ingeniería Ambiental'),(260,32,'Ingeniería Biomédica'),(261,32,'Ingeniería Biotecnológica'),(262,32,'Ingeniería Farmacéutica'),(263,33,'Ingeniería Biotecnológica'),(264,33,'Ingeniería en Aeronáutica'),(265,33,'Ingeniería en Sistemas Automotrices'),(266,33,'Ingeniería Farmacéutica'),(267,33,'Ingeniería Industrial'),(268,34,'Ingeniería Mecatrónica'),(269,34,'Ingeniería en Alimentos'),(270,34,'Ingeniería en Sistemas Computacionales'),(271,34,'Ingeniería Ambiental'),(272,34,'Ingeniería Metalurgia '),(273,35,'Ingeniería Mecatrónica'),(274,35,'Ingeniería en Sistemas Automotrices'),(275,36,'Licenciatura en Biología'),(276,36,'Ingeniería Bioquímica'),(277,36,'Ingeniería en Sistemas Ambientales'),(278,36,'Químico Bacteriólogo Parasitólogo'),(279,36,'Químico Farmacéutico Industrial'),(280,37,'Médico Cirujano y Partero'),(281,38,'Médico Cirujano y Partero'),(282,38,'Médico Cirujano y Homeópata'),(283,39,'Licenciatura en Enfermería'),(284,39,'Licenciatura en Enfermería y Obstetricia'),(285,40,'Licenciatura en Enfermería'),(286,40,'Médico Cirujano y Partero'),(287,40,'Licenciatura en Nutrición'),(288,40,'Licenciatura en Odontología'),(289,40,'Licenciatura en Optometría'),(290,40,'Licenciatura en Trabajo Social'),(291,41,'Licenciatura en Odontología'),(292,41,'Licenciatura en Optometría'),(293,41,'Licenciatura en Psicología'),(294,42,'Contaduría Pública'),(295,42,'Licenciatura en Negocios Internacionales'),(296,42,'Licenciatura en Relaciones Comerciales'),(297,42,'Licenciatura en Administración y Desarrollo Empresarial ??'),(298,43,'Contaduría Pública'),(299,43,'Licenciatura en Negocios Internacionales'),(300,43,'Licenciatura en Relaciones Comerciales'),(301,45,'Licenciatura en Economía'),(302,46,'Licenciatura en Turismo');
 /*!40000 ALTER TABLE `Bloques` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +249,7 @@ CREATE TABLE `Docentes` (
   `TotalHorasBase` int(11) DEFAULT '0',
   `TotalHorasReglamento` int(11) DEFAULT '0',
   `DocentesActivosProductivo` int(11) DEFAULT '0',
-  `TotalDocentesContratadosAsignatura` int(11) DEFAULT '0' COMMENT '	',
+  `TotalDocentesContratadosAsignatura` int(11) DEFAULT '0' COMMENT '  ',
   `ProfesoresActualizacion` int(11) DEFAULT '0',
   `TotalProfesores` int(11) DEFAULT '0',
   `EvaluacionIndividual` int(11) DEFAULT '0',
@@ -221,7 +259,7 @@ CREATE TABLE `Docentes` (
   `comprobante3` varchar(1000) DEFAULT NULL,
   `comprobante4` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idDocentes`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,8 +268,43 @@ CREATE TABLE `Docentes` (
 
 LOCK TABLES `Docentes` WRITE;
 /*!40000 ALTER TABLE `Docentes` DISABLE KEYS */;
-INSERT INTO `Docentes` VALUES (20,1,0,0,0,0,0,0,0,0,'/uploads/desempeno/docentes/1_1_','/uploads/desempeno/docentes/1_2_','/uploads/desempeno/docentes/1_3_','/uploads/desempeno/docentes/1_4_'),(21,2,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(22,3,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(23,4,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(24,5,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(25,6,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(26,7,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(27,8,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(28,9,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(29,10,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(30,11,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(31,12,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(32,13,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(33,14,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(34,15,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(35,16,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(36,17,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(37,18,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL),(38,19,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL);
+INSERT INTO `Docentes` VALUES (1,1,0,0,0,0,0,0,0,0,'/uploads/desempeno/docentes/1_1_9338635.png','/uploads/desempeno/docentes/1_2_less.jpg','/uploads/desempeno/docentes/1_3_less.jpg','/uploads/desempeno/docentes/1_4_less.jpg');
 /*!40000 ALTER TABLE `Docentes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `DocentesSup`
+--
+
+DROP TABLE IF EXISTS `DocentesSup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `DocentesSup` (
+  `idDocentes` int(11) NOT NULL,
+  `idEvaluacion` int(11) NOT NULL,
+  `TotalHorasBase` int(11) DEFAULT '0',
+  `TotalHorasReglamento` int(11) DEFAULT '0',
+  `DocentesActivosProductivo` int(11) DEFAULT '0',
+  `TotalDocentesContratadosAsignatura` int(11) DEFAULT '0' COMMENT '  ',
+  `ProfesoresParaDocencias` int(11) DEFAULT '0',
+  `TotalProfesores` int(11) DEFAULT '0',
+  `ProfesoresActualizados` int(11) DEFAULT '0',
+  `TotalPrefesores` int(11) DEFAULT '0',
+  `comprobante1` varchar(1000) NOT NULL,
+  `comprobante2` varchar(1000) NOT NULL,
+  `comprobante3` varchar(1000) NOT NULL,
+  `comprobante4` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `DocentesSup`
+--
+
+LOCK TABLES `DocentesSup` WRITE;
+/*!40000 ALTER TABLE `DocentesSup` DISABLE KEYS */;
+INSERT INTO `DocentesSup` VALUES (0,21,11,222,98,78,78,56,90,435,'/uploads/desempeno/docentessup/21_1_less.jpg','/uploads/desempeno/docentessup/21_2_less.jpg','/uploads/desempeno/docentessup/21_3_9338635.png','/uploads/desempeno/docentessup/21_4_less.jpg'),(0,22,98,568,687,67786,423,67,768,678,'/uploads/desempeno/docentessup/22_1_','/uploads/desempeno/docentessup/22_2_','/uploads/desempeno/docentessup/22_3_','/uploads/desempeno/docentessup/22_4_');
+/*!40000 ALTER TABLE `DocentesSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -348,7 +421,7 @@ CREATE TABLE `Evaluacion` (
   PRIMARY KEY (`idEvaluacion`,`idUnidad`),
   KEY `idUnidadFK_idx` (`idUnidad`),
   CONSTRAINT `idUnidad2` FOREIGN KEY (`idUnidad`) REFERENCES `Unidad` (`idUnidad`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -357,8 +430,56 @@ CREATE TABLE `Evaluacion` (
 
 LOCK TABLES `Evaluacion` WRITE;
 /*!40000 ALTER TABLE `Evaluacion` DISABLE KEYS */;
-INSERT INTO `Evaluacion` VALUES (1,1,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:03:03'),(2,2,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(3,3,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(4,4,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(5,5,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(6,6,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(7,7,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(8,8,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(9,9,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(10,10,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(11,11,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(12,12,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(13,13,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(14,14,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(15,15,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(16,16,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(17,17,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(18,18,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27'),(19,46,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-04-25 10:04:27');
+INSERT INTO `Evaluacion` VALUES (1,1,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-06-05 06:57:54');
 /*!40000 ALTER TABLE `Evaluacion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `EvaluacionSup`
+--
+
+DROP TABLE IF EXISTS `EvaluacionSup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `EvaluacionSup` (
+  `idEvaluacionSup` int(11) NOT NULL AUTO_INCREMENT,
+  `idUnidad` int(11) NOT NULL,
+  `Nombre` varchar(100) NOT NULL,
+  `Descripcion` varchar(200) DEFAULT NULL,
+  `Al_rendimiento` float DEFAULT '0',
+  `Al_eficiencia` float DEFAULT '0',
+  `Al_titulacion` float DEFAULT '0',
+  `Al_abandono` float DEFAULT '0',
+  `Al_laboral` float DEFAULT '0',
+  `Al_cal_rendimiento` int(11) DEFAULT '0' COMMENT '\n',
+  `Al_cal_eficiencia` int(11) DEFAULT '0',
+  `Al_cal_titulacion` int(11) DEFAULT '0',
+  `Al_cal_abandono` float DEFAULT '0',
+  `Al_cal_laboral` float DEFAULT '0',
+  `Al_Total` float DEFAULT '0',
+  `Do_aprovechamiento` float DEFAULT '0',
+  `Do_activos` float DEFAULT '0',
+  `Do_formados` float DEFAULT '0',
+  `Do_actualizados` float DEFAULT '0',
+  `Do_cal_aprovechamiento` int(11) DEFAULT '0',
+  `Do_cal_activos` int(11) DEFAULT '0',
+  `Do_cal_formados` int(11) DEFAULT '0',
+  `Do_cal_actualizados` int(11) DEFAULT '0',
+  `Do_Total` float DEFAULT '0',
+  `CreateDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idEvaluacionSup`),
+  KEY `idUnidadFK_idx` (`idUnidad`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `EvaluacionSup`
+--
+
+LOCK TABLES `EvaluacionSup` WRITE;
+/*!40000 ALTER TABLE `EvaluacionSup` DISABLE KEYS */;
+INSERT INTO `EvaluacionSup` VALUES (21,26,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-06-05 07:19:52'),(22,30,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-06-05 09:48:59');
+/*!40000 ALTER TABLE `EvaluacionSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -414,6 +535,32 @@ INSERT INTO `Indicador1` VALUES (1,'Desempeño',NULL,25),(2,'Oferta educativa',N
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Indicador1Sup`
+--
+
+DROP TABLE IF EXISTS `Indicador1Sup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Indicador1Sup` (
+  `idIndicador1Sup` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(1000) DEFAULT NULL,
+  `Descripcion` varchar(1000) DEFAULT NULL,
+  `Valor` float DEFAULT NULL,
+  PRIMARY KEY (`idIndicador1Sup`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Indicador1Sup`
+--
+
+LOCK TABLES `Indicador1Sup` WRITE;
+/*!40000 ALTER TABLE `Indicador1Sup` DISABLE KEYS */;
+INSERT INTO `Indicador1Sup` VALUES (1,'Desempeño',NULL,25),(2,'Oferta educativa',NULL,25),(3,'Apoyo',NULL,15),(4,'Vinculación',NULL,15),(5,'Investigación',NULL,10),(6,'Gestión administrativa',NULL,10);
+/*!40000 ALTER TABLE `Indicador1Sup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Indicador2`
 --
 
@@ -440,6 +587,35 @@ LOCK TABLES `Indicador2` WRITE;
 /*!40000 ALTER TABLE `Indicador2` DISABLE KEYS */;
 INSERT INTO `Indicador2` VALUES (1,1,'Alumnos',NULL,50),(2,1,'Pefil Docente',NULL,50),(3,2,'Programas académicos',NULL,50),(4,2,'Infraestructura',NULL,50),(5,3,'Becas',NULL,33),(6,3,'Tutorías',NULL,33),(7,3,'Servicio de apoyo educativo',NULL,34),(8,4,'Servicio social',NULL,30),(9,4,'Visitas escolares',NULL,35),(10,4,'Proyectos vinculados',NULL,35),(11,5,'Apoyo de la investigación a la docencia',NULL,40),(12,5,'Participación de los alumnos en investigaciones',NULL,30),(13,5,'Innovación e investigación educativa',NULL,30),(14,6,'Recursos autogenerados',NULL,100);
 /*!40000 ALTER TABLE `Indicador2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Indicador2Sup`
+--
+
+DROP TABLE IF EXISTS `Indicador2Sup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Indicador2Sup` (
+  `Indicador2Sup` int(11) NOT NULL AUTO_INCREMENT,
+  `idIndicador1Sup` int(11) NOT NULL,
+  `Nombre` varchar(1000) DEFAULT NULL,
+  `Descripcion` varchar(1000) DEFAULT NULL,
+  `Valor` float DEFAULT NULL,
+  PRIMARY KEY (`Indicador2Sup`,`idIndicador1Sup`),
+  KEY `idIndicador1Sup_idx` (`idIndicador1Sup`),
+  CONSTRAINT `idIndicador1Sup` FOREIGN KEY (`idIndicador1Sup`) REFERENCES `Indicador1Sup` (`idIndicador1Sup`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Indicador2Sup`
+--
+
+LOCK TABLES `Indicador2Sup` WRITE;
+/*!40000 ALTER TABLE `Indicador2Sup` DISABLE KEYS */;
+INSERT INTO `Indicador2Sup` VALUES (1,1,'Alumno',NULL,50),(2,1,'Perfil Docente',NULL,50),(3,2,'Programas Acreditados',NULL,25),(4,2,'Programas Académicos',NULL,25),(5,2,'Infraestructura',NULL,50),(6,3,'Becas',NULL,33),(7,3,'Tutorias',NULL,33),(8,3,'Servicios de apoyo educativo',NULL,34),(9,4,'Servicio Social',NULL,35),(10,4,'Practicas Profesionales',NULL,35),(11,4,'Proyectos Vinculados',NULL,30),(12,5,'Apoyo de la investigación a la docencia',NULL,50),(13,5,'Innovación e investigación educativa',NULL,50),(14,6,'Recursos Autogenerados',NULL,100);
+/*!40000 ALTER TABLE `Indicador2Sup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -480,6 +656,42 @@ INSERT INTO `Indicador3` VALUES (1,1,1,'Rendimiento','Alumnos en situación esco
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Indicador3Sup`
+--
+
+DROP TABLE IF EXISTS `Indicador3Sup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Indicador3Sup` (
+  `idIndicador3Sup` int(11) NOT NULL AUTO_INCREMENT,
+  `idIndicador2Sup` int(11) NOT NULL,
+  `idIndicador1Sup` int(11) NOT NULL,
+  `Nombre` varchar(1000) DEFAULT NULL,
+  `Indicadores` varchar(200) NOT NULL,
+  `Descripcion` varchar(1000) DEFAULT NULL,
+  `Despegable` tinyint(1) NOT NULL,
+  `Metodo` varchar(500) NOT NULL,
+  `Valor` float DEFAULT NULL,
+  `campo1` varchar(400) DEFAULT NULL,
+  `campo1id` varchar(50) DEFAULT NULL,
+  `campo2` varchar(400) DEFAULT NULL,
+  `campo2id` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`idIndicador3Sup`,`idIndicador2Sup`,`idIndicador1Sup`),
+  KEY `fk_Indicador3Sup_Indicador21Sup_idx` (`idIndicador2Sup`,`idIndicador1Sup`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Indicador3Sup`
+--
+
+LOCK TABLES `Indicador3Sup` WRITE;
+/*!40000 ALTER TABLE `Indicador3Sup` DISABLE KEYS */;
+INSERT INTO `Indicador3Sup` VALUES (1,1,1,'Rendimiento','Alumno en situación escolar regular ','Porcentaje de alumnos que han aprobado todas las unidades de aprendizaje en las que han estado inscritos por Unidad  académica  ',1,'(Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos  / Total de matrícula inscrita)*100',20,'Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos por programa académico ','a1','Total de matrícula inscrita por programa académico*100','b1'),(2,1,1,'Eficiencia Terminal','Eficiencia Terminal','Porcentaje de alumnos que egresan por cohorte generacional por programa académico',1,'(Sumatoria-Número de alumnos del cohorte A que egresan  en el año n / total de alumnos en el cohorte A)',20,'Sumatoria-Número de alumnos del cohorte A que egresan  en el año n por programa académico','a2','Total de alumnos admitidos al programa académico en el cohorte A','b2'),(3,1,1,'Titulación','Alumnos titulados ','Porcentaje de alumnos titulados hasta tres años después de egresar por programa académico',1,'(Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico /total de la matrícula de egreso del mismo periodo por programa académico)*100',20,'Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico','a3','Total de la matrícula de egreso del mismo periodo por programa académico*100','b3'),(4,1,1,'Fuera de Reglamento','Alumno en riesgo de abandono por situación académica.','Porcentaje de alumnos con unidades de aprendizaje con adeudo, defasadas por 2 o más periodos escolares. ',1,'(Número de alumnos con unidades de aprendizaje con adeudo, desfasadas por 2 0 más periodos escolares / Total de matrícula inscrita por programa académico) *100',20,'Número de alumnos con unidades de aprendizaje defasadas por 2 o más periodos escolares','a4','Total de matrícula inscrita por programa académico por semestre*100','b4'),(5,1,1,'Inserción Laboral','Recien egresados en inserción laboral','Porcentaje de egresados que se insertan al mercado laboral en coincidencia con el programa académico de formación, en 1 año posterior a su egreso.',1,'(Número de alumnos que se insertan al mercado laboral en coincidencia con el programa académico de egreso en un tiempo máximo de un 1 año/total de alumnos de egreso del programa académico del mismo periodo)*100',20,'Número de alumnos que se insertan al mercado laboral en coincidencia con el programa académico de egreso en un tiempo máximo de un 1 año','a5','Total de alumnos de egreso del programa académico del mismo periodo*100','b5'),(6,2,1,'Aprovechamiento de la planta docente ','Aprovechamiento de la Planta Docente','Total de horas frente a grupo por profesores de base por academia  20%',0,'(Total de horas frente a grupo por profesores de base por periodo semestral por academia/  cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia)',20,'Total de horas frente a grupo por profesores de base por periodo semestral por academia','a6','Cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia.','b6'),(7,2,1,'Docentes de Asignatura activos en el Sector Productivo','Docentes de Asignatura activos en el Sector Productivo','Porcentaje de docentes de asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen 20%',0,'(Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica/total de docentes contratados por asignatura  por unidad académica)*100',20,'Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica.','a7','Total de docentes contratados por asignatura  por unidad académica.','b7'),(8,2,1,'Profesores en educación continua para la docencia','Profesores formados para la docencia y/o en educación continua para la docencia en los ultimos 5 años','Porcentaje de profesores actualizados  para la docencia con al menos una acción formativa por año en la unidad académica 20%',0,'(Número de profesores formados para la docencia con por lo menos una acción de formación   por año por unidad académica / total de la planta docente)*100',20,'Número de profesores formados para la docencia con por lo menos una acción de formación   por año por unidad académica.','a8','Total de la planta docente.','b8'),(9,2,1,'Docentes actualizados en el Área Disciplinar ','Docentes actualizados en el Área Disciplinar en los ultimos 2 años.','Porcentaje de profesores con por  lo menos una acción de actualización en su área disciplinar   20%',0,'(Número de profesores con por  lo menos una acción de actualización en su área disciplinar  / total de los profesores)*100',20,'Número de profesores con por  lo menos una acción de actualización en su área disciplinar.','a9','Total de los profesores.','b9'),(10,3,2,'Programas Académicos Acreditados','Programas Académicos Acreditados','Porcentaje de programas académicos acreditados por organismos externos 50%',1,'(Número de programas académicos acreditados por organismos externos por unidad académica/Número de programas académicos ofertados por Unidad Académica) *100 ',50,'Número de programas académicos acreditados por organismos externos por unidad académica/','a10','Número de programas académicos ofertados por Unidad Académica *100 ','b10'),(11,4,2,'Programas Académicos Actualizados','Programas Académicos Actualizados o Rediseñados','Porcentaje de   programas de estudio  actualizados por programa académico en los últimos 4 años 50%',1,'(Número de programas de estudio actualizados/Total de progrmas de estudio de los programas académicos de la Unidad Académica) *100 ',50,'Número de programas de estudio actualizados','a11','Total de progrmas de estudio de los programas académicos de la Unidad Académica *100 ','b11'),(12,5,2,'Capacidad de atención alumnos en relación a talleres y laboratorios','Capacidad de atención a alumnos en relación a talleres y laboratorios','Capacidad de atención a alumnos por talleres y laboratorios por unidad académica y semestre 30%',0,'(Capacidad instalada de atención en laboratorios y talleres por el total de semestres, identificando la capacidad del taller o laboratotio con menor capacidad) ',30,'Capacidad instalada de atención en laboratorios y talleres','a12','Por el total de semestres, identificando la capacidad del taller o laboratotio con menor capacidad','b12'),(13,5,2,'Aulas Equipadas','Aulas Equpadas','Aulas equipadas conforme al modelo ideal por unidad académica (Cañon, Internet, Pantalla, Pizarron, Butacas, Escritorio) 35',0,'(Número de aulas equipadas por unidad académica/el total de aulas)*100',35,'Número de aulas equipadas por unidad académica','a13','El total de aulas *100','b13'),(14,5,2,'Laboratorios Equipado','Laboratorios Equipado','Laboratorios equipados conforme currícula por programa académico por unidad académica y año 35%',0,'(Número de laboratorios equipados conforme currícula por programa académico / total de laboratorios por programa académico)*100',35,'Número de laboratorios equipados conforme currícula por programa académico','a14','Total de laboratorios por programa académico *100','b14'),(15,6,3,'Becas  de Manutención','Becas','Porcentaje de alumnos beneficiados con algun tipo  de beca rgistrada den el SIBA, por año y unidad académica.',1,'(Número de alumnos beneficiados con  algun tipo de beca  rgistrada den el SIBA, por año y unidad académica/matrícula total por unidad académica)*100',100,'Número de alumnos beneficiados con  algun tipo de beca  rgistrada den el SIBA, por año y unidad académica','a15','Matrícula total por unidad académica *100','b15'),(16,7,3,'Alumnos Tutorados ','Alumnos Tutorados ','Porcentaje de alumnos tutorados por periodo escolar y  programa académico ',1,'(Número de alumnos tutorados por periodo escolar / matrícula total )*100',100,'Número de alumnos tutorados por periodo escolar','a16','Matrícula total *100','b16'),(17,8,3,'Bibliotecas','Títulos Actualizados','Porcentaje det títulos impresos y/o digitales disponibles con edición en un tiempo no mayor a 5 años a la fecha 50%',0,'(Número de títulos actualizados impresos o digitales por programa académico / Total del acervo bibliográfico por programa académico)*100',50,'Número de títulos actualizados impresos o digitales por programa académico','a17',' Total del acervo bibliográfico por programa académico *100','b17'),(18,8,3,'Mantenimiento y limpieza','Cumplimiento del programa de mantenimiento','Porcentaje de cumpliemito del programa de mantenimiento 50%',0,'(Número de servicios atendidos / Total servicios solicitados o programados por semestre)*100',50,'Número de servicios atendidos','a18','Total servicios solicitados o programados por semestre *100','b18'),(19,8,3,'Mantenimiento y limpieza','Cumplimiento del programa de limpieza','Porcentaje de cumpliemito del programa de limpieza 50%',0,'(Número de servicios atendidos / Total servicios programados por semestre)*100',50,'Número de servicios atendidos','a19','Total servicios programados por semestre *100','b19'),(20,9,4,'Alumnos Inscritos Participando en Servicio Social','Alumnos Participando en Servicio Social','Porcentaje  de alumnos  en alguno de los programas de servicio social por unidad académica ',1,'(Número de alumnos participando en sevicio social  por programa académico por año  / total de alumnos que deben hacer servicio social por programa académico)*100',35,'Número de alumnos participando en sevicio social  por programa académico por año','a20','Total de alumnos que deben hacer servicio social por programa académico *100','b20'),(21,10,4,'Alumnos insritos Realizando Prácticas Profesionales','Alumnos  Realizando Prácticas Profesionales','Porcentaje  de alumnos realizando prácticas profesionales por programa académico por año',1,'(Número de alumnos realizando prácticas profesionales  por programa académico por año  / total de alumnos que deben hacer prácticas profesionales por programa académico)*100',35,'Número de alumnos realizando prácticas profesionales  por programa académico por año','a21','Total de alumnos que deben hacer prácticas profesionales por programa académico *100','b21'),(22,11,4,'Proyectos Vinculados','Proyectos Vinculados','Tasa de variación del número de  proyectos vinculados por unidad académica. ',0,'(Número de proyectos vinculados por unidad académica por año  / Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100',30,'Número de proyectos vinculados por unidad académica por año','a22','Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100','b22'),(23,12,5,'Profesores de carrera que están involucrados en investigaciones','Profesores de carrera realizando investigación','Profesores  con dictamén de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP ',0,'(Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesoress de carrera de la Unidad Académica)*100',100,'Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP','a23','Total de Profesoress de carrera de la Unidad Académica *100','b23'),(24,13,5,'Innovaciones Educativas ','Innovaciones Educativas','Tasa de variación del  número de Innovaciones educativas identificadas, incubadas o escaladas por unidad académica ',0,'(Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año/ el total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior) -1)*100',100,'Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año','a24','El total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior) -1)*100','b24'),(25,14,6,'Inversión de los recursos autogenerados','Porcentaje de recursos autogenerados netos dedicados al  mantenimiento del inmueble y mantenimiento del equipo','Monto de los recursos autogenerados que se destinan al pago de Servicios de mantenimiento del inmueble y mantenimiento del equipo',0,'(Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo / total de los recursos autogenerados anualmente)*100',100,'Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo','a25','Rotal de los recursos autogenerados anualmente *100','b25');
+/*!40000 ALTER TABLE `Indicador3Sup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `IndicadorMs`
 --
 
@@ -487,7 +699,7 @@ DROP TABLE IF EXISTS `IndicadorMs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `IndicadorMs` (
-  `idIndicadorMs` int(11) NOT NULL AUTO_INCREMENT,
+  `idIndicadorMs` int(11) NOT NULL,
   `idUnidad` int(11) NOT NULL,
   `idBloque` int(11) NOT NULL,
   `idEvaluacion` int(11) NOT NULL,
@@ -521,9 +733,8 @@ CREATE TABLE `IndicadorMs` (
   `BAlumnosServicioSocial` int(11) DEFAULT NULL,
   `BAlumnosServicioSocialT` int(11) DEFAULT NULL,
   `BALumnosVisitas` int(11) DEFAULT NULL,
-  `BALumnosVisitasT` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idIndicadorMs`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `BALumnosVisitasT` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -532,8 +743,83 @@ CREATE TABLE `IndicadorMs` (
 
 LOCK TABLES `IndicadorMs` WRITE;
 /*!40000 ALTER TABLE `IndicadorMs` DISABLE KEYS */;
-INSERT INTO `IndicadorMs` VALUES (1,2,129,2,'b1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,2,130,2,'b2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,2,131,2,'b3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,2,132,2,'b4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,2,133,2,'b5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,2,134,2,'b6',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,2,135,2,'b7',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,13,193,13,'b1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,13,194,13,'b2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,13,195,13,'b3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,13,196,13,'b4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,13,197,13,'b5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(13,1,124,1,'b1',1,2,6,5,6,7,5,1,12,1,2,3,4,5,6,7,11,22,6,11,31,13,9,8,9,8,76,6,12,21),(14,1,125,1,'b2',3,4,4,3,9,9,2,4,12,1,2,3,4,5,6,7,11,22,6,11,31,13,9,8,9,8,76,6,12,21),(15,1,126,1,'b3',5,6,21,1,1,3,5,7,12,1,2,3,4,5,6,7,11,22,6,11,31,13,9,8,9,8,76,6,12,21),(16,1,127,1,'b4',7,8,7,8,4,5,8,9,12,1,2,3,4,5,6,7,11,22,6,11,31,13,9,8,9,8,76,6,12,21),(17,1,128,1,'b5',9,16,9,8,1,3,5,6,12,1,2,3,4,5,6,7,11,22,6,11,31,13,9,8,9,8,76,6,12,21);
+INSERT INTO `IndicadorMs` VALUES (0,1,124,1,'b1',454545,433,345,3,43,43,4,34,34,34,65,65656544,4,564,78,78,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,125,1,'b2',43,4,543,45,4,34,3,43,3,43,34,34,68,4,7,8,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,126,1,'b3',34,34,345,3,343,43,4,345,4,345,3,43,54,5,8,78,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,127,1,'b4',3,53,543,54,4,34,345,3,345,3,56,54,46,4,7,87,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,128,1,'b5',543,543,34,34,34,3,8,5,8,5,45,45,45,6485,8,78,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `IndicadorMs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `IndicadorSup`
+--
+
+DROP TABLE IF EXISTS `IndicadorSup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `IndicadorSup` (
+  `idIndicadorSup` int(11) NOT NULL AUTO_INCREMENT,
+  `idUnidad` int(11) NOT NULL,
+  `idBloque` int(11) NOT NULL,
+  `idEvaluacion` int(11) NOT NULL,
+  `idCampo` varchar(1000) NOT NULL,
+  `BAlumnosRegulares` int(11) DEFAULT NULL,
+  `BAlumnosRegularesT` int(11) DEFAULT NULL,
+  `BEficienciaTerminal` int(11) DEFAULT NULL,
+  `BEficienciaTerminalT` int(11) DEFAULT NULL,
+  `BAlumnosTitulados` int(11) DEFAULT NULL,
+  `BAlumnosTituladosT` int(11) DEFAULT NULL,
+  `BAlumnosRiesgoAbandono` int(11) DEFAULT NULL,
+  `BAlumnosRiesgoAbandonoT` int(11) DEFAULT NULL,
+  `BRecienEgresados` int(11) DEFAULT NULL,
+  `BRecienEgresadosT` int(11) DEFAULT NULL,
+  `BAprovechamientoPlanta` int(11) DEFAULT NULL,
+  `BAprovechamientoPlantaT` int(11) DEFAULT NULL,
+  `BDocentesActivosSecProd` int(11) DEFAULT NULL,
+  `BDocentesActivosSecProdT` int(11) DEFAULT NULL,
+  `BProfesoresFormados` int(11) DEFAULT NULL,
+  `BProfesoresFormadosT` int(11) DEFAULT NULL,
+  `BDocentesActualizados` int(11) DEFAULT NULL,
+  `BDocentesActualizadosT` int(11) DEFAULT NULL,
+  `BProgramasAcedAcred` int(11) DEFAULT NULL,
+  `BProgramasAcedAcredT` int(11) DEFAULT NULL,
+  `BProgramasAcualizados` int(11) DEFAULT NULL,
+  `BProgramasAcualizadosT` int(11) DEFAULT NULL,
+  `BCapacidadAtencionAlumnos` int(11) DEFAULT NULL,
+  `BCapacidadAtencionAlumnosT` int(11) DEFAULT NULL,
+  `BAulasEquipadas` int(11) DEFAULT NULL,
+  `BAulasEquipadasT` int(11) DEFAULT NULL,
+  `BLaboratoriosEquipados` int(11) DEFAULT NULL,
+  `BLaboratoriosEquipadosT` int(11) DEFAULT NULL,
+  `BBecas` int(11) DEFAULT NULL,
+  `BBecasT` int(11) DEFAULT NULL,
+  `BALumnosTutorados` int(11) DEFAULT NULL,
+  `BALumnosTutoradosT` int(11) DEFAULT NULL,
+  `BTitulosAct` int(11) DEFAULT NULL,
+  `BTitulosActT` int(11) DEFAULT NULL,
+  `BCumplimientoMant` int(11) DEFAULT NULL,
+  `BCumplimientoMantT` int(11) DEFAULT NULL,
+  `BCumplimientoProgLimp` int(11) DEFAULT NULL,
+  `BCumplimientoProgLimpT` int(11) DEFAULT NULL,
+  `BAlumnosSerSoc` int(11) DEFAULT NULL,
+  `BAlumnosSerSocT` int(11) DEFAULT NULL,
+  `BAlumnosPractProf` int(11) DEFAULT NULL,
+  `BAlumnosPractProfT` int(11) DEFAULT NULL,
+  `BProyectosVinculados` int(11) DEFAULT NULL,
+  `BProyectosVinculadosT` int(11) DEFAULT NULL,
+  `BInovaEduc` int(11) DEFAULT NULL,
+  `BInovaEducT` int(11) DEFAULT NULL,
+  `BPorcRecAut` int(11) DEFAULT NULL,
+  `BPorcRecAutT` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idIndicadorSup`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `IndicadorSup`
+--
+
+LOCK TABLES `IndicadorSup` WRITE;
+/*!40000 ALTER TABLE `IndicadorSup` DISABLE KEYS */;
+INSERT INTO `IndicadorSup` VALUES (19,26,240,21,'b1',3,1,2,98,645,8690,93,61,87,64,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(20,30,248,22,'b1',78,45,678,45,123,687,8789,456,789,56,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(21,30,249,22,'b2',576,789,687,756,67,678,345,89,789,789,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(22,30,250,22,'b3',465,789564,98,98,678,465,567,78,678,789,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(23,30,251,22,'b4',45,45,754,534,678,231,567,89,789,789,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(24,30,252,22,'b5',567678,8876,789,65,76,56,567,89,85,78,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(25,30,253,22,'b6',4,678,321,98,567,68768,567,908,978,8,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `IndicadorSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -556,7 +842,7 @@ CREATE TABLE `Infraestructura` (
   `comprobante2` varchar(1000) DEFAULT NULL,
   `comprobante3` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idInfraestructura`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -565,7 +851,7 @@ CREATE TABLE `Infraestructura` (
 
 LOCK TABLES `Infraestructura` WRITE;
 /*!40000 ALTER TABLE `Infraestructura` DISABLE KEYS */;
-INSERT INTO `Infraestructura` VALUES (20,1,9,9,8,8,0,0,'/uploads/oferta/infraestructura/1_1_','/uploads/oferta/infraestructura/1_2_','/uploads/oferta/infraestructura/1_3_'),(21,2,0,0,0,0,0,0,NULL,NULL,NULL),(22,3,0,0,0,0,0,0,NULL,NULL,NULL),(23,4,0,0,0,0,0,0,NULL,NULL,NULL),(24,5,0,0,0,0,0,0,NULL,NULL,NULL),(25,6,0,0,0,0,0,0,NULL,NULL,NULL),(26,7,0,0,0,0,0,0,NULL,NULL,NULL),(27,8,0,0,0,0,0,0,NULL,NULL,NULL),(28,9,0,0,0,0,0,0,NULL,NULL,NULL),(29,10,0,0,0,0,0,0,NULL,NULL,NULL),(30,11,0,0,0,0,0,0,NULL,NULL,NULL),(31,12,0,0,0,0,0,0,NULL,NULL,NULL),(32,13,0,0,0,0,0,0,NULL,NULL,NULL),(33,14,0,0,0,0,0,0,NULL,NULL,NULL),(34,15,0,0,0,0,0,0,NULL,NULL,NULL),(35,16,0,0,0,0,0,0,NULL,NULL,NULL),(36,17,0,0,0,0,0,0,NULL,NULL,NULL),(37,18,0,0,0,0,0,0,NULL,NULL,NULL),(38,19,0,0,0,0,0,0,NULL,NULL,NULL);
+INSERT INTO `Infraestructura` VALUES (20,1,0,0,0,0,0,0,NULL,NULL,NULL),(21,2,0,0,0,0,0,0,NULL,NULL,NULL),(22,3,0,0,0,0,0,0,NULL,NULL,NULL),(23,4,0,0,0,0,0,0,NULL,NULL,NULL),(24,5,0,0,0,0,0,0,NULL,NULL,NULL),(25,6,0,0,0,0,0,0,NULL,NULL,NULL),(26,7,0,0,0,0,0,0,NULL,NULL,NULL),(27,8,0,0,0,0,0,0,NULL,NULL,NULL),(28,9,0,0,0,0,0,0,NULL,NULL,NULL),(29,10,0,0,0,0,0,0,NULL,NULL,NULL),(30,11,0,0,0,0,0,0,NULL,NULL,NULL),(31,12,0,0,0,0,0,0,NULL,NULL,NULL),(32,13,0,0,0,0,0,0,NULL,NULL,NULL),(33,14,0,0,0,0,0,0,NULL,NULL,NULL),(34,15,0,0,0,0,0,0,NULL,NULL,NULL),(35,16,0,0,0,0,0,0,NULL,NULL,NULL),(36,17,0,0,0,0,0,0,NULL,NULL,NULL),(37,18,0,0,0,0,0,0,NULL,NULL,NULL),(38,19,0,0,0,0,0,0,NULL,NULL,NULL),(39,20,0,0,0,0,0,0,NULL,NULL,NULL),(40,21,0,0,0,0,0,0,NULL,NULL,NULL),(41,22,0,0,0,0,0,0,NULL,NULL,NULL),(42,1,0,0,0,0,0,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Infraestructura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -586,7 +872,7 @@ CREATE TABLE `InnovacionEducativa` (
   `comprobante1` varchar(1000) DEFAULT NULL,
   `comprobante2` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idInnovacionEducativa`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -595,7 +881,7 @@ CREATE TABLE `InnovacionEducativa` (
 
 LOCK TABLES `InnovacionEducativa` WRITE;
 /*!40000 ALTER TABLE `InnovacionEducativa` DISABLE KEYS */;
-INSERT INTO `InnovacionEducativa` VALUES (20,1,0,0,0,0,NULL,NULL),(21,2,0,0,0,0,NULL,NULL),(22,3,0,0,0,0,NULL,NULL),(23,4,0,0,0,0,NULL,NULL),(24,5,0,0,0,0,NULL,NULL),(25,6,0,0,0,0,NULL,NULL),(26,7,0,0,0,0,NULL,NULL),(27,8,0,0,0,0,NULL,NULL),(28,9,0,0,0,0,NULL,NULL),(29,10,0,0,0,0,NULL,NULL),(30,11,0,0,0,0,NULL,NULL),(31,12,0,0,0,0,NULL,NULL),(32,13,0,0,0,0,NULL,NULL),(33,14,0,0,0,0,NULL,NULL),(34,15,0,0,0,0,NULL,NULL),(35,16,0,0,0,0,NULL,NULL),(36,17,0,0,0,0,NULL,NULL),(37,18,0,0,0,0,NULL,NULL),(38,19,0,0,0,0,NULL,NULL);
+INSERT INTO `InnovacionEducativa` VALUES (20,1,0,0,0,0,NULL,NULL),(21,2,0,0,0,0,NULL,NULL),(22,3,0,0,0,0,NULL,NULL),(23,4,0,0,0,0,NULL,NULL),(24,5,0,0,0,0,NULL,NULL),(25,6,0,0,0,0,NULL,NULL),(26,7,0,0,0,0,NULL,NULL),(27,8,0,0,0,0,NULL,NULL),(28,9,0,0,0,0,NULL,NULL),(29,10,0,0,0,0,NULL,NULL),(30,11,0,0,0,0,NULL,NULL),(31,12,0,0,0,0,NULL,NULL),(32,13,0,0,0,0,NULL,NULL),(33,14,0,0,0,0,NULL,NULL),(34,15,0,0,0,0,NULL,NULL),(35,16,0,0,0,0,NULL,NULL),(36,17,0,0,0,0,NULL,NULL),(37,18,0,0,0,0,NULL,NULL),(38,19,0,0,0,0,NULL,NULL),(39,20,0,0,0,0,NULL,NULL),(40,21,0,0,0,0,NULL,NULL),(41,22,0,0,0,0,NULL,NULL),(42,1,0,0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `InnovacionEducativa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -613,7 +899,7 @@ CREATE TABLE `InvestigacionDocencia` (
   `TotalDocentes` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idInvestigacionDocencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -622,7 +908,7 @@ CREATE TABLE `InvestigacionDocencia` (
 
 LOCK TABLES `InvestigacionDocencia` WRITE;
 /*!40000 ALTER TABLE `InvestigacionDocencia` DISABLE KEYS */;
-INSERT INTO `InvestigacionDocencia` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL);
+INSERT INTO `InvestigacionDocencia` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
 /*!40000 ALTER TABLE `InvestigacionDocencia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -670,7 +956,7 @@ CREATE TABLE `ProgramasAcademicos` (
   `TotalProgramas` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idProgramasAcademicos`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -679,7 +965,7 @@ CREATE TABLE `ProgramasAcademicos` (
 
 LOCK TABLES `ProgramasAcademicos` WRITE;
 /*!40000 ALTER TABLE `ProgramasAcademicos` DISABLE KEYS */;
-INSERT INTO `ProgramasAcademicos` VALUES (1,1,0,0,'/uploads/oferta/programas/1_1_chicagoWallpapper.jpg'),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL);
+INSERT INTO `ProgramasAcademicos` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
 /*!40000 ALTER TABLE `ProgramasAcademicos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -697,7 +983,7 @@ CREATE TABLE `ProyectosVinculados` (
   `ProyectosVinculadosAnt` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idProyectosVinculados`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -706,7 +992,7 @@ CREATE TABLE `ProyectosVinculados` (
 
 LOCK TABLES `ProyectosVinculados` WRITE;
 /*!40000 ALTER TABLE `ProyectosVinculados` DISABLE KEYS */;
-INSERT INTO `ProyectosVinculados` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL);
+INSERT INTO `ProyectosVinculados` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
 /*!40000 ALTER TABLE `ProyectosVinculados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -724,7 +1010,7 @@ CREATE TABLE `RecursosAutogenerados` (
   `RecursosAutogenerados` int(11) DEFAULT '0',
   `comprobante1` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idRecursosAutogenerados`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -733,7 +1019,7 @@ CREATE TABLE `RecursosAutogenerados` (
 
 LOCK TABLES `RecursosAutogenerados` WRITE;
 /*!40000 ALTER TABLE `RecursosAutogenerados` DISABLE KEYS */;
-INSERT INTO `RecursosAutogenerados` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL);
+INSERT INTO `RecursosAutogenerados` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
 /*!40000 ALTER TABLE `RecursosAutogenerados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -776,7 +1062,7 @@ CREATE TABLE `ServicioSocial` (
   `AlumnosServicioAnterior` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idServicioSocial`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -785,7 +1071,7 @@ CREATE TABLE `ServicioSocial` (
 
 LOCK TABLES `ServicioSocial` WRITE;
 /*!40000 ALTER TABLE `ServicioSocial` DISABLE KEYS */;
-INSERT INTO `ServicioSocial` VALUES (1,1,0,0,'/uploads/vinculacion/servicio/1_1_'),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL);
+INSERT INTO `ServicioSocial` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
 /*!40000 ALTER TABLE `ServicioSocial` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -803,7 +1089,7 @@ CREATE TABLE `Tutorias` (
   `TotalAlumnos` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idTutorias`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -812,7 +1098,7 @@ CREATE TABLE `Tutorias` (
 
 LOCK TABLES `Tutorias` WRITE;
 /*!40000 ALTER TABLE `Tutorias` DISABLE KEYS */;
-INSERT INTO `Tutorias` VALUES (1,1,0,0,'/uploads/apoyo/tutorias/1_1_'),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL);
+INSERT INTO `Tutorias` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
 /*!40000 ALTER TABLE `Tutorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -876,7 +1162,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (3,2,1,'CECYT1','CECYT1','CECYT1','cecyt1','463ec3251d8569ccdffcb6ae5446abcb','cecy1@ipn.mx',345),(4,2,2,'CECYT2','CECYT','CECYT2','cecyt2','55ef2670525e1d5282e2652dc9446e3b','cecy2@ipn.mx',345),(5,2,3,'CECYT3','CECYT','CECYT3','cecyt3','fc32576f6aa63a2afd791749b0cad9db','cecy3@ipn.mx',345),(6,2,4,'CECYT4','CECYT','CECYT4','cecyt4','f76c3942d3b3975f8061c43cb9dec38f','cecy4@ipn.mx',345),(7,2,5,'CECYT5','CECYT','CECYT5','cecyt5','6e65c027535978ca51e1bde014e33f96','cecy5@ipn.mx',345),(8,2,6,'CECYT6','CECYT','CECYT6','cecyt6','bec28112040e24cb2ecef43e7a079365','cecy6@ipn.mx',345),(9,2,7,'CECYT7','CECYT','CECYT7','cecyt7','f229d75823b80ee2e1ce2d9ec76d13db','cecy7@ipn.mx',345),(10,2,8,'CECYT8','CECYT','CECYT8','cecyt8','33c1f80fcb8fdf85d656e9b37a5a6cfe','cecy8@ipn.mx',345),(11,2,9,'CECYT9','CECYT','CECYT9','cecyt9','a938fabce8fff817955a84eccbe5e12a','cecy9@ipn.mx',345),(12,2,10,'CECYT10','CECYT','CECYT10','cecyt10','369539fe397a2df865f11e4993517566','cecy10@ipn.mx',345),(13,2,11,'CECYT11','CECYT','CECYT11','cecyt11','782026ae776ee12310fa6fc725bf8a63','cecy11@ipn.mx',345),(14,2,12,'CECYT12','CECYT','CECYT12','cecyt12','22e966bb9c165a64ac129c040bdb6a13','cecy12@ipn.mx',345),(15,2,13,'CECYT13','CECYT','CECYT13','cecyt13','72e133cb105a3f46bd4671d60c0df649','cecy13@ipn.mx',345),(16,2,14,'CECYT14','CECYT','CECYT14','cecyt14','8727ce7bd9fc9d0a936b964f5554054a','cecy14@ipn.mx',345),(17,2,15,'CECYT15','CECYT','CECYT15','cecyt15','839838df157423bb87c0e6f270fa8e82','cecy15@ipn.mx',345),(18,2,16,'CECYT16','CECYT','CECYT16','cecyt16','ce0e0c64e0f477df911dd49752eaed78','cecy16@ipn.mx',345),(19,2,17,'CECYT17','CECYT','CECYT17','cecyt17','dc3f0e21b3610c72d1b7f5192b8d0c38','cecy17@ipn.mx',345),(20,2,18,'CET1','CET1','CET1','cet1','c3724470faeb0795262c98619954dceb','cet1@ipn.mx',345),(48,2,46,'CECYT18','',NULL,'cecyt18','8347d79799007c559991f8c489d3a830','cecyt18@ipn.mx',NULL);
+INSERT INTO `Usuarios` VALUES (3,2,1,'CECYT1','CECYT1','CECYT1','cecyt1','463ec3251d8569ccdffcb6ae5446abcb','cecy1@ipn.mx',345),(4,2,2,'CECYT2','CECYT','CECYT2','cecyt2','55ef2670525e1d5282e2652dc9446e3b','cecy2@ipn.mx',345),(5,2,3,'CECYT3','CECYT','CECYT3','cecyt3','fc32576f6aa63a2afd791749b0cad9db','cecy3@ipn.mx',345),(6,2,4,'CECYT4','CECYT','CECYT4','cecyt4','f76c3942d3b3975f8061c43cb9dec38f','cecy4@ipn.mx',345),(7,2,5,'CECYT5','CECYT','CECYT5','cecyt5','6e65c027535978ca51e1bde014e33f96','cecy5@ipn.mx',345),(8,2,6,'CECYT6','CECYT','CECYT6','cecyt6','bec28112040e24cb2ecef43e7a079365','cecy6@ipn.mx',345),(9,2,7,'CECYT7','CECYT','CECYT7','cecyt7','f229d75823b80ee2e1ce2d9ec76d13db','cecy7@ipn.mx',345),(10,2,8,'CECYT8','CECYT','CECYT8','cecyt8','33c1f80fcb8fdf85d656e9b37a5a6cfe','cecy8@ipn.mx',345),(11,2,9,'CECYT9','CECYT','CECYT9','cecyt9','a938fabce8fff817955a84eccbe5e12a','cecy9@ipn.mx',345),(12,2,10,'CECYT10','CECYT','CECYT10','cecyt10','369539fe397a2df865f11e4993517566','cecy10@ipn.mx',345),(13,2,11,'CECYT11','CECYT','CECYT11','cecyt11','782026ae776ee12310fa6fc725bf8a63','cecy11@ipn.mx',345),(14,2,12,'CECYT12','CECYT','CECYT12','cecyt12','22e966bb9c165a64ac129c040bdb6a13','cecy12@ipn.mx',345),(15,2,13,'CECYT13','CECYT','CECYT13','cecyt13','72e133cb105a3f46bd4671d60c0df649','cecy13@ipn.mx',345),(16,2,14,'CECYT14','CECYT','CECYT14','cecyt14','8727ce7bd9fc9d0a936b964f5554054a','cecy14@ipn.mx',345),(17,2,15,'CECYT15','CECYT','CECYT15','cecyt15','839838df157423bb87c0e6f270fa8e82','cecy15@ipn.mx',345),(18,2,16,'CECYT16','CECYT','CECYT16','cecyt16','ce0e0c64e0f477df911dd49752eaed78','cecy16@ipn.mx',345),(19,2,17,'CECYT17','CECYT','CECYT17','cecyt17','dc3f0e21b3610c72d1b7f5192b8d0c38','cecy17@ipn.mx',345),(20,2,18,'CET1','CET1','CET1','cet1','c3724470faeb0795262c98619954dceb','cet1@ipn.mx',345),(21,2,19,'ESIME ZACATENCO','',NULL,'esimezac','8f52d59b5498d54822627d01e0ebd7b1','ipn@ipn.mx',345),(22,2,20,'ESIME CULHUACAN','',NULL,'esimecul','dc5228484f9e78af0bd9236ca839aa25','ipn@ipn.mx',345),(23,2,21,'ESIME AZCAPOTZALCO','',NULL,'esimeazc','8160388c418d3b7c8339d58dba211d96','ipn@ipn.mx',345),(24,2,22,'ESIME TICOMAN','',NULL,'esimetic','3d923bc92c0e5a65eaf4ad6f26b7dcb8','ipn@ipn.mx',345),(25,2,23,'ESIA ZACATENCO','',NULL,'esiazac','ca3f4e3a10576d20a015a2c0aa0b858d','ipn@ipn.mx',345),(26,2,24,'ESIA TECAMACHALCO','',NULL,'esiatec','e7fadfdcf739a98425bac75e71d3a146','ipn@ipn.mx',345),(27,2,25,'ESIA TICOMAN','',NULL,'esiatic','bc5afe19bda352d8d1bf4e0e5c2f0fcf','ipn@ipn.mx',345),(28,2,26,'ESIT','',NULL,'esit','4981cba4a0f563237cef7f84f9d87f4c','ipn@ipn.mx',345),(29,2,27,'ESIQIE','',NULL,'esiqie','9259022f13d285b7c96fee2557ac93c6','ipn@ipn.mx',345),(30,2,28,'ESFM','',NULL,'esfm','feb2adf96e764b99965c00d5bfc73af3','ipn@ipn.mx',345),(31,2,29,'ESCOM','',NULL,'escom','2adb768b56c36e66a71438f31f1e706a','ipn@ipn.mx',345),(32,2,30,'UPIICSA','',NULL,'upiicsa','74f15c9a7ddaefeecdb607a04407d1b5','ipn@ipn.mx',345),(33,2,31,'UPIITA','',NULL,'upiita','9f5699ef9a16d76cfc88612d8269e219','ipn@ipn.mx',345),(34,2,32,'UPIBI','',NULL,'upibi','55a62bdc84760d7e240d0315999d877e','ipn@ipn.mx',345),(35,2,33,'UPIIG','',NULL,'upiig','ea3c128b6f9357aca9b76ebd2c69b06e','ipn@ipn.mx',345),(36,2,34,'UPIIZ','',NULL,'upiiz','f0e963db2e9b1fa7476fc23593d056d4','ipn@ipn.mx',345),(37,2,35,'UPIIH','',NULL,'upiih','5f03d80751d669d9ba34724f10fd331f','ipn@ipn.mx',345),(38,2,36,'ENCB','',NULL,'encb','7ee60bf477d9c58ff7b6da2328943e66','ipn@ipn.mx',345),(39,2,37,'ESM','',NULL,'esm','218a42548aff025d8feea023a7cc7081','ipn@ipn.mx',345),(40,2,38,'ENMH','',NULL,'enmh','c1fd178010eacd60cb8ed7dfcc2ca63d','ipn@ipn.mx',345),(41,2,39,'ESEO','',NULL,'eso','27d73db252390920d52fd3267ab6117a','ipn@ipn.mx',345),(42,2,40,'CICS MILPA ALTA','',NULL,'cicsma','f23b5c23bb2b51c4cb6b1145ccf01294','ipn@ipn.mx',345),(43,2,41,'CICS SANTO TOMAS','',NULL,'cicsst','bb4747adee224b2423f0e53e27fd7015','ipn@ipn.mx',345),(44,2,42,'ESCA SANTO TOMAS','',NULL,'escast','29ba7c4d91918822d51aef173bd3445d','ipn@ipn.mx',345),(45,2,43,'ESCA TEPEPAN','',NULL,'escatp','de5e5e00aa1c116c5b86b0281cf57b36','ipn@ipn.mx',345),(46,2,44,'ESE','',NULL,'ese','910ff191b0a39beebf59ea89ef4f017d','ipn@ipn.mx',345),(47,2,45,'EST','',NULL,'est','690979f83c6a1dbc067fb75695089f80','ipn@ipn.mx',345),(48,2,46,'CECYT18','',NULL,'cecyt18','8347d79799007c559991f8c489d3a830','cecyt18@ipn.mx',NULL);
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -894,7 +1180,7 @@ CREATE TABLE `VisitasEscolares` (
   `TotalMatricula` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idVisitasEscolares`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -903,7 +1189,7 @@ CREATE TABLE `VisitasEscolares` (
 
 LOCK TABLES `VisitasEscolares` WRITE;
 /*!40000 ALTER TABLE `VisitasEscolares` DISABLE KEYS */;
-INSERT INTO `VisitasEscolares` VALUES (1,1,0,0,'/uploads/vinculacion/visitas/1_1_'),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL);
+INSERT INTO `VisitasEscolares` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
 /*!40000 ALTER TABLE `VisitasEscolares` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -916,8 +1202,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-11 16:30:49
-
+-- Dump completed on 2016-06-05  4:51:54
 
 DELIMITER $$
 USE upev0012016$$
@@ -944,3 +1229,17 @@ $$
 
 DELIMITER ;
 
+
+DELIMITER $$
+USE upev0012016$$
+CREATE DEFINER = CURRENT_USER TRIGGER upev0012016.EvaluacionSup_AFTER_INSERT AFTER INSERT ON EvaluacionSup FOR EACH ROW
+BEGIN
+
+  INSERT INTO upev0012016.AlumnosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.DocentesSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+
+
+END
+$$
+
+DELIMITER ;

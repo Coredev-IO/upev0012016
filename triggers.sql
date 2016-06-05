@@ -24,6 +24,21 @@ $$
 DELIMITER ;
 
 
+DELIMITER $$
+USE upev0012016$$
+CREATE DEFINER = CURRENT_USER TRIGGER upev0012016.EvaluacionSup_AFTER_INSERT AFTER INSERT ON EvaluacionSup FOR EACH ROW
+BEGIN
+
+	INSERT INTO upev0012016.AlumnosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.DocentesSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+
+
+END
+$$
+
+DELIMITER ;
+
+
 
 -- Becas
 --  direccion donde se guardan los archivos 
