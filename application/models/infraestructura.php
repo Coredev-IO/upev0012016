@@ -17,5 +17,22 @@ Class Infraestructura extends CI_Model {
 
 	}
 
+
+	function updateSup($datos) {
+		$data = array(
+			'CapacidadInstalada'   => $datos['CapacidadInstalada'],
+			'NumeroAulas' => $datos['NumeroAulas'],
+			'TotalAulas'     => $datos['TotalAulas'],
+			'NumeroLaboratorios'         => $datos['NumeroLaboratorios'],
+			'TotalLaboratorios'  => $datos['TotalLaboratorios'],
+			'comprobante1'  => $datos['comprobante1'],
+			'comprobante2'  => $datos['comprobante2'],
+			'comprobante3'  => $datos['comprobante3'],
+		);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('InfraestructuraSup', $data);
+
+	}
+
 }
 ?>

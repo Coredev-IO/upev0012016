@@ -1577,6 +1577,8 @@ class Desempeno extends CI_Controller {
 						//Se obtine el registro de los valores del subnivel
 						$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
 
+						// print_r($data['IndicadorMs']);
+
 						$data['main_cont'] = 'desempeno/indexSup';
 						$this->load->view('includes/template_principal', $data);
 					} else {

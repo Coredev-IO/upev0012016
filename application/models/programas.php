@@ -11,5 +11,15 @@ Class Programas extends CI_Model {
 
 	}
 
+	function updateSup($datos) {
+		$data = array(
+			'comprobante1' => $datos['comprobante1'],
+			'comprobante2' => $datos['comprobante2'],
+		);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('ProgramasAcademicosSup', $data);
+
+	}
+
 }
 ?>

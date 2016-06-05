@@ -206,9 +206,31 @@ Class Evaluacion extends CI_Model {
 		return $query->result();
 
 	}
+
+	function getProgramasAcademicosSup($id) {
+		$this->db->select('');
+		$this->db->from('ProgramasAcademicosSup');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
 	function getInfraestructura($id) {
 		$this->db->select('');
 		$this->db->from('Infraestructura');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getInfraestructuraSup($id) {
+		$this->db->select('');
+		$this->db->from('InfraestructuraSup');
 		$this->db->where('idEvaluacion', $id);
 		$this->db->limit(1);
 
@@ -700,6 +722,17 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+	function update_BProgramasAcademicosSup($datos) {
+		$data = array(
+			'BProgramasAcedAcred' => $datos['BProgramasAcedAcred'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
 	function update_BProgramasAcademicosT($datos) {
 		$data = array(
 			'BProgramasAcademicosT' => $datos['BProgramasAcademicosT'],
@@ -708,6 +741,38 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BProgramasAcademicosTSup($datos) {
+		$data = array(
+			'BProgramasAcedAcredT' => $datos['BProgramasAcedAcredT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BProgramasAcademicosActSup($datos) {
+		$data = array(
+			'BProgramasAcualizados' => $datos['BProgramasAcualizados'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+	function update_BProgramasAcademicosActTSup($datos) {
+		$data = array(
+			'BProgramasAcualizadosT' => $datos['BProgramasAcualizadosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
 	}
 

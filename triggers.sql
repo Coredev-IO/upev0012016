@@ -31,6 +31,8 @@ BEGIN
 
 	INSERT INTO upev0012016.AlumnosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
 	INSERT INTO upev0012016.DocentesSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.ProgramasAcademicosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.InfraestructuraSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
 
 
 END
