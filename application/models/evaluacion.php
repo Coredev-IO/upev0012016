@@ -217,6 +217,9 @@ Class Evaluacion extends CI_Model {
 		return $query->result();
 
 	}
+
+
+
 	function getInfraestructura($id) {
 		$this->db->select('');
 		$this->db->from('Infraestructura');
@@ -250,7 +253,7 @@ Class Evaluacion extends CI_Model {
 
 	}
 
-		function getBecasSup($id) {
+	function getBecasSup($id) {
 		$this->db->select('');
 		$this->db->from('BecasSup');
 		$this->db->where('idEvaluacion', $id);
@@ -972,7 +975,7 @@ Class Evaluacion extends CI_Model {
 
 	}
 	// ++++++++++++++++++Termina Campos Superior+++++++++++++++++++++++++
-	
+
 
 	function update_BlibrosTitulosEditados($datos) {
 		$data = array(

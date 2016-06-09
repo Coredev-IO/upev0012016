@@ -198,6 +198,8 @@ class Apoyo extends CI_Controller {
 			$data['main_cont'] = 'apoyo/index';
 			$this->load->view('includes/template_principal', $data);
 
+                        // redirect('apoyo', 'refresh');
+
 		} else {
 			redirect('login', 'refresh');
 		}
@@ -262,9 +264,8 @@ class Apoyo extends CI_Controller {
 			}
 
 			//Se obtienen valores del primer nivel
+                        //Solo se sube el archivo no se necesitan mas campos de primer nivel
 			$dataNivel1 = array(
-				'AlumnosBeca'  => $this->input->post('a13'),
-				'TotalAlumnos' => $this->input->post('b13'),
 				'idEvaluacion' => $eval[0]->idEvaluacionSup,
 				'comprobante1'               => $rutafiles[0],
 			);
@@ -280,6 +281,44 @@ class Apoyo extends CI_Controller {
 			// Obtener informacion de las tablas
 			// $data['ProgramasAcademicos'] = $this->evaluacion->getProgramasAcademicos($idUrl);
 			// $data['Infraestructura']     = $this->evaluacion->getInfraestructura($idUrl);
+
+                        // a  BProgramasAcademicos
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'a') !== false) {
+							$datos = array(
+								"BBecas" => $this->input->post($row),
+								"idUnidad"            => $data['datos']['idUnidad'],
+								"idBloque"            => substr($row, 0, 3),
+								"idEvaluacion"        => $eval[0]->idEvaluacionSup,
+
+							);
+							$this->evaluacion->update_BBecas($datos);
+
+						}
+					}
+				}
+			}
+
+			// z  BProgramasAcademicosT
+			foreach ($keys as $row) {
+				if (strlen($row) <= 8) {
+					if (strpos($row, '-') !== false) {
+						if (strpos($row, 'z') !== false) {
+							$datos = array(
+								"BBecasT" => $this->input->post($row),
+								"idUnidad"             => $data['datos']['idUnidad'],
+								"idBloque"             => substr($row, 0, 3),
+								"idEvaluacion"         => $eval[0]->idEvaluacionSup,
+
+							);
+							$this->evaluacion->update_BBecasT($datos);
+
+						}
+					}
+				}
+			}
 
 			//Obtiene informacion de los titulos
 			// Nivel 1
@@ -309,8 +348,8 @@ class Apoyo extends CI_Controller {
 			}
 
 			//Nivel 3 Becas
-			if ($this->niveles->nivel3Sup(3, 5)) {
-				$nivel = $this->niveles->nivel3Sup(3, 5);
+			if ($this->niveles->nivel3Sup(3, 6)) {
+				$nivel = $this->niveles->nivel3Sup(3, 6);
 				$a     = array();
 				foreach ($nivel as $row) {
 					$array = array(
@@ -388,6 +427,7 @@ class Apoyo extends CI_Controller {
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
 
 			$data['main_cont'] = 'apoyo/indexSup';
+                        // print_r($data["Becas"]);
 			$this->load->view('includes/template_principal', $data);
 
 		} else {
@@ -1465,7 +1505,7 @@ class Apoyo extends CI_Controller {
 						$data['BecasArr']  = $this->evaluacion->getBecas($idUrl);
 						$data['Tutorias']  = $this->evaluacion->getTutorias($idUrl);
 						$data['Servicios'] = $this->evaluacion->getServicios($idUrl);
-						
+
 						//Obtiene informacion de los titulos
 						// Nivel 1
 						if ($this->niveles->nivel1(3)) {
@@ -1588,7 +1628,7 @@ class Apoyo extends CI_Controller {
 						$data['BecasArr']  = $this->evaluacion->getBecasSup($idUrl);
 						$data['Tutorias']  = $this->evaluacion->getTutoriasSup($idUrl);
 						$data['Servicios'] = $this->evaluacion->getServiciosSup($idUrl);
-						
+
 						//Obtiene informacion de los titulos
 						// Nivel 1
 						if ($this->niveles->nivel1Sup(3)) {
