@@ -12,5 +12,16 @@ Class Becas extends CI_Model {
 
 	}
 
+	function updateBecSup($datos) {
+		$data = array(
+			'AlumnosBeca'  => $datos['AlumnosBeca'],
+			'TotalAlumnos' => $datos['TotalAlumnos'],
+			'comprobante1'      => $datos['comprobante1'],
+		);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('BecasSup', $data);
+
+	}
+
 }
 ?>

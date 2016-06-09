@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.19, for osx10.7 (i386)
+-- MySQL dump 10.13  Distrib 5.7.9, for osx10.9 (x86_64)
 --
 -- Host: localhost    Database: upev0012016
 -- ------------------------------------------------------
--- Server version 5.6.20
+-- Server version 5.5.5-10.1.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -47,7 +47,7 @@ CREATE TABLE `Alumnos` (
 
 LOCK TABLES `Alumnos` WRITE;
 /*!40000 ALTER TABLE `Alumnos` DISABLE KEYS */;
-INSERT INTO `Alumnos` VALUES (1,1,0,0,0,0,0,0,0,0,'/uploads/desempeno/alumnos/1_1_less.jpg','/uploads/desempeno/alumnos/1_2_less.jpg','/uploads/desempeno/alumnos/1_3_9338635.png','/uploads/desempeno/alumnos/1_4_9338635.png');
+INSERT INTO `Alumnos` VALUES (1,1,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `AlumnosInvestigacion` (
   `ProfesoresConProyectos` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idAlumnosInvestigacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ CREATE TABLE `AlumnosInvestigacion` (
 
 LOCK TABLES `AlumnosInvestigacion` WRITE;
 /*!40000 ALTER TABLE `AlumnosInvestigacion` DISABLE KEYS */;
-INSERT INTO `AlumnosInvestigacion` VALUES (20,1,0,0,NULL),(21,2,0,0,NULL),(22,3,0,0,NULL),(23,4,0,0,NULL),(24,5,0,0,NULL),(25,6,0,0,NULL),(26,7,0,0,NULL),(27,8,0,0,NULL),(28,9,0,0,NULL),(29,10,0,0,NULL),(30,11,0,0,NULL),(31,12,0,0,NULL),(32,13,0,0,NULL),(33,14,0,0,NULL),(34,15,0,0,NULL),(35,16,0,0,NULL),(36,17,0,0,NULL),(37,18,0,0,NULL),(38,19,0,0,NULL),(39,20,0,0,NULL),(40,21,0,0,NULL),(41,22,0,0,NULL),(42,1,0,0,NULL);
+INSERT INTO `AlumnosInvestigacion` VALUES (1,1,0,0,NULL);
 /*!40000 ALTER TABLE `AlumnosInvestigacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +112,7 @@ CREATE TABLE `AlumnosSup` (
 
 LOCK TABLES `AlumnosSup` WRITE;
 /*!40000 ALTER TABLE `AlumnosSup` DISABLE KEYS */;
-INSERT INTO `AlumnosSup` VALUES (0,1,0,0,0,0,0,0,0,0,0,0,'','','','',''),(0,2,0,0,0,0,0,0,0,0,0,0,'','','','','');
+INSERT INTO `AlumnosSup` VALUES (0,1,0,0,0,0,0,0,0,0,0,0,'','','','','');
 /*!40000 ALTER TABLE `AlumnosSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +142,7 @@ CREATE TABLE `ApoyoEducativo` (
   `comprobante4` varchar(1000) DEFAULT NULL,
   `comprobante5` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idApoyoEducativo`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,8 +151,39 @@ CREATE TABLE `ApoyoEducativo` (
 
 LOCK TABLES `ApoyoEducativo` WRITE;
 /*!40000 ALTER TABLE `ApoyoEducativo` DISABLE KEYS */;
-INSERT INTO `ApoyoEducativo` VALUES (20,1,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(21,2,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(22,3,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(23,4,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(24,5,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(25,6,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(26,7,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(27,8,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(28,9,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(29,10,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(30,11,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(31,12,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(32,13,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(33,14,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(34,15,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(35,16,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(36,17,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(37,18,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(38,19,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(39,20,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(40,21,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(41,22,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL),(42,1,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `ApoyoEducativo` VALUES (1,1,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `ApoyoEducativo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ApoyoEducativoSup`
+--
+
+DROP TABLE IF EXISTS `ApoyoEducativoSup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ApoyoEducativoSup` (
+  `idEvaluacion` int(11) NOT NULL,
+  `LibrosActualizados` int(11) DEFAULT '0',
+  `TotalAcervoLibros` int(11) DEFAULT '0',
+  `MantenimientoAtendido` int(11) DEFAULT '0',
+  `MantenimientoSolicitado` int(11) DEFAULT '0',
+  `LimpiezaAtendida` int(11) DEFAULT '0',
+  `LimpiezaProgramada` int(11) DEFAULT '0',
+  `comprobante1` varchar(1000) DEFAULT NULL,
+  `comprobante2` varchar(1000) DEFAULT NULL,
+  `comprobante3` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ApoyoEducativoSup`
+--
+
+LOCK TABLES `ApoyoEducativoSup` WRITE;
+/*!40000 ALTER TABLE `ApoyoEducativoSup` DISABLE KEYS */;
+INSERT INTO `ApoyoEducativoSup` VALUES (1,0,0,0,0,0,0,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `ApoyoEducativoSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -169,7 +200,7 @@ CREATE TABLE `Becas` (
   `TotalAlumnos` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idBecas`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,8 +209,33 @@ CREATE TABLE `Becas` (
 
 LOCK TABLES `Becas` WRITE;
 /*!40000 ALTER TABLE `Becas` DISABLE KEYS */;
-INSERT INTO `Becas` VALUES (20,1,0,0,NULL),(21,2,0,0,NULL),(22,3,0,0,NULL),(23,4,0,0,NULL),(24,5,0,0,NULL),(25,6,0,0,NULL),(26,7,0,0,NULL),(27,8,0,0,NULL),(28,9,0,0,NULL),(29,10,0,0,NULL),(30,11,0,0,NULL),(31,12,0,0,NULL),(32,13,0,0,NULL),(33,14,0,0,NULL),(34,15,0,0,NULL),(35,16,0,0,NULL),(36,17,0,0,NULL),(37,18,0,0,NULL),(38,19,0,0,NULL),(39,20,0,0,NULL),(40,21,0,0,NULL),(41,22,0,0,NULL),(42,1,0,0,NULL);
+INSERT INTO `Becas` VALUES (1,1,0,0,NULL);
 /*!40000 ALTER TABLE `Becas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BecasSup`
+--
+
+DROP TABLE IF EXISTS `BecasSup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `BecasSup` (
+  `idEvaluacion` int(11) NOT NULL,
+  `AlumnosBeca` int(11) DEFAULT '0',
+  `TotalAlumnos` int(11) DEFAULT '0',
+  `comprobante1` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BecasSup`
+--
+
+LOCK TABLES `BecasSup` WRITE;
+/*!40000 ALTER TABLE `BecasSup` DISABLE KEYS */;
+INSERT INTO `BecasSup` VALUES (1,0,0,NULL);
+/*!40000 ALTER TABLE `BecasSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -268,7 +324,7 @@ CREATE TABLE `Docentes` (
 
 LOCK TABLES `Docentes` WRITE;
 /*!40000 ALTER TABLE `Docentes` DISABLE KEYS */;
-INSERT INTO `Docentes` VALUES (1,1,0,0,0,0,0,0,0,0,'/uploads/desempeno/docentes/1_1_9338635.png','/uploads/desempeno/docentes/1_2_less.jpg','/uploads/desempeno/docentes/1_3_less.jpg','/uploads/desempeno/docentes/1_4_less.jpg');
+INSERT INTO `Docentes` VALUES (1,1,0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Docentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -303,7 +359,7 @@ CREATE TABLE `DocentesSup` (
 
 LOCK TABLES `DocentesSup` WRITE;
 /*!40000 ALTER TABLE `DocentesSup` DISABLE KEYS */;
-INSERT INTO `DocentesSup` VALUES (0,1,0,0,0,0,0,0,0,0,'','','',''),(0,2,0,0,0,0,0,0,0,0,'','','','');
+INSERT INTO `DocentesSup` VALUES (0,1,0,0,0,0,0,0,0,0,'','','','');
 /*!40000 ALTER TABLE `DocentesSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -430,7 +486,7 @@ CREATE TABLE `Evaluacion` (
 
 LOCK TABLES `Evaluacion` WRITE;
 /*!40000 ALTER TABLE `Evaluacion` DISABLE KEYS */;
-INSERT INTO `Evaluacion` VALUES (1,1,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-06-05 06:57:54');
+INSERT INTO `Evaluacion` VALUES (1,1,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-06-09 02:51:12');
 /*!40000 ALTER TABLE `Evaluacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -469,7 +525,7 @@ CREATE TABLE `EvaluacionSup` (
   `CreateDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idEvaluacionSup`),
   KEY `idUnidadFK_idx` (`idUnidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -478,7 +534,7 @@ CREATE TABLE `EvaluacionSup` (
 
 LOCK TABLES `EvaluacionSup` WRITE;
 /*!40000 ALTER TABLE `EvaluacionSup` DISABLE KEYS */;
-INSERT INTO `EvaluacionSup` VALUES (1,26,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-06-05 22:10:53'),(2,30,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-06-05 23:19:40');
+INSERT INTO `EvaluacionSup` VALUES (1,26,'',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2016-06-09 02:51:22');
 /*!40000 ALTER TABLE `EvaluacionSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -743,7 +799,7 @@ CREATE TABLE `IndicadorMs` (
 
 LOCK TABLES `IndicadorMs` WRITE;
 /*!40000 ALTER TABLE `IndicadorMs` DISABLE KEYS */;
-INSERT INTO `IndicadorMs` VALUES (0,1,124,1,'b1',454545,433,345,3,43,43,4,34,34,34,65,65656544,4,564,78,78,6,56,545,45,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,125,1,'b2',43,4,543,45,4,34,3,43,3,43,34,34,68,4,7,8,65,6,45,45,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,126,1,'b3',34,34,345,3,343,43,4,345,4,345,3,43,54,5,8,78,56,5,4,7,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,127,1,'b4',3,53,543,54,4,34,345,3,345,3,56,54,46,4,7,87,65,678,6,7,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,128,1,'b5',543,543,34,34,34,3,8,5,8,5,45,45,45,6485,8,78,6,5,7,6,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `IndicadorMs` VALUES (0,1,124,1,'b1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,125,1,'b2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,126,1,'b3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,127,1,'b4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(0,1,128,1,'b5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `IndicadorMs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -809,7 +865,7 @@ CREATE TABLE `IndicadorSup` (
   `BPorcRecAut` int(11) DEFAULT NULL,
   `BPorcRecAutT` int(11) DEFAULT NULL,
   PRIMARY KEY (`idIndicadorSup`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -818,7 +874,7 @@ CREATE TABLE `IndicadorSup` (
 
 LOCK TABLES `IndicadorSup` WRITE;
 /*!40000 ALTER TABLE `IndicadorSup` DISABLE KEYS */;
-INSERT INTO `IndicadorSup` VALUES (1,26,240,1,'b1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,189,34,9,94,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,30,248,2,'b1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,4,7,56,87,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,30,249,2,'b2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,45,7,67,45,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,30,250,2,'b3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,54,9,443,44,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,30,251,2,'b4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,5,4,343,898,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,30,252,2,'b5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,98,65,54,656,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,30,253,2,'b6',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,22,45,544,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `IndicadorSup` VALUES (1,26,240,1,'b1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `IndicadorSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -842,7 +898,7 @@ CREATE TABLE `Infraestructura` (
   `comprobante2` varchar(1000) DEFAULT NULL,
   `comprobante3` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idInfraestructura`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -851,7 +907,7 @@ CREATE TABLE `Infraestructura` (
 
 LOCK TABLES `Infraestructura` WRITE;
 /*!40000 ALTER TABLE `Infraestructura` DISABLE KEYS */;
-INSERT INTO `Infraestructura` VALUES (20,1,656765767,656,54,454,0,0,'/uploads/oferta/infraestructura/1_1_','/uploads/oferta/infraestructura/1_2_','/uploads/oferta/infraestructura/1_3_'),(21,2,0,0,0,0,0,0,NULL,NULL,NULL),(22,3,0,0,0,0,0,0,NULL,NULL,NULL),(23,4,0,0,0,0,0,0,NULL,NULL,NULL),(24,5,0,0,0,0,0,0,NULL,NULL,NULL),(25,6,0,0,0,0,0,0,NULL,NULL,NULL),(26,7,0,0,0,0,0,0,NULL,NULL,NULL),(27,8,0,0,0,0,0,0,NULL,NULL,NULL),(28,9,0,0,0,0,0,0,NULL,NULL,NULL),(29,10,0,0,0,0,0,0,NULL,NULL,NULL),(30,11,0,0,0,0,0,0,NULL,NULL,NULL),(31,12,0,0,0,0,0,0,NULL,NULL,NULL),(32,13,0,0,0,0,0,0,NULL,NULL,NULL),(33,14,0,0,0,0,0,0,NULL,NULL,NULL),(34,15,0,0,0,0,0,0,NULL,NULL,NULL),(35,16,0,0,0,0,0,0,NULL,NULL,NULL),(36,17,0,0,0,0,0,0,NULL,NULL,NULL),(37,18,0,0,0,0,0,0,NULL,NULL,NULL),(38,19,0,0,0,0,0,0,NULL,NULL,NULL),(39,20,0,0,0,0,0,0,NULL,NULL,NULL),(40,21,0,0,0,0,0,0,NULL,NULL,NULL),(41,22,0,0,0,0,0,0,NULL,NULL,NULL),(42,1,656765767,656,54,454,0,0,'/uploads/oferta/infraestructura/1_1_','/uploads/oferta/infraestructura/1_2_','/uploads/oferta/infraestructura/1_3_');
+INSERT INTO `Infraestructura` VALUES (1,1,0,0,0,0,0,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Infraestructura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -874,7 +930,7 @@ CREATE TABLE `InfraestructuraSup` (
   `comprobante2` varchar(1000) DEFAULT NULL,
   `comprobante3` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idInfraestructuraSup`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -883,7 +939,7 @@ CREATE TABLE `InfraestructuraSup` (
 
 LOCK TABLES `InfraestructuraSup` WRITE;
 /*!40000 ALTER TABLE `InfraestructuraSup` DISABLE KEYS */;
-INSERT INTO `InfraestructuraSup` VALUES (1,1,12,67,6,56,59,'/uploads/oferta/infraestructurasup/1_1_9338635.png','/uploads/oferta/infraestructurasup/1_2_less.jpg','/uploads/oferta/infraestructurasup/1_3_9338635.png'),(2,2,56,56,32,98,57,'/uploads/oferta/infraestructurasup/2_1_','/uploads/oferta/infraestructurasup/2_2_','/uploads/oferta/infraestructurasup/2_3_');
+INSERT INTO `InfraestructuraSup` VALUES (1,1,0,0,0,0,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `InfraestructuraSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -904,7 +960,7 @@ CREATE TABLE `InnovacionEducativa` (
   `comprobante1` varchar(1000) DEFAULT NULL,
   `comprobante2` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idInnovacionEducativa`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -913,7 +969,7 @@ CREATE TABLE `InnovacionEducativa` (
 
 LOCK TABLES `InnovacionEducativa` WRITE;
 /*!40000 ALTER TABLE `InnovacionEducativa` DISABLE KEYS */;
-INSERT INTO `InnovacionEducativa` VALUES (20,1,0,0,0,0,NULL,NULL),(21,2,0,0,0,0,NULL,NULL),(22,3,0,0,0,0,NULL,NULL),(23,4,0,0,0,0,NULL,NULL),(24,5,0,0,0,0,NULL,NULL),(25,6,0,0,0,0,NULL,NULL),(26,7,0,0,0,0,NULL,NULL),(27,8,0,0,0,0,NULL,NULL),(28,9,0,0,0,0,NULL,NULL),(29,10,0,0,0,0,NULL,NULL),(30,11,0,0,0,0,NULL,NULL),(31,12,0,0,0,0,NULL,NULL),(32,13,0,0,0,0,NULL,NULL),(33,14,0,0,0,0,NULL,NULL),(34,15,0,0,0,0,NULL,NULL),(35,16,0,0,0,0,NULL,NULL),(36,17,0,0,0,0,NULL,NULL),(37,18,0,0,0,0,NULL,NULL),(38,19,0,0,0,0,NULL,NULL),(39,20,0,0,0,0,NULL,NULL),(40,21,0,0,0,0,NULL,NULL),(41,22,0,0,0,0,NULL,NULL),(42,1,0,0,0,0,NULL,NULL);
+INSERT INTO `InnovacionEducativa` VALUES (1,1,0,0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `InnovacionEducativa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -931,7 +987,7 @@ CREATE TABLE `InvestigacionDocencia` (
   `TotalDocentes` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idInvestigacionDocencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -940,7 +996,7 @@ CREATE TABLE `InvestigacionDocencia` (
 
 LOCK TABLES `InvestigacionDocencia` WRITE;
 /*!40000 ALTER TABLE `InvestigacionDocencia` DISABLE KEYS */;
-INSERT INTO `InvestigacionDocencia` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
+INSERT INTO `InvestigacionDocencia` VALUES (1,1,0,0,NULL);
 /*!40000 ALTER TABLE `InvestigacionDocencia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -988,7 +1044,7 @@ CREATE TABLE `ProgramasAcademicos` (
   `TotalProgramas` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idProgramasAcademicos`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -997,7 +1053,7 @@ CREATE TABLE `ProgramasAcademicos` (
 
 LOCK TABLES `ProgramasAcademicos` WRITE;
 /*!40000 ALTER TABLE `ProgramasAcademicos` DISABLE KEYS */;
-INSERT INTO `ProgramasAcademicos` VALUES (1,1,0,0,'/uploads/oferta/programas/1_1_9338635.png'),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,'/uploads/oferta/programas/1_1_9338635.png');
+INSERT INTO `ProgramasAcademicos` VALUES (1,1,0,0,NULL);
 /*!40000 ALTER TABLE `ProgramasAcademicos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1018,7 +1074,7 @@ CREATE TABLE `ProgramasAcademicosSup` (
   `comprobante1` varchar(1000) DEFAULT NULL,
   `comprobante2` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idProgramasAcademicosSup`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1027,7 +1083,7 @@ CREATE TABLE `ProgramasAcademicosSup` (
 
 LOCK TABLES `ProgramasAcademicosSup` WRITE;
 /*!40000 ALTER TABLE `ProgramasAcademicosSup` DISABLE KEYS */;
-INSERT INTO `ProgramasAcademicosSup` VALUES (1,1,0,0,0,0,'/uploads/oferta/programassup/1_1_less.jpg','/uploads/oferta/programassup/1_2_9338635.png'),(2,2,0,0,0,0,'/uploads/oferta/programassup/2_1_','/uploads/oferta/programassup/2_2_');
+INSERT INTO `ProgramasAcademicosSup` VALUES (1,1,0,0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `ProgramasAcademicosSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1045,7 +1101,7 @@ CREATE TABLE `ProyectosVinculados` (
   `ProyectosVinculadosAnt` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idProyectosVinculados`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1054,7 +1110,7 @@ CREATE TABLE `ProyectosVinculados` (
 
 LOCK TABLES `ProyectosVinculados` WRITE;
 /*!40000 ALTER TABLE `ProyectosVinculados` DISABLE KEYS */;
-INSERT INTO `ProyectosVinculados` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
+INSERT INTO `ProyectosVinculados` VALUES (1,1,0,0,NULL);
 /*!40000 ALTER TABLE `ProyectosVinculados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1072,7 +1128,7 @@ CREATE TABLE `RecursosAutogenerados` (
   `RecursosAutogenerados` int(11) DEFAULT '0',
   `comprobante1` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idRecursosAutogenerados`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1081,7 +1137,7 @@ CREATE TABLE `RecursosAutogenerados` (
 
 LOCK TABLES `RecursosAutogenerados` WRITE;
 /*!40000 ALTER TABLE `RecursosAutogenerados` DISABLE KEYS */;
-INSERT INTO `RecursosAutogenerados` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
+INSERT INTO `RecursosAutogenerados` VALUES (1,1,0,0,NULL);
 /*!40000 ALTER TABLE `RecursosAutogenerados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1124,7 +1180,7 @@ CREATE TABLE `ServicioSocial` (
   `AlumnosServicioAnterior` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idServicioSocial`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1133,7 +1189,7 @@ CREATE TABLE `ServicioSocial` (
 
 LOCK TABLES `ServicioSocial` WRITE;
 /*!40000 ALTER TABLE `ServicioSocial` DISABLE KEYS */;
-INSERT INTO `ServicioSocial` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
+INSERT INTO `ServicioSocial` VALUES (1,1,0,0,NULL);
 /*!40000 ALTER TABLE `ServicioSocial` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1151,7 +1207,7 @@ CREATE TABLE `Tutorias` (
   `TotalAlumnos` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idTutorias`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1160,8 +1216,33 @@ CREATE TABLE `Tutorias` (
 
 LOCK TABLES `Tutorias` WRITE;
 /*!40000 ALTER TABLE `Tutorias` DISABLE KEYS */;
-INSERT INTO `Tutorias` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
+INSERT INTO `Tutorias` VALUES (1,1,0,0,NULL);
 /*!40000 ALTER TABLE `Tutorias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TutoriasSup`
+--
+
+DROP TABLE IF EXISTS `TutoriasSup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TutoriasSup` (
+  `idEvaluacion` int(11) NOT NULL,
+  `AlumnosTutorados` int(11) DEFAULT '0',
+  `TotalAlumnos` int(11) DEFAULT '0',
+  `comprobante1` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TutoriasSup`
+--
+
+LOCK TABLES `TutoriasSup` WRITE;
+/*!40000 ALTER TABLE `TutoriasSup` DISABLE KEYS */;
+INSERT INTO `TutoriasSup` VALUES (1,0,0,NULL);
+/*!40000 ALTER TABLE `TutoriasSup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1242,7 +1323,7 @@ CREATE TABLE `VisitasEscolares` (
   `TotalMatricula` int(11) DEFAULT '0',
   `comprobante1` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`idVisitasEscolares`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1251,7 +1332,7 @@ CREATE TABLE `VisitasEscolares` (
 
 LOCK TABLES `VisitasEscolares` WRITE;
 /*!40000 ALTER TABLE `VisitasEscolares` DISABLE KEYS */;
-INSERT INTO `VisitasEscolares` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL);
+INSERT INTO `VisitasEscolares` VALUES (1,1,0,0,NULL),(2,2,0,0,NULL),(3,3,0,0,NULL),(4,4,0,0,NULL),(5,5,0,0,NULL),(6,6,0,0,NULL),(7,7,0,0,NULL),(8,8,0,0,NULL),(9,9,0,0,NULL),(10,10,0,0,NULL),(11,11,0,0,NULL),(12,12,0,0,NULL),(13,13,0,0,NULL),(14,14,0,0,NULL),(15,15,0,0,NULL),(16,16,0,0,NULL),(17,17,0,0,NULL),(18,18,0,0,NULL),(19,19,0,0,NULL),(20,20,0,0,NULL),(21,21,0,0,NULL),(22,22,0,0,NULL),(23,1,0,0,NULL),(24,1,0,0,NULL);
 /*!40000 ALTER TABLE `VisitasEscolares` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1264,7 +1345,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-05 20:40:32
+-- Dump completed on 2016-06-08 21:54:03
+
 
 
 
@@ -1303,6 +1385,11 @@ BEGIN
   INSERT INTO upev0012016.DocentesSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
   INSERT INTO upev0012016.ProgramasAcademicosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
   INSERT INTO upev0012016.InfraestructuraSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.BecasSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.TutoriasSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.ApoyoEducativoSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+
+
 
 
 END

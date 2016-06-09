@@ -13,7 +13,7 @@
         	</div>
         </div>
         <div class="menu-top">
-        <center>Sistema Institucional de Evaluación del Desempeño de Las Unidades Académicas</center>
+        <center>Sistema Institucional para Evaluar el Desempeño de los Procesos Educativos, Administrativos y de Servicios de la Oferta Educativa</center>
 
         </div>
 <!--         <div class="menu-cont">

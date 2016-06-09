@@ -249,6 +249,18 @@ Class Evaluacion extends CI_Model {
 		return $query->result();
 
 	}
+
+		function getBecasSup($id) {
+		$this->db->select('');
+		$this->db->from('BecasSup');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
 	function getTutorias($id) {
 		$this->db->select('');
 		$this->db->from('Tutorias');
@@ -259,9 +271,32 @@ Class Evaluacion extends CI_Model {
 		return $query->result();
 
 	}
+
+	function getTutoriasSup($id) {
+		$this->db->select('');
+		$this->db->from('TutoriasSup');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
 	function getServicios($id) {
 		$this->db->select('');
 		$this->db->from('ApoyoEducativo');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+	function getServiciosSup($id) {
+		$this->db->select('');
+		$this->db->from('ApoyoEducativoSup');
 		$this->db->where('idEvaluacion', $id);
 		$this->db->limit(1);
 
@@ -799,6 +834,29 @@ Class Evaluacion extends CI_Model {
 	}
 
 	// ----------- ***
+
+	function update_BBecas($datos) {
+		$data = array(
+			'BBecas' => $datos['BBecas'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BBecasT($datos) {
+		$data = array(
+			'BBecasT' => $datos['BBecasT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
 	function update_BAlumnosTutorados($datos) {
 		$data = array(
 			'BAlumnosTutorados' => $datos['BAlumnosTutorados'],
@@ -807,6 +865,17 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorMs', $data);
+
+	}
+
+	function update_BAlumnosTutoradosSup($datos) {
+		$data = array(
+			'BAlumnosTutorados' => $datos['BAlumnosTutorados'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
 
 	}
 
@@ -820,6 +889,90 @@ Class Evaluacion extends CI_Model {
 		$this->db->update('IndicadorMs', $data);
 
 	}
+
+	function update_BAlumnosTutoradosTSup($datos) {
+		$data = array(
+			'BAlumnosTutoradosT' => $datos['BAlumnosTutoradosT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	// +++++++++++Campos Superior que no estan en Medio Superior++++++++++
+
+	function update_BTitulosAct($datos) {
+		$data = array(
+			'BTitulosAct' => $datos['BTitulosAct'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BTitulosActT($datos) {
+		$data = array(
+			'BTitulosActT' => $datos['BTitulosActT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	function update_BCumplimientoMant($datos) {
+		$data = array(
+			'BCumplimientoMant' => $datos['BCumplimientoMant'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BCumplimientoMantT($datos) {
+		$data = array(
+			'BCumplimientoMantT' => $datos['BCumplimientoMantT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+	// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	function update_BCumplimientoProgLimp($datos) {
+		$data = array(
+			'BCumplimientoProgLimp' => $datos['BCumplimientoProgLimp'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+
+	function update_BCumplimientoProgLimpT($datos) {
+		$data = array(
+			'BCumplimientoProgLimpT' => $datos['BCumplimientoProgLimpT'],
+		);
+		$this->db->where('idUnidad', $datos['idUnidad']);
+		$this->db->where('idBloque', $datos['idBloque']);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('IndicadorSup', $data);
+
+	}
+	// ++++++++++++++++++Termina Campos Superior+++++++++++++++++++++++++
+	
 
 	function update_BlibrosTitulosEditados($datos) {
 		$data = array(

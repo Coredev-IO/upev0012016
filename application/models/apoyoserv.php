@@ -21,5 +21,22 @@ Class Apoyoserv extends CI_Model {
 		$this->db->update('ApoyoEducativo', $data);
 
 	}
+
+	function update_ApoyoSup($datos) {
+		$data = array(
+			'LibrosActualizados'       => $datos['LibrosActualizados'],
+			'TotalAcervoLibros'      => $datos['TotalAcervoLibros'],
+			'MantenimientoAtendido'   => $datos['MantenimientoAtendido'],
+			'MantenimientoSolicitado' => $datos['MantenimientoSolicitado'],
+			'LimpiezaAtendida'        => $datos['LimpiezaAtendida'],
+			'LimpiezaProgramada'      => $datos['LimpiezaProgramada'],
+			'comprobante1'      => $datos['comprobante1'],
+			'comprobante2'      => $datos['comprobante2'],
+			'comprobante3'      => $datos['comprobante3'],
+		);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('ApoyoEducativoSup', $data);
+
+	}
 }
 ?>
