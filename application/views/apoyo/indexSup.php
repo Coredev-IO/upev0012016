@@ -3,13 +3,14 @@
     <div class="well">
       <div data-example-id="togglable-tabs" class="bs-example bs-example-tabs">
           <ul id="myTabs" role="tablist" class="nav nav-tabs">
-            <li role="presentation" class="active"><a id="programa-tab" href="#programa" role="tab" data-toggle="tab" aria-controls="programa" aria-expanded="true">Becas</a></li>
-            <li role="presentation"><a id="infra-tab" href="#infra" role="tab" data-toggle="tab" aria-controls="infra" aria-expanded="false">Tutorias</a></li>
-              <li role="presentation"><a id="infra-tab" href="#infra" role="tab" data-toggle="tab" aria-controls="infra" aria-expanded="false">Servicios de apoyo educativo</a></li>
+            <li role="presentation" class="active"><a id="becas-tab" href="#becas" role="tab" data-toggle="tab" aria-controls="becas" aria-expanded="true">Becas</a></li>
+            <li role="presentation"><a id="tutorias-tab" href="#tutorias" role="tab" data-toggle="tab" aria-controls="tutorias" aria-expanded="false">Tutorías</a></li>
+            <li role="presentation" class="active"><a id="servicio-tab" href="#servicio" role="tab" data-toggle="tab" aria-controls="servicio" aria-expanded="false">Servicio de apoyo educativo</a></li>
           </ul>
           <br>
           <div id="myTabContent" class="tab-content">
-            <div id="programa" role="tabpanel" aria-labelledby="programa-tab" class="tab-pane fade active in">
+          	<!-- </div> INICIA BECAS-->
+            <div id="becas" role="tabpanel" aria-labelledby="becas-tab" class="tab-pane fade active in"> 
 <?php echo form_open_multipart('apoyo/update_BecasSup');?>
 <!-- <div class="row"> -->
 <?php
@@ -22,49 +23,26 @@ foreach ($IndicadorMs as $row) {
 	$obj = array();
 	$j   = 0;
 	foreach ($arr as $roww) {
-		// print_r($roww);
-		//
-		//
 		array_push($obj, $roww);
-		// echo "<br>";a
 		$j++;
 	}
-	// print_r($obj);
 	array_push($arrPrincipal, $obj);
-	// echo "<hr><br>";
 	$i++;
 }
 
-// print_r($arrPrincipal[0]);
-// echo "<br>---------------><br>";
-// print_r($arrPrincipal[1]);
 $idBloq     = 33;
 $idComplete = 2;
-// print_r($ProgramasAcademicos[0]);
 $v1 = $BecasArr[0];//Primer nivel
-
-
 $al = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
-
-// $NumeroArchivo = 6;
-//
-// $fileInput = 1;
-
-
-//NIvel Becas
-
 
 $NumeroArchivo = 3;
 
 $fileInput = 1;
 foreach ($Becas as $row) {
 // $Becas solo es los textos que debn tener los campos
-	// echo '<div class="col-md-4">'.$row["Nombre"].' '.$row["Valor"].'%</div>';
-	// echo '<div class="col-md-4">'.$row["Indicadores"].'</div>';
-	// echo '<div class="col-md-4">'.$row["Descripcion"].'</div>';
 	echo '<div class="col-md-12 title-principal">'.$row["Indicadores"].'</div>';
 	if ($row["Despegable"]) {
 		echo '<div class="row row-bloque">';
@@ -75,30 +53,20 @@ foreach ($Becas as $row) {
 		$varID2                                                             = "";
 		if ($row["Nombre"] == "Becas  de Manutención") {$varID  = "a"; $varID2  = "z";};//Pinta los titulos de las escuelas/carreras
 		$prinArr                                                            = 0;
-
 		foreach ($bloques as $roww) {
 			$prinArr2 = 0;
 			//Se traen los valores de los registros
 			$valor  = 0;
 			$arrsec = array();
 			$arrsec = $arrPrincipal[$prinArr];
-			// echo "<br>---------------><br>";
-			// print_r($arrsec);
 			if ($arrsec[2] == $roww["idBloques"]) {
 				$valor = $arrsec[$idBloq];
-
 				$newidBloq = $idBloq+1;
-				// $idBloq++;
 				$valor2 = $arrsec[$newidBloq];
 			}
 			foreach ($arrsec as $value) {
-				// print_r($value[$prinArr2]);
-				// echo $value;
-				// if ($value[2] == $roww["idBloques"]) {
-				// 	$valor = $value[5];
-				// }
+			
 			}
-
 			echo '<div class="col-md-12">
                                         <div class="row inputs-form">
                                                 <div class="col-md-4">'.$roww["Nombre"].'</div>
@@ -119,12 +87,9 @@ foreach ($Becas as $row) {
                                         </div>
                                 </div>';
 			$i = $i+1;
-
 			$prinArr++;
 		}
 		$idComplete++;
-
-		// echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 		$idBloq++;
@@ -147,31 +112,33 @@ foreach ($Becas as $row) {
 	$NumeroArchivo++;
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
-// echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
 echo form_close();
 echo "<hr><div class='errors'>";
 echo validation_errors();
 echo "</div>";
 ?>
-<!-- </div> -->
 </div>
-            <div id="infra" role="tabpanel" aria-labelledby="infra-tab" class="tab-pane fade">
-<?php echo form_open_multipart('oferta/update_LaboratoriosSup');?>
+<!-- </div> TERMINA BECAS-->
+
+
+
+
+
+<!-- +++++++INICIA TUTORIAS+++++++++++++++ -->
+<div id="tutorias" role="tabpanel" aria-labelledby="tutorias-tab" class="tab-pane fade">
+<?php echo form_open_multipart('apoyo/update_TutoriasSup');?>
 <!-- <div class="row"> -->
 <?php
 $idComplete = 2;
-$v1         = $Infraestructura[0];
+$v1         = $Tutoria[0];
 $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
-
-$NumeroArchivo = 7;
-
-$fileInput = 1;
-
-foreach ($nivelInfraestructura as $row) {
-
+$fileInput     = 1;
+$idBloq        = $idBloq;
+foreach ($Tutoria as $row) {
+	//
 	// echo '<div class="col-md-4">'.$row["Nombre"].' '.$row["Valor"].'%</div>';
 	// echo '<div class="col-md-4">'.$row["Indicadores"].'</div>';
 	// echo '<div class="col-md-4">'.$row["Descripcion"].'</div>';
@@ -180,12 +147,12 @@ foreach ($nivelInfraestructura as $row) {
 		echo '<div class="row row-bloque">';
 		echo '<div class="col-md-4">&nbsp;</div>';
 		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-4 title-row"></div><div class="col-md-4 title-row">'.$row["campo1"].'</div><div class="col-md-4 title-row"></div><div class="col-md-4 title-row">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"></div><br></div></div></div>';
-		$i                                                          = 1;
-		$varID                                                      = "";
-		if ($row["Nombre"] == "Capacidad de atención de alumnos en relación a talleres y laboratorios") {$varID = "c"; $varID2 = "x";};
-		if ($row["Nombre"] == "Aulas Equipadas") {$varID = "d"; $varID2 = "w";};
-		if ($row["Nombre"] == "Laboratorios Equipado") {$varID = "e"; $varID2 = "v";};
-		$prinArr                                                    = 0;
+		$i      = 1;
+		$varID  = "";
+		$varID2 = "";
+
+		if ($row["Indicadores"] == "Alumnos Tutorados ") {$varID                   = "a"; $varID2                   = "z";};
+		$prinArr                                                                                     = 0;
 
 		foreach ($bloques as $roww) {
 			$prinArr2 = 0;
@@ -195,15 +162,11 @@ foreach ($nivelInfraestructura as $row) {
 			$arrsec = $arrPrincipal[$prinArr];
 			// echo "<br>---------------><br>";
 			// print_r($arrsec);
-			// echo "#";
-			// echo $idBloq;
 			if ($arrsec[2] == $roww["idBloques"]) {
-				$valor = $arrsec[$idBloq];
-
+				$valor     = $arrsec[$idBloq];
 				$newidBloq = $idBloq+1;
 				// $idBloq++;
 				$valor2 = $arrsec[$newidBloq];
-
 			}
 			foreach ($arrsec as $value) {
 				// print_r($value[$prinArr2]);
@@ -239,26 +202,25 @@ foreach ($nivelInfraestructura as $row) {
 		// echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
-		$idBloq++;
 	} else {
 		echo '<div class="row row-bloque">';
 		echo '<div class="col-md-4">&nbsp;</div>';
 		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo1"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo1id"].' name='.$row["campo1id"].' required></div><br></div></div></div>';
-
-		if(strlen($row["campo2"])>0){
-			$idComplete++;
-			echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
-		}
+		$idComplete++;
+		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	}
 	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
 	if (strlen($al[$NumeroArchivo]) > 0) {
 		$splName = explode('/', $al[$NumeroArchivo]);
-		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
+		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'><a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
 	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
 	$fileInput++;
 	$NumeroArchivo++;
+
+	$idBloq++;
+	$idBloq++;
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
@@ -267,6 +229,18 @@ echo "<hr><div class='errors'>";
 echo validation_errors();
 echo "</div>";
 ?>
+
+</div>
+<!-- </div> TERMINA Tutorias-->
+
+
+
+
+
+
+
+
+
 <!-- </div> -->
           </div>
       </div>

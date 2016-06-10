@@ -722,7 +722,6 @@ class Apoyo extends CI_Controller {
 			}
 
 			$dataNivel1 = array(
-				'TotalAlumnos' => $this->input->post('b14'),
 				'idEvaluacion' => $eval[0]->idEvaluacionSup,
 				'comprobante1'               => $rutafiles[0],
 			);
@@ -805,8 +804,8 @@ class Apoyo extends CI_Controller {
 			}
 
 			//Nivel 3 Becas
-			if ($this->niveles->nivel3Sup(3, 5)) {
-				$nivel = $this->niveles->nivel3Sup(3, 5);
+			if ($this->niveles->nivel3Sup(3, 6)) {
+				$nivel = $this->niveles->nivel3Sup(3, 6);
 				$a     = array();
 				foreach ($nivel as $row) {
 					$array = array(
@@ -826,8 +825,8 @@ class Apoyo extends CI_Controller {
 			}
 
 			//Nivel 3 Tutoría
-			if ($this->niveles->nivel3Sup(3, 6)) {
-				$nivel = $this->niveles->nivel3Sup(3, 6);
+			if ($this->niveles->nivel3Sup(3, 7)) {
+				$nivel = $this->niveles->nivel3Sup(3, 7);
 				$a     = array();
 				foreach ($nivel as $row) {
 					$array = array(
@@ -847,8 +846,8 @@ class Apoyo extends CI_Controller {
 			}
 
 			//Nivel 3 Servicio de apoyo educativo
-			if ($this->niveles->nivel3Sup(3, 7)) {
-				$nivel = $this->niveles->nivel3Sup(3, 7);
+			if ($this->niveles->nivel3Sup(3, 8)) {
+				$nivel = $this->niveles->nivel3Sup(3, 8);
 				$a     = array();
 				foreach ($nivel as $row) {
 					$array = array(
