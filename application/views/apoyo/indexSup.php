@@ -129,14 +129,31 @@ echo "</div>";
 <?php echo form_open_multipart('apoyo/update_TutoriasSup');?>
 <!-- <div class="row"> -->
 <?php
+
+$i            = 0;
+$arrPrincipal = array();
+//Cantidad de unidades
+foreach ($IndicadorMs as $row) {
+	$arr = $IndicadorMs[$i];
+	$obj = array();
+	$j   = 0;
+	foreach ($arr as $roww) {
+		array_push($obj, $roww);
+		$j++;
+	}
+	array_push($arrPrincipal, $obj);
+	$i++;
+}
 $idComplete = 2;
-$v1         = $Tutoria[0];
-$al         = array();
+$v1 = $Tutorias[0];//Primer nivel
+$al = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
 }
-$fileInput     = 1;
-$idBloq        = $idBloq;
+
+$NumeroArchivo = 4;
+
+$fileInput = 1;
 foreach ($Tutoria as $row) {
 	//
 	// echo '<div class="col-md-4">'.$row["Nombre"].' '.$row["Valor"].'%</div>';
@@ -214,11 +231,10 @@ foreach ($Tutoria as $row) {
 	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
 	if (strlen($al[$NumeroArchivo]) > 0) {
 		$splName = explode('/', $al[$NumeroArchivo]);
-		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'><a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
+		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
 	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
 	$fileInput++;
 	$NumeroArchivo++;
-
 	$idBloq++;
 	$idBloq++;
 }
@@ -232,10 +248,6 @@ echo "</div>";
 
 </div>
 <!-- </div> TERMINA Tutorias-->
-
-
-
-
 
 
 

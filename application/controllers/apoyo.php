@@ -1228,8 +1228,8 @@ class Apoyo extends CI_Controller {
 
 
 			$dataNivel1 = array(
-				'LibrosActualizados'       => $this->input->post('b15'),
-				'TotalAcervoLibros'      => $this->input->post('b16'),
+				'LibrosActualizados'       => $this->input->post('a17'),
+				'TotalAcervoLibros'      => $this->input->post('b17'),
 				'MantenimientoAtendido'   => $this->input->post('a18'),
 				'MantenimientoSolicitado' => $this->input->post('b18'),
 				'LimpiezaAtendida'        => $this->input->post('a19'),
@@ -1361,7 +1361,7 @@ class Apoyo extends CI_Controller {
 			$data['message']   = "insert";
 			$data['BecasArr']  = $this->evaluacion->getBecasSup($idUrl);
 			$data['Tutorias']  = $this->evaluacion->getTutoriasSup($idUrl);
-			$data['Servicios'] = $this->evaluacion->getServiciosSup($idUrl);
+			$data['Serviciox'] = $this->evaluacion->getServiciosSup($idUrl);
 			// Obtener informacion de las tablas
 			// $data['ProgramasAcademicos'] = $this->evaluacion->getProgramasAcademicos($idUrl);
 			// $data['Infraestructura']     = $this->evaluacion->getInfraestructura($idUrl);
@@ -1394,8 +1394,8 @@ class Apoyo extends CI_Controller {
 			}
 
 			//Nivel 3 Becas
-			if ($this->niveles->nivel3Sup(3, 5)) {
-				$nivel = $this->niveles->nivel3Sup(3, 5);
+			if ($this->niveles->nivel3Sup(3, 6)) {
+				$nivel = $this->niveles->nivel3Sup(3, 6);
 				$a     = array();
 				foreach ($nivel as $row) {
 					$array = array(
@@ -1415,8 +1415,8 @@ class Apoyo extends CI_Controller {
 			}
 
 			//Nivel 3 Tutoría
-			if ($this->niveles->nivel3Sup(3, 6)) {
-				$nivel = $this->niveles->nivel3Sup(3, 6);
+			if ($this->niveles->nivel3Sup(3, 7)) {
+				$nivel = $this->niveles->nivel3Sup(3, 7);
 				$a     = array();
 				foreach ($nivel as $row) {
 					$array = array(
@@ -1431,13 +1431,13 @@ class Apoyo extends CI_Controller {
 						'Despegable'  => $row->Despegable
 					);
 					array_push($a, $array);
-					$data["Tutoria"] = $a;
+					$data["nivelTutorias"] = $a;
 				}
 			}
 
 			//Nivel 3 Servicio de apoyo educativo
-			if ($this->niveles->nivel3Sup(3, 7)) {
-				$nivel = $this->niveles->nivel3Sup(3, 7);
+			if ($this->niveles->nivel3Sup(3, 8)) {
+				$nivel = $this->niveles->nivel3Sup(3, 8);
 				$a     = array();
 				foreach ($nivel as $row) {
 					$array = array(
@@ -1618,7 +1618,7 @@ class Apoyo extends CI_Controller {
 					}
 				} else {
 
-					// SUPERIOR
+					// ++++++++++++++++++++++++++++++SUPERIOR+++++++++++++++++++++++++++++++++++++++++++
 					$result = $this->evaluacion->getEvaluacionIdSup($idUrl, $data['datos']['idUnidad']);
 
 					//Si existe lo deja continuar
