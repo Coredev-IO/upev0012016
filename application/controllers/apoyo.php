@@ -1189,10 +1189,13 @@ class Apoyo extends CI_Controller {
 			$indicadorFile = 1;
 
 			//SE RECORRE LA CANTIDAD DE ARCHIVOS POR NIVEL NECESARIOS
-			for ($p = 0; $p < 5; $p++) {
+			for ($p = 0; $p < 3; $p++) {
 				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacionSup."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
 				$new_name            = $eval[0]->idEvaluacionSup."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
 				$config['file_name'] = $new_name;
+
+
+				print_r($rutafiles);
 
 				//Initialize
 				$this->upload->initialize($config);
@@ -1361,7 +1364,7 @@ class Apoyo extends CI_Controller {
 			$data['message']   = "insert";
 			$data['BecasArr']  = $this->evaluacion->getBecasSup($idUrl);
 			$data['Tutorias']  = $this->evaluacion->getTutoriasSup($idUrl);
-			$data['Serviciox'] = $this->evaluacion->getServiciosSup($idUrl);
+			$data['Servicios'] = $this->evaluacion->getServiciosSup($idUrl);
 			// Obtener informacion de las tablas
 			// $data['ProgramasAcademicos'] = $this->evaluacion->getProgramasAcademicos($idUrl);
 			// $data['Infraestructura']     = $this->evaluacion->getInfraestructura($idUrl);
@@ -1431,7 +1434,7 @@ class Apoyo extends CI_Controller {
 						'Despegable'  => $row->Despegable
 					);
 					array_push($a, $array);
-					$data["nivelTutorias"] = $a;
+					$data["Tutoria"] = $a;
 				}
 			}
 
