@@ -1195,8 +1195,6 @@ class Apoyo extends CI_Controller {
 				$config['file_name'] = $new_name;
 
 
-				print_r($rutafiles);
-
 				//Initialize
 				$this->upload->initialize($config);
 
