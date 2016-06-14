@@ -1388,6 +1388,9 @@ BEGIN
   INSERT INTO upev0012016.BecasSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
   INSERT INTO upev0012016.TutoriasSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
   INSERT INTO upev0012016.ApoyoEducativoSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.ServicioSocialSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.PracticasProfesionalesSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.ProyectosVinculadosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
 
 
 

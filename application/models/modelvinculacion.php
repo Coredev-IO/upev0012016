@@ -32,5 +32,37 @@ Class Modelvinculacion extends CI_Model {
 
 	}
 
+	// NIVEL SUPERIOR
+
+	function update_ssSup($datos) {
+		$data = array(
+			'AlumnosInscritosServicio' => $datos['AlumnosInscritosServicio'],
+			'comprobante1'               => $datos['comprobante1'],
+		);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('ServicioSocialSup', $data);
+
+	}
+
+	function update_vsSup($datos) {
+		$data = array(
+			'comprobante1'               => $datos['comprobante1'],
+		);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('PracticasProfesionalesSup', $data);
+
+	}
+
+	function update_pvSup($datos) {
+		$data = array(
+			'ProyectosVinculadosAct' => $datos['ProyectosVinculadosAct'],
+			'ProyectosVinculadosAnt' => $datos['ProyectosVinculadosAnt'],
+			'comprobante1'               => $datos['comprobante1'],
+		);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('ProyectosVinculadosSup', $data);
+
+	}
+
 }
 ?>
