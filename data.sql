@@ -1376,6 +1376,8 @@ $$
 DELIMITER ;
 
 
+-- Trigger SUPERIOR ---
+
 DELIMITER $$
 USE upev0012016$$
 CREATE DEFINER = CURRENT_USER TRIGGER upev0012016.EvaluacionSup_AFTER_INSERT AFTER INSERT ON EvaluacionSup FOR EACH ROW
@@ -1391,6 +1393,10 @@ BEGIN
   INSERT INTO upev0012016.ServicioSocialSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
   INSERT INTO upev0012016.PracticasProfesionalesSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
   INSERT INTO upev0012016.ProyectosVinculadosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.RecursosAutogeneradosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.InvestigacionDocenciaSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.AlumnosInvestigacionSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+  INSERT INTO upev0012016.InnovacionEducativaSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
 
 
 

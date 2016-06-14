@@ -384,9 +384,32 @@ Class Evaluacion extends CI_Model {
 		return $query->result();
 
 	}
+
+	function getApoyoDocenciaSup($id) {
+		$this->db->select('');
+		$this->db->from('InvestigacionDocenciaSup');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
 	function getParticipacionAlmunnos($id) {
 		$this->db->select('');
 		$this->db->from('AlumnosInvestigacion');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+		function getParticipacionAlmunnosSup($id) {
+		$this->db->select('');
+		$this->db->from('InnovacionEducativaSup');
 		$this->db->where('idEvaluacion', $id);
 		$this->db->limit(1);
 
