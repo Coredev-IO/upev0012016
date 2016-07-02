@@ -3,7 +3,7 @@
         <div class="col-md-6 col-md-offset-3">
                 <div class="well">
                         <div class="form-group label-floating is-empty">
-                                <label for="username" class="control-label">Username</label>
+                                <label for="username" class="control-label">Usuario</label>
                                 <input type="text" class="form-control" id="username" name="username" autofocus="true">
                                 <span class="help-block">Usuario proporcionado por la UPEV </span>
                         </div>
@@ -15,7 +15,7 @@
                         <button type="submit" name="btn-submit" class="btn btn-raised btn-success">Iniciar<div class="ripple-container"></div></button>
                         <br>
 
-                         <a class="login-link s-top" href="#">¿No recuerda su contraseña?</a>
+                         <!-- <a class="login-link s-top" href="#">¿No recuerda su contraseña?</a> -->
 <?php
 echo form_close();
 echo "<br><div class='errors'>";

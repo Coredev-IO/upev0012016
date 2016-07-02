@@ -24,8 +24,8 @@ class VerifyLogin extends CI_Controller {
 		} else {
 			//This method will have the credentials validation
 			$this->load->library('form_validation');
-			$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
+			$this->form_validation->set_rules('username', 'Usuario', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('password', 'Contraseña', 'trim|required|xss_clean|callback_check_database');
 
 			if ($this->form_validation->run() == FALSE) {
 				//Field validation failed.&nbsp; User redirected to login page
@@ -43,7 +43,7 @@ class VerifyLogin extends CI_Controller {
 		//Field validation succeeded.&nbsp; Validate against database
 		$username = $this->input->post('username');
 		//query the database
-		$result = $this->user->login($username, md5($password));
+		$result = $this->user->login(md5($username), md5($password));
 		if ($result) {
 
 			// //Se verifica se la evaluacion ya tiene los subniveles por bloque

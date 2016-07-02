@@ -66,6 +66,8 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+$db['default']['char_set'] =  'utf8';
+$db['default']['dbcollat'] = 'utf8_general_ci';
 
 // $db['sup']['hostname'] = $localsys['db_hostname_sup'];
 // $db['sup']['username'] = $localsys['db_username_sup'];
