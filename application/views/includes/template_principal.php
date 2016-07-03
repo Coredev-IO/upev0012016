@@ -24,7 +24,7 @@
 
 <div class="well page active  col-md-12 menu-res">
       <div class="col-md-12" id="input" style="display: block;">
-      <label class="header"><?php echo "USUARIO: ".strtoupper($datos['Username'])."<br>UNIDAD: ".$datos['NombreUnidad']."<br>CORREO: ".$datos['Email']?></label>
+      <label class="header"><?php echo "USUARIO: ".strtoupper($datos['Userdisplay'])."<br>UNIDAD: ".$datos['NombreUnidad']."<br>CORREO: ".$datos['Email']?></label>
       </div>
 
 

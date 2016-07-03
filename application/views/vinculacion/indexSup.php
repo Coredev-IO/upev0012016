@@ -41,7 +41,7 @@ $fileInput = 1;
 
 foreach ($ServicioSocial as $row) {
 // $ServicioSocial solo es los textos que debn tener los campos
-	echo '<div class="col-md-12 title-principal">'.$row["Indicadores"].'</div>';
+	echo '<div class="col-md-12 title-principal">'.$row["Descripcion"].'</div>';
 	if ($row["Despegable"]) {
 		echo '<div class="row row-bloque">';
 		echo '<div class="col-md-4">&nbsp;</div>';
@@ -102,11 +102,11 @@ foreach ($ServicioSocial as $row) {
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	}
-	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario (formatos válidos: PDF, RAR y ZIP)</div>";
 	if (strlen($al[$NumeroArchivo]) > 0) {
 		$splName = explode('/', $al[$NumeroArchivo]);
 		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
-	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	echo '<input class="btn-input-file" type="file" accept=".pdf, .rar, .zip"  name="datafile'.$fileInput.'"/>';
 	$fileInput++;
 	$NumeroArchivo++;
 }
@@ -151,7 +151,7 @@ $fileInput = 1;
 
 foreach ($VisitasEscolares as $row) {
 // $ServicioSocial solo es los textos que debn tener los campos
-	echo '<div class="col-md-12 title-principal">'.$row["Indicadores"].'</div>';
+	echo '<div class="col-md-12 title-principal">'.$row["Descripcion"].'</div>';
 	if ($row["Despegable"]) {
 		echo '<div class="row row-bloque">';
 		echo '<div class="col-md-4">&nbsp;</div>';
@@ -211,11 +211,11 @@ foreach ($VisitasEscolares as $row) {
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	}
-	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario (formatos válidos: PDF, RAR y ZIP)</div>";
 	if (strlen($al[$NumeroArchivo]) > 0) {
 		$splName = explode('/', $al[$NumeroArchivo]);
 		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
-	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	echo '<input class="btn-input-file" type="file" accept=".pdf, .rar, .zip"  name="datafile'.$fileInput.'"/>';
 	$fileInput++;
 	$NumeroArchivo++;
 }
@@ -249,7 +249,7 @@ foreach ($ProyectosVinculados as $row) {
 	// echo '<div class="col-md-4">'.$row["Nombre"].' '.$row["Valor"].'%</div>';
 	// echo '<div class="col-md-4">'.$row["Indicadores"].'</div>';
 	// echo '<div class="col-md-4">'.$row["Descripcion"].'</div>';
-	echo '<div class="col-md-12 title-principal">'.$row["Indicadores"].'</div>';
+	echo '<div class="col-md-12 title-principal">'.$row["Descripcion"].'</div>';
 	if ($row["Despegable"]) {
 		echo '<div class="row row-bloque">';
 		echo '<div class="col-md-4">&nbsp;</div>';
@@ -297,11 +297,11 @@ foreach ($ProyectosVinculados as $row) {
 		$idComplete++;
 		echo '<div class="divider"></div></div>';
 	}
-	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario</div>";
+	echo "<div class='text-file'>Adjunte un archivo para validar la información ingresada en el formulario (formatos válidos: PDF, RAR y ZIP)</div>";
 	if (strlen($al[$NumeroArchivo]) > 0) {
 		$splName = explode('/', $al[$NumeroArchivo]);
 		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
-	echo '<input class="btn-input-file" type="file" name="datafile'.$fileInput.'"/>';
+	echo '<input class="btn-input-file" type="file" accept=".pdf, .rar, .zip"  name="datafile'.$fileInput.'"/>';
 	$fileInput++;
 	$NumeroArchivo++;
 }

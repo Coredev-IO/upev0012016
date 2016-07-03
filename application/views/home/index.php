@@ -1,6 +1,6 @@
 <div class="well page active  col-md-12">
       <div class="col-md-6" id="input" style="display: block;">
-      <label class="header"><?php echo $datos['Username'].",".$datos['Nombre']." ".$datos['ApellidoPaterno']." ".$datos['ApellidoMaterno']." ".$datos['NombreUnidad']."idUnidad: ".$datos['idUnidad'].", Nivel: ".$datos['Nivel']?></label>
+      <label class="header"><?php echo $datos['Userdisplay'].",".$datos['Nombre']." ".$datos['ApellidoPaterno']." ".$datos['ApellidoMaterno']." ".$datos['NombreUnidad']."idUnidad: ".$datos['idUnidad'].", Nivel: ".$datos['Nivel']?></label>
       </div>
       <div class="col-md-3 col-md-offset-3" id="input" style="display: block;">
       <label class="header"> <?php echo $datos['NombreUnidad']."idUnidad: ".$datos['idUnidad']?></label>

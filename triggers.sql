@@ -28,11 +28,20 @@ DELIMITER $$
 USE upev0012016$$
 CREATE DEFINER = CURRENT_USER TRIGGER upev0012016.EvaluacionSup_AFTER_INSERT AFTER INSERT ON EvaluacionSup FOR EACH ROW
 BEGIN
-
-	INSERT INTO upev0012016.AlumnosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+        INSERT INTO upev0012016.AlumnosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.AlumnosInvestigacionSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.BecasSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
 	INSERT INTO upev0012016.DocentesSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
-	INSERT INTO upev0012016.ProgramasAcademicosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
 	INSERT INTO upev0012016.InfraestructuraSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.InnovacionEducativaSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.InvestigacionDocenciaSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.PracticasProfesionalesSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.ProgramasAcademicosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.ProyectosVinculadosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.RecursosAutogeneradosSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.ServicioSocialSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.ApoyoEducativoSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
+	INSERT INTO upev0012016.TutoriasSup (idEvaluacion) VALUES (NEW.idEvaluacionSup);
 
 
 END
@@ -42,23 +51,26 @@ DELIMITER ;
 
 
 
+
+
+
 -- Becas
---  direccion donde se guardan los archivos 
+--  direccion donde se guardan los archivos
 -- /uploads/apoyo/becas
-ALTER TABLE `upev0012016`.`Becas` 
+ALTER TABLE `upev0012016`.`Becas`
 ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalAlumnos`;
 
 -- Tutorias
---  direccion donde se guardan los archivos 
+--  direccion donde se guardan los archivos
 -- /uploads/apoyo/tutorias
-ALTER TABLE `upev0012016`.`Tutorias` 
+ALTER TABLE `upev0012016`.`Tutorias`
 ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalAlumnos`;
 
 
--- Apoyo Educativo 
---  direccion donde se guardan los archivos 
+-- Apoyo Educativo
+--  direccion donde se guardan los archivos
 -- /uploads/apoyo/apoyoEducativo
-ALTER TABLE `upev0012016`.`ApoyoEducativo` 
+ALTER TABLE `upev0012016`.`ApoyoEducativo`
 ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `LimpiezaProgramada`,
 ADD COLUMN `comprobante2` VARCHAR(1000) NULL AFTER `comprobante1`,
 ADD COLUMN `comprobante3` VARCHAR(1000) NULL AFTER `comprobante2`,
@@ -74,43 +86,41 @@ alter table Infraestructura add column comprobante3 varchar(1000);
 '/uploads/oferta/infraestructura';
 
 
-ALTER TABLE `upev0012016`.`ServicioSocial` 
+ALTER TABLE `upev0012016`.`ServicioSocial`
 ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `AlumnosServicioAnterior`;
 '/uploads/vinculacion/servicio'
 
 
 
 
-ALTER TABLE `upev0012016`.`VisitasEscolares` 
+ALTER TABLE `upev0012016`.`VisitasEscolares`
 ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalMatricula`;
 '/uploads/vinculacion/visitas';
 
 
 
-ALTER TABLE `upev0012016`.`ProyectosVinculados` 
+ALTER TABLE `upev0012016`.`ProyectosVinculados`
 ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `ProyectosVinculadosAnt`;
 
 '/uploads/vinculacion/proyectos'
 
 
 
-ALTER TABLE `upev0012016`.`RecursosAutogenerados` 
+ALTER TABLE `upev0012016`.`RecursosAutogenerados`
 ADD COLUMN `comprobante1` VARCHAR(100) NULL AFTER `RecursosAutogenerados`;
 '/uploads/gestion/recursos'
 
 
 
--- Investigación Docentes 
---  direccion donde se guardan los archivos 
+-- Investigación Docentes
+--  direccion donde se guardan los archivos
 -- /uploads/investigacion/docente
-ALTER TABLE `upev0012016`.`InvestigacionDocencia` 
+ALTER TABLE `upev0012016`.`InvestigacionDocencia`
 ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `TotalDocentes`;
 
 
--- Alumnos Investigación 
---  direccion donde se guardan los archivos 
+-- Alumnos Investigación
+--  direccion donde se guardan los archivos
 -- /uploads/investigacion/alumnos
-ALTER TABLE `upev0012016`.`AlumnosInvestigacion` 
+ALTER TABLE `upev0012016`.`AlumnosInvestigacion`
 ADD COLUMN `comprobante1` VARCHAR(1000) NULL AFTER `ProfesoresConProyectos`;
-
-
