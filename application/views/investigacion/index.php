@@ -57,7 +57,7 @@ foreach ($ApoyoDocencia as $row) {
 	if (strlen($al[$NumeroArchivo]) > 0) {
 		$splName = explode('/', $al[$NumeroArchivo]);
 		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
-	echo '<input class="btn-input-file" type="file" accept=".pdf, .rar, .zip"  name="datafile'.$fileInput.'"/>';
+	echo '<input class="btn-input-file" type="file" accept=".pdf, .rar, .zip"  name="datafile'.$fileInput.'" multiple/>';
 	$fileInput++;
 	$NumeroArchivo++;
 }
@@ -119,7 +119,7 @@ foreach ($ParticipacionAlmunnos as $row) {
 	if (strlen($al[$NumeroArchivo]) > 0) {
 		$splName = explode('/', $al[$NumeroArchivo]);
 		if (strlen($splName[4]) >= 6) {echo "<label class='alert alert-info'>Archivo agregado: ".$splName[4]."</label><input type='hidden' name='dataSrc".$fileInput."' value='".$al[$NumeroArchivo]."'> <a class='btn btn-raised btn-success' href='".base_url().$al[$NumeroArchivo]."' download>Ver archivo</a>";}}
-	echo '<input class="btn-input-file" type="file" accept=".pdf, .rar, .zip"  name="datafile'.$fileInput.'"/>';
+	echo '<input class="btn-input-file" type="file" accept=".pdf, .rar, .zip"  name="datafile'.$fileInput.'" multiple/>';
 	$fileInput++;
 	$NumeroArchivo++;
 

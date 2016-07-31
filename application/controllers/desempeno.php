@@ -50,6 +50,7 @@ class Desempeno extends CI_Controller {
 
 						} else {
 							$dataFile = array('upload_data' => $this->upload->data());
+                                                        // print_r($dataFile);
 						}
 
 					}
