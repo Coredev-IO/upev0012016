@@ -3,7 +3,7 @@
                       <div class="well">
                               <div data-example-id="togglable-tabs" class="bs-example bs-example-tabs">
                                       <ul id="myTabs" role="tablist" class="nav nav-tabs">
-                                              <li role="presentation" class="active"><a id="home-tab" href="#home" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Usuarios para <b>captura</b> de información de Nivel Medio Superior</a></li>
+                                              <li role="presentation" class="active"><a id="home-tab" href="#home" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Usuarios para <b>revisón</b> de información de Nivel Medio Superior</a></li>
                                       </ul>
                                       <table id="table-user" class="table table-condensed table-striped">
                                              <thead>
