@@ -5,6 +5,11 @@ class Vinculacion extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
+
+                $data['datos'] = $this->session->userdata('logged_in');
+                $this->load->library('verify');
+                $this->verify->seccion(2, $data['datos']['idRoles']);
+
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
 		$this->load->model('modelvinculacion', '', TRUE);
@@ -472,7 +477,7 @@ class Vinculacion extends CI_Controller {
 			redirect('login', 'refresh');
 		}
 
-	}	
+	}
 
 	//update apartado de update_VisitasEscolares
 	public function update_VisitasEscolares() {

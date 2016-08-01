@@ -5,6 +5,11 @@ class Gestion extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
+                $data['datos'] = $this->session->userdata('logged_in');
+                $this->load->library('verify');
+                $this->verify->seccion(2, $data['datos']['idRoles']);
+
+                
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
 		$this->load->model('recursos', '', TRUE);
@@ -148,7 +153,7 @@ class Gestion extends CI_Controller {
 
 					$data['main_cont'] = 'gestion/index';
 					$this->load->view('includes/template_principal', $data);
-				
+
 
 		} else {
 			redirect('login', 'refresh');
@@ -289,7 +294,7 @@ class Gestion extends CI_Controller {
 
 					$data['main_cont'] = 'gestion/indexSup';
 					$this->load->view('includes/template_principal', $data);
-				
+
 
 		} else {
 			redirect('login', 'refresh');
@@ -392,7 +397,7 @@ class Gestion extends CI_Controller {
 					//Si existe lo deja continuar
 					if ($result) {
 						$data['gestion'] = $this->evaluacion->getGestionSup($idUrl);
-						
+
 						//Obtiene informacion de los titulos
 						// Nivel 1
 						if ($this->niveles->nivel1Sup(6)) {

@@ -7,6 +7,10 @@ class Home extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('evaluacion', '', TRUE);
+                $data['datos'] = $this->session->userdata('logged_in');
+                $this->load->library('verify');
+                // $this->verify->seccionHome($data['datos']['idRoles']);
+                $this->verify->seccion(2, $data['datos']['idRoles']);
 	}
 
 	function index() {
