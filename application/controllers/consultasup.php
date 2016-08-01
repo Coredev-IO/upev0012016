@@ -14,7 +14,9 @@ class Consultasup extends CI_Controller {
 
 
         public function index() {
-                echo "Consulta  superior";
+                $data['datos'] = $this->session->userdata('logged_in');
+                $data['main_cont'] = 'consultasup/index';
+                $this->load->view('includes/template_consultasup', $data);
         }
 
 

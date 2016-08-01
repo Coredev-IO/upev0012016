@@ -16,7 +16,23 @@ Class User extends CI_Model {
 			return false;
 		}
 	}
+
+
+
+        function getUsuarios($id) {
+		$this->db->select('');
+		$this->db->from('Alumnos');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		} else {
+			return false;
+		}
+	}
+
 }
 ?>
-
-

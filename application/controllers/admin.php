@@ -14,7 +14,10 @@ class Admin extends CI_Controller {
 
 
         public function index() {
-                echo "Modulo de administracion";
+                $data['datos'] = $this->session->userdata('logged_in');
+                $data['main_cont'] = 'admin/index';
+                $this->load->view('includes/template_admin', $data);
+
         }
 
 

@@ -14,7 +14,9 @@ class Consultams extends CI_Controller {
 
 
         public function index() {
-                echo "Consulta medio superior";
+                $data['datos'] = $this->session->userdata('logged_in');
+                $data['main_cont'] = 'consultams/index';
+                $this->load->view('includes/template_consultams', $data);
         }
 
 
