@@ -12,7 +12,7 @@ class Verify {
            if($rol_seccion==$rol_user){
                    return true;
            }else{
-                   
+
                    switch ($rol_user) {
                            case 1:
                                    redirect('admin', 'refresh');
@@ -39,6 +39,61 @@ class Verify {
                    return true;
            }else{
                    redirect('error', 'refresh');
+           }
+   }
+
+
+   function refresh404($rol){
+           switch ($rol) {
+                   case 1:
+                           redirect('admin', 'refresh');
+                           break;
+                   case 2:
+                           //Registro de accion
+                           redirect('home', 'refresh');
+                           break;
+                   case 3:
+                           redirect('consultams', 'refresh');
+                           break;
+                   case 4:
+                           redirect('consultasup', 'refresh');
+                           break;
+                   default:
+                           redirect('login', 'refresh');
+           }
+
+   }
+
+
+   function seccionLocal($rolsecc, $rol){
+
+
+           $rol_seccion = $rolsecc;
+           $rol_user = $rol;
+
+
+           if($rol_seccion==$rol_user){
+                   return true;
+           }else{
+
+                   switch ($rol_user) {
+                           case 1:
+                                   redirect('admin', 'refresh');
+                                   break;
+                           case 2:
+                                   //Registro de accion
+                                   redirect('home', 'refresh');
+                                   break;
+                           case 3:
+                                   redirect('consultams', 'refresh');
+                                   break;
+                           case 4:
+                                   redirect('consultasup', 'refresh');
+                                   break;
+                           default:
+                                   redirect('login', 'refresh');
+                   }
+
            }
    }
 

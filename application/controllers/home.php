@@ -10,7 +10,7 @@ class Home extends CI_Controller {
                 $data['datos'] = $this->session->userdata('logged_in');
                 $this->load->library('verify');
                 // $this->verify->seccionHome($data['datos']['idRoles']);
-                $this->verify->seccion(2, $data['datos']['idRoles']);
+                $this->verify->seccionLocal(2, $data['datos']['idRoles']);
 	}
 
 	function index() {
