@@ -74,7 +74,37 @@ class Admin extends CI_Controller {
                 $data['datos'] = $this->session->userdata('logged_in');
                 $data['usuarios'] = $this->user->getAdmin();
 
-                echo $this->uri->segment(3);
+                switch ($this->uri->segment(3)) {
+                        case "newmscap":
+                                $data['plantilla'] = "Nuevo usuario para registro de información nivel Medio Superior";
+                                $data['main_cont'] = 'admin/newuser';
+                                $this->load->view('includes/template_admin', $data);
+                                break;
+                        case "newsupcap":
+                                $data['plantilla'] = "Nuevo usuario para registro de información nivel Superior";
+                                $data['main_cont'] = 'admin/newuser';
+                                $this->load->view('includes/template_admin', $data);
+                                break;
+                        case "newmscon":
+                                $data['plantilla'] = "Nuevo usuario para revisión de información nivel Medio Superior";
+                                $data['main_cont'] = 'admin/newuser';
+                                $this->load->view('includes/template_admin', $data);
+                                break;
+                        case "newsupcon":
+                                $data['plantilla'] = "Nuevo usuario para revisión de información nivel Superior";
+                                $data['main_cont'] = 'admin/newuser';
+                                $this->load->view('includes/template_admin', $data);
+                                break;
+                        case "newadmin":
+                                $data['plantilla'] = "Nuevo usuario Administrador";
+                                $data['main_cont'] = 'admin/newuser';
+                                $this->load->view('includes/template_admin', $data);
+                                break;
+                        default:
+                                redirect('admin', 'refresh');
+                }
+
+
                 // $data['main_cont'] = 'admin/users_admin';
                 // $this->load->view('includes/template_admin', $data);
 

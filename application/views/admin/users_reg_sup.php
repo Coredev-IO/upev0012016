@@ -1,5 +1,9 @@
 <div class="row">
               <div class="col-md-12">
+                      <div class="well" id="actionbtn">
+                              <a class="btn btn-default" href="<?=base_url()?>index.php/admin/user_reg/newsupcap">Agregar Usuario</a>
+                      </div>
+
                       <div class="well">
                               <div data-example-id="togglable-tabs" class="bs-example bs-example-tabs">
                                       <ul id="myTabs" role="tablist" class="nav nav-tabs">

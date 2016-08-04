@@ -1,7 +1,7 @@
 <div class="row">
               <div class="col-md-12">
                       <div class="well" id="actionbtn">
-                              <a class="btn btn-default" href="<?=base_url()?>index.php/admin/user_reg/test">Agregar Usuario</a>
+                              <a class="btn btn-default" href="<?=base_url()?>index.php/admin/user_reg/newmscap">Agregar Usuario</a>
                       </div>
 
                       <div class="well">
