@@ -10,23 +10,43 @@
                                                       <div class="col-md-6">
                                                               <div class="form-group">
                                                                       <label for="apPaterno">Apellido Paterno</label>
-                                                                      <input type="text" class="form-control"  placeholder="Apellido Paterno" name="apPaterno">
+                                                                      <input type="text" class="form-control"  placeholder="" name="apPaterno" autofocus>
                                                               </div>
                                                       </div>
                                                       <div class="col-md-6">
                                                               <div class="form-group">
                                                                       <label for="apMaterno">Apellido Materno</label>
-                                                                      <input type="text" class="form-control" placeholder="Apellido Materno" name="apMaterno">
+                                                                      <input type="text" class="form-control" placeholder="" name="apMaterno">
                                                               </div>
                                                       </div>
                                                       <div class="col-md-6">
                                                               <div class="form-group">
                                                                       <label for="nombre">Nombre(s)</label>
-                                                                      <input type="text" class="form-control"  placeholder="Nombre" name="nombre">
+                                                                      <input type="text" class="form-control"  placeholder="" name="nombre">
                                                               </div>
                                                       </div>
                                               </div>
                                               <hr>
+                                              <div class="row">
+                                                      <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                      <label for="apPaterno">Sleccione una unidad</label>
+                                                                      <input type="text" class="form-control"  placeholder="" name="apPaterno" autofocus>
+                                                              </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                      <label for="apMaterno">Apellido Materno</label>
+                                                                      <input type="text" class="form-control" placeholder="" name="apMaterno">
+                                                              </div>
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                              <div class="form-group">
+                                                                      <label for="nombre">Nombre(s)</label>
+                                                                      <input type="text" class="form-control"  placeholder="" name="nombre">
+                                                              </div>
+                                                      </div>
+                                              </div>
                                       </form>
                               </div>
 

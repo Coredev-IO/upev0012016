@@ -10,6 +10,7 @@ class Admin extends CI_Controller {
                 $this->load->library('verify');
                 $this->verify->seccion(1, $data['datos']['idRoles']);
                 $this->load->model('user', '', TRUE);
+                $this->load->model('unidades', '', TRUE);
 	}
 
 
