@@ -173,3 +173,9 @@ h1{
 thead tr{
         background-color: #6c1645;
 }
+
+
+
+#actionbtn .btn-default {
+    background: #fff;
+}

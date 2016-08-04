@@ -70,4 +70,16 @@ class Admin extends CI_Controller {
 
 
 
+        public function user_reg() {
+                $data['datos'] = $this->session->userdata('logged_in');
+                $data['usuarios'] = $this->user->getAdmin();
+
+                echo $this->uri->segment(3);
+                // $data['main_cont'] = 'admin/users_admin';
+                // $this->load->view('includes/template_admin', $data);
+
+        }
+
+
+
 }
