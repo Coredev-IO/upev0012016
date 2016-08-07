@@ -42,6 +42,7 @@
 
 
                 echo '<input type="hidden" class="form-control" value='.$rol_value.' name="idRoles">';
+                echo '<input type="hidden" class="form-control" value='.$rol.' name="perfil">';
 
 
         ?>
@@ -78,7 +79,7 @@
                   echo '<div class="col-md-12">
                           <div class="form-group">
                             <label for="apPaterno">Selecione una unidad</label>';
-                            echo '<select name ="unidades " class="form-control"> 
+                            echo '<select name ="unidades " class="form-control">
                                   <option>  </option>';
                              foreach ($unidades as $row) {
                               echo "<option value =".($row->idUnidad).">".($row->NombreUnidad)."</option>";

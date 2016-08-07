@@ -117,6 +117,47 @@ class Admin extends CI_Controller {
 
         }
 
+        public function confirmar($datos){
+
+                $data['datos'] = $this->session->userdata('logged_in');
+
+                $data['form'] = $datos;
+
+                $data['main_cont'] = 'admin/confirm';
+                $this->load->view('includes/template_admin', $data);
+
+        }
+
+
+        public function finalizar(){
+
+                $data['datos'] = $this->session->userdata('logged_in');
+
+
+                switch ($this->input->post('perfil')) {
+                        case "newmscap":
+                                redirect('admin/index', 'refresh');
+                                break;
+                        case "newsupcap":
+                                redirect('admin/users_reg_sup', 'refresh');
+                                break;
+                        case "newmscon":
+                                redirect('admin/users_rev_med', 'refresh');
+                                break;
+                        case "newsupcon":
+                                redirect('admin/users_rev_sup', 'refresh');
+                                break;
+                        case "newadmin":
+                                redirect('admin/users_admin', 'refresh');
+                                break;
+                        default:
+                                redirect('admin', 'refresh');
+                }
+
+        }
+
+
+
         public function insert_admin() {
                 $data['datos'] = $this->session->userdata('logged_in');
                 $data['usuarios'] = $this->user->getAdmin();
@@ -130,21 +171,21 @@ class Admin extends CI_Controller {
                         'Email' => $this->input->post('email'),
                         'Telefono' => $this->input->post('tel'),
                         'Username' => md5($this->input->post('user_name')),
-                        'idUnidad' => $this->input->post('unidad'),
+                        'idUnidad' => $this->input->post('idUnidad'),
                         'idRoles' => $this->input->post('idRoles'),
                 );
                 //Transfering data to Model
                 $this->user->form_insertAdmin($datos);
-                $datos['message'] = 'Data Inserted Successfully';
 
-                $data['datos'] = $this->session->userdata('logged_in');
+                $datos['perfil'] = $this->input->post('perfil');
 
-                $data['usuarios'] = $this->user->getRegSup();
 
-                $data['main_cont'] = 'admin/users_reg_sup';
-                $this->load->view('includes/template_admin', $data);
+                $this->confirmar($datos);
 
         }
+
+
+
 
 
 
