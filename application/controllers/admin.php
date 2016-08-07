@@ -77,26 +77,36 @@ class Admin extends CI_Controller {
 
                 switch ($this->uri->segment(3)) {
                         case "newmscap":
+                                $data['unidades'] = $this->unidades->getUnidades('MED');
+                                $data['rol'] = $this->uri->segment(3);
                                 $data['plantilla'] = "Nuevo usuario para registro de información nivel Medio Superior";
                                 $data['main_cont'] = 'admin/newuser';
                                 $this->load->view('includes/template_admin', $data);
                                 break;
                         case "newsupcap":
+                                $data['rol'] = $this->uri->segment(3);
+                                $data['unidades'] = $this->unidades->getUnidades('SUP');
                                 $data['plantilla'] = "Nuevo usuario para registro de información nivel Superior";
                                 $data['main_cont'] = 'admin/newuser';
                                 $this->load->view('includes/template_admin', $data);
                                 break;
                         case "newmscon":
+                                $data['rol'] = $this->uri->segment(3);
+                                $data['unidades'] = [];
                                 $data['plantilla'] = "Nuevo usuario para revisión de información nivel Medio Superior";
                                 $data['main_cont'] = 'admin/newuser';
                                 $this->load->view('includes/template_admin', $data);
                                 break;
                         case "newsupcon":
+                                $data['rol'] = $this->uri->segment(3);
+                                $data['unidades'] = [];
                                 $data['plantilla'] = "Nuevo usuario para revisión de información nivel Superior";
                                 $data['main_cont'] = 'admin/newuser';
                                 $this->load->view('includes/template_admin', $data);
                                 break;
                         case "newadmin":
+                                $data['rol'] = $this->uri->segment(3);
+                                $data['unidades'] = [];
                                 $data['plantilla'] = "Nuevo usuario Administrador";
                                 $data['main_cont'] = 'admin/newuser';
                                 $this->load->view('includes/template_admin', $data);
@@ -108,30 +118,30 @@ class Admin extends CI_Controller {
         }
 
         public function insert_admin() {
-        $data['datos'] = $this->session->userdata('logged_in');
-        $data['usuarios'] = $this->user->getAdmin();
-        // Insert
-        $datos = array(
-        'Nombre' => $this->input->post('nombre'),
-        'ApellidoPaterno' => $this->input->post('apPaterno'),
-        'ApellidoMaterno' => $this->input->post('apMaterno'),
-        'Userdisplay' => $this->input->post('user_name'),
-        'Password' => md5($this->input->post('pass')),
-        'Email' => $this->input->post('email'),
-        'Telefono' => $this->input->post('tel'),
-        'Username' => md5($this->input->post('user_name')),
-        'idUnidad' => $this->input->post('unidad'),
-        );
-        //Transfering data to Model
-        $this->user->form_insertAdmin($datos);
-        $datos['message'] = 'Data Inserted Successfully';
+                $data['datos'] = $this->session->userdata('logged_in');
+                $data['usuarios'] = $this->user->getAdmin();
+                // Insert
+                $datos = array(
+                        'Nombre' => $this->input->post('nombre'),
+                        'ApellidoPaterno' => $this->input->post('apPaterno'),
+                        'ApellidoMaterno' => $this->input->post('apMaterno'),
+                        'Userdisplay' => $this->input->post('user_name'),
+                        'Password' => md5($this->input->post('pass')),
+                        'Email' => $this->input->post('email'),
+                        'Telefono' => $this->input->post('tel'),
+                        'Username' => md5($this->input->post('user_name')),
+                        'idUnidad' => $this->input->post('unidad'),
+                );
+                //Transfering data to Model
+                $this->user->form_insertAdmin($datos);
+                $datos['message'] = 'Data Inserted Successfully';
 
-        $data['datos'] = $this->session->userdata('logged_in');
+                $data['datos'] = $this->session->userdata('logged_in');
 
-        $data['usuarios'] = $this->user->getRegSup();
+                $data['usuarios'] = $this->user->getRegSup();
 
-        $data['main_cont'] = 'admin/users_reg_sup';
-        $this->load->view('includes/template_admin', $data);
+                $data['main_cont'] = 'admin/users_reg_sup';
+                $this->load->view('includes/template_admin', $data);
 
         }
 
