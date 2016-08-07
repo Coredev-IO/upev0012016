@@ -85,6 +85,6 @@ Class User extends CI_Model {
 	function form_insertAdmin($datos){
 	               $this->db->insert('Usuarios', $datos);
 	}
-
+	
 }
 ?>

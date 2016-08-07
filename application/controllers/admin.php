@@ -120,9 +120,7 @@ class Admin extends CI_Controller {
         public function confirmar($datos){
 
                 $data['datos'] = $this->session->userdata('logged_in');
-
                 $data['form'] = $datos;
-
                 $data['main_cont'] = 'admin/confirm';
                 $this->load->view('includes/template_admin', $data);
 
@@ -159,6 +157,16 @@ class Admin extends CI_Controller {
 
 
         public function insert_admin() {
+                $this->load->library('form_validation');
+                $this->form_validation->set_rules('user_name', 'Userdisplay', 'required');
+                $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+                $this->form_validation->set_rules('apPaterno', 'ApellidoPaterno', 'required');
+                $this->form_validation->set_rules('apMaterno', 'ApellidoMaterno', 'required');
+                $this->form_validation->set_rules('tel', 'Telefono', 'required');
+                $this->form_validation->set_rules('email', 'Email', 'required');
+                $this->form_validation->set_rules('idUnidad', 'idUnidad', 'required');
+                $this->form_validation->set_rules('pass', 'Password', 'trim|required|min_length[8]|matches[pass2]');
+                $this->form_validation->set_rules('pass2', 'PasswordConfir', 'trim|required');
                 $data['datos'] = $this->session->userdata('logged_in');
                 $data['usuarios'] = $this->user->getAdmin();
                 // Insert

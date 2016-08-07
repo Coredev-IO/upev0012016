@@ -50,25 +50,25 @@
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="apMaterno">Usuario</label>
-                                  <input type="text" class="form-control" placeholder="" name="user_name">
+                                  <input type="text" class="form-control" placeholder="" name="user_name" maxlength="40" required autofocus>
                           </div>
                   </div>
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="apPaterno">Nombre</label>
-                                  <input type="text" class="form-control"  placeholder="" name="nombre" autofocus>
+                                  <input type="text" class="form-control"  placeholder="" name="nombre" maxlength="40" required  onkeypress="return val(event)">
                           </div>
                   </div>
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="nombre">Apellido Paterno</label>
-                                  <input type="text" class="form-control"  placeholder="" name="apPaterno">
+                                  <input type="text" class="form-control"  placeholder="" name="apPaterno" maxlength="40" required onkeypress="return val(event)">
                           </div>
                   </div>
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="nombre">Apellido Materno</label>
-                                  <input type="text" class="form-control"  placeholder="" name="apMaterno">
+                                  <input type="text" class="form-control"  placeholder="" name="apMaterno" maxlength="40" required onkeypress="return val(event)">
                           </div>
                   </div>
           </div>
@@ -93,36 +93,42 @@
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="apMaterno">Email</label>
-                                  <input type="text" class="form-control" placeholder="" name="email">
+                                  <input type="email" class="form-control" placeholder="" name="email" required maxlength="25">
                           </div>
                   </div>
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="nombre">Telefono</label>
-                                  <input type="text" class="form-control"  placeholder="" name="tel">
+                                  <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control"  placeholder="" name="tel" required maxlength="10">
                           </div>
                   </div>
 
                   <div class="col-md-6">
                           <div class="form-group">
-                                  <label for="apMaterno">Password</label>
-                                  <input type="password" class="form-control" placeholder="" name="pass">
+                                  <label for="password">Password</label>
+                                  <input type="password" class="form-control" placeholder="" name="pass" required>
                           </div>
                   </div>
                   <div class="col-md-6">
                           <div class="form-group">
-                                  <label for="apMaterno">Confirma Password</label>
-                                  <input type="password" class="form-control" placeholder="" name="pass2">
+                                  <label for="Confirma_password">Confirma Password</label>
+                                  <input type="password" class="form-control" placeholder="" name="pass2" required>
                           </div>
                   </div>
+                  <?php
+                  echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
+                  echo form_close();
+                  ?>
           </div>
-
-        <?php
-        echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
-        echo form_close();
-        ?>
-
-
+        <script>
+          function val(e) {
+          tecla = (document.all) ? e.keyCode : e.which;
+          if (tecla==8) return true;
+          patron =/[A-Za-z]/;
+          te = String.fromCharCode(tecla);
+          return patron.test(te);
+          }
+        </script>
       </div>
     </div>
   </div>
