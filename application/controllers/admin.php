@@ -131,6 +131,7 @@ class Admin extends CI_Controller {
                         'Telefono' => $this->input->post('tel'),
                         'Username' => md5($this->input->post('user_name')),
                         'idUnidad' => $this->input->post('unidad'),
+                        'idRoles' => $this->input->post('rol'),
                 );
                 //Transfering data to Model
                 $this->user->form_insertAdmin($datos);

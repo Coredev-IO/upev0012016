@@ -9,7 +9,7 @@
         <?php
                 if(count($unidades)>0){
                         //creas un select
-                        print_r($unidades);
+                        // print_r($unidades);
                 }else{
                         //NO SE PINTA SELECT
                 }
@@ -44,46 +44,66 @@
                 echo '<input type="hidden" class="form-control" value='.$rol_value.' name="idRoles">';
 
 
-
-
-
-
-
         ?>
           <div class="row">
                   <div class="col-md-6">
                           <div class="form-group">
-                                  <label for="apPaterno">Apellido Paterno</label>
+                                  <label for="apPaterno">Nombre</label>
                                   <input type="text" class="form-control"  placeholder="" name="apPaterno" autofocus>
                           </div>
                   </div>
                   <div class="col-md-6">
                           <div class="form-group">
-                                  <label for="apMaterno">Apellido Materno</label>
+                                  <label for="apMaterno">Usuario</label>
                                   <input type="text" class="form-control" placeholder="" name="apMaterno">
                           </div>
                   </div>
                   <div class="col-md-6">
                           <div class="form-group">
-                                  <label for="nombre">Nombre(s)</label>
+                                  <label for="nombre">Apellido Paterno</label>
+                                  <input type="text" class="form-control"  placeholder="" name="nombre">
+                          </div>
+                  </div>
+                  <div class="col-md-6">
+                          <div class="form-group">
+                                  <label for="nombre">Apeliido</label>
                                   <input type="text" class="form-control"  placeholder="" name="nombre">
                           </div>
                   </div>
           </div>
-          <hr>
+
+          <!-- select fuera de la condición -->
+                  <div class="col-md-6">
+          <div class="form-group">
+            <label for="nombre">Asdsdsd</label>
+            <select name ="unidades " class="form-control"> 
+            <option>....</option>
+              <?php
+               foreach ($unidades as $row) {
+                echo "<option value =".($row->idUnidad).">".($row->NombreUnidad)."</option>";
+               }
+             ?>
+            </select>
+          </div>
+        </div>
           <div class="row">
                   <?php
-                          if(count($unidades)>0){
-                                  //creas un select
-                                  echo '<div class="col-md-6">
-                                                <div class="form-group">
-                                                        <label for="apPaterno">Selecione una unidad</label>
-                                                        <input type="text" class="form-control"  placeholder="" name="apPaterno" autofocus>
-                                                </div>
-                                        </div>';
-                          }
-                ?>
+                  if(count($unidades)>0){
+                  //creas un select
+                  echo '<div class="col-md-6">
+                          <div class="form-group">
+                            <label for="apPaterno">Selecione una unidad</label>
+                            <select name ="unidades " class="form-control"> 
+                            <option>....</option>
+                            </select>
+                          </div>
+                        </div>';
+                   foreach ($unidades as $row) {
+                    echo "<option value =".($row->idUnidad).">".($row->NombreUnidad)."</option>";
+                   }
 
+                  }
+                ?>
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="apMaterno">Username</label>
