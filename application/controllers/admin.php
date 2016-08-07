@@ -105,9 +105,33 @@ class Admin extends CI_Controller {
                                 redirect('admin', 'refresh');
                 }
 
+        }
 
-                // $data['main_cont'] = 'admin/users_admin';
-                // $this->load->view('includes/template_admin', $data);
+        public function insert_admin() {
+        $data['datos'] = $this->session->userdata('logged_in');
+        $data['usuarios'] = $this->user->getAdmin();
+        // Insert
+        $datos = array(
+        'Nombre' => $this->input->post('nombre'),
+        'ApellidoPaterno' => $this->input->post('apPaterno'),
+        'ApellidoMaterno' => $this->input->post('apMaterno'),
+        'Userdisplay' => $this->input->post('user_name'),
+        'Password' => md5($this->input->post('pass')),
+        'Email' => $this->input->post('email'),
+        'Telefono' => $this->input->post('tel'),
+        'Username' => md5($this->input->post('user_name')),
+        'idUnidad' => $this->input->post('unidad'),
+        );
+        //Transfering data to Model
+        $this->user->form_insertAdmin($datos);
+        $datos['message'] = 'Data Inserted Successfully';
+
+        $data['datos'] = $this->session->userdata('logged_in');
+
+        $data['usuarios'] = $this->user->getRegSup();
+
+        $data['main_cont'] = 'admin/users_reg_sup';
+        $this->load->view('includes/template_admin', $data);
 
         }
 
