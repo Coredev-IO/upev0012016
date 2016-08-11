@@ -74,7 +74,7 @@ Class User extends CI_Model {
         function getAdmin() {
 		$this->db->select('');
 		$this->db->from('Usuarios');
-                $this->db->where('idRoles', "1");
+        $this->db->where('idRoles', "1");
 
 		$query = $this->db->get();
 
@@ -82,8 +82,19 @@ Class User extends CI_Model {
 
 	}
 
-	function form_insertAdmin($datos){
-	               $this->db->insert('Usuarios', $datos);
+        function form_insertAdmin($datos){
+        $this->db->insert('Usuarios', $datos);
+            
+    }
+    
+    function getUser($id) {
+		$this->db->select('');
+		$this->db->from('Usuarios');
+		$this->db->where('idUsuarios', $id);
+
+		$query = $this->db->get();
+        return $query->result();
+
 	}
 	
 }

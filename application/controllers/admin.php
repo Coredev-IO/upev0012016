@@ -191,10 +191,19 @@ class Admin extends CI_Controller {
                 $this->confirmar($datos);
 
         }
+        
+         public function showUser() {
+                $data['datos'] = $this->session->userdata('logged_in');
+                $data['usuarios'] = $this->user->getUser($this->uri->segment(3));
 
+                $data['main_cont'] = 'admin/edituser';
+                $this->load->view('includes/template_admin', $data);
 
-
-
+        }
 
 
 }
+
+
+
+
