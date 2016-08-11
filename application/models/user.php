@@ -17,14 +17,12 @@ Class User extends CI_Model {
 		}
 	}
 
-
-
-        function getRegMS() {
+	function getRegMS() {
 		$this->db->select('');
 		$this->db->from('Usuarios');
-                $this->db->where('idRoles', "2");
-                $this->db->join('Unidad', 'Unidad.idUnidad = Usuarios.idUnidad');
-                $this->db->where('Unidad.Nivel', "MED");
+		$this->db->where('idRoles', "2");
+		$this->db->join('Unidad', 'Unidad.idUnidad = Usuarios.idUnidad');
+		$this->db->where('Unidad.Nivel', "MED");
 
 		$query = $this->db->get();
 
@@ -32,13 +30,12 @@ Class User extends CI_Model {
 
 	}
 
-
-        function getRegSup() {
+	function getRegSup() {
 		$this->db->select('');
 		$this->db->from('Usuarios');
-                $this->db->where('idRoles', "2");
-                $this->db->join('Unidad', 'Unidad.idUnidad = Usuarios.idUnidad');
-                $this->db->where('Unidad.Nivel', "SUP");
+		$this->db->where('idRoles', "2");
+		$this->db->join('Unidad', 'Unidad.idUnidad = Usuarios.idUnidad');
+		$this->db->where('Unidad.Nivel', "SUP");
 
 		$query = $this->db->get();
 
@@ -46,11 +43,10 @@ Class User extends CI_Model {
 
 	}
 
-
-        function getRevMS() {
+	function getRevMS() {
 		$this->db->select('');
 		$this->db->from('Usuarios');
-                $this->db->where('idRoles', "3");
+		$this->db->where('idRoles', "3");
 
 		$query = $this->db->get();
 
@@ -58,11 +54,10 @@ Class User extends CI_Model {
 
 	}
 
-
-        function getRevSup() {
+	function getRevSup() {
 		$this->db->select('');
 		$this->db->from('Usuarios');
-                $this->db->where('idRoles', "4");
+		$this->db->where('idRoles', "4");
 
 		$query = $this->db->get();
 
@@ -70,11 +65,10 @@ Class User extends CI_Model {
 
 	}
 
-
-        function getAdmin() {
+	function getAdmin() {
 		$this->db->select('');
 		$this->db->from('Usuarios');
-        $this->db->where('idRoles', "1");
+		$this->db->where('idRoles', "1");
 
 		$query = $this->db->get();
 
@@ -82,20 +76,21 @@ Class User extends CI_Model {
 
 	}
 
-        function form_insertAdmin($datos){
-        $this->db->insert('Usuarios', $datos);
-            
-    }
-    
-    function getUser($id) {
+	function form_insertAdmin($datos) {
+		$this->db->insert('Usuarios', $datos);
+
+	}
+
+	function getUser($id) {
 		$this->db->select('');
 		$this->db->from('Usuarios');
 		$this->db->where('idUsuarios', $id);
+		$this->db->join('Unidad', 'Unidad.idUnidad = Usuarios.idUnidad');
 
 		$query = $this->db->get();
-        return $query->result();
+		return $query->result();
 
 	}
-	
+
 }
 ?>
