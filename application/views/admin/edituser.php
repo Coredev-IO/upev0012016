@@ -101,7 +101,7 @@ if ($usuarios[0]->idRoles == 2) {
 <div class="col-md-6">
                           <div class="form-group">
                                   <label for="apMaterno">Email</label>
-                                  <input type="email" class="form-control" placeholder="" name="email" value=<?php echo $usuarios[0]->Email?> required maxlength="25">
+                                  <input type="email" class="form-control" placeholder="" name="email" value=<?php echo $usuarios[0]->Email?> required maxlength="80">
                           </div>
                   </div>
                   <div class="col-md-6">

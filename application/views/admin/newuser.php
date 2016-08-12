@@ -93,7 +93,7 @@
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="apMaterno">Email</label>
-                                  <input type="email" class="form-control" placeholder="" name="email" required maxlength="25">
+                                  <input type="email" class="form-control" placeholder="" name="email" required maxlength="80">
                           </div>
                   </div>
                   <div class="col-md-6">
