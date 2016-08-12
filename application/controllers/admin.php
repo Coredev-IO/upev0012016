@@ -118,6 +118,24 @@ class Admin extends CI_Controller {
 
 	}
 
+	public function actualizado($datos) {
+
+		$data['datos']     = $this->session->userdata('logged_in');
+		$data['form']      = $datos;
+		$data['main_cont'] = 'admin/update_user';
+		$this->load->view('includes/template_admin', $data);
+
+	}
+
+	public function borrado($datos) {
+
+		$data['datos']     = $this->session->userdata('logged_in');
+		$data['form']      = $datos;
+		$data['main_cont'] = 'admin/delete_user_confirm';
+		$this->load->view('includes/template_admin', $data);
+
+	}
+
 	public function finalizar() {
 
 		$data['datos'] = $this->session->userdata('logged_in');
@@ -189,5 +207,70 @@ class Admin extends CI_Controller {
 		$this->load->view('includes/template_admin', $data);
 
 	}
+
+	public function deleteuser() {
+		$data['datos']    = $this->session->userdata('logged_in');
+		$data['usuarios'] = $this->user->getUser($this->uri->segment(3));
+
+		$data['unidades'] = $this->unidades->getUnidades($data['usuarios'][0]->Nivel);
+
+		$data['main_cont'] = 'admin/deleteuser';
+		$this->load->view('includes/template_admin', $data);
+
+	}
+
+		public function update_admin() {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('user_name', 'Userdisplay', 'required');
+		$this->form_validation->set_rules('nombre', 'Nombre', 'required');
+		$this->form_validation->set_rules('apPaterno', 'ApellidoPaterno', 'required');
+		$this->form_validation->set_rules('apMaterno', 'ApellidoMaterno', 'required');
+		$this->form_validation->set_rules('tel', 'Telefono', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('idUnidad', 'idUnidad', 'required');
+		$this->form_validation->set_rules('pass', 'Password', 'trim|required|min_length[8]|matches[pass2]');
+		$this->form_validation->set_rules('pass2', 'PasswordConfir', 'trim|required');
+		$data['datos']    = $this->session->userdata('logged_in');
+		$data['usuarios'] = $this->user->getAdmin();
+		// Insert
+		$datos = array(
+			'Nombre'          => $this->input->post('nombre'),
+			'ApellidoPaterno' => $this->input->post('apPaterno'),
+			'ApellidoMaterno' => $this->input->post('apMaterno'),
+			'Userdisplay'     => $this->input->post('user_name'),
+			'Password'        => md5($this->input->post('pass')),
+			'Email'           => $this->input->post('email'),
+			'Telefono'        => $this->input->post('tel'),
+			'Username'        => md5($this->input->post('user_name')),
+			'idUnidad'        => $this->input->post('idUnidad'),
+			'idRoles'         => $this->input->post('idRoles'),
+			'idUsuarios'         => $this->input->post('idUsuarios'),
+		);
+		//Transfering data to Model
+		$this->user->update_users($datos);
+
+		$datos['perfil'] = $this->input->post('perfil');
+
+		$this->actualizado($datos);
+
+		}
+
+		public function delete_admin() {
+		$this->load->library('form_validation');
+		$data['datos']    = $this->session->userdata('logged_in');
+		$data['usuarios'] = $this->user->getAdmin();
+		// Insert
+		$datos = array(
+			'idUsuarios'         => $this->input->post('idUsuarios'),
+		);
+		//Transfering data to Model
+		$this->user->delete_user($datos);
+
+		$datos['perfil'] = $this->input->post('perfil');
+
+		$this->borrado($datos);
+
+		}
+
 
 }

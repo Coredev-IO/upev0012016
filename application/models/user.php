@@ -81,6 +81,17 @@ Class User extends CI_Model {
 
 	}
 
+	function update_users($datos) {
+		$this->db->where('idUsuarios', $datos['idUsuarios']);
+		$this->db->update('Usuarios', $datos);
+
+	}
+
+	function delete_user($datos){
+	$this->db->where('idUsuarios', $datos['idUsuarios']);
+	$this->db->delete('Usuarios', $datos);
+	}
+
 	function getUser($id) {
 		$this->db->select('');
 		$this->db->from('Usuarios');

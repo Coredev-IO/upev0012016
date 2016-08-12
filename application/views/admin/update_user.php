@@ -1,6 +1,6 @@
 <div class="well">
   <div data-example-id="togglable-tabs" class="bs-example bs-example-tabs">
-  <h1>Usuario agregado</h1>
+  <h1>Usuario Actualizado</h1>
   
 
 <?php
@@ -37,7 +37,7 @@
 echo form_open('admin/finalizar');
 echo '<input type="hidden" value='.$form['perfil'].' name="perfil">';
 
-echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
+echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Actualizar<div class="ripple-container"></div></button></div>';
 echo form_close();
 ?>
 	</div>
