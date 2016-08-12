@@ -28,7 +28,7 @@
                                                                        echo "<td>".($row->Userdisplay)."</td>";
                                                                        echo "<td>".($row->Email)."</td>";
                                                                       echo '<td><a href="'.base_url().'index.php/admin/showUser/'.$row->idUsuarios.'" class="btn btn-default btn-xs">Editar</button></td>';
-                                                                      echo '<td><a href="'.base_url().'index.php/admin/showUser/'.$row->idUsuarios.'" class="btn btn-default btn-xs">Borrar</button></td>';
+                                                                      echo '<td><a href="'.base_url().'index.php/admin/deleteuser/'.$row->idUsuarios.'" class="btn btn-default btn-xs">Borrar</button></td>';
                                                                        echo "</tr>";
 
                                                                }
