@@ -1,22 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php $this->load->view('includes/head')?>
-        <body>
-         <div class="header-ipn">
-        	<div class="container">
-        		<div class="col-md-6">
-					<img src="<?=base_url()?>/principal/img/sep.png" alt="">
-        		</div>
-        		<div class="col-md-6 right">
-					<img src="<?=base_url()?>/principal/img/ipn.png" alt="">
-        		</div>
-        	</div>
-        </div>
-        <div class="menu-top">
-        <center>Sistema Institucional para Evaluar el Desempeño de los Procesos Educativos, Administrativos y de Servicios de la Oferta Educativa</center>
-
-        </div>
-
+        <?php $this->load->view(('includes/header-ipn'))?>
+        <?php $this->load->view('includes/menu-top')?>
 
 <div class="container cnt-body">
 
@@ -66,7 +52,7 @@
                  				<div class="row">
 
 <?php
- $this->load->view("includes/menuSup");?>
+$this->load->view("includes/menuSup");?>
 <div class="col-md-9 col-lg-9 col-sm-9">
 							                          <nav role="navigation" class="navbar navbar-default">
 							                            <div class="container-fluid">

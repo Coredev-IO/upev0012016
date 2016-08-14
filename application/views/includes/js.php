@@ -1,9 +1,9 @@
 <script src="<?=base_url()?>/principal/js/jquery-1.10.2.min.js"></script>
+<script src="<?=base_url()?>/principal/js/theter.js"></script>
 <script src="<?=base_url()?>/principal/js/bootstrap.min.js"></script>
-<script src="<?=base_url()?>/principal/js/material.js"></script>
-<script src="<?=base_url()?>/principal/js/ripples.min.js"></script>
+
 <script type="text/javascript">
-        $.material.init();
+        $('form').attr('autocomplete', 'off');
 
 
 

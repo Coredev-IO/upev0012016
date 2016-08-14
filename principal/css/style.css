@@ -1,5 +1,5 @@
 
-body .container .well, body .container-fluid .well, body .container .jumbotron, body .container-fluid .jumbotron {
+body .container .jumbotron, body .container-fluid .jumbotron {
     padding: 19px;
     margin-bottom: 20px;
     -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.1);
@@ -20,11 +20,7 @@ body .container .well, body .container-fluid .well, body .container .jumbotron, 
 
 
 html, body {
-  background: url(../img/fondo.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    background-color: #efefef;
 }
 
 
@@ -33,8 +29,8 @@ html, body {
 }
 
 
-body .container .well, body .container-fluid .well, body .container .jumbotron, body .container-fluid .jumbotron, body .container .well-default, body .container-fluid .well-default, body .container .jumbotron-default, body .container-fluid .jumbotron-default {
-    background: rgba(0, 0, 0, 0.7);
+.container .well, body .container-fluid .well, body .container .jumbotron, body .container-fluid .jumbotron, body .container .well-default, body .container-fluid .well-default, body .container .jumbotron-default, body .container-fluid .jumbotron-default {
+    background: #fff;
 }
 
 .navbar, .navbar.navbar-default {
@@ -62,6 +58,19 @@ body .container .well, body .container-fluid .well, body .container .jumbotron, 
     padding-bottom: 20px;
 }
 
+
+.sep-logo{
+    background: url(../img/sep.png) no-repeat left;
+    height: 80px;
+    background-size: 200px;
+}
+
+.ipn-logo{
+    background: url(../img/ipn.png) no-repeat right;
+    height: 80px;
+    background-size: 200px;
+}
+
 .right{
     text-align: right;
 }
@@ -84,16 +93,15 @@ h1{
 }
 
 .menu-top{
-        background: #e4e5e7;
-        padding-top: 25px;
-        height: 80px;
+        background: #ddd;
+        height: 5px;
         font-size: 20px;
 }
 
 
-.form-control{
-    color: #fff;
-}
+// .form-control{
+//     color: #fff;
+// }
 
 .menu-res{
     z-index: 99999;
@@ -104,21 +112,14 @@ h1{
 }
 
 .row{
-    color: #fff;
-}
-
-
-.inputs-form{
-  margin-bottom: -30px;
-  background: rgba(0, 0, 0, 0.2);
+    color: #555;
 }
 
 
 
 
-.inputs-form input{
-  margin-top: -10px;
-}
+
+
 .row-bloque{
     margin-bottom: 100px;
 }
@@ -126,6 +127,10 @@ h1{
 
 .title-row{
     background: rgba(0, 0, 0, 0.7);
+}
+
+.form-group {
+    margin-bottom: 0rem;
 }
 
 .btn-input-file{
@@ -178,4 +183,36 @@ thead tr{
 
 #actionbtn .btn-default {
     background: #fff;
+}
+
+.well{
+    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    border: 0;
+}
+
+.login-panel{
+    padding: 50px;
+}
+
+.well-header{
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: -10px;
+}
+
+.header-title{
+    margin-top: 20px;
+    padding: 20px;
+    margin-bottom: -40px;
+    text-align: center;
+}
+
+
+.btn-login{
+    margin-top: 50px;
+}
+.btn-100{
+    width: 100%;
 }
