@@ -1,45 +1,26 @@
-<div class="well">
-  <div data-example-id="togglable-tabs" class="bs-example bs-example-tabs">
-  <h1>Usuario Actualizado</h1>
-  
+<div class="card">
+  <div class="card-header">
+    Usuario actualizado
+  </div>
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item">Nombre Completo:<b>
+<?php echo '<label value ='.$form['Nombre'].'>'.$form['Nombre'].' '.$form['ApellidoPaterno'].' '.$form['ApellidoMaterno'].'</label>';?></b></li>
+    <li class="list-group-item">Nombre de Usuario: <b><?php echo '<label value ='.$form['Userdisplay'].'>'.$form['Userdisplay'].'</label>';?></b></li>
+    <li class="list-group-item">Email: <b><?php echo '<label value ='.$form['Email'].'>'.$form['Email'].'</label>';?></b></li>
+    <li class="list-group-item">Telefono: <b><?php echo '<label value ='.$form['Telefono'].'>'.$form['Telefono'].'</label>';?></b></li>
+  </ul>
 
-<?php
-// Imprime todo el objeto form
-// print_r($form);
 
-// echo $form['perfil'];
-// echo $form ['Nombre'];
-// echo $form ['ApellidoPaterno'];
-// echo $form ['ApellidoMaterno'];
-// echo $form ['Userdisplay'];
-// echo $form ['Email'];
-// echo $form ['Telefono'];
-// echo "<br>";
-?>
-		<div class ="row">
- 		<div class="col-md-12">
-		  <h4>Nombre Completo</h4>
-			<?php echo '<label value ='.$form['Nombre'].'>'.$form['Nombre'].' '.$form['ApellidoPaterno'].' '.$form['ApellidoMaterno'].'</label>'; ?>
-		</div>
-		<div class="col-md-12">
-		  <h4>Nombre de Usuario</h4>
-			<?php echo '<label value ='.$form['Userdisplay'].'>'.$form['Userdisplay'].'</label>'; ?>
-		</div>
-		<div class="col-md-12">
-		  <h4>Email</h4>
-			<?php echo '<label value ='.$form['Email'].'>'.$form['Email'].'</label>'; ?>
-		</div>
-		<div class="col-md-12">
-		  <h4>Telefono</h4>
-			<?php echo '<label value ='.$form['Telefono'].'>'.$form['Telefono'].'</label>'; ?>
-		</div>
+
+    <div class="card-footer">
 <?php
+
 echo form_open('admin/finalizar');
 echo '<input type="hidden" value='.$form['perfil'].' name="perfil">';
 
-echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Actualizar<div class="ripple-container"></div></button></div>';
+echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-outline-success">Finalizar<div class="ripple-container"></div></button></div>';
 echo form_close();
 ?>
-	</div>
-  </div>
 </div>
+</div>
+

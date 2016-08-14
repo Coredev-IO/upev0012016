@@ -4,7 +4,7 @@
       </div>
 
       <div class="col-md-6 salir-btn" id="input" style="display: block;">
-      <label class="header"><a class="btn btn-success" href="<?=base_url()?>index.php/logout">SALIR</a></label>
+      <label class="header"><a class="btn btn-outline-danger btn-sm" href="<?=base_url()?>index.php/logout">SALIR</a></label>
       </div>
 
 

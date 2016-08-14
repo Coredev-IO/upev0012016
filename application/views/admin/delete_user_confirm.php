@@ -1,31 +1,21 @@
-<div class="well">
-  <div data-example-id="togglable-tabs" class="bs-example bs-example-tabs">
-  <h1>Usuario Eliminado</h1>
-  
+<div class="card">
+  <div class="card-header">
+    Usuario Eliminado
+  </div>
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item">El usuario se elimino correctamente</li>
+  </ul>
 
-<?php
-// Imprime todo el objeto form
-// print_r($form);
 
-// echo $form['perfil'];
-// echo $form ['Nombre'];
-// echo $form ['ApellidoPaterno'];
-// echo $form ['ApellidoMaterno'];
-// echo $form ['Userdisplay'];
-// echo $form ['Email'];
-// echo $form ['Telefono'];
-// echo "<br>";
-?>
-		<div class ="row">
- 		<div class="col-md-12">
-		</div>
+
+    <div class="card-footer">
 <?php
 echo form_open('admin/finalizar');
 echo '<input type="hidden" value='.$form['perfil'].' name="perfil">';
 
-echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Inicio<div class="ripple-container"></div></button></div>';
+echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-outline-success">Inicio<div class="ripple-container"></div></button></div>';
 echo form_close();
 ?>
-	</div>
-  </div>
 </div>
+</div>
+

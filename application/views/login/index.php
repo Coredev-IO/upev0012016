@@ -15,7 +15,7 @@
                                 <input type="password" class="form-control" placeholder="Contraseña" id="password" name="password">
                                 <span class="help-block">Si olvido la contraseña contacte al administrador</span>
                         </div>
-                        <button type="submit" name="btn-submit" class="btn btn-raised btn-success btn-100 btn-login">Iniciar</button>
+                        <button type="submit" name="btn-submit" class="btn btn-outline-success btn-100 btn-login">Iniciar</button>
                         <br>
 
                          <!-- <a class="login-link s-top" href="#">¿No recuerda su contraseña?</a> -->

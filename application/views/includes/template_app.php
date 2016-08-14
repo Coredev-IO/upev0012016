@@ -2,6 +2,7 @@
 <html lang="es">
 <?php $this->load->view('includes/head')?>
 <body>
+<?php $this->load->view(('includes/loader'))?>
 <?php $this->load->view(('includes/header-ipn'))?>
         <?php $this->load->view('includes/menu-top')?>
 <!--         <div class="menu-cont">

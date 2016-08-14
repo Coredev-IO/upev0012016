@@ -5,9 +5,25 @@
 <script type="text/javascript">
         $('form').attr('autocomplete', 'off');
 
+        $('.loader').hide();
+
+        $('a').click(function(){
+                $('.loader').show();
+                var www = this.href;
+                    var f = function(){ window.location.href=www };
+                    setTimeout(f,800);
+                    return false;
+
+        });
+
+        // $('button').click(function(){
+        //         $('.loader').show();
+
+        // });
 
 
-        //SE PREVIENE EL SUBMIT PARA REVISAR LOS ARCHIVOS
+
+
         // $(function(){
         //     $("button[type='submit']").click(function(){
         //         var $fileUpload = $("input[type='file']");

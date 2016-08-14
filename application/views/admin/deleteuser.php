@@ -1,12 +1,5 @@
 <!-- pinta mi objeto -->
-<!-- <?php print_r($usuarios); ?>  -->
-<div class="row">
-  <div class="col-md-12">
-    <div class="well">
-      <div data-example-id="togglable-tabs" class="bs-example bs-example-tabs">
-        <ul id="myTabs" role="tablist" class="nav nav-tabs">
-                <li role="presentation" class="active"><a id="home-tab" href="#home" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Eliminar Usuario</a></li>
-        </ul>
+<!-- <?php print_r($usuarios);?>-->
 <?php echo form_open('admin/delete_admin');?>
         <?php
 if (count($unidades) > 0) {
@@ -46,10 +39,14 @@ echo '<input type="hidden" class="form-control" value='.$usuarios[0]->idRoles.' 
 echo '<input type="hidden" class="form-control" value='.$usuarios[0]->idUsuarios.' name="idUsuarios">';
 echo '<input type="hidden" class="form-control" value='.$rol.' name="perfil">';
 
-
 ?>
-<div class="row">
-                  <div class="col-md-6">
+
+<div class="card">
+  <div class="card-header">
+    Eliminar Usuario
+  </div>
+  <div class="card-block">
+   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="apMaterno">Usuario</label>
                                   <input type="text" class="form-control" placeholder="" name="user_name" maxlength="40" value=<?php echo $usuarios[0]->Userdisplay?> required disabled autofocus>
@@ -70,11 +67,10 @@ echo '<input type="hidden" class="form-control" value='.$rol.' name="perfil">';
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="nombre">Apellido Materno</label>
-                                  <input type="text" class="form-control"  placeholder="" name="apMaterno" maxlength="40" value=<?php echo $usuarios[0]->ApellidoMaterno?> required disabled onkeypress="return val(event)">
+                                  <input type="text" class="form-control"  placeholder="" name="apMaterno" maxlength="40" value=<?php echo $usuarios[0]->ApellidoMaterno?>required disabled onkeypress="return val(event)">
                           </div>
                   </div>
-          </div>
-          <div class="row">
+
 <?php
 if ($usuarios[0]->idRoles == 2) {
 	if (count($unidades) > 0) {
@@ -85,11 +81,11 @@ if ($usuarios[0]->idRoles == 2) {
 		echo '<select name ="unidades " class="form-control">
                                     <option>  </option>';
 		foreach ($unidades as $row) {
-                        if ($row->idUnidad==$usuarios[0]->idUnidad){
-                                echo "<option value =".($row->idUnidad)." selected>".($row->NombreUnidad)."</option>";
-                        }else{
-			                             echo "<option disabled value =".($row->idUnidad).">".($row->NombreUnidad)."</option>";
-                                             }
+			if ($row->idUnidad == $usuarios[0]->idUnidad) {
+				echo "<option value =".($row->idUnidad)." selected>".($row->NombreUnidad)."</option>";
+			} else {
+				echo "<option disabled value =".($row->idUnidad).">".($row->NombreUnidad)."</option>";
+			}
 		}
 		echo '</select>
                             </div>
@@ -107,7 +103,7 @@ if ($usuarios[0]->idRoles == 2) {
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="nombre">Telefono</label>
-                                  <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control"  placeholder="" name="tel" value=<?php echo $usuarios[0]->Telefono?> required disabled maxlength="10">
+                                  <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control"  placeholder="" name="tel" value=<?php echo $usuarios[0]->Telefono?>required disabled maxlength="10">
                           </div>
                   </div>
 
@@ -123,13 +119,14 @@ if ($usuarios[0]->idRoles == 2) {
                                   <input type="password" class="form-control" placeholder="" name="pass2" required disabled>
                           </div>
                   </div> -->
+
+</div>
+<div class="card-footer">
 <?php
-echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Eliminar<div class="ripple-container"></div></button></div>';
+echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-outline-success">Eliminar<div class="ripple-container"></div></button></div>';
 echo form_close();
 ?>
-        </div>
-
-      </div>
-    </div>
-  </div>
 </div>
+</div>
+
+

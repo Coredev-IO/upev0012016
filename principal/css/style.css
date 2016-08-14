@@ -9,7 +9,7 @@ body .container .jumbotron, body .container-fluid .jumbotron {
 }
 
 .cnt-body{
-        padding-top:  60px;
+        padding-top:  55px;
 }
 
 
@@ -107,7 +107,7 @@ h1{
     padding-top: 15px;
     padding-bottom: 10px;
     z-index: 99999;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-size: 14px;
 }
 
@@ -133,9 +133,7 @@ h1{
     background: rgba(0, 0, 0, 0.7);
 }
 
-.form-group {
-    margin-bottom: 0rem;
-}
+
 
 .btn-input-file{
     margin-bottom: 80px;
@@ -155,22 +153,22 @@ h1{
     margin-bottom: -18px;
 }
 
-.table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: rgba(0,0,0,0.5);
-}
+// .table-striped>tbody>tr:nth-of-type(odd) {
+//     background-color: rgba(0,0,0,0.5);
+// }
 
 
-#table-user{
-        margin-top: 20px;
-}
+// #table-user{
+//         margin-top: 20px;
+// }
 
-#table-user tbody td{
-        padding-top: 20px;
-}
+// #table-user tbody td{
+//         padding-top: 10px;
+// }
 
-#table-user .btn-default{
-        background: #fff;
-}
+// #table-user .btn-default{
+//         background: #fff;
+// }
 
 
 #table-user tbody td a{
@@ -179,9 +177,9 @@ h1{
 
 
 
-thead tr{
-        background-color: #6c1645;
-}
+// thead tr{
+//         background-color: #6c1645;
+// }
 
 
 
@@ -190,10 +188,8 @@ thead tr{
 }
 
 .well{
-    -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    border: 0;
+        border: 1px solid #ddd;
+        border-radius: 0.2rem;
 }
 
 .login-panel{
@@ -226,24 +222,28 @@ thead tr{
 }
 
 
-.list-group{
-    -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    border: 0;
-}
+// .list-group{
+//     -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+//     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+//     border-radius: 2px;
+//     border: 0;
+// }
 
-.list-group-item:first-child {
-    border-top-right-radius: 0rem;
-    border-top-left-radius: 0rem;
-}
+// .list-group-item:first-child {
+//     border-top-right-radius: 0rem;
+//     border-top-left-radius: 0rem;
+// }
 
 
-.list-group-item {
-    position: relative;
-    display: block;
-    padding: .75rem 1.25rem;
-    margin-bottom: -1px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-}
+// .list-group-item {
+//     position: relative;
+//     display: block;
+//     padding: .75rem 1.25rem;
+//     margin-bottom: -1px;
+//     background-color: #fff;
+//     border: 1px solid #ddd;
+// }
+// 
+// 
+
+
