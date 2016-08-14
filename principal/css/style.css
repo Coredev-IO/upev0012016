@@ -104,7 +104,10 @@ h1{
 // }
 
 .menu-res{
+    padding-top: 15px;
+    padding-bottom: 10px;
     z-index: 99999;
+    margin-bottom: 30px;
 }
 
 .nav-tabs {
@@ -215,4 +218,8 @@ thead tr{
 }
 .btn-100{
     width: 100%;
+}
+
+.salir-btn{
+    text-align: right;
 }
