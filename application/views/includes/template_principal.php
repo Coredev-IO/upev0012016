@@ -15,7 +15,7 @@
 
 <?php
 $this->load->view("includes/menuApp");?>
-<div class="col-md-9 col-lg-10 col-sm-9">
+<div class="col-md-9 col-lg-9 col-sm-9">
 							                          <nav role="navigation" class="navbar navbar-default">
 							                            <div class="container-fluid">
 							                              <div class="navbar-header"><a href="#" class="navbar-brand"><i class="fa fa-r fa-certificate"></i>&nbsp;
