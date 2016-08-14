@@ -1,4 +1,4 @@
-/*
+
 
 To get this list of colors inject jQuery at http://www.google.com/design/spec/style/color.html#color-color-palette
 
@@ -2748,30 +2748,30 @@ fieldset[disabled] .navbar .btn-link:focus {
 .text-info {
   color: #03a9f4;
 }
-.nav-tabs {
-  background: #ffffff;
-}
-.nav-tabs > li > a {
-  color: #FFFFFF;
-  border: 0;
-  margin: 0;
-}
-.nav-tabs > li > a:hover {
-  background-color: transparent;
-  border: 0;
-}
-.nav-tabs > li > a,
-.nav-tabs > li > a:hover,
-.nav-tabs > li > a:focus {
-  background-color: transparent !important;
-  border: 0 !important;
-  color: #FFFFFF !important;
-  font-weight: 500;
-}
-.nav-tabs > li.disabled > a,
-.nav-tabs > li.disabled > a:hover {
-  color: rgba(255, 255, 255, 0.5);
-}
+// .nav-tabs {
+//   background: #ffffff;
+// }
+// .nav-tabs > li > a {
+//   color: #FFFFFF;
+//   border: 0;
+//   margin: 0;
+// }
+// .nav-tabs > li > a:hover {
+//   background-color: transparent;
+//   border: 0;
+// }
+// .nav-tabs > li > a,
+// .nav-tabs > li > a:hover,
+// .nav-tabs > li > a:focus {
+//   background-color: transparent !important;
+//   border: 0 !important;
+//   color: #FFFFFF !important;
+//   font-weight: 500;
+// }
+// .nav-tabs > li.disabled > a,
+// .nav-tabs > li.disabled > a:hover {
+//   color: rgba(255, 255, 255, 0.5);
+// }
 .popover,
 .tooltip-inner {
   color: #ececec;
@@ -3370,4 +3370,4 @@ hr.on-light {
   pointer-events: none;
   color: #757575;
 }
-/*# sourceMappingURL=bootstrap-material-design.css.map */
+/*# sourceMappingURL=bootstrap-material-design.css.map 

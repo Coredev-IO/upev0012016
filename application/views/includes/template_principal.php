@@ -17,19 +17,28 @@
 <?php
 $this->load->view("includes/menuApp");?>
 <div class="col-md-9 col-lg-9 col-sm-9">
-							                          <nav role="navigation" class="navbar navbar-default">
-							                            <div class="container-fluid">
-							                              <div class="navbar-header"><a href="#" class="navbar-brand"><i class="fa fa-r fa-certificate"></i>&nbsp;
-							                &nbsp;
-<?php echo $nivel1['Nombre'];?></a></div>
-							                            </div>
-							                          </nav>
+<div class="card">
+  <div class="card-header">
+<?php echo $nivel1['Nombre'];?>
+</div>
+  <div class="card-block">
+    <!-- <h4 class="card-title">Special title treatment</h4>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+
 
 
 <?php
 if (isset($message)) {
 	if ($message == "insert") {
-		echo '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>La información se actualizó correctamente</div>';
+
+		echo '<div class="card card-outline-success text-xs-center">
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      La información se actualizó correctamente
+    </blockquote>
+  </div>
+</div>';
 	}
 
 }?>
@@ -38,6 +47,16 @@ if (isset($message)) {
 $this->load->view($main_cont);
 $this->load->view('includes/js');
 ?>
+</div>
+
+</div>
+
+
+
+
+
+
+
 </div></div></div></div></div>
          </body>
 </html>

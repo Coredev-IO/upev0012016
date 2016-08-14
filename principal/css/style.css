@@ -38,9 +38,9 @@ html, body {
     color: rgba(255,255,255, 0.84);
 }
 
-.nav-tabs {
-    background-color: rgba(0, 0, 0, 0.7);
-}
+// .nav-tabs {
+//     background-color: rgba(0, 0, 0, 0.7);
+// }
 
 
 .help-block{
@@ -111,9 +111,9 @@ h1{
     font-size: 14px;
 }
 
-.nav-tabs {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
-}
+// .nav-tabs {
+//     border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+// }
 
 .row{
     color: #555;
@@ -124,13 +124,9 @@ h1{
 
 
 
-.row-bloque{
-    margin-bottom: 100px;
-}
-
 
 .title-row{
-    background: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
 }
 
 
@@ -146,11 +142,12 @@ h1{
 
 .title-principal{
     color: #fff;
-    font-size: 16px;
-    background-color: #6c1645;
+    font-size: 14px;
+    background-color: #555;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: -18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 // .table-striped>tbody>tr:nth-of-type(odd) {
@@ -211,7 +208,7 @@ h1{
 
 
 .btn-login{
-    margin-top: 50px;
+    margin-top: 6px;
 }
 .btn-100{
     width: 100%;

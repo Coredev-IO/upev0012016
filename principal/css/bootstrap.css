@@ -154,3 +154,20 @@
 
 
 }
+
+
+.alert-success {
+    background-color: #6C1645;
+    border-color: #6C1645;
+    color: #fff;
+}
+
+.nav-item a {
+    color: #6C1645;
+    text-decoration: none;
+}
+
+
+.inputs-form .form-group {
+    margin-bottom: -0.5rem;
+}

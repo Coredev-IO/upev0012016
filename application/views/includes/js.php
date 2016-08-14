@@ -7,14 +7,15 @@
 
         $('.loader').hide();
 
-        $('a').click(function(){
-                $('.loader').show();
-                var www = this.href;
-                    var f = function(){ window.location.href=www };
-                    setTimeout(f,800);
-                    return false;
+        // $('a').click(function(){
+        //         $('.loader').show();
+        //         var www = this.href;
+        //             var f = function(){ $('.loader').hide();
+        //             window.location.href=www };
+        //             setTimeout(f,800);
+        //             return false;
 
-        });
+        // });
 
         // $('button').click(function(){
         //         $('.loader').show();

@@ -1,14 +1,12 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="well">
-      <div data-example-id="togglable-tabs" class="bs-example bs-example-tabs">
-          <ul id="myTabs" role="tablist" class="nav nav-tabs">
-            <li role="presentation" class="active"><a id="recursos-tab" href="#recursos" role="tab" data-toggle="tab" aria-controls="recursos" aria-expanded="true">Recursos autogenerados</a></li>
-          </ul>
-          <br>
-          <div id="myTabContent" class="tab-content">
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" href="#recursosaut" role="tab" data-toggle="tab">Recursos autogenerados</a>
+  </li>
+</ul>
 
-<div id="recursos" role="tabpanel" aria-labelledby="recursos-tab" class="tab-pane fade active in">
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="recursosaut">
 <?php echo form_open_multipart('gestion/update_rcursos');?>
 <!-- <div class="row"> -->
 <?php
@@ -31,24 +29,24 @@ foreach ($Recursos as $row) {
 	echo '<div class="col-md-12 title-principal">'.$row["Descripcion"].'</div>';
 	if ($row["Despegable"]) {
 		echo '<div class="row row-bloque">';
-		echo '<div class="col-md-4">&nbsp;</div>';
+
 		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-12 title-row">'.$row["campo1"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"></div><br></div></div></div>';
 		$i = 1;
 		foreach ($bloques as $roww) {
-			echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$roww["Nombre"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id=b'.$i.' name=b'.$i.' required></div><br></div></div></div>';
+			echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-9">'.$roww["Nombre"].'</div><div class="col-md-3"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id=b'.$i.' name=b'.$i.' required></div><br></div></div></div>';
 			$i = $i+1;
 		}
 		$idComplete++;
 
-		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
+		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-9">'.$row["campo2"].'</div><div class="col-md-3"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	} else {
 		echo '<div class="row row-bloque">';
-		echo '<div class="col-md-4">&nbsp;</div>';
-		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo1"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo1id"].' name='.$row["campo1id"].' required></div><br></div></div></div>';
+
+		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-9">'.$row["campo1"].'</div><div class="col-md-3"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo1id"].' name='.$row["campo1id"].' required></div><br></div></div></div>';
 		$idComplete++;
-		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
+		echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-9">'.$row["campo2"].'</div><div class="col-md-3"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
 		echo '<div class="divider"></div></div>';
 		$idComplete++;
 	}
@@ -60,22 +58,20 @@ foreach ($Recursos as $row) {
 	$fileInput++;
 	$NumeroArchivo++;
 }
-echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-raised btn-success">Confirmar<div class="ripple-container"></div></button></div>';
-// echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-raised btn-success">Confirmar</a></div>';
+echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-outline-success btn-100">Confirmar<div class="ripple-container"></div></button></div>';
+// echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-outline-success btn-100">Confirmar</a></div>';
 echo form_close();
 echo "<hr><div class='errors'>";
 echo validation_errors();
 echo "</div>";
 ?>
 <!-- </div> -->
-</div>
-
-
-      <!-- Termina "myTabContent" -->
-      </div>
-    </div>
   </div>
+  <!-- **************************************************************************************************************** -->
+
+
 </div>
+
 
 
 
