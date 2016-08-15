@@ -171,3 +171,14 @@
 .inputs-form .form-group {
     margin-bottom: -0.5rem;
 }
+
+
+.alert-info {
+    font-size: 10px;
+}
+
+
+.alert {
+    padding: 10px;
+}
+
