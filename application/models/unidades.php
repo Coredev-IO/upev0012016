@@ -13,5 +13,21 @@ Class Unidades extends CI_Model {
 
 	}
 
+
+        function getUnidad($idUnidad) {
+		$this->db->select('');
+		$this->db->from('Unidad');
+                $this->db->where('idUnidad', $idUnidad);
+                $this->db->limit(1);
+
+		$query = $this->db->get();
+
+		return $query->result();
+
+	}
+
+
+
+
 }
 ?>

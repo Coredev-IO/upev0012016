@@ -10,6 +10,56 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+
+        function insert_ev_sup($datos) {
+		$data = array(
+			'idUnidad'     => $datos['idUnidad']
+		);
+		$this->db->insert('EvaluacionSup', $data);
+
+	}
+
+
+        function insert_ev_med($datos) {
+		$data = array(
+			'idUnidad'     => $datos['idUnidad']
+		);
+		$this->db->insert('Evaluacion', $data);
+
+	}
+
+
+
+        function update_ev_sup($datos) {
+                $data = array(
+			'estado'     => $datos['estado']
+		);
+		$this->db->where('idEvaluacionSup', $datos['idEvaluacionSup']);
+		$this->db->update('EvaluacionSup', $datos);
+
+	}
+
+
+        function update_ev_med($datos) {
+                $data = array(
+			'estado'     => $datos['estado']
+		);
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('Evaluacion', $datos);
+
+	}
+
+
+        function getEvaluacionesSuperiorEscuela($idUnidad) {
+		$this->db->select('');
+		$this->db->from('EvaluacionSup');
+                $this->db->where('idUnidad', $idUnidad);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
 	function getEvaluacionUnidad($unidad) {
 		$this->db->select('');
 		$this->db->from('Evaluacion');
@@ -29,6 +79,19 @@ Class Evaluacion extends CI_Model {
 		$this->db->select('');
 		$this->db->from('Evaluacion');
 		$this->db->where('idUnidad', $unidad);
+		$this->db->order_by("CreateDate", "desc");
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+
+        function getEvaluacionSimple($idEvaluacion) {
+		$this->db->select('');
+		$this->db->from('Evaluacion');
+		$this->db->where('idEvaluacion', $idEvaluacion);
 		$this->db->order_by("CreateDate", "desc");
 		$this->db->limit(1);
 

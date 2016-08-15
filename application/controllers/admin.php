@@ -11,6 +11,7 @@ class Admin extends CI_Controller {
 		$this->verify->seccion(1, $data['datos']['idRoles']);
 		$this->load->model('user', '', TRUE);
 		$this->load->model('unidades', '', TRUE);
+                $this->load->model('evaluacion', '', TRUE);
 	}
 
 	public function index() {
@@ -22,6 +23,104 @@ class Admin extends CI_Controller {
 		$this->load->view('includes/template_admin', $data);
 
 	}
+
+
+        public function evaluaciones() {
+		$data['datos'] = $this->session->userdata('logged_in');
+                $data['unidadesSuperior'] = $this->unidades->getUnidades('SUP');
+                $data['unidadesMedioSuperior'] = $this->unidades->getUnidades('MED');
+
+		$data['usuarios'] = $this->user->getRegMS();
+
+		$data['main_cont'] = 'admin/evaluaciones';
+		$this->load->view('includes/template_admin', $data);
+
+	}
+
+
+        public function evaluacion_superior_detalle() {
+		$data['datos'] = $this->session->userdata('logged_in');
+
+
+                $data['unidad'] = $this->unidades->getUnidad($this->uri->segment(3));
+                $data['ultimaEvaluacion'] = $this->evaluacion->getLastEvaluacionSup($this->uri->segment(3));
+
+                $data['evaluaciones'] = $this->evaluacion->getEvaluacionesSuperiorEscuela($this->uri->segment(3));
+
+		$data['main_cont'] = 'admin/evaluacionesadmin/detalle';
+		$this->load->view('includes/template_admin', $data);
+
+	}
+
+        public function evaluacion_media_detalle() {
+		$data['datos'] = $this->session->userdata('logged_in');
+
+
+                $data['unidad'] = $this->unidades->getUnidad($this->uri->segment(3));
+                $data['ultimaEvaluacion'] = $this->evaluacion->getLastEvaluacion($this->uri->segment(3));
+
+                $data['evaluaciones'] = $this->evaluacion->getEvaluacionUnidad($this->uri->segment(3));
+
+		$data['main_cont'] = 'admin/evaluacionesadmin/detalleMed';
+		$this->load->view('includes/template_admin', $data);
+
+	}
+
+
+        public function cancel_ev_sup(){
+                $data['datos'] = $this->session->userdata('logged_in');
+
+                $datos = array(
+                        'estado'                       => "CAN",
+                        'idEvaluacionSup'                       => $this->uri->segment(4),
+                );
+
+                $this->evaluacion->update_ev_sup($datos);
+                $urlRed = "admin/evaluacion_superior_detalle/".$this->uri->segment(3);
+		redirect($urlRed, 'refresh');
+
+        }
+
+
+        public function nueva_evaluacion_sup(){
+                $data['datos'] = $this->session->userdata('logged_in');
+
+                $datos = array(
+                        'idUnidad'                       => $this->uri->segment(3),
+                );
+
+                $this->evaluacion->insert_ev_sup($datos);
+                $urlRed = "admin/evaluacion_superior_detalle/".$this->uri->segment(3);
+		redirect($urlRed, 'refresh');
+        }
+
+
+        public function nueva_evaluacion_med(){
+                $data['datos'] = $this->session->userdata('logged_in');
+
+                $datos = array(
+                        'idUnidad'                       => $this->uri->segment(3),
+                );
+
+                $this->evaluacion->insert_ev_med($datos);
+                $urlRed = "admin/evaluacion_media_detalle/".$this->uri->segment(3);
+		redirect($urlRed, 'refresh');
+        }
+
+
+        public function cancel_ev_med(){
+                $data['datos'] = $this->session->userdata('logged_in');
+
+                $datos = array(
+                        'estado'                       => "CAN",
+                        'idEvaluacion'                       => $this->uri->segment(4),
+                );
+
+                $this->evaluacion->update_ev_med($datos);
+                $urlRed = "admin/evaluacion_media_detalle/".$this->uri->segment(3);
+		redirect($urlRed, 'refresh');
+
+        }
 
 	public function users_reg_sup() {
 		$data['datos'] = $this->session->userdata('logged_in');
@@ -175,6 +274,7 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('pass2', 'PasswordConfir', 'trim|required');
 		$data['datos']    = $this->session->userdata('logged_in');
 		$data['usuarios'] = $this->user->getAdmin();
+
 		// Insert
 		$datos = array(
 			'Nombre'          => $this->input->post('nombre'),
@@ -219,7 +319,7 @@ class Admin extends CI_Controller {
 
 	}
 
-		public function update_admin() {
+	public function update_admin() {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('user_name', 'Userdisplay', 'required');
 		$this->form_validation->set_rules('nombre', 'Nombre', 'required');
@@ -244,7 +344,7 @@ class Admin extends CI_Controller {
 			'Username'        => md5($this->input->post('user_name')),
 			'idUnidad'        => $this->input->post('idUnidad'),
 			'idRoles'         => $this->input->post('idRoles'),
-			'idUsuarios'         => $this->input->post('idUsuarios'),
+			'idUsuarios'      => $this->input->post('idUsuarios'),
 		);
 		//Transfering data to Model
 		$this->user->update_users($datos);
@@ -253,15 +353,15 @@ class Admin extends CI_Controller {
 
 		$this->actualizado($datos);
 
-		}
+	}
 
-		public function delete_admin() {
+	public function delete_admin() {
 		$this->load->library('form_validation');
 		$data['datos']    = $this->session->userdata('logged_in');
 		$data['usuarios'] = $this->user->getAdmin();
 		// Insert
 		$datos = array(
-			'idUsuarios'         => $this->input->post('idUsuarios'),
+			'idUsuarios' => $this->input->post('idUsuarios'),
 		);
 		//Transfering data to Model
 		$this->user->delete_user($datos);
@@ -270,7 +370,6 @@ class Admin extends CI_Controller {
 
 		$this->borrado($datos);
 
-		}
-
+	}
 
 }

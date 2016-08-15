@@ -30,7 +30,7 @@ class Home extends CI_Controller {
 				//Se determina si el nivel de usuario (ms o sup)
 				if ($data['datos']['Nivel'] == "MED") {
 					$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
-					$this->verify->evaluacion($eval[0]->estado);
+                                        if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 					// Se obtiene si la escuela tiene una evaluacion en curso
 					if ($this->evaluacion->getLastEvaluacion($data['datos']['idUnidad'])) {
 						$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
@@ -38,7 +38,11 @@ class Home extends CI_Controller {
 
 						if ($this->evaluacion->getLastEvaluacion($data['datos']['idUnidad'])) {
 
-							if ($this->evaluacion->getEvaluacionSubnivel($data['datos']['idUnidad'])) {
+                                                        $evalTemp = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+
+
+
+							if ($this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $evalTemp[0]->idEvaluacion)) {
 								// Ya hay subnivel
 							} else {
 								//Se obtienen bloques
@@ -70,21 +74,19 @@ class Home extends CI_Controller {
 					// Se obtiene si la escuela tiene una evaluacion en curso
 					if ($this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad'])) {
 						$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
-						$this->verify->evaluacion($eval[0]->estado);
+						if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 						//Se verifica si la evaluacion ya tiene los subniveles por bloque
 						if ($this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad'])) {
 
-							if ($this->evaluacion->getEvaluacionSubnivelSup($data['datos']['idUnidad'])) {
+                                                        $evalTemp = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+
+							if ($this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $evalTemp[0]->idEvaluacionSup)) {
 								// Ya hay subnivel
 							} else {
 								//Se obtienen bloques
 								$bloque = $this->evaluacion->getBloque($data['datos']['idUnidad']);
 								$eval   = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
 
-								if ($eval[0]->estado == 'ACT') {
-									echo "Desactivado";
-									return true;
-								}
 
 								$i = 1;
 								foreach ($bloque as $row) {

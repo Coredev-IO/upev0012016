@@ -49,6 +49,12 @@ echo '<input type="hidden" class="form-control" value='.$rol.' name="perfil">';
   </div>
   <div class="card-block">
 
+          <?php
+          echo "<br><div class='errors'>";
+          echo validation_errors();
+          echo "</div>";
+          ?>
+
 <div class="col-md-6">
                           <div class="form-group">
                                   <label for="apMaterno">Usuario</label>
@@ -70,7 +76,7 @@ echo '<input type="hidden" class="form-control" value='.$rol.' name="perfil">';
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="nombre">Apellido Materno</label>
-                                  <input type="text" class="form-control"  placeholder="Apellido Materno" name="apMaterno" maxlength="40" value=<?php echo $usuarios[0]->ApellidoMaterno?>required onkeypress="return val(event)">
+                                  <input type="text" class="form-control"  placeholder="Apellido Materno" name="apMaterno" maxlength="40" value=<?php echo $usuarios[0]->ApellidoMaterno?> required onkeypress="return val(event)">
                           </div>
                   </div>
 <?php
@@ -80,7 +86,7 @@ if ($usuarios[0]->idRoles == 2) {
 		echo '<div class="col-md-12">
                             <div class="form-group">
                               <label for="apPaterno">Selecione una unidad</label>';
-		echo '<select name ="unidades " class="form-control">
+		echo '<select name ="idUnidad" class="form-control">
                                     <option>  </option>';
 		foreach ($unidades as $row) {
 			if ($row->idUnidad == $usuarios[0]->idUnidad) {
@@ -105,7 +111,7 @@ if ($usuarios[0]->idRoles == 2) {
                   <div class="col-md-6">
                           <div class="form-group">
                                   <label for="nombre">Telefono</label>
-                                  <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control"  placeholder="Telefono" name="tel" value=<?php echo $usuarios[0]->Telefono?>required maxlength="10">
+                                  <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control"  placeholder="Telefono" name="tel" value=<?php echo $usuarios[0]->Telefono?> required maxlength="10">
                           </div>
                   </div>
 
@@ -142,5 +148,3 @@ echo form_close();
           return patron.test(te);
           }
         </script>
-
-

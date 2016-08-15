@@ -58,6 +58,11 @@ class Verify {
 			return true;
 		}
 
+                if ($estatus == 'CAN') {
+			redirect('redirect/cancelada', 'refresh');
+			return true;
+		}
+
 	}
 
 	function refresh404($rol) {

@@ -22,7 +22,7 @@ class Vinculacion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/vinculacion/servicio';
@@ -254,7 +254,7 @@ class Vinculacion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/vinculacion/servicioSup';
@@ -486,7 +486,7 @@ class Vinculacion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/vinculacion/visitas';
@@ -718,7 +718,7 @@ class Vinculacion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/vinculacion/visitasSup';
@@ -948,7 +948,7 @@ class Vinculacion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/vinculacion/proyectos';
@@ -1142,7 +1142,7 @@ class Vinculacion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/vinculacion/proyectosSup';
@@ -1348,7 +1348,7 @@ class Vinculacion extends CI_Controller {
 					//Se valida si el registro pertenece a la unidad
 					$result = $this->evaluacion->getEvaluacionId($idUrl, $data['datos']['idUnidad']);
 					$eval   = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
-					$this->verify->evaluacion($eval[0]->estado);
+					if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 					//Si existe lo deja continuar
 					if ($result) {
@@ -1474,7 +1474,7 @@ class Vinculacion extends CI_Controller {
 					// ++++++++++++++++++++++++++++++++++++++++++SUPERIOR++++++++++++++++++++++++++++++++++
 					$result = $this->evaluacion->getEvaluacionIdSup($idUrl, $data['datos']['idUnidad']);
 					$eval   = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
-					$this->verify->evaluacion($eval[0]->estado);
+					if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 					if ($result) {
 						$data['ServicioSocialServ']      = $this->evaluacion->getServicioSocialSup($idUrl);

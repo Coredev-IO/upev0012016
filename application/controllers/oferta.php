@@ -23,7 +23,7 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/oferta/programas';
@@ -227,7 +227,7 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/oferta/programassup';
@@ -469,7 +469,7 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/oferta/infraestructura';
@@ -679,7 +679,7 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
-			$this->verify->evaluacion($eval[0]->estado);
+			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/oferta/infraestructurasup';
@@ -862,7 +862,7 @@ class Oferta extends CI_Controller {
 					//Se valida si el registro pertenece a la unidad
 					$result = $this->evaluacion->getEvaluacionId($idUrl, $data['datos']['idUnidad']);
 					$eval   = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
-					$this->verify->evaluacion($eval[0]->estado);
+					if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 					//Si existe lo deja continuar
 					if ($result) {
@@ -964,7 +964,7 @@ class Oferta extends CI_Controller {
 					//Se valida si el registro pertenece a la unidad
 					$result = $this->evaluacion->getEvaluacionIdSup($idUrl, $data['datos']['idUnidad']);
 					$eval   = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
-					$this->verify->evaluacion($eval[0]->estado);
+					if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 					//Si existe lo deja continuar
 					if ($result) {

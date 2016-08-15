@@ -22,4 +22,12 @@ class Redirect extends CI_Controller {
 		$this->load->view('includes/template_app', $data);
 
 	}
+
+
+        public function cancelada() {
+		$data['datos']     = $this->session->userdata('logged_in');
+		$data['main_cont'] = 'home/cancelada';
+		$this->load->view('includes/template_app', $data);
+
+	}
 }
