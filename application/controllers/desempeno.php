@@ -5,10 +5,9 @@ class Desempeno extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
-                $data['datos'] = $this->session->userdata('logged_in');
-                $this->load->library('verify');
-                $this->verify->seccion(2, $data['datos']['idRoles']);
-
+		$data['datos'] = $this->session->userdata('logged_in');
+		$this->load->library('verify');
+		$this->verify->seccion(2, $data['datos']['idRoles']);
 
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
@@ -23,6 +22,7 @@ class Desempeno extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+			$this->verify->evaluacion($eval[0]->estado);
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/desempeno/alumnos';
@@ -55,7 +55,7 @@ class Desempeno extends CI_Controller {
 
 						} else {
 							$dataFile = array('upload_data' => $this->upload->data());
-                                                        // print_r($dataFile);
+							// print_r($dataFile);
 						}
 
 					}
@@ -354,6 +354,7 @@ class Desempeno extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+			$this->verify->evaluacion($eval[0]->estado);
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/desempeno/alumnossup';
@@ -718,6 +719,7 @@ class Desempeno extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+			$this->verify->evaluacion($eval[0]->estado);
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/desempeno/docentes';
@@ -1045,6 +1047,7 @@ class Desempeno extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+			$this->verify->evaluacion($eval[0]->estado);
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/desempeno/docentessup';
@@ -1388,6 +1391,8 @@ class Desempeno extends CI_Controller {
 				if ($data['datos']['Nivel'] == "MED") {
 					//Se valida si el registro pertenece a la unidad
 					$result = $this->evaluacion->getEvaluacionId($idUrl, $data['datos']['idUnidad']);
+					$eval   = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+					$this->verify->evaluacion($eval[0]->estado);
 
 					//Si existe lo deja continuar
 					if ($result) {
@@ -1490,6 +1495,8 @@ class Desempeno extends CI_Controller {
 					//SUPERIOR
 					//Se valida si el registro pertenece a la unidad
 					$result = $this->evaluacion->getEvaluacionIdSup($idUrl, $data['datos']['idUnidad']);
+					$eval   = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+					$this->verify->evaluacion($eval[0]->estado);
 
 					//Si existe lo deja continuar
 					if ($result) {

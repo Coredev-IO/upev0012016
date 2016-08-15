@@ -5,10 +5,10 @@ class Oferta extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
-                $data['datos'] = $this->session->userdata('logged_in');
-                $this->load->library('verify');
-                $this->verify->seccion(2, $data['datos']['idRoles']);
-                
+		$data['datos'] = $this->session->userdata('logged_in');
+		$this->load->library('verify');
+		$this->verify->seccion(2, $data['datos']['idRoles']);
+
 		$this->load->model('evaluacion', '', TRUE);
 		$this->load->model('niveles', '', TRUE);
 		$this->load->model('programas', '', TRUE);
@@ -23,6 +23,7 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+			$this->verify->evaluacion($eval[0]->estado);
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/oferta/programas';
@@ -226,6 +227,7 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+			$this->verify->evaluacion($eval[0]->estado);
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/oferta/programassup';
@@ -467,6 +469,7 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+			$this->verify->evaluacion($eval[0]->estado);
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/oferta/infraestructura';
@@ -668,7 +671,6 @@ class Oferta extends CI_Controller {
 
 	}
 
-
 	//update laboratorios SUP
 	public function update_LaboratoriosSup() {
 		if ($this->session->userdata('logged_in')) {
@@ -677,6 +679,7 @@ class Oferta extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+			$this->verify->evaluacion($eval[0]->estado);
 
 			//Se prepara para adjuntar el archivo
 			$nameurlfile             = '/uploads/oferta/infraestructurasup';
@@ -729,10 +732,10 @@ class Oferta extends CI_Controller {
 
 			//Se obtienen valores del primer nivel
 			$dataNivel1 = array(
-				'CapacidadInstalada'   => $this->input->post('a12'),
-				'NumeroAulas' => $this->input->post('a13'),
-				'TotalAulas'     => $this->input->post('b13'),
-				'NumeroLaboratorios'         => $this->input->post('a14'),
+				'CapacidadInstalada' => $this->input->post('a12'),
+				'NumeroAulas'        => $this->input->post('a13'),
+				'TotalAulas'         => $this->input->post('b13'),
+				'NumeroLaboratorios' => $this->input->post('a14'),
 				'TotalLaboratorios'  => $this->input->post('b14'),
 				'idEvaluacion'       => $eval[0]->idEvaluacionSup,
 				'comprobante1'       => $rutafiles[0],
@@ -740,7 +743,6 @@ class Oferta extends CI_Controller {
 				'comprobante3'       => $rutafiles[2],
 			);
 			$this->infraestructura->updateSup($dataNivel1);
-
 
 			// Obtener informacion de las tablas
 			$idUrl                       = $eval[0]->idEvaluacionSup;
@@ -859,6 +861,8 @@ class Oferta extends CI_Controller {
 
 					//Se valida si el registro pertenece a la unidad
 					$result = $this->evaluacion->getEvaluacionId($idUrl, $data['datos']['idUnidad']);
+					$eval   = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+					$this->verify->evaluacion($eval[0]->estado);
 
 					//Si existe lo deja continuar
 					if ($result) {
@@ -959,6 +963,8 @@ class Oferta extends CI_Controller {
 					// SUPERIOR
 					//Se valida si el registro pertenece a la unidad
 					$result = $this->evaluacion->getEvaluacionIdSup($idUrl, $data['datos']['idUnidad']);
+					$eval   = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+					$this->verify->evaluacion($eval[0]->estado);
 
 					//Si existe lo deja continuar
 					if ($result) {
