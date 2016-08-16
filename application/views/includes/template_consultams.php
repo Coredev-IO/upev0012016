@@ -14,31 +14,38 @@
                  		<div class="">
                  				<div class="row">
 
-<?php
-$this->load->view("includes/menuMs");?>
-<div class="col-md-9 col-lg-9 col-sm-9">
-							                          <nav role="navigation" class="navbar navbar-default">
-							                            <div class="container-fluid">
-							                              <div class="navbar-header"><a href="#" class="navbar-brand"><i class="fa fa-r fa-certificate"></i>&nbsp;
-							                &nbsp;
 
-Administración</a></div>
-							                            </div>
-							                          </nav>
+<div class="col-md-12">
+
+        <div class="card">
+          <div class="card-header">
+            Revisón de Evaluaciones Nivel Medio Superior
+          </div>
+          <div class="card-block">
+            <!-- <h4 class="card-title">Special title treatment</h4>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a> -->
 
 
-<?php
-if (isset($message)) {
-	if ($message == "insert") {
-		echo '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>La información se actualizó correctamente</div>';
-	}
 
-}?>
-<?php
+        <?php
+        if (isset($message)) {
+        	if ($message == "insert") {
+        		echo '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>La información se actualizó correctamente</div>';
+        	}
 
-$this->load->view($main_cont);
-$this->load->view('includes/js');
-?>
+        }?>
+        <?php
+
+        $this->load->view($main_cont);
+        $this->load->view('includes/js');
+        ?>
+        </div>
+
+        </div>
+
+
+
 </div></div></div></div></div>
          </body>
 </html>
