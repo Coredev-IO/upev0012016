@@ -20,6 +20,8 @@ class Gestion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+                        $idUrl            = $eval[0]->idEvaluacion;
+                        $data['evaluacionObj'] = $this->evaluacion->getEvaluacionId($idUrl, $data['datos']['idUnidad']);
 			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
@@ -166,6 +168,8 @@ class Gestion extends CI_Controller {
 			// print_r(array_keys($this->input->post()));
 			$keys = array_keys($this->input->post());
 			$eval = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+                        $idUrl            = $eval[0]->idEvaluacionSup;
+                        $data['evaluacionObj'] = $this->evaluacion->getEvaluacionIdSup($idUrl, $data['datos']['idUnidad']);
 			if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 			//Se prepara para adjuntar el archivo
@@ -318,6 +322,8 @@ class Gestion extends CI_Controller {
 					//Se valida si el registro pertenece a la unidad
 					$result = $this->evaluacion->getEvaluacionId($idUrl, $data['datos']['idUnidad']);
 					$eval   = $this->evaluacion->getLastEvaluacion($data['datos']['idUnidad']);
+                                        $idUrl            = $eval[0]->idEvaluacion;
+                                        $data['evaluacionObj'] = $this->evaluacion->getEvaluacionId($idUrl, $data['datos']['idUnidad']);
 					if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 
 					//Si existe lo deja continuar
@@ -396,6 +402,8 @@ class Gestion extends CI_Controller {
 					// SUPERIOR
 					$result = $this->evaluacion->getEvaluacionIdSup($idUrl, $data['datos']['idUnidad']);
 					$eval   = $this->evaluacion->getLastEvaluacionSup($data['datos']['idUnidad']);
+                                        $idUrl            = $eval[0]->idEvaluacionSup;
+                                        $data['evaluacionObj'] = $this->evaluacion->getEvaluacionIdSup($idUrl, $data['datos']['idUnidad']);
 					if(count($eval)>0){$this->verify->evaluacion($eval[0]->estado);}
 					//Si existe lo deja continuar
 					if ($result) {

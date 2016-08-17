@@ -43,7 +43,7 @@ if(count($evaluaciones)>0){
                 echo '</p>';
                 switch ($row->estado) {
                         case "ACT":
-                                echo '<a href="#" class="btn btn-outline-primary disabled">Sin acciones</a>';
+                                echo '<a href="" class="btn btn-outline-primary disabled">Sin acciones</a>';
                                 break;
                         case "REV":
                                 echo '<a href="#" class="btn btn-outline-info">Seguir revisión</a>';
