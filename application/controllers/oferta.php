@@ -212,6 +212,12 @@ class Oferta extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn3' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'oferta/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -456,6 +462,13 @@ class Oferta extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
 
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn3' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
+
 			$data['main_cont'] = 'oferta/indexSup';
 			$this->load->view('includes/template_principal', $data);
 
@@ -668,6 +681,13 @@ class Oferta extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn4' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'oferta/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -841,6 +861,13 @@ class Oferta extends CI_Controller {
 			}
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
+
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn4' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
 
 			$data['main_cont'] = 'oferta/indexSup';
 			$this->load->view('includes/template_principal', $data);

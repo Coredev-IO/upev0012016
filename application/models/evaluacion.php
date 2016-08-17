@@ -50,6 +50,20 @@ Class Evaluacion extends CI_Model {
 	}
 
 
+        function updateStatus($datos) {
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('Evaluacion', $datos);
+
+	}
+
+
+        function updateStatusSup($datos) {
+		$this->db->where('idEvaluacionSup', $datos['idEvaluacionSup']);
+		$this->db->update('EvaluacionSup', $datos);
+
+	}
+
+
         function getEvaluacionesSuperiorEscuela($idUnidad) {
 		$this->db->select('');
 		$this->db->from('EvaluacionSup');
@@ -1237,6 +1251,19 @@ Class Evaluacion extends CI_Model {
 		$this->db->where('idBloque', $datos['idBloque']);
 		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
 		$this->db->update('IndicadorSup', $data);
+
+	}
+
+
+        function update_comentarios($datos) {
+
+                $data = array(
+                        'comentarios'           =>$datos['comentarios']
+                );
+
+
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update($datos['tabla'], $data);
 
 	}
 

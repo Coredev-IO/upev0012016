@@ -46,7 +46,7 @@ if(count($evaluaciones)>0){
                                 echo '<a href="" class="btn btn-outline-primary disabled">Sin acciones</a>';
                                 break;
                         case "REV":
-                                echo '<a href="#" class="btn btn-outline-info">Seguir revisión</a>';
+                                echo '<a href="'.base_url().'index.php/consultams/consulta1/'.$unidad[0]->idUnidad.'/'.$row->idEvaluacion.'" class="btn btn-outline-info">Seguir revisión</a>';
                                 break;
                         case "FIN":
                                 echo '<a href="#" class="btn btn-outline-warning">Confirmar resultados</a>';

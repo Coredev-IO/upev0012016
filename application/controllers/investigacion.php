@@ -177,6 +177,13 @@ class Investigacion extends CI_Controller {
 				}
 			}
 
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn11' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'investigacion/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -348,6 +355,12 @@ class Investigacion extends CI_Controller {
 				}
 			}
 
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn11' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
+
 			$data['main_cont'] = 'investigacion/indexSup';
 			$this->load->view('includes/template_principal', $data);
 
@@ -518,6 +531,13 @@ class Investigacion extends CI_Controller {
 				}
 			}
 
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn12' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'investigacion/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -687,6 +707,13 @@ class Investigacion extends CI_Controller {
 					$data["bloques"] = $a;
 				}
 			}
+
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn12' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
 
 			$data['main_cont'] = 'investigacion/indexSup';
 			$this->load->view('includes/template_principal', $data);

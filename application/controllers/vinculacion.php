@@ -240,6 +240,13 @@ class Vinculacion extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn8' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'vinculacion/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -473,6 +480,12 @@ class Vinculacion extends CI_Controller {
 
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn8' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
 
 			$data['main_cont'] = 'vinculacion/indexSup';
 			$this->load->view('includes/template_principal', $data);
@@ -708,6 +721,12 @@ class Vinculacion extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn9' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'vinculacion/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -941,6 +960,13 @@ class Vinculacion extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
 
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn9' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
+
 			$data['main_cont'] = 'vinculacion/indexSup';
 			$this->load->view('includes/template_principal', $data);
 
@@ -1137,6 +1163,13 @@ class Vinculacion extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn10' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'vinculacion/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -1332,6 +1365,13 @@ class Vinculacion extends CI_Controller {
 
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
+
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn10' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
 
 			$data['main_cont'] = 'vinculacion/indexSup';
 			$this->load->view('includes/template_principal', $data);

@@ -203,6 +203,12 @@ class Apoyo extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn5' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'apoyo/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -437,6 +443,13 @@ class Apoyo extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
 
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn5' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
+
 			$data['main_cont'] = 'apoyo/indexSup';
 			// print_r($data["Becas"]);
 			$this->load->view('includes/template_principal', $data);
@@ -669,6 +682,12 @@ class Apoyo extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
 
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn6' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
 			$data['main_cont'] = 'apoyo/index';
 			$this->load->view('includes/template_principal', $data);
 
@@ -898,6 +917,13 @@ class Apoyo extends CI_Controller {
 
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
+
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn6' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
 
 			$data['main_cont'] = 'apoyo/indexSup';
 			$this->load->view('includes/template_principal', $data);
@@ -1178,6 +1204,13 @@ class Apoyo extends CI_Controller {
 
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
+
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn7' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
 
 			$data['main_cont'] = 'apoyo/index';
 			$this->load->view('includes/template_principal', $data);
@@ -1492,6 +1525,13 @@ class Apoyo extends CI_Controller {
 
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
+
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn7' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
 
 			$data['main_cont'] = 'apoyo/indexSup';
 			$this->load->view('includes/template_principal', $data);

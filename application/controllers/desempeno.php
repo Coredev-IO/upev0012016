@@ -15,6 +15,36 @@ class Desempeno extends CI_Controller {
 		$this->load->model('docentes', '', TRUE);
 		$this->load->helper(array('form', 'url'));
 	}
+
+        public function updateEstadoMed(){
+
+                $data = array(
+			'idEvaluacion'     =>  $this->uri->segment(3),
+                        'estado'     =>  'REV'
+		);
+
+                print_r($data);
+
+                $this->evaluacion->update_ev_med($data);
+
+                redirect('home', 'refresh');
+        }
+
+
+        public function updateEstadoSup(){
+
+                $data = array(
+                        'idEvaluacionSup'     =>  $this->uri->segment(3),
+                        'estado'     =>  'REV'
+                );
+
+                print_r($data);
+
+                $this->evaluacion->update_ev_sup($data);
+
+                redirect('home', 'refresh');
+        }
+
 	//update apartado de alumnos
 	public function updateAlumnos() {
 		if ($this->session->userdata('logged_in')) {
@@ -339,6 +369,13 @@ class Desempeno extends CI_Controller {
 
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
+
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn1' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
 
 			$data['main_cont'] = 'desempeno/index';
 			$this->load->view('includes/template_principal', $data);
@@ -708,6 +745,12 @@ class Desempeno extends CI_Controller {
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
 
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn1' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
+
 			$data['main_cont'] = 'desempeno/indexSup';
 			$this->load->view('includes/template_principal', $data);
 
@@ -1037,6 +1080,12 @@ class Desempeno extends CI_Controller {
 
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltro($data['datos']['idUnidad'], $idUrl);
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn2' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
 
 			$data['main_cont'] = 'desempeno/index';
 			$this->load->view('includes/template_principal', $data);
@@ -1372,6 +1421,12 @@ class Desempeno extends CI_Controller {
 
 			//Se obtine el registro de los valores del subnivel
 			$data['IndicadorMs'] = $this->evaluacion->getEvaluacionSubnivelFiltroSup($data['datos']['idUnidad'], $idUrl);
+
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn2' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
 
 			$data['main_cont'] = 'desempeno/indexSup';
 			$this->load->view('includes/template_principal', $data);

@@ -153,8 +153,18 @@ class Gestion extends CI_Controller {
 				}
 			}
 
-			$data['main_cont'] = 'gestion/index';
-			$this->load->view('includes/template_principal', $data);
+
+                        $arrayUpdate = array(
+                                'idEvaluacion' => $idUrl,
+                                'cn13' => 1
+                        );
+                        $this->evaluacion->updateStatus($arrayUpdate);
+
+
+                        redirect('desempeno', 'refresh');
+
+			// $data['main_cont'] = 'gestion/index';
+			// $this->load->view('includes/template_principal', $data);
 
 		} else {
 			redirect('login', 'refresh');
@@ -296,8 +306,17 @@ class Gestion extends CI_Controller {
 				}
 			}
 
-			$data['main_cont'] = 'gestion/indexSup';
-			$this->load->view('includes/template_principal', $data);
+                        $arrayUpdate = array(
+                                'idEvaluacionSup' => $idUrl,
+                                'cn13' => 1
+                        );
+                        $this->evaluacion->updateStatusSup($arrayUpdate);
+
+
+                        redirect('desempeno', 'refresh');
+
+			// $data['main_cont'] = 'gestion/indexSup';
+			// $this->load->view('includes/template_principal', $data);
 
 		} else {
 			redirect('login', 'refresh');
