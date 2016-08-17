@@ -1500,6 +1500,7 @@ class Consultasup extends CI_Controller {
 	}
 
 
+
         public function updatecomentario(){
 
                 $objeto = array(
@@ -1512,6 +1513,57 @@ class Consultasup extends CI_Controller {
                 $this->evaluacion->update_comentarios($objeto);
 
 
+                $longitud =  strlen(str_replace(' ', '', $this->input->post('comentarios')));
+
+
+                if($longitud==0){
+                        $objeto2 = array(
+                                'columna'           => $this->input->post('comentario'),
+                                'idEvaluacion'           => $this->input->post('idEvaluacion'),
+                                'cn' => 1
+                        );
+                        $this->evaluacion->update_cn_sup($objeto2);
+                }else{
+                        $objeto2 = array(
+                                'columna'           => $this->input->post('comentario'),
+                                'idEvaluacion'           => $this->input->post('idEvaluacion'),
+                                'cn' => 2
+                        );
+                        $this->evaluacion->update_cn_sup($objeto2);
+                }
+
+
                 redirect($this->input->post('redirect'),'refresh');
         }
+
+
+
+        public function updateEstadoSup(){
+
+                $data = array(
+                        'idEvaluacionSup'     =>  $this->uri->segment(3),
+                        'estado'     =>  'ACT'
+                );
+
+                print_r($data);
+
+                $this->evaluacion->update_ev_sup($data);
+
+                redirect('consultasup', 'refresh');
+        }
+
+        public function finalizarEstadoSup(){
+
+                $data = array(
+			'idEvaluacionSup'     =>  $this->uri->segment(3),
+                        'estado'     =>  'FIN'
+		);
+
+                print_r($data);
+
+                $this->evaluacion->update_ev_sup($data);
+
+                redirect('consultasup', 'refresh');
+        }
+
 }

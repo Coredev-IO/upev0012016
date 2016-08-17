@@ -72,6 +72,7 @@ echo validation_errors();
         <input type="hidden" name="redirect" value="consultams/consulta6/<?=$datos['idUnidad']?>/<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="tabla" value="RecursosAutogenerados">
         <input type="hidden" name="idEvaluacion" value="<?=$datos['idEvaluacion']?>">
+        <input type="hidden" name="comentario" value="cn13">
         <input type="hidden" name="idUnidad" value="<?=$datos['idUnidad']?>">
         <div class="form-group">
                 <textarea rows="8" class="form-control" placeholder="" name="comentarios" ><?php echo $v1->comentarios ?></textarea>

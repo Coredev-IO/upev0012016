@@ -33,16 +33,18 @@
                                 && $evaluacionObj[0]->cn11==1
                                 && $evaluacionObj[0]->cn12==1
                                 && $evaluacionObj[0]->cn13==1){
+                                        echo '<div class="alert alert-info" role="alert">NO EXISTEN OBSERVACIONES EN LA EVALUACIÓN </div>';
                                         if(isset($evaluacionObj[0]->idEvaluacion)){
-                                                echo '<a class="btn btn-outline-danger btn-100" href="'.base_url().'index.php/desempeno/updateEstadoMed/'.$evaluacionObj[0]->idEvaluacion.'">Finalizar captura</a>';
+                                                echo '<a class="btn btn-outline-success btn-100" href="'.base_url().'index.php/consultasup/finalizarEstadoSup/'.$datos['idEvaluacion'].'">FINALIZAR REVISÓN</a>';
                                         }else{
-                                                echo '<a class="btn btn-outline-danger btn-100" href="'.base_url().'index.php/desempeno/updateEstadoSup/'.$evaluacionObj[0]->idEvaluacionSup.'">Finalizar captura</a>';
+                                                echo '<a class="btn btn-outline-success btn-100" href="'.base_url().'index.php/consultasup/finalizarEstadoSup/'.$datos['idEvaluacion'].'">FINALIZAR REVISÓN</a>';
                                         }
 
 
                                 }else{
                         ?>
-                        <div class="alert alert-warning" role="alert">PARA FINALIZAR EL PRCESO DE CAPTURA DE INFORMACIÓN COMPLETE TODOS LOS BLOQUES </div>
+                        <div class="alert alert-warning" role="alert">EXISTEN OBSERVACIONES EN LA EVALUACIÓN </div>
+                        <a class="btn btn-outline-danger btn-100" href="<?=base_url()?>index.php/consultasup/updateEstadoSup/<?=$datos['idEvaluacion']?>'">SOLICITAR CORRECCIÓN</a>
                          <?php
                                 }
                                 ?>

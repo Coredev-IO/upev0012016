@@ -33,6 +33,15 @@ foreach ($IndicadorMs as $row) {
 $idBloq     = 43;
 $idComplete = 2;
 $v1         = $ServicioSocialServ[0];//Primer nivel
+$longitud =  strlen(str_replace(' ', '', $v1->comentarios));
+if($longitud>0){
+?>
+<br>
+<div class="alert alert-danger" role="alert">
+  <?php echo $v1->comentarios;?>
+</div>
+<?php
+}
 $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
@@ -140,6 +149,15 @@ foreach ($IndicadorMs as $row) {
 
 $idComplete = 2;
 $v1         = $VisitasEscolaresServ[0];//Primer nivel
+$longitud =  strlen(str_replace(' ', '', $v1->comentarios));
+if($longitud>0){
+?>
+<br>
+<div class="alert alert-danger" role="alert">
+  <?php echo $v1->comentarios;?>
+</div>
+<?php
+}
 $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
@@ -232,6 +250,15 @@ echo "</div>";
 <?php
 $idComplete = 2;
 $v1         = $ProyectosVinculadosServ[0];
+$longitud =  strlen(str_replace(' ', '', $v1->comentarios));
+if($longitud>0){
+?>
+<br>
+<div class="alert alert-danger" role="alert">
+  <?php echo $v1->comentarios;?>
+</div>
+<?php
+}
 $al         = array();
 foreach ($v1 as $key) {
 	array_push($al, $key);
@@ -311,5 +338,3 @@ echo "</div>";
 ?>
 </div>
 </div>
-
-

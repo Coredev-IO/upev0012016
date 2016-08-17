@@ -1267,5 +1267,31 @@ Class Evaluacion extends CI_Model {
 
 	}
 
+        function update_cn($datos) {
+
+                $data = array(
+                        $datos['columna']           =>$datos['cn']
+                );
+
+
+		$this->db->where('idEvaluacion', $datos['idEvaluacion']);
+		$this->db->update('Evaluacion', $data);
+
+	}
+
+        function update_cn_sup($datos) {
+
+                $data = array(
+                        $datos['columna']           =>$datos['cn']
+                );
+
+                print_r($datos);
+
+
+		$this->db->where('idEvaluacionSup', $datos['idEvaluacion']);
+		$this->db->update('EvaluacionSup', $data);
+
+	}
+
 }
 ?>

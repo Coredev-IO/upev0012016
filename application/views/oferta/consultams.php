@@ -147,6 +147,7 @@ echo validation_errors();
 
         <input type="hidden" name="redirect" value="consultams/consulta2/<?=$datos['idUnidad']?>/<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="tabla" value="ProgramasAcademicos">
+        <input type="hidden" name="comentario" value="cn3">
         <input type="hidden" name="idEvaluacion" value="<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="idUnidad" value="<?=$datos['idUnidad']?>">
         <div class="form-group">
@@ -272,6 +273,7 @@ echo validation_errors();
 
         <input type="hidden" name="redirect" value="consultams/consulta2/<?=$datos['idUnidad']?>/<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="tabla" value="Infraestructura">
+        <input type="hidden" name="comentario" value="cn4">
         <input type="hidden" name="idEvaluacion" value="<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="idUnidad" value="<?=$datos['idUnidad']?>">
         <div class="form-group">

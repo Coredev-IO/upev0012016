@@ -42,7 +42,7 @@
 
                                 }else{
                         ?>
-                        <div class="alert alert-warning" role="alert">PARA FINALIZAR EL PRCESO DE CAPTURA DE INFORMACIÓN COMPLETE TODOS LOS BLOQUES </div>
+                        <div class="alert alert-warning" role="alert">PARA FINALIZAR EL PROCESO DE CAPTURA DE INFORMACIÓN COMPLETE TODOS LOS BLOQUES </div>
                          <?php
                                 }
                                 ?>

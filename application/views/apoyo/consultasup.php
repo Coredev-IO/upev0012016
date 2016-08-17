@@ -124,6 +124,7 @@ echo validation_errors();
 
         <input type="hidden" name="redirect" value="consultasup/consulta3/<?=$datos['idUnidad']?>/<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="tabla" value="BecasSup">
+        <input type="hidden" name="comentario" value="cn5">
         <input type="hidden" name="idEvaluacion" value="<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="idUnidad" value="<?=$datos['idUnidad']?>">
         <div class="form-group">
@@ -263,6 +264,7 @@ echo validation_errors();
         <input type="hidden" name="redirect" value="consultasup/consulta3/<?=$datos['idUnidad']?>/<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="tabla" value="TutoriasSup">
         <input type="hidden" name="idEvaluacion" value="<?=$datos['idEvaluacion']?>">
+        <input type="hidden" name="comentario" value="cn6">
         <input type="hidden" name="idUnidad" value="<?=$datos['idUnidad']?>">
         <div class="form-group">
                 <textarea rows="8" class="form-control" placeholder="" name="comentarios" ><?php echo $v1->comentarios ?></textarea>
@@ -392,6 +394,7 @@ echo validation_errors();
         <input type="hidden" name="redirect" value="consultasup/consulta3/<?=$datos['idUnidad']?>/<?=$datos['idEvaluacion']?>">
         <input type="hidden" name="tabla" value="ApoyoEducativoSup">
         <input type="hidden" name="idEvaluacion" value="<?=$datos['idEvaluacion']?>">
+        <input type="hidden" name="comentario" value="cn7">
         <input type="hidden" name="idUnidad" value="<?=$datos['idUnidad']?>">
         <div class="form-group">
                 <textarea rows="8" class="form-control" placeholder="" name="comentarios" ><?php echo $v1->comentarios ?></textarea>

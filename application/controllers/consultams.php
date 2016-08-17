@@ -1514,7 +1514,60 @@ class Consultams extends CI_Controller {
                 $this->evaluacion->update_comentarios($objeto);
 
 
+                $longitud =  strlen(str_replace(' ', '', $this->input->post('comentarios')));
+
+                if($longitud==0){
+                        $objeto2 = array(
+                                'columna'           => $this->input->post('comentario'),
+                                'idEvaluacion'           => $this->input->post('idEvaluacion'),
+                                'cn' => 1
+                        );
+                        $this->evaluacion->update_cn($objeto2);
+                }else{
+                        $objeto2 = array(
+                                'columna'           => $this->input->post('comentario'),
+                                'idEvaluacion'           => $this->input->post('idEvaluacion'),
+                                'cn' => 2
+                        );
+                        $this->evaluacion->update_cn($objeto2);
+                }
+
+
                 redirect($this->input->post('redirect'),'refresh');
         }
+
+
+
+        public function updateEstadoMed(){
+
+                $data = array(
+			'idEvaluacion'     =>  $this->uri->segment(3),
+                        'estado'     =>  'ACT'
+		);
+
+                print_r($data);
+
+                $this->evaluacion->update_ev_med($data);
+
+                redirect('consultams', 'refresh');
+        }
+
+
+        public function finalizarEstadoMed(){
+
+                $data = array(
+			'idEvaluacion'     =>  $this->uri->segment(3),
+                        'estado'     =>  'FIN'
+		);
+
+                print_r($data);
+
+                $this->evaluacion->update_ev_med($data);
+
+                redirect('consultams', 'refresh');
+        }
+
+
+
 
 }
