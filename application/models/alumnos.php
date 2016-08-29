@@ -16,6 +16,18 @@ Class Alumnos extends CI_Model {
 		}
 	}
 
+
+        function getAlumnosSup($id) {
+		$this->db->select('');
+		$this->db->from('AlumnosSup');
+		$this->db->where('idEvaluacion', $id);
+
+		$query = $this->db->get();
+
+		return $query->result();
+
+	}
+
 	function update_Alumnos($datos) {
 		$data = array(
 			'AlumnosInscritos'           => $datos['AlumnosInscritos'],

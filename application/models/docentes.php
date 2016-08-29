@@ -37,5 +37,19 @@ Class Docentes extends CI_Model {
 
 	}
 
+
+        function getDocentesSup($id) {
+		$this->db->select('');
+		$this->db->from('DocentesSup');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
+
+
+
 }
 ?>
