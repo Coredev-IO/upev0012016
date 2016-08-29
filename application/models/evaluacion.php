@@ -14,11 +14,18 @@ Class Evaluacion extends CI_Model {
         function getEvaluacionesSup($id) {
 		$this->db->select('');
 		$this->db->from('IndicadorSup');
-                $this->db->where('idEvaluacion', $id);
+        $this->db->where('idEvaluacion', $id);
+        $query = $this->db->get();
+        return $query->result();
 
-                $query = $this->db->get();
+	}
 
-                return $query->result();
+	function getEvaluacionesMed($id) {
+		$this->db->select('');
+		$this->db->from('IndicadorMS');
+        $this->db->where('idEvaluacion', $id);
+        $query = $this->db->get();
+        return $query->result();
 
 	}
 
