@@ -45,5 +45,27 @@ Class InvestigacionModel extends CI_Model {
 
 	}
 
+	function getInvestigacionSup($id) {
+		$this->db->select('');
+		$this->db->from('InvestigacionDocenciaSup');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
+
+	function getInnovacionSup($id) {
+		$this->db->select('');
+		$this->db->from('InnovacionEducativaSup');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
+
 }
 ?>

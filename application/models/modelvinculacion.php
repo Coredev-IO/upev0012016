@@ -64,5 +64,16 @@ Class Modelvinculacion extends CI_Model {
 
 	}
 
+	function getVinculadosSup($id) {
+		$this->db->select('');
+		$this->db->from('ProyectosVinculadosSup');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
+
 }
 ?>

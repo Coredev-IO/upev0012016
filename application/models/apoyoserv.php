@@ -38,5 +38,16 @@ Class Apoyoserv extends CI_Model {
 		$this->db->update('ApoyoEducativoSup', $data);
 
 	}
+
+	function getApoyoSup($id) {
+		$this->db->select('');
+		$this->db->from('ApoyoEducativoSup');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
 }
 ?>

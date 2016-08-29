@@ -34,5 +34,16 @@ Class Infraestructura extends CI_Model {
 
 	}
 
+	    function getInfraSup($id) {
+		$this->db->select('');
+		$this->db->from('InfraestructuraSup');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
+
 }
 ?>
