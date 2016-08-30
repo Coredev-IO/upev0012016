@@ -677,8 +677,139 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//**************************************************************************************************************************************************************************************************//
 
+		//PRIMER NIVEL
+		//ELEMNTO POR NIVEL
+		$nivel               = array();
+		$nivel['nombre']     = "VINCULACION";
+		$nivel['porcentaje'] = 15;
+		//SEGUNDO NIVEL
+		$nivel['segundobloque'] = array();
+
+		//PRIMER INDICADOR - ALUMNOS
+		$nivel['segundobloque']['nombre']     = "SERVICIO SOCIAL";
+		$nivel['segundobloque']['porcentaje'] = 30;
+		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+		$nivel['tercerbloque'] = array();
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Alumnos Inscritos Participando en Servicio Social";
+		$tercer['porcentaje']   = 30;
+		$tercer['descripcion']  = "Número de alumnos inscritos en alguno de los programas de servicio social por unidad académica ";
+		$tercer['metodo']       = "(Número de alumnos inscritos realizando servicio social por unidad académica por año  / Número de alumnos inscritos realizando servicio social por unidad académica en el año inmediato anterior) -1)*100";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR APLICA
+
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->BAlumnosServicioSocial)/($row->BAlumnosServicioSocialT)-1)*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		//PRIMER NIVEL
+		//ELEMNTO POR NIVEL
+		$nivel               = array();
+		$nivel['nombre']     = "VINCULACION";
+		$nivel['porcentaje'] = 15;
+		//SEGUNDO NIVEL
+		$nivel['segundobloque'] = array();
+
+		//PRIMER INDICADOR - ALUMNOS
+		$nivel['segundobloque']['nombre']     = "VISITAS ESCOLARES";
+		$nivel['segundobloque']['porcentaje'] = 35;
+		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+		$nivel['tercerbloque'] = array();
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Porcentaje de Alumnos en Visitas Escolares";
+		$tercer['porcentaje']   = 35;
+		$tercer['descripcion']  = "Número de alumnos  realizando visitas escolares por unidad académica por semestre";
+		$tercer['metodo']       = "(Número de alumnos realizando visitas escolares por unidad académica por semestre  / .total de la matrícula)*100";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR APLICA
+
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->BALumnosVisitas)/($row->BALumnosVisitasT))*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		//PRIMER NIVEL
+		//ELEMNTO POR NIVEL
+		$nivel               = array();
+		$nivel['nombre']     = "VINCULACION";
+		$nivel['porcentaje'] = 15;
+		//SEGUNDO NIVEL
+		$nivel['segundobloque'] = array();
+
+		//PRIMER INDICADOR - ALUMNOS
+		$nivel['segundobloque']['nombre']     = "PROYECTOS VINCULADOS";
+		$nivel['segundobloque']['porcentaje'] = 35;
+		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+		$nivel['tercerbloque'] = array();
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Proyectos Vinculados";
+		$tercer['porcentaje']   = 35;
+		$tercer['descripcion']  = "Número de proyectos vinculados por unidad académica";
+		$tercer['metodo']       = "(Número de proyectos vinculados por unidad académica por año  / Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR NO APLICA
+
+		$bloque = $this->modelvinculacion->getVinculadosMed($evaluacionid);
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		// SE AGREGA AL OBJETO PRINCIPAL
+		array_push($calculo, $nivel);
+
+		//**************************************************************************************************************************************************************************************************//
+
 		//AL FINAL SE IMPRIME
-		var_dump($calculo[6]);
+		var_dump($calculo[7]);
 		//**************************************************************************************************************************************************************************************************//
 
 	}
