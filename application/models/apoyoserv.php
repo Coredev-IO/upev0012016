@@ -49,5 +49,16 @@ Class Apoyoserv extends CI_Model {
                 return $query->result();
 
 	}
+
+	function getApoyoMed($id) {
+		$this->db->select('');
+		$this->db->from('ApoyoEducativo');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
 }
 ?>

@@ -343,6 +343,7 @@ foreach ($ServicioApoyo as $row) {
 		$idComplete++;
 		echo '<div class="divider"></div></div>';
 		$idBloq++;
+		$idBloq++;
 	} else {
 		echo '<div class="row row-bloque">';
 

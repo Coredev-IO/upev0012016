@@ -21,5 +21,16 @@ Class Becas extends CI_Model {
 
 	}
 
+	function getBecasMed($id) {
+		$this->db->select('');
+		$this->db->from('Becas');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
+
 }
 ?>
