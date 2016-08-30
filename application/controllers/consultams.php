@@ -808,8 +808,97 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//**************************************************************************************************************************************************************************************************//
 
+		//PRIMER NIVEL
+		//ELEMNTO POR NIVEL
+		$nivel               = array();
+		$nivel['nombre']     = "INVESTIGACION";
+		$nivel['porcentaje'] = 15;
+		//SEGUNDO NIVEL
+		$nivel['segundobloque'] = array();
+
+		//PRIMER INDICADOR - ALUMNOS
+		$nivel['segundobloque']['nombre']     = "APOYO DE LA INVESTIGACION A LA DOCENCIA";
+		$nivel['segundobloque']['porcentaje'] = 40;
+		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+		$nivel['tercerbloque'] = array();
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Profesores de carrera realizando investigación";
+		$tercer['porcentaje']   = 35;
+		$tercer['descripcion']  = "Profesores contratados con dictamén de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP";
+		$tercer['metodo']       = "(Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesoress de carrera de la Unidad Académica)*100";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR NO APLICA
+
+		$bloque = $this->investigacionmodel->getInnovacionMed($evaluacionid);
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->DocentesInvestigacion)/($row->TotalDocentes))*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		//PRIMER NIVEL
+		//ELEMNTO POR NIVEL
+		$nivel               = array();
+		$nivel['nombre']     = "INVESTIGACION";
+		$nivel['porcentaje'] = 15;
+		//SEGUNDO NIVEL
+		$nivel['segundobloque'] = array();
+
+		//PRIMER INDICADOR - ALUMNOS
+		$nivel['segundobloque']['nombre']     = "PARTICIPACIÓN DE LOS ALUMNOS EN INVESTIGACIONES";
+		$nivel['segundobloque']['porcentaje'] = 30;
+		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+		$nivel['tercerbloque'] = array();
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Profesores que presentan trabajos en eventos de investigación con la participación de alumnos";
+		$tercer['porcentaje']   = 0;
+		$tercer['descripcion']  = "Profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores";
+		$tercer['metodo']       = "(Número de profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores / total de profesores que tienen proyectos registrados en la SIP)*100";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR NO APLICA
+
+		$bloque = $this->investigacionmodel->getAlumnosInvesMed($evaluacionid);
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->AlumnosCoautores)/($row->ProfesoresConProyectos))*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		// SE AGREGA AL OBJETO PRINCIPAL
+		array_push($calculo, $nivel);
+
+		//**************************************************************************************************************************************************************************************************//
+
 		//AL FINAL SE IMPRIME
-		var_dump($calculo[7]);
+		var_dump($calculo[8]);
 		//**************************************************************************************************************************************************************************************************//
 
 	}
