@@ -286,9 +286,155 @@ class Consultams extends CI_Controller {
 
 		//**************************************************************************************************************************************************************************************************//
 
+		//PRIMER NIVEL
+		//ELEMNTO POR NIVEL
+		$nivel               = array();
+		$nivel['nombre']     = "OFERTA EDUCATIVA";
+		$nivel['porcentaje'] = 25;
+		//SEGUNDO NIVEL
+		$nivel['segundobloque'] = array();
+
+		//PRIMER INDICADOR - ALUMNOS
+		$nivel['segundobloque']['nombre']     = "PROGRAMAS ACADEMICOS";
+		$nivel['segundobloque']['porcentaje'] = 50;
+		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+		$nivel['tercerbloque'] = array();
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Programas Académicos Evaluados";
+		$tercer['porcentaje']   = 50;
+		$tercer['descripcion']  = "Porcentaje de   programas académicos con evaluación favorable en los últimos 4 años ";
+		$tercer['metodo']       = "(Número de programas académicos evaluados/Total de programas académicos de la Unidad Académica) *100";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR APLICA
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->BProgramasAcademicos)/($row->BProgramasAcademicosT))*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		// SE AGREGA AL OBJETO PRINCIPAL
+		array_push($calculo, $nivel);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		//PRIMER NIVEL
+		//ELEMNTO POR NIVEL
+		$nivel               = array();
+		$nivel['nombre']     = "OFERTA EDUCATIVA";
+		$nivel['porcentaje'] = 25;
+		//SEGUNDO NIVEL
+		$nivel['segundobloque'] = array();
+
+		//PRIMER INDICADOR - ALUMNOS
+		$nivel['segundobloque']['nombre']     = "INFRAESTRUCTURA";
+		$nivel['segundobloque']['porcentaje'] = 50;
+		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+		$nivel['tercerbloque'] = array();
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Capacidad de atención alumnos en relación a talleres y laboratorios";
+		$tercer['porcentaje']   = 35;
+		$tercer['descripcion']  = "Capacidad de atención a alumnos por talleres y laboratorios por unidad académica y semestre
+Suma de Capacidad instalada de atención en laboratorios y talleres por el total de semestres, identificando la capacidad del taller o laboratotio con menor capacidad de cada semestre
+ 30¨%";
+		$tercer['metodo']       = "(Total de alumnos inscritos por Unidad Académica/(Capacidad instalada))*100 ";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR NO APLICA
+
+		$bloque = $this->infraestructura->getInfraMed($evaluacionid);
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->AlumnosInscritos)/($row->CapacidadInstalada))*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Aulas Equipadas";
+		$tercer['porcentaje']   = 35;
+		$tercer['descripcion']  = "Aulas equipadas conforme al modelo ideal por unidad académica (Cañon, Internet, CPU, Pantalla, Pizarron, Butacas, Escritorio) 35%";
+		$tercer['metodo']       = "(Número de aulas equipadas por unidad académica/el total de aulas)*100";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR NO APLICA
+
+		$bloque = $this->infraestructura->getInfraMed($evaluacionid);
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->AulasEquipadas)/($row->TotalAulas))*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		//SE CREA ARRAY PARA TERCER BLOQUE
+		$tercer['nombre']       = "Laboratorios Equipado";
+		$tercer['porcentaje']   = 30;
+		$tercer['descripcion']  = "Laboratorios equipados conforme currícula por programa académico por unidad académica y año 35%";
+		$tercer['metodo']       = "(Número de laboratorios equipados conforme currícula por programa académico / total de laboratorios por programa académico)*100";
+		$tercer['calculo']      = 0;
+		$tercer['calificacion'] = 0;
+
+		// EL INDICADOR APLICA
+
+		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
+
+		// EL CALCULO SE PROMEDIA
+		$pre       = 0;
+		$tamanoRow = 0;
+		foreach ($bloque as $row) {
+			$tamanoRow = count($bloque);
+			$pre       = ($pre+((($row->BLaboratoriosEquipados)/($row->BLaboratoriosEquipadosT))*100));
+		}
+		$tercer['calculo'] = $pre/$tamanoRow;
+
+		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
+		array_push($nivel['tercerbloque'], $tercer);
+
+		//**************************************************************************************************************************************************************************************************//
+
+		// SE AGREGA AL OBJETO PRINCIPAL
+		array_push($calculo, $nivel);
+
+		//**************************************************************************************************************************************************************************************************//
+
 
 		//AL FINAL SE IMPRIME
-		var_dump($calculo[1]);
+		var_dump($calculo[3]);
 		//**************************************************************************************************************************************************************************************************//
 
 	}
