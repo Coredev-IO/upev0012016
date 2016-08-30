@@ -34,5 +34,16 @@ Class Recursos extends CI_Model {
 
 	}
 
+	function getRecursosMed($id) {
+		$this->db->select('');
+		$this->db->from('RecursosAutogenerados');
+                $this->db->where('idEvaluacion', $id);
+
+                $query = $this->db->get();
+
+                return $query->result();
+
+	}
+
 }
 ?>
