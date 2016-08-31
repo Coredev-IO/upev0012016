@@ -8,6 +8,7 @@ class Consultams extends CI_Controller {
         //SE VERIFICA LA SESION
         $data['datos'] = $this->session->userdata('logged_in');
         $this->load->library('verify');
+        $this->load->library('limites');
         $this->verify->seccion(3, $data['datos']['idRoles']);
         $this->load->model('unidades', '', TRUE);
         $this->load->model('evaluacion', '', TRUE);
@@ -87,6 +88,23 @@ class Consultams extends CI_Controller {
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+        $objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+        $objeto[1][0]=	30	; $objeto[1][1]=	39.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+        $objeto[2][0]=	40	; $objeto[2][1]=	49.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+        $objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+        $objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -110,6 +128,23 @@ class Consultams extends CI_Controller {
 			$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BEficienciaTerminalT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+                $objeto = array();
+                $objeto[0] = array();
+                $objeto[1] = array();
+                $objeto[2] = array();
+                $objeto[3] = array();
+                $objeto[4] = array();
+
+                $objeto[0][0]=	0.1	; $objeto[0][1]=	24.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+                $objeto[1][0]=	25	; $objeto[1][1]=	34.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+                $objeto[2][0]=	35	; $objeto[2][1]=	44.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+                $objeto[3][0]=	45	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+                $objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+
+                $tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+                $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -959,7 +994,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		//AL FINAL SE IMPRIME
-		var_dump($calculo[3]);
+		var_dump($calculo[0]);
 		//**************************************************************************************************************************************************************************************************//
 
 	}
