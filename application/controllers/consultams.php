@@ -170,6 +170,22 @@ class Consultams extends CI_Controller {
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	30	; $objeto[1][1]=	39.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	40	; $objeto[2][1]=	49.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -193,6 +209,22 @@ class Consultams extends CI_Controller {
 			$pre       = ($pre+((($row->BPromocionNS)/($row->BPromocionNST))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	50	; $objeto[1][1]=	59.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	60	; $objeto[2][1]=	69.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	70	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -239,6 +271,22 @@ class Consultams extends CI_Controller {
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	69.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	70	; $objeto[1][1]=	74.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	75	; $objeto[2][1]=	79.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	80	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -262,6 +310,22 @@ class Consultams extends CI_Controller {
 			$pre       = ($pre+((($row->BProfesoresActivos)/($row->BProfesoresActivosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	50	; $objeto[1][1]=	59.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	60	; $objeto[2][1]=	69.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	70	; $objeto[3][1]=	79.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	80	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -287,6 +351,22 @@ class Consultams extends CI_Controller {
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	30	; $objeto[1][1]=	39.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	40	; $objeto[2][1]=	49.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -310,6 +390,22 @@ class Consultams extends CI_Controller {
 			$pre       = ($pre+((($row->BEvaluacionesIndividuales)/($row->BEvaluacionesIndividualesT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	59.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	60	; $objeto[1][1]=	79.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	80	; $objeto[2][1]=	84.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	85	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -355,6 +451,22 @@ class Consultams extends CI_Controller {
 			$pre       = ($pre+((($row->BProgramasAcademicos)/($row->BProgramasAcademicosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	50	; $objeto[1][1]=	59.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	60	; $objeto[2][1]=	79.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -405,6 +517,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	74.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Muy Malo	";
+		$objeto[1][0]=	75	; $objeto[1][1]=	94.99	; $objeto[1][2]=	3	; $objeto[1][3] = "	Regular	";
+		$objeto[2][0]=	95	; $objeto[2][1]=	105	; $objeto[2][2]=	5	; $objeto[2][3] = "	Muy Bueno	";
+		$objeto[3][0]=	105.01	; $objeto[3][1]=	120	; $objeto[3][2]=	2	; $objeto[3][3] = "	Malo	";
+		$objeto[4][0]=	120.01	; $objeto[4][1]=	200	; $objeto[4][2]=	1	; $objeto[4][3] = "	Muy Malo	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -431,6 +559,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	50	; $objeto[1][1]=	59.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	60	; $objeto[2][1]=	69.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	70	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -456,6 +600,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 			$pre       = ($pre+((($row->BLaboratoriosEquipados)/($row->BLaboratoriosEquipadosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	79.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	80	; $objeto[1][1]=	84.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	85	; $objeto[2][1]=	89.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	90	; $objeto[3][1]=	94.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -504,6 +664,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	20	; $objeto[1][1]=	29	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	30	; $objeto[2][1]=	39	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -550,6 +726,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 			$pre       = ($pre+((($row->BAlumnosTutorados)/($row->BAlumnosTutoradosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	20	; $objeto[1][1]=	29	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	30	; $objeto[2][1]=	39	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -598,6 +790,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	20	; $objeto[1][1]=	29	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	30	; $objeto[2][1]=	39	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -623,6 +831,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 			$pre       = ($pre+((($row->BTotalEjemplares)/($row->BTotalEjemplaresT))));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	1.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	2	; $objeto[1][1]=	3.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	4	; $objeto[2][1]=	7.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	8	; $objeto[3][1]=	11.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	12	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -650,6 +874,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	54	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	55	; $objeto[1][1]=	64	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	65	; $objeto[2][1]=	74	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	75	; $objeto[3][1]=	84	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -676,6 +916,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	59.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	60	; $objeto[1][1]=	69.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	70	; $objeto[2][1]=	79.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -701,6 +957,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 			$pre       = ($pre+((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	1.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	2	; $objeto[1][1]=	3.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	4	; $objeto[2][1]=	7.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	8	; $objeto[3][1]=	11.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	12	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -749,6 +1021,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	-100	; $objeto[0][1]=	-0.1	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	0.1	; $objeto[1][1]=	0.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	1	; $objeto[2][1]=	4.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	5	; $objeto[3][1]=	14.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	15	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -796,6 +1084,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	9.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	10	; $objeto[1][1]=	19.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	20	; $objeto[2][1]=	29.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	30	; $objeto[3][1]=	39.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	40	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -841,6 +1145,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 			$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	-100	; $objeto[0][1]=	-0.1	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	0.1	; $objeto[1][1]=	0.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	1	; $objeto[2][1]=	100	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	100.1	; $objeto[3][1]=	200	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	200.1	; $objeto[4][1]=	1000	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -889,6 +1209,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	4.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	5	; $objeto[1][1]=	9.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	10	; $objeto[2][1]=	19.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	20	; $objeto[3][1]=	29.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	30	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -935,6 +1271,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 			$pre       = ($pre+((($row->AlumnosCoautores)/($row->ProfesoresConProyectos))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
+
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	59.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	60	; $objeto[1][1]=	69.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	70	; $objeto[2][1]=	79.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	80	; $objeto[3][1]=	89.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -983,6 +1335,22 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
+		$objeto = array();
+        $objeto[0] = array();
+        $objeto[1] = array();
+        $objeto[2] = array();
+        $objeto[3] = array();
+        $objeto[4] = array();
+
+        $objeto[0][0]=	0.1	; $objeto[0][1]=	39.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+		$objeto[1][0]=	40	; $objeto[1][1]=	49.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
+		$objeto[2][0]=	60	; $objeto[2][1]=	79.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
+		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
+		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
 
@@ -994,7 +1362,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		//AL FINAL SE IMPRIME
-		var_dump($calculo[0]);
+		var_dump($calculo[12]);
 		//**************************************************************************************************************************************************************************************************//
 
 	}
