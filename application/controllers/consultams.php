@@ -101,7 +101,7 @@ class Consultams extends CI_Controller {
         $objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
         $objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-        $tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+        $tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 
@@ -143,7 +143,7 @@ class Consultams extends CI_Controller {
                 $objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 
-                $tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+                $tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
                 $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -183,7 +183,7 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -223,7 +223,7 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	70	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -232,7 +232,7 @@ class Consultams extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -284,7 +284,7 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	80	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -324,7 +324,7 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	70	; $objeto[3][1]=	79.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	80	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -364,7 +364,7 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -404,7 +404,7 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	85	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -413,9 +413,19 @@ class Consultams extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+                $resumenBloques = array();
+                $resumenBloques['bloque'] = array();
+
+                $obtest = array();
+                $obtest['nombre'] = 'DESEMPEÑO';
+                $obtest['suma'] = $calculo[0]['segundobloque']['calculoDimension']+$calculo[1]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[0]['segundobloque']['calculoDimension']+$calculo[1]['segundobloque']['calculoDimension'])*(0.25);
+                array_push($resumenBloques['bloque'],$obtest);
+
+
 
 		//PRIMER NIVEL
 		//ELEMNTO POR NIVEL
@@ -465,7 +475,7 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -474,7 +484,7 @@ class Consultams extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -530,7 +540,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	105.01	; $objeto[3][1]=	120	; $objeto[3][2]=	2	; $objeto[3][3] = "	Malo	";
 		$objeto[4][0]=	120.01	; $objeto[4][1]=	200	; $objeto[4][2]=	1	; $objeto[4][3] = "	Muy Malo	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -572,7 +582,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	70	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -614,7 +624,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	90	; $objeto[3][1]=	94.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -623,9 +633,15 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+
+                $obtest = array();
+                $obtest['nombre'] = 'OFERTA EDUCATIVA';
+                $obtest['suma'] = $calculo[2]['segundobloque']['calculoDimension']+$calculo[3]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[2]['segundobloque']['calculoDimension']+$calculo[3]['segundobloque']['calculoDimension'])*(0.25);
+                array_push($resumenBloques['bloque'],$obtest);
 
 		//PRIMER NIVEL
 		//ELEMNTO POR NIVEL
@@ -677,7 +693,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -686,7 +702,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -740,7 +756,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -749,7 +765,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -803,7 +819,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -845,7 +861,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	8	; $objeto[3][1]=	11.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	12	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -887,7 +903,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	75	; $objeto[3][1]=	84	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -929,7 +945,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -971,7 +987,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	8	; $objeto[3][1]=	11.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	12	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -980,9 +996,15 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+
+                $obtest = array();
+                $obtest['nombre'] = 'APOYO';
+                $obtest['suma'] = $calculo[4]['segundobloque']['calculoDimension']+$calculo[5]['segundobloque']['calculoDimension']+$calculo[6]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[4]['segundobloque']['calculoDimension']+$calculo[5]['segundobloque']['calculoDimension']+$calculo[6]['segundobloque']['calculoDimension'])*(0.15);
+                array_push($resumenBloques['bloque'],$obtest);
 
 		//PRIMER NIVEL
 		//ELEMNTO POR NIVEL
@@ -1002,7 +1024,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Alumnos Inscritos Participando en Servicio Social";
-		$tercer['porcentaje']   = 30;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Número de alumnos inscritos en alguno de los programas de servicio social por unidad académica ";
 		$tercer['metodo']       = "(Número de alumnos inscritos realizando servicio social por unidad académica por año  / Número de alumnos inscritos realizando servicio social por unidad académica en el año inmediato anterior) -1)*100";
 		$tercer['calculo']      = 0;
@@ -1034,7 +1056,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	5	; $objeto[3][1]=	14.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	15	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1043,7 +1065,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
                 // SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -1065,7 +1087,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Porcentaje de Alumnos en Visitas Escolares";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Número de alumnos  realizando visitas escolares por unidad académica por semestre";
 		$tercer['metodo']       = "(Número de alumnos realizando visitas escolares por unidad académica por semestre  / .total de la matrícula)*100";
 		$tercer['calculo']      = 0;
@@ -1097,7 +1119,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	30	; $objeto[3][1]=	39.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	40	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1105,7 +1127,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//**************************************************************************************************************************************************************************************************//
                 // SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -1127,7 +1149,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Proyectos Vinculados";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Número de proyectos vinculados por unidad académica";
 		$tercer['metodo']       = "(Número de proyectos vinculados por unidad académica por año  / Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100";
 		$tercer['calculo']      = 0;
@@ -1159,7 +1181,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	100.1	; $objeto[3][1]=	200	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	200.1	; $objeto[4][1]=	1000	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1168,9 +1190,15 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+                $obtest = array();
+                $obtest['nombre'] = 'VINCULACIÓN';
+                $obtest['suma'] = $calculo[7]['segundobloque']['calculoDimension']+$calculo[8]['segundobloque']['calculoDimension']+$calculo[9]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[7]['segundobloque']['calculoDimension']+$calculo[8]['segundobloque']['calculoDimension']+$calculo[9]['segundobloque']['calculoDimension'])*(0.15);
+                array_push($resumenBloques['bloque'],$obtest);
+
 
 		//PRIMER NIVEL
 		//ELEMNTO POR NIVEL
@@ -1182,7 +1210,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//PRIMER INDICADOR - ALUMNOS
 		$nivel['segundobloque']['nombre']     = "APOYO DE LA INVESTIGACION A LA DOCENCIA";
-		$nivel['segundobloque']['porcentaje'] = 40;
+		$nivel['segundobloque']['porcentaje'] = 50;
 		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
 		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
 		$nivel['tercerbloque'] = array();
@@ -1190,7 +1218,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Profesores de carrera realizando investigación";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Profesores contratados con dictamén de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP";
 		$tercer['metodo']       = "(Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesoress de carrera de la Unidad Académica)*100";
 		$tercer['calculo']      = 0;
@@ -1222,7 +1250,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	20	; $objeto[3][1]=	29.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	30	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1231,7 +1259,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
                 // SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -1245,7 +1273,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//PRIMER INDICADOR - ALUMNOS
 		$nivel['segundobloque']['nombre']     = "PARTICIPACIÓN DE LOS ALUMNOS EN INVESTIGACIONES";
-		$nivel['segundobloque']['porcentaje'] = 30;
+		$nivel['segundobloque']['porcentaje'] = 50;
 		//SE OBTIENEN OBJETO COMPLETO DE ALUMNOS
 		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
 		$nivel['tercerbloque'] = array();
@@ -1253,7 +1281,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Profesores que presentan trabajos en eventos de investigación con la participación de alumnos";
-		$tercer['porcentaje']   = 0;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores";
 		$tercer['metodo']       = "(Número de profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores / total de profesores que tienen proyectos registrados en la SIP)*100";
 		$tercer['calculo']      = 0;
@@ -1285,7 +1313,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1294,9 +1322,15 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+
+                $obtest = array();
+                $obtest['nombre'] = 'INVESTIGACIÓN';
+                $obtest['suma'] = $calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'])*(0.10);
+                array_push($resumenBloques['bloque'],$obtest);
 
 		//PRIMER NIVEL
 		//ELEMNTO POR NIVEL
@@ -1348,7 +1382,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1357,7 +1391,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 

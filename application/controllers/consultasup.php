@@ -97,7 +97,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -114,7 +114,7 @@ class Consultasup extends CI_Controller {
 		$tercer['calificacion'] = 0;
 
 		// EL INDICADOR APLICA
-
+                $bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 		// EL CALCULO SE PROMEDIA
 		$pre       = 0;
 		$tamanoRow = 0;
@@ -137,7 +137,9 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	60	; $objeto[3][1]=	69.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	70	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
+
+
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -154,7 +156,7 @@ class Consultasup extends CI_Controller {
 		$tercer['calificacion'] = 0;
 
 		// EL INDICADOR APLICA
-
+                $bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 		// EL CALCULO SE PROMEDIA
 		$pre       = 0;
 		$tamanoRow = 0;
@@ -177,7 +179,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -217,7 +219,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	15	; $objeto[3][1]=	19.99	; $objeto[3][2]=	2	; $objeto[3][3] = "	Suficiente	";
 		$objeto[4][0]=	20	; $objeto[4][1]=	100	; $objeto[4][2]=	1	; $objeto[4][3] = "	Malo	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -257,7 +259,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	60	; $objeto[3][1]=	69.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	70	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -266,7 +268,10 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+                // $nivel['segundobloque']['porcentaje'] = 50;
+                $sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
+
+
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -320,7 +325,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	80	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -362,7 +367,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	70	; $objeto[3][1]=	79.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	80	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -404,7 +409,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -446,7 +451,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -456,9 +461,21 @@ class Consultasup extends CI_Controller {
 
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+
+                $resumenBloques = array();
+                $resumenBloques['bloque'] = array();
+
+                $obtest = array();
+                $obtest['nombre'] = 'DESEMPEÑO';
+                $obtest['suma'] = $calculo[0]['segundobloque']['calculoDimension']+$calculo[1]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[0]['segundobloque']['calculoDimension']+$calculo[1]['segundobloque']['calculoDimension'])*(0.25);
+                array_push($resumenBloques['bloque'],$obtest);
+
+
 
 		$nivel               = array();
 		$nivel['nombre']     = "OFERTA EDUCATIVA";
@@ -509,7 +526,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	""	; $objeto[3][1]=	""	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	100	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -550,7 +567,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -559,7 +576,7 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -612,7 +629,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	105.01	; $objeto[3][1]=	120	; $objeto[3][2]=	2	; $objeto[3][3] = "	Malo	";
 		$objeto[4][0]=	120.01	; $objeto[4][1]=	200	; $objeto[4][2]=	1	; $objeto[4][3] = "	Muy Malo	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -653,7 +670,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	70	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -694,7 +711,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	90	; $objeto[3][1]=	94.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -703,9 +720,17 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+
+                $obtest = array();
+                $obtest['nombre'] = 'OFERTA EDUCATIVA';
+                $obtest['suma'] = $calculo[2]['segundobloque']['calculoDimension']+$calculo[3]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[2]['segundobloque']['calculoDimension']+$calculo[3]['segundobloque']['calculoDimension'])*(0.25);
+                array_push($resumenBloques['bloque'],$obtest);
+
+
 
 		$nivel               = array();
 		$nivel['nombre']     = "APOYO";
@@ -756,7 +781,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -765,7 +790,7 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -818,7 +843,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -827,7 +852,7 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -881,7 +906,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -923,7 +948,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	90	; $objeto[3][1]=	94	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -965,7 +990,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	90	; $objeto[3][1]=	94	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -974,9 +999,16 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+                $obtest = array();
+                $obtest['nombre'] = 'APOYO';
+                $obtest['suma'] = $calculo[4]['segundobloque']['calculoDimension']+$calculo[5]['segundobloque']['calculoDimension']+$calculo[6]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[4]['segundobloque']['calculoDimension']+$calculo[5]['segundobloque']['calculoDimension']+$calculo[6]['segundobloque']['calculoDimension'])*(0.15);
+                array_push($resumenBloques['bloque'],$obtest);
+
+
 
 		$nivel               = array();
 		$nivel['nombre']     = "VINCULACION";
@@ -1027,7 +1059,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	51	; $objeto[3][1]=	60	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	61	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1036,7 +1068,7 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -1089,7 +1121,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	51	; $objeto[3][1]=	60	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	61	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1098,7 +1130,7 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -1151,7 +1183,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	100.1	; $objeto[3][1]=	200	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	200.1	; $objeto[4][1]=	1000	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1160,9 +1192,18 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+
+                $obtest = array();
+                $obtest['nombre'] = 'VINCULACIÓN';
+                $obtest['suma'] = $calculo[7]['segundobloque']['calculoDimension']+$calculo[8]['segundobloque']['calculoDimension']+$calculo[9]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[7]['segundobloque']['calculoDimension']+$calculo[8]['segundobloque']['calculoDimension']+$calculo[9]['segundobloque']['calculoDimension'])*(0.15);
+                array_push($resumenBloques['bloque'],$obtest);
+
+
+
 
 		$nivel               = array();
 		$nivel['nombre']     = "INVESTIGACION";
@@ -1182,7 +1223,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Profesores de carrera realizando investigación.";
-		$tercer['porcentaje']   = 0;
+		$tercer['porcentaje']   = 50;
 		$tercer['descripcion']  = "Profesores  con dictamen de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP.";
 		$tercer['metodo']       = "(Profesores contratados con dictamen de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesores de carrera de la Unidad Académica)*100";
 		$tercer['calculo']      = 0;
@@ -1213,7 +1254,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	20	; $objeto[3][1]=	29.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	30	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1222,7 +1263,7 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
@@ -1245,7 +1286,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Innovaciones Educativas.";
-		$tercer['porcentaje']   = 0;
+		$tercer['porcentaje']   = 50;
 		$tercer['descripcion']  = "Tasa de variación del  número de Innovaciones educativas identificadas, incubadas o escaladas por unidad académica.";
 		$tercer['metodo']       = "(Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año/ el total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior) -1)*100";
 		$tercer['calculo']      = 0;
@@ -1270,13 +1311,13 @@ class Consultasup extends CI_Controller {
         $objeto[3] = array();
         $objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	19.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+        $objeto[0][0]=	-100	; $objeto[0][1]=	19.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	20	; $objeto[1][1]=	29.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	30	; $objeto[2][1]=	39.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	40	; $objeto[3][1]=	49.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1285,9 +1326,18 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
+                $obtest = array();
+                $obtest['nombre'] = 'INVESTIGACIÓN';
+                $obtest['suma'] = $calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'])*(0.10);
+                array_push($resumenBloques['bloque'],$obtest);
+
+                print_r($resumenBloques);
+
+
 
 		$nivel               = array();
 		$nivel['nombre']     = "GESTION ADMINISTRATIVA";
@@ -1338,7 +1388,7 @@ class Consultasup extends CI_Controller {
 		$objeto[3][0]=	20	; $objeto[3][1]=	24.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	25	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
-		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']);
+		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
@@ -1347,13 +1397,13 @@ class Consultasup extends CI_Controller {
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-		array_push($calculo, $nivel);
+		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
 
 
 		//AL FINAL SE IMPRIME
-		var_dump($calculo[0]);
+		// var_dump($calculo[0]);
 		//**************************************************************************************************************************************************************************************************//
 
 	}
