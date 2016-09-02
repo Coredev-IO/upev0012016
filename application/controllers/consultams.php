@@ -445,7 +445,7 @@ class Consultams extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Programas Académicos Evaluados";
-		$tercer['porcentaje']   = 50;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Porcentaje de   programas académicos con evaluación favorable en los últimos 4 años ";
 		$tercer['metodo']       = "(Número de programas académicos evaluados/Total de programas académicos de la Unidad Académica) *100";
 		$tercer['calculo']      = 0;
@@ -661,7 +661,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Becas";
-		$tercer['porcentaje']   = 33;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Porcentaje de alumnos que cuentan con algun tipo de beca registrada en el SIBA por año por unidad académca";
 		$tercer['metodo']       = "(Número de alumnos que cuentan con beca registrada en el SIBA por año por unidad académica/matrícula total por unidad académica)*100";
 		$tercer['calculo']      = 0;
@@ -724,7 +724,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Alumnos Tutorados";
-		$tercer['porcentaje']   = 33;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Porcentaje de alumnos tutorados por periodo semestral y  programa académico";
 		$tercer['metodo']       = "(Número de alumnos tutorados por periodo semestral / matrícula total)*100";
 		$tercer['calculo']      = 0;
@@ -787,7 +787,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Títulos Actualizados 50%";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 50;
 		$tercer['descripcion']  = "Porcentaje de títulos impresos y/o digitales que han sido editados en un tiempo no mayor a 5 años a la fecha 50%";
 		$tercer['metodo']       = "(Número de títulos actualizados impresos o digitales por semestre / Total del acervo bibliográfico por semestre)*100";
 		$tercer['calculo']      = 0;
@@ -829,7 +829,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Número de libros por alumno 50%";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 50;
 		$tercer['descripcion']  = "Total de ejemplares por programa académico 50%";
 		$tercer['metodo']       = "(Número de ejemplares disponibles en sala por semestre/ total de matricula por semestre)";
 		$tercer['calculo']      = 0;
@@ -871,7 +871,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Cobertura de Acceso a Internet";
-		$tercer['porcentaje']   = 30;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Capacidad instalada de acceso a internet en la unidad académica";
 		$tercer['metodo']       = "(Capacidad instalada de acceso a internet / número de usuarios del turno con mayor número de personas de la unidad académica)*100";
 		$tercer['calculo']      = 0;
@@ -913,7 +913,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "CUMPLIMIENTO DEL PROGRAMA DE MANTENIMIENTO 50%";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 50;
 		$tercer['descripcion']  = "Porcentaje de cumpliemito del programa de mantenimiento 50%";
 		$tercer['metodo']       = "(Número de servicios atendidos / Total servicios solicitados o programados por semestre)*100";
 		$tercer['calculo']      = 0;
@@ -955,7 +955,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "CUMPLIMIENTO DEL PROGRAMA DE LIMPIEZA 50%";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 50;
 		$tercer['descripcion']  = "Porcentaje de cumpliemito del programa de limpieza 50%";
 		$tercer['metodo']       = "(Número de servicios atendidos / Total servicios programados por semestre)*100";
 		$tercer['calculo']      = 0;
@@ -1395,8 +1395,15 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//**************************************************************************************************************************************************************************************************//
 
+		$obtest = array();
+                $obtest['nombre'] = 'GESTION ADMINISTRATIVA';
+                $obtest['suma'] = $calculo[12]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[12]['segundobloque']['calculoDimension'])*(0.10);
+                array_push($resumenBloques['bloque'],$obtest);
+
 		//AL FINAL SE IMPRIME
-		var_dump($calculo[12]);
+		var_dump($calculo);
+		var_dump($resumenBloques);
 		//**************************************************************************************************************************************************************************************************//
 
 	}

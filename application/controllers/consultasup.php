@@ -750,7 +750,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Becas de Manutención";
-		$tercer['porcentaje']   = 33;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Porcentaje de alumnos beneficiados con algún tipo  de beca registrada en el SIBA, por año y unidad académica";
 		$tercer['metodo']       = "(Número de alumnos beneficiados con  algún tipo de beca  registrada en el SIBA, por año y unidad académica/matrícula total por unidad académica)*100";
 		$tercer['calculo']      = 0;
@@ -812,7 +812,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Alumnos Tutorados";
-		$tercer['porcentaje']   = 33;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Porcentaje de alumnos tutorados por periodo escolar y  programa académico.";
 		$tercer['metodo']       = "(Número de alumnos tutorados por periodo escolar / matrícula total )*100";
 		$tercer['calculo']      = 0;
@@ -916,7 +916,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "CUMPLIMIENTO DEL PROGRAMA DE MANTENIMIENTO.";
-		$tercer['porcentaje']   = 50;
+		$tercer['porcentaje']   = 25;
 		$tercer['descripcion']  = "Porcentaje de cumplimento del programa de mantenimiento.";
 		$tercer['metodo']       = "(Número de servicios atendidos / Total servicios solicitados o programados por semestre)*100";
 		$tercer['calculo']      = 0;
@@ -958,7 +958,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "CUMPLIMIENTO DEL PROGRAMA DE LIMPIEZA.";
-		$tercer['porcentaje']   = 50;
+		$tercer['porcentaje']   = 25;
 		$tercer['descripcion']  = "Porcentaje de cumplimento del programa de limpieza";
 		$tercer['metodo']       = "(Número de servicios atendidos / Total servicios programados por semestre)*100";
 		$tercer['calculo']      = 0;
@@ -1028,7 +1028,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Alumnos Participando en Servicio Social";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Porcentaje  de alumnos  en alguno de los programas de servicio social por unidad académica.";
 		$tercer['metodo']       = "(Número de alumnos participando en servicio social  por programa académico por año  / total de alumnos que deben hacer servicio social por programa académico)*100";
 		$tercer['calculo']      = 0;
@@ -1090,7 +1090,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Alumnos  Realizando Prácticas Profesionales.";
-		$tercer['porcentaje']   = 35;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Porcentaje  de alumnos realizando prácticas profesionales por programa académico por año.";
 		$tercer['metodo']       = "(Número de alumnos realizando prácticas profesionales  por programa académico por año/total de alumnos que deben hacer prácticas profesionales por programa académico)*100";
 		$tercer['calculo']      = 0;
@@ -1152,7 +1152,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Proyectos Vinculados";
-		$tercer['porcentaje']   = 30;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Tasa de variación del número de  proyectos vinculados por unidad académica.";
 		$tercer['metodo']       = "(Número de proyectos vinculados por unidad académica por año/ Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100";
 		$tercer['calculo']      = 0;
@@ -1223,7 +1223,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Profesores de carrera realizando investigación.";
-		$tercer['porcentaje']   = 50;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Profesores  con dictamen de carrera (1/2, 3/4 y T.Completo) que participan en Proyectos de Investigación avalados por la SIP.";
 		$tercer['metodo']       = "(Profesores contratados con dictamen de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesores de carrera de la Unidad Académica)*100";
 		$tercer['calculo']      = 0;
@@ -1286,7 +1286,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "Innovaciones Educativas.";
-		$tercer['porcentaje']   = 50;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Tasa de variación del  número de Innovaciones educativas identificadas, incubadas o escaladas por unidad académica.";
 		$tercer['metodo']       = "(Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año/ el total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior) -1)*100";
 		$tercer['calculo']      = 0;
@@ -1335,7 +1335,6 @@ class Consultasup extends CI_Controller {
                 $obtest['total'] = ($calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'])*(0.10);
                 array_push($resumenBloques['bloque'],$obtest);
 
-                print_r($resumenBloques);
 
 
 
@@ -1357,7 +1356,7 @@ class Consultasup extends CI_Controller {
 
 		//SE CREA ARRAY PARA TERCER BLOQUE
 		$tercer['nombre']       = "% de  Recursos autogenerados netos dedicados al  mantenimiento del inmueble y mantenimiento del equipo";
-		$tercer['porcentaje']   = 0;
+		$tercer['porcentaje']   = 100;
 		$tercer['descripcion']  = "Monto de los recursos autogenerados que se destinan al pago de servicios de mantenimiento del inmueble y mantenimiento del equipo.";
 		$tercer['metodo']       = "(Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo / total de los recursos autogenerados anualmente)*100";
 		$tercer['calculo']      = 0;
@@ -1401,9 +1400,16 @@ class Consultasup extends CI_Controller {
 
 		//**************************************************************************************************************************************************************************************************//
 
+		$obtest = array();
+                $obtest['nombre'] = 'GESTION ADMINISTRATIVA';
+                $obtest['suma'] = $calculo[12]['segundobloque']['calculoDimension'];
+                $obtest['total'] = ($calculo[12]['segundobloque']['calculoDimension'])*(0.10);
+                array_push($resumenBloques['bloque'],$obtest);
+		// pegar aqui la linea de 5
 
 		//AL FINAL SE IMPRIME
-		// var_dump($calculo[0]);
+		var_dump($calculo);
+		var_dump($resumenBloques);
 		//**************************************************************************************************************************************************************************************************//
 
 	}
