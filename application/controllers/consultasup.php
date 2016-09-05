@@ -1408,8 +1408,48 @@ class Consultasup extends CI_Controller {
 		// pegar aqui la linea de 5
 
 		//AL FINAL SE IMPRIME
-		var_dump($calculo);
-		var_dump($resumenBloques);
+
+                $data['calculo'] = $calculo;
+                $data['resumen'] = $resumenBloques;
+                $data['unidad']       = $this->unidades->getUnidad($this->uri->segment(3));
+
+                $resultaSuma = 0;
+                foreach ($resumenBloques as $row) {
+                        # code...
+                        // print_r($row[0]['total']);
+                        $resultaSuma = $resultaSuma+ $row[0]['total'];
+                }
+
+                switch ($resultaSuma) {
+                    case ($resultaSuma>= 0 ||  $resultaSuma < 50):
+                        $data['resTexto'] = 'DEFICIENTE';
+                        $data['resComentario'] = 'Se identifican areas de atención urgente';
+                        break;
+                    case ($resultaSuma>= 50 ||  $resultaSuma < 75):
+                        $data['resTexto'] = 'REGULAR';
+                        $data['resComentario'] = 'Se necesitan mejorar controles';
+                        break;
+                    case ($resultaSuma>= 75 ||  $resultaSuma < 85):
+                        $data['resTexto'] = 'BUENO';
+                        $data['resComentario'] = 'Se sugiere implemetar acciones de mejora continua';
+                        break;
+                    case ($resultaSuma>= 85 ||  $resultaSuma < 95):
+                        $data['resTexto'] = 'MUY BUENO';
+                        $data['resComentario'] = 'Tomar medidas que permitan consolidar el aspecto';
+                        break;
+                    case ($resultaSuma>= 95 ||  $resultaSuma <= 100):
+                        $data['resTexto'] = 'EXCELENTE';
+                        $data['resComentario'] = 'Felicidades - compartir buenas practicas';
+                        break;
+                    default:
+                        $data['resTexto'] = 'SIN CLASIFICACIÓN';
+                        $data['resComentario'] = '';
+                        break;
+                }
+
+
+                $data['main_cont'] = 'consultasup/resultados';
+		$this->load->view('includes/template_consultasup', $data);
 		//**************************************************************************************************************************************************************************************************//
 
 	}

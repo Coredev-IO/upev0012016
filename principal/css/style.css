@@ -243,7 +243,14 @@ h1{
 //     background-color: #fff;
 //     border: 1px solid #ddd;
 // }
-// 
-// 
+//
+//
 
 
+.totaltable{
+        background-color: #000;
+}
+
+h1{
+        color: #777;
+}
