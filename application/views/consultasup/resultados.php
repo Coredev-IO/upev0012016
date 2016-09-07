@@ -48,9 +48,20 @@
 <div class="col-lg-8 col-xs-12">
         <div class="card text-xs-center">
                   <div class="card-header">
-                    RESUMEN GENERAL
+                    DESEMPEÑO
                   </div>
-                  <div class="card-block"><p class="card-text">Finalizada, generar resultados</p><a href="http://localhost/upev0012016/index.php/consultasup/calculo/2" class="btn btn-outline-warning">Revisar resultados</a></div>
+                  <div class="card-block">
+                          <?php
+
+
+
+                                        print_r($calculo[0]);
+
+                          ?>
+
+
+
+                  </div>
                   <div class="card-footer text-muted">FINALIZANDO</div>
         </div>
 </div>
