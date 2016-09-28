@@ -229,8 +229,10 @@ foreach ($Tutoria as $row) {
 		$idComplete++;
 
 		// echo '<div class="col-md-12"><div class="row inputs-form"><div class="col-md-10">'.$row["campo2"].'</div><div class="col-md-1"><div class="form-group label-floating is-empty"><input type="text" value="'.$al[$idComplete].'" class="form-control" id='.$row["campo2id"].' name='.$row["campo2id"].' required></div><br></div></div></div>';
-		echo '<div class="divider"></div></div>';
 		$idComplete++;
+		echo '<div class="divider"></div></div>';
+		$idBloq++;
+		$idBloq++;
 	} else {
 		echo '<div class="row row-bloque">';
 
@@ -247,8 +249,6 @@ foreach ($Tutoria as $row) {
 	echo '<input class="btn-input-file" type="file" accept=".pdf, .rar, .zip"  name="datafile'.$fileInput.'" multiple/>';
 	$fileInput++;
 	$NumeroArchivo++;
-	$idBloq++;
-	$idBloq++;
 }
 echo '<div class="col-md-12"><button type="submit" name="btn-submit" class="btn btn-outline-success btn-100">Confirmar<div class="ripple-container"></div></button></div>';
 // echo '<div class="col-md-12"><a href="#" name="btn-submit" class="btn btn-outline-success btn-100">Confirmar</a></div>';
