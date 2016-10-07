@@ -37,8 +37,8 @@ class Gestion extends CI_Controller {
 
 			//SE RECORRE LA CANTIDAD DE ARCHIVOS POR NIVEL NECESARIOS
 			for ($p = 0; $p < 1; $p++) {
-				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
-				$new_name            = $eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$indicadorFile."_".str_replace(' ', '',$_FILES['datafile'.$indicadorFile]['name']);;
+				$new_name            = $eval[0]->idEvaluacion."_".$indicadorFile."_".$indicadorFile."_".str_replace(' ', '',$_FILES['datafile'.$indicadorFile]['name']);;
 				$config['file_name'] = $new_name;
 
 				//Initialize
@@ -49,7 +49,7 @@ class Gestion extends CI_Controller {
 					$rutafiles[$p] = $this->input->post('dataSrc'.$indicadorFile);
 					if (strlen($_FILES['datafile'.$indicadorFile]['name']) > 0) {
 						// echo "Nombre input nuevo";
-						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$indicadorFile."_".str_replace(' ', '',$_FILES['datafile'.$indicadorFile]['name']);;
 						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
 							// //echo $this->upload->display_errors();
 
@@ -195,8 +195,8 @@ class Gestion extends CI_Controller {
 
 			//SE RECORRE LA CANTIDAD DE ARCHIVOS POR NIVEL NECESARIOS
 			for ($p = 0; $p < 1; $p++) {
-				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacionSup."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
-				$new_name            = $eval[0]->idEvaluacionSup."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+				$rutafiles[$p]       = $nameurlfile."/".$eval[0]->idEvaluacionSup."_".$indicadorFile."_".$indicadorFile."_".str_replace(' ', '',$_FILES['datafile'.$indicadorFile]['name']);;
+				$new_name            = $eval[0]->idEvaluacionSup."_".$indicadorFile."_".$indicadorFile."_".str_replace(' ', '',$_FILES['datafile'.$indicadorFile]['name']);;
 				$config['file_name'] = $new_name;
 
 				//Initialize
@@ -207,7 +207,7 @@ class Gestion extends CI_Controller {
 					$rutafiles[$p] = $this->input->post('dataSrc'.$indicadorFile);
 					if (strlen($_FILES['datafile'.$indicadorFile]['name']) > 0) {
 						// echo "Nombre input nuevo";
-						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacionSup."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
+						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacionSup."_".$indicadorFile."_".$indicadorFile."_".str_replace(' ', '',$_FILES['datafile'.$indicadorFile]['name']);;
 						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
 							// //echo $this->upload->display_errors();
 

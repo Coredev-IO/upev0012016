@@ -45,26 +45,17 @@
 
 </div>
 
-<div class="col-lg-8 col-xs-12">
+<!-- <div class="col-lg-8 col-xs-12">
         <div class="card text-xs-center">
                   <div class="card-header">
                     DESEMPEÑO
                   </div>
                   <div class="card-block">
-                          <?php
-
-
-
-                                        print_r($calculo[0]);
-
-                          ?>
-
-
 
                   </div>
                   <div class="card-footer text-muted">FINALIZANDO</div>
         </div>
-</div>
+</div> -->
 
 
 </div>
