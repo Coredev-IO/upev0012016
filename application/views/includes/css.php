@@ -1,3 +1,4 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- font-awesome -->
     <!-- <link href="<?=base_url()?>/principal/font-awesome.min.css" rel="stylesheet">
     <link href="<?=base_url()?>/principal/bootstrap.css" rel="stylesheet"> -->

@@ -55,7 +55,7 @@ class Apoyo extends CI_Controller {
 						// echo "Nombre input nuevo";
 						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
 						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-							echo $this->upload->display_errors();
+							//echo $this->upload->display_errors();
 
 						} else {
 							$dataFile = array('upload_data' => $this->upload->data());
@@ -66,7 +66,7 @@ class Apoyo extends CI_Controller {
 				} else {
 
 					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-						echo $this->upload->display_errors();
+						//echo $this->upload->display_errors();
 
 					} else {
 						$dataFile = array('upload_data' => $this->upload->data());
@@ -258,7 +258,7 @@ class Apoyo extends CI_Controller {
 						// echo "Nombre input nuevo";
 						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacionSup."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
 						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-							echo $this->upload->display_errors();
+							//echo $this->upload->display_errors();
 
 						} else {
 							$dataFile = array('upload_data' => $this->upload->data());
@@ -269,7 +269,7 @@ class Apoyo extends CI_Controller {
 				} else {
 
 					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-						echo $this->upload->display_errors();
+						//echo $this->upload->display_errors();
 
 					} else {
 						$dataFile = array('upload_data' => $this->upload->data());
@@ -498,7 +498,7 @@ class Apoyo extends CI_Controller {
 						// echo "Nombre input nuevo";
 						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
 						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-							echo $this->upload->display_errors();
+							//echo $this->upload->display_errors();
 
 						} else {
 							$dataFile = array('upload_data' => $this->upload->data());
@@ -509,7 +509,7 @@ class Apoyo extends CI_Controller {
 				} else {
 
 					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-						echo $this->upload->display_errors();
+						//echo $this->upload->display_errors();
 
 					} else {
 						$dataFile = array('upload_data' => $this->upload->data());
@@ -735,7 +735,7 @@ class Apoyo extends CI_Controller {
 						// echo "Nombre input nuevo";
 						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacionSup."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
 						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-							echo $this->upload->display_errors();
+							//echo $this->upload->display_errors();
 
 						} else {
 							$dataFile = array('upload_data' => $this->upload->data());
@@ -746,7 +746,7 @@ class Apoyo extends CI_Controller {
 				} else {
 
 					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-						echo $this->upload->display_errors();
+						//echo $this->upload->display_errors();
 
 					} else {
 						$dataFile = array('upload_data' => $this->upload->data());
@@ -972,7 +972,7 @@ class Apoyo extends CI_Controller {
 						// echo "Nombre input nuevo";
 						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacion."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
 						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-							echo $this->upload->display_errors();
+							//echo $this->upload->display_errors();
 
 						} else {
 							$dataFile = array('upload_data' => $this->upload->data());
@@ -983,7 +983,7 @@ class Apoyo extends CI_Controller {
 				} else {
 
 					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-						echo $this->upload->display_errors();
+						//echo $this->upload->display_errors();
 
 					} else {
 						$dataFile = array('upload_data' => $this->upload->data());
@@ -1259,7 +1259,7 @@ class Apoyo extends CI_Controller {
 						// echo "Nombre input nuevo";
 						$rutafiles[$p] = $nameurlfile."/".$eval[0]->idEvaluacionSup."_".$indicadorFile."_".$_FILES['datafile'.$indicadorFile]['name'];
 						if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-							echo $this->upload->display_errors();
+							//echo $this->upload->display_errors();
 
 						} else {
 							$dataFile = array('upload_data' => $this->upload->data());
@@ -1270,7 +1270,7 @@ class Apoyo extends CI_Controller {
 				} else {
 
 					if (!$this->upload->do_upload('datafile'.$indicadorFile)) {
-						echo $this->upload->display_errors();
+						//echo $this->upload->display_errors();
 
 					} else {
 						$dataFile = array('upload_data' => $this->upload->data());
