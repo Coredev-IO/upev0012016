@@ -826,7 +826,11 @@ class Consultasup extends CI_Controller {
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-			$pre       = ($pre+((($row->BALumnosTutorados)/($row->BALumnosTutoradosT))*100));
+			if(($row->BALumnosTutoradosT)>0){
+				$pre       = ($pre+((($row->BALumnosTutorados)/($row->BALumnosTutoradosT))*100));
+			}else{
+				$pre = ($pre+0)*100;
+			}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -1104,7 +1108,11 @@ class Consultasup extends CI_Controller {
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-			$pre       = ($pre+((($row->BAlumnosPractProf)/($row->BAlumnosPractProfT))*100));
+			if(($row->BAlumnosPractProfT)>0){
+				$pre       = ($pre+((($row->BAlumnosPractProf)/($row->BAlumnosPractProfT))*100));
+			}else{
+				$pre = ($pre+0)*100;
+			}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -1166,7 +1174,11 @@ class Consultasup extends CI_Controller {
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-			$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
+			if(($row->ProyectosVinculadosAnt)>0){
+				$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
+			}else{
+				$pre = ($pre+0-1)*100;
+			}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -1300,7 +1312,11 @@ class Consultasup extends CI_Controller {
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-			$pre       = ($pre+((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100));
+			if(($row->InnovacionesIncubadasAnt)>0){
+				$pre       = ($pre+((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100));
+			}else{
+				$pre = ($pre+0-1)*100;
+			}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
