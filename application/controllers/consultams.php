@@ -1403,7 +1403,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 
 		//AL FINAL SE IMPRIME
 		// var_dump($calculo);
-		// var_dump($resumenBloques);
+		// var_dump($resumenBloques);  
 
 		$data['calculo'] = $calculo;
                 $data['resumen'] = $resumenBloques;
