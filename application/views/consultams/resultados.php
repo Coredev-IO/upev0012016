@@ -109,5 +109,63 @@
 </div>
 
 
+<div class="col-xs-12">
+        <div class="card text-xs-center">
+                  <div class="card-header">
+                    REPORTE DETALLADO
+                  </div>
+                  <div class="card-block">
+                    <?php
+                      $objeto = array();
+                      $sum = 0;
+                      echo "<table class='table table-bordered totaltable table-det'><tr><th>FUNCIÓN</th><th>PORCENTAJE DE FUNCIÓN</th><th>DIMENSIÓN</th><th>PORCENTAJE ESPERADO</th><th>CÁLCULO DE DIMSENSIÓN</th><th>CÁLCULO REAL</th></tr><tbody>";
+                      foreach ($calculo as $row) {
+                        //Se separa por bloque
+                        echo "<tr>";
+                        echo "<td>";
+                        $objeto2 = array();
+                        print_r($row['nombre']);
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row['porcentaje'].'%';
+                        echo "</td>";
+                        echo "</td>";
+                        echo "<td>";
+                        print_r($row['segundobloque']['nombre']);
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row['segundobloque']['porcentaje'].'%';
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row['segundobloque']['calculoDimension'].'%';
+                        echo "</td>";
+                        echo "<td>";
+                        $op = $row['segundobloque']['calculoDimension']*($row['porcentaje']/100);
+                        $sum = $sum+$op;
+                        echo $op.'%';
+                        echo "</td>";
+                        echo "</tr>";
+
+                        // print_r($row);
+
+                        // foreach ($row['tercerbloque'] as $row2) {
+                        //   print_r($row2);
+                        // }
+                      }
+                      echo '<tr><td colspan="5"></td><td>'.$sum.'%</td></tr>';
+                      echo "</tbody></table>";
+
+
+
+
+                       ?>
+                  </div>
+                  <div class="card-footer text-muted">
+                      <a class="btn btn-info btn-100" href="">IMPRIMIR</a>
+                 </div>
+        </div>
+</div>
+
+
 
 </div>
