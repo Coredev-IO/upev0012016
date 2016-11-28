@@ -1204,7 +1204,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//ELEMNTO POR NIVEL
 		$nivel               = array();
 		$nivel['nombre']     = "INVESTIGACION";
-		$nivel['porcentaje'] = 15;
+		$nivel['porcentaje'] = 10;
 		//SEGUNDO NIVEL
 		$nivel['segundobloque'] = array();
 
@@ -1267,7 +1267,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		//ELEMNTO POR NIVEL
 		$nivel               = array();
 		$nivel['nombre']     = "INVESTIGACION";
-		$nivel['porcentaje'] = 15;
+		$nivel['porcentaje'] = 10;
 		//SEGUNDO NIVEL
 		$nivel['segundobloque'] = array();
 
@@ -1402,10 +1402,8 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
                 array_push($resumenBloques['bloque'],$obtest);
 
 		//AL FINAL SE IMPRIME
-		// var_dump($calculo);
-		// var_dump($resumenBloques);  
 
-		$data['calculo'] = $calculo;
+								$data['calculo'] = $calculo;
                 $data['resumen'] = $resumenBloques;
                 $data['unidad']       = $this->unidades->getUnidad($this->uri->segment(3));
 
@@ -1444,7 +1442,7 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
                 }
 
 
-                $data['main_cont'] = 'consultasup/resultados';
+                $data['main_cont'] = 'consultams/resultados';
 		$this->load->view('includes/template_consultams', $data);
 		//**************************************************************************************************************************************************************************************************//
 

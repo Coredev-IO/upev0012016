@@ -5,13 +5,13 @@
           ?>
         </div>
 </div>
-<hr>
+<!-- <hr> -->
 
 <div class="row">
         <div class="col-lg-4 col-xs-12">
                 <div class="card text-xs-center">
                           <div class="card-header">
-                            TOTALES
+                            CONSOLIDADOS
                           </div>
                           <div class="card-block">
                                    <table class="table table-bordered totaltable">
@@ -42,22 +42,69 @@
                           <div class="card-footer text-muted">
 
                                         Total<h1><?php echo $total?>%</h1><?php echo $resTexto.'<br>'.$resComentario; ?>
+                                        <hr>
+                                        <a class="btn btn-info btn-100" href="">IMPRIMIR</a>
                          </div>
                 </div>
 
 </div>
 
-<!-- <div class="col-lg-8 col-xs-12">
-        <div class="card text-xs-center">
-                  <div class="card-header">
-                    DESEMPEÑO
-                  </div>
-                  <div class="card-block">
+<div class="col-lg-8 col-xs-12">
+  <div class="card text-xs-center">
+            <div class="card-header">
+              REPORTE POR FUNCIONES
+            </div>
+            <div class="card-block">
+              <?php
+                $objeto = array();
+                $sum = 0;
+                echo "<table class='table table-bordered totaltable table-det'><tr><th>FUNCIÓN</th><th>PORCENTAJE DE FUNCIÓN</th><th>DIMENSIÓN</th><th>PORCENTAJE ESPERADO</th><th>CÁLCULO DE DIMSENSIÓN</th><th>CÁLCULO REAL</th></tr><tbody>";
+                foreach ($calculo as $row) {
+                  //Se separa por bloque
+                  echo "<tr>";
+                  echo "<td>";
+                  $objeto2 = array();
+                  print_r($row['nombre']);
+                  echo "</td>";
+                  echo "<td>";
+                  echo $row['porcentaje'].'%';
+                  echo "</td>";
+                  echo "</td>";
+                  echo "<td>";
+                  print_r($row['segundobloque']['nombre']);
+                  echo "</td>";
+                  echo "<td>";
+                  echo $row['segundobloque']['porcentaje'].'%';
+                  echo "</td>";
+                  echo "<td>";
+                  echo $row['segundobloque']['calculoDimension'].'%';
+                  echo "</td>";
+                  echo "<td>";
+                  $op = $row['segundobloque']['calculoDimension']*($row['porcentaje']/100);
+                  $sum = $sum+$op;
+                  echo $op.'%';
+                  echo "</td>";
+                  echo "</tr>";
 
-                  </div>
-                  <div class="card-footer text-muted">FINALIZANDO</div>
-        </div>
-</div> -->
+                  // print_r($row);
+
+                  // foreach ($row['tercerbloque'] as $row2) {
+                  //   print_r($row2);
+                  // }
+                }
+                echo '<tr><td colspan="5"></td><td>'.$sum.'%</td></tr>';
+                echo "</tbody></table>";
+
+
+
+
+                 ?>
+            </div>
+            <div class="card-footer text-muted">
+                <a class="btn btn-info btn-100" href="">IMPRIMIR</a>
+           </div>
+  </div>
+</div>
 
 
 </div>

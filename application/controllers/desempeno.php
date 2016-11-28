@@ -751,8 +751,9 @@ class Desempeno extends CI_Controller {
                         );
                         $this->evaluacion->updateStatusSup($arrayUpdate);
 
-			$data['main_cont'] = 'desempeno/indexSup';
-			$this->load->view('includes/template_principal', $data);
+			// $data['main_cont'] = 'desempeno/indexSup';
+			// $this->load->view('includes/template_principal', $data);
+			redirect('desempeno', 'refresh');
 
 		} else {
 			redirect('login', 'refresh');
