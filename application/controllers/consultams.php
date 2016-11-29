@@ -45,6 +45,7 @@ class Consultams extends CI_Controller {
 	public function calculo() {
 		$data['datos'] = $this->session->userdata('logged_in');
 		$evaluacionid  = $this->uri->segment(3);
+		$data['urldata'] = $this->uri->segment(2).'/'.$this->uri->segment(3);
 		// echo $evaluacionid;
 		// echo "<br>";
 
