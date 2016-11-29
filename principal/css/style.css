@@ -258,3 +258,40 @@ h1{
 .table-det{
   font-size: 10px;
 }
+
+
+.titulos .title{
+  text-align: left;
+  font-size: 9px;
+  font-weight: bold;
+  color: #999;
+}
+
+
+.titulos .porcentaje{
+  text-align: left;
+  font-size: 9px;
+  font-weight: bold;
+  margin-top: 16px;
+  color: #999;
+}
+
+.titulos .name{
+  text-align: left;
+}
+
+.titulos .porc{
+  text-align: left;
+  margin-bottom: 1px;
+  font-size: 25px;
+}
+
+
+.conttable{
+  margin-bottom: 80px;
+}
+
+.titulos{
+  background-color: #f8f8f8;
+  padding: 10px;
+}

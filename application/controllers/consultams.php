@@ -76,14 +76,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos  / Total de matrícula inscrita)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos en la unidad adadémica";
+		$tercer['var2'] = "Total de matrícula inscrita";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosRegulares;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 			$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -117,14 +122,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "( Ʃ 1 n Número de alumnos del cohorte A que egresan  en el año n / total de alumnos en el cohorte A)";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos del cohorte A que egresan  en el año";
+		$tercer['var2'] = "Total de alumnos en el cohorte A";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BEficienciaTerminal;
+$tercer['val2'] = $tercer['val2']+$row->BEficienciaTerminalT;
 			$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BEficienciaTerminalT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -158,14 +168,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico /total de la matrícula de egreso del mismo periodo por programa académico)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico";
+		$tercer['var2'] = "Total de la matrícula de egreso del mismo periodo por programa académico";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
 			$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -198,14 +213,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos de NMS del IPN que concluyeron el último semestre y presentaron examen de admision  y ocuparon un lugar en NS del IPN por programa académico / Total de alumnos del NMS del IPN que presentaron examen de ingreso al NS del IPN)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos de NMS del IPN que concluyeron el último semestre y presentaron examen de admisión  y ocuparon un lugar en NS del IPN por programa académico";
+		$tercer['var2'] = "Total de alumnos del NMS del IPN que presentaron examen de ingreso al NS del IPN";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BPromocionNS;
+$tercer['val2'] = $tercer['val2']+$row->BPromocionNST;
 			$pre       = ($pre+((($row->BPromocionNS)/($row->BPromocionNST))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -259,14 +279,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "(Total de horas frente a grupo por profesores de base por periodo semestral por academia/  cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia)";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Total de horas frente a grupo por profesores de base por periodo semestral por academia";
+		$tercer['var2'] = "Cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BHorasFrenteGrupo;
+$tercer['val2'] = $tercer['val2']+$row->BHorasFrenteGrupoT;
 			$pre       = ($pre+((($row->BHorasFrenteGrupo)/($row->BHorasFrenteGrupoT))));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -299,14 +324,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "(Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica/total de docentes contratados por asignatura  por unidad académica)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica";
+		$tercer['var2'] = "Total de docentes contratados por asignatura  por unidad académica";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BProfesoresActivos;
+$tercer['val2'] = $tercer['val2']+$row->BProfesoresActivosT;
 			$pre       = ($pre+((($row->BProfesoresActivos)/($row->BProfesoresActivosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -339,14 +369,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "(Número de profesores con por  lo menos una acción de actualización en su área disciplinar  / total de los profesores)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de profesores con por  lo menos una acción de actualización en su área disciplinar";
+		$tercer['var2'] = "Total de los profesores";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BProfesoresActualizados;
+$tercer['val2'] = $tercer['val2']+$row->BProfesoresActualizadosT;
 			$pre       = ($pre+((($row->BProfesoresActualizados)/($row->BProfesoresActualizadosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -379,14 +414,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "(la suma de la evaluación individual del cuestionario de apreciación estudiantil por docente por periodo semestral  por unidad académica/ entre el total del número docentes perteneciente, por periodo semestral por unidad académica)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "La suma de la evaluación individual del cuestionario de apreciación estudiantil por docente por periodo semestral  por unidad académica";
+		$tercer['var2'] = "Total del número docentes perteneciente, por periodo semestral por unidad académica";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BEvaluacionesIndividuales;
+$tercer['val2'] = $tercer['val2']+$row->BEvaluacionesIndividualesT;
 			$pre       = ($pre+((($row->BEvaluacionesIndividuales)/($row->BEvaluacionesIndividualesT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -450,14 +490,19 @@ class Consultams extends CI_Controller {
 		$tercer['metodo']       = "(Número de programas académicos evaluados/Total de programas académicos de la Unidad Académica) *100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de programas académicos evaluados";
+		$tercer['var2'] = "Total de programas académicos de la unidad académica";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BProgramasAcademicos;
+$tercer['val2'] = $tercer['val2']+$row->BProgramasAcademicosT;
 			$pre       = ($pre+((($row->BProgramasAcademicos)/($row->BProgramasAcademicosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -513,16 +558,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Total de alumnos inscritos por Unidad Académica/(Capacidad instalada))*100 ";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Total de alumnos inscritos por unidad académica";
+		$tercer['var2'] = "Capacidad instalada";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->infraestructura->getInfraMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->AlumnosInscritos;
+$tercer['val2'] = $tercer['val2']+$row->CapacidadInstalada;
 			$pre       = ($pre+((($row->AlumnosInscritos)/($row->CapacidadInstalada))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -555,16 +605,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de aulas equipadas por unidad académica/el total de aulas)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de aulas equipadas por unidad académica";
+		$tercer['var2'] = "Total de aulas";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->infraestructura->getInfraMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->AulasEquipadas;
+$tercer['val2'] = $tercer['val2']+$row->TotalAulas;
 			$pre       = ($pre+((($row->AulasEquipadas)/($row->TotalAulas))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -597,16 +652,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de laboratorios equipados conforme currícula por programa académico / total de laboratorios por programa académico)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de laboratorios equipados conforme currícula por programa académico";
+		$tercer['var2'] = "Total de laboratorios por programa académico";
 
 		// EL INDICADOR APLICA
 
 		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BLaboratoriosEquipados;
+$tercer['val2'] = $tercer['val2']+$row->BLaboratoriosEquipadosT;
 			$pre       = ($pre+((($row->BLaboratoriosEquipados)/($row->BLaboratoriosEquipadosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -666,16 +726,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de alumnos que cuentan con beca registrada en el SIBA por año por unidad académica/matrícula total por unidad académica)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos que cuentan con beca registrada en el SIBA por año por unidad académica";
+		$tercer['var2'] = "Matrícula total por unidad académica";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->becas->getBecasMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->AlumnosBeca;
+$tercer['val2'] = $tercer['val2']+$row->TotalAlumnos;
 			$pre       = ($pre+((($row->AlumnosBeca)/($row->TotalAlumnos))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -729,16 +794,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de alumnos tutorados por periodo semestral / matrícula total)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos tutorados por periodo semestre";
+		$tercer['var2'] = "Matrícula total";
 
 		// EL INDICADOR APLICA
 
 		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosTutorados;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 			$pre       = ($pre+((($row->BAlumnosTutorados)/($row->BAlumnosTutoradosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -792,16 +862,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de títulos actualizados impresos o digitales por semestre / Total del acervo bibliográfico por semestre)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de títulos actualizados impresos o digitales por semestre";
+		$tercer['var2'] = "Total del acervo bibliográfico por semestre";
 
 		// EL INDICADOR APLICA
 
 		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BlibrosTitulosEditados;
+$tercer['val2'] = $tercer['val2']+$row->BlibrosTitulosEditadosT;
 			$pre       = ($pre+((($row->BlibrosTitulosEditados)/($row->BlibrosTitulosEditadosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -834,16 +909,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de ejemplares disponibles en sala por semestre/ total de matricula por semestre)";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de ejemplares disponibles en sala por semestre";
+		$tercer['var2'] = "Total de matricula por semestre";
 
 		// EL INDICADOR APLICA
 
 		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BTotalEjemplares;
+$tercer['val2'] = $tercer['val2']+$row->BTotalEjemplaresT;
 			$pre       = ($pre+((($row->BTotalEjemplares)/($row->BTotalEjemplaresT))));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -876,16 +956,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Capacidad instalada de acceso a internet / número de usuarios del turno con mayor número de personas de la unidad académica)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Capacidad instalada de acceso a internet";
+		$tercer['var2'] = "Número de usuarios del turno con mayor número de personas de la unidad académica";
 
 		// EL INDICADOR APLICA
 
 		$bloque = $this->apoyoserv->getApoyoMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->CapacidadInternet;
+$tercer['val2'] = $tercer['val2']+$row->UsuariosInternet;
 			$pre       = ($pre+((($row->CapacidadInternet)/($row->UsuariosInternet))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -918,16 +1003,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de servicios atendidos / Total servicios solicitados o programados por semestre)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de servicios atendidos";
+		$tercer['var2'] = "Total servicios solicitados o programados por semestre";
 
 		// EL INDICADOR APLICA
 
 		$bloque = $this->apoyoserv->getApoyoMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->MantenimientoAtendido;
+$tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
 			$pre       = ($pre+((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -960,16 +1050,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de servicios atendidos / Total servicios programados por semestre)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de servicios atendidos ";
+		$tercer['var2'] = "Total servicios programados por semestre";
 
 		// EL INDICADOR APLICA
 
 		$bloque = $this->apoyoserv->getApoyoMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->LimpiezaAtendida;
+$tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			$pre       = ($pre+((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1029,16 +1124,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de alumnos inscritos realizando servicio social por unidad académica por año  / Número de alumnos inscritos realizando servicio social por unidad académica en el año inmediato anterior) -1)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos inscritos realizando servicio social por unidad académica por año";
+		$tercer['var2'] = "Número de alumnos inscritos realizando servicio social por unidad académica en el año inmediato anterior";
 
 		// EL INDICADOR APLICA
 
 		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosServicioSocial;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosServicioSocialT;
 			$pre       = ($pre+((($row->BAlumnosServicioSocial)/($row->BAlumnosServicioSocialT)-1)*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1092,16 +1192,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de alumnos realizando visitas escolares por unidad académica por semestre  / .total de la matrícula)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos realizando visitas escolares por unidad académica por semestre";
+		$tercer['var2'] = "Total de la matrícula";
 
 		// EL INDICADOR APLICA
 
 		$bloque                = $this->evaluacion->getEvaluacionesMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BALumnosVisitas;
+$tercer['val2'] = $tercer['val2']+$row->BALumnosVisitasT;
 			$pre       = ($pre+((($row->BALumnosVisitas)/($row->BALumnosVisitasT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1154,16 +1259,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de proyectos vinculados por unidad académica por año  / Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de proyectos vinculados por unidad académica por año";
+		$tercer['var2'] = "Número de proyectos vinculados por unidad académica en el año inmediato anterior";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->modelvinculacion->getVinculadosMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->ProyectosVinculadosAct;
+$tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
 			$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1223,16 +1333,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesoress de carrera de la Unidad Académica)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP";
+		$tercer['var2'] = "Total de Profesores de carrera de la unidad académica";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->investigacionmodel->getInnovacionMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->DocentesInvestigacion;
+$tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 			$pre       = ($pre+((($row->DocentesInvestigacion)/($row->TotalDocentes))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1286,16 +1401,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Número de profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores / total de profesores que tienen proyectos registrados en la SIP)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de profesores que presentan trabajos en congresos, coloquios, siposiums, entre otros con la participación de alumnos como coautores";
+		$tercer['var2'] = "Total de profesores que tienen proyectos registrados en la SIP";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->investigacionmodel->getAlumnosInvesMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->AlumnosCoautores;
+$tercer['val2'] = $tercer['val2']+$row->ProfesoresConProyectos;
 			$pre       = ($pre+((($row->AlumnosCoautores)/($row->ProfesoresConProyectos))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1355,16 +1475,21 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		$tercer['metodo']       = "(Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo / total de los recursos autogenerados anualmente)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo";
+		$tercer['var2'] = "Total de los recursos autogenerados anualmente";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->recursos->getRecursosMed($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->RecursosEjercidos;
+$tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 			$pre       = ($pre+((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;

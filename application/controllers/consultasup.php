@@ -72,14 +72,19 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos  / Total de matrícula por programa académico)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos que han acreditado todas las unidades de aprendizaje en las que han estado inscritos por programa académico " ;
+		$tercer['var2'] = "Total de matrícula inscrita por programa académico";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosRegulares;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 			$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -112,14 +117,19 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "( Ʃ 1 n   Número de alumnos del cohorte A que egresan  en el año n / total de alumnos en el cohorte A)";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos del cohorte A que egresan  en el año por programa académico";
+		$tercer['var2'] = "Total de alumnos admitidos al programa académico en el cohorte A";
 
 		// EL INDICADOR APLICA
                 $bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BEficienciaTerminal;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 			$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -154,14 +164,19 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos  titulados hasta tres años después de egresar  por programa académico en un periodo determinado /Total de la matrícula de egreso por programa académico de tres años atrás )*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos  titulados hasta tres años después de egresar de un periodo determinado por programa académico";
+		$tercer['var2'] = "Total de la matrícula de egreso del mismo periodo por programa académico";
 
 		// EL INDICADOR APLICA
                 $bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
 			$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -194,14 +209,19 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos con unidades de aprendizaje con adeudo, desfasadas por 2 0 más periodos escolares / Total de matrícula inscrita por programa académico) *100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos con unidades de aprendizaje defasadas por 2 o más periodos escolares";
+		$tercer['var2'] = "Total de matrícula inscrita por programa académico por semestre";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosRiesgoAbandono;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosRiesgoAbandonoT;
 			$pre       = ($pre+((($row->BAlumnosRiesgoAbandono)/($row->BAlumnosRiesgoAbandonoT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -234,14 +254,19 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos que se insertan al mercado laboral en coincidencia con el programa académico de egreso en un tiempo máximo de un 1 año/total de alumnos de egreso del programa académico del mismo periodo)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos que se insertan al mercado laboral en coincidencia con el programa académico de egreso en un tiempo máximo de un 1 año";
+		$tercer['var2'] = "Total de alumnos de egreso del programa académico del mismo periodo";
 
 		// EL INDICADOR APLICA
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BRecienEgresados;
+$tercer['val2'] = $tercer['val2']+$row->BRecienEgresadosT;
 			$pre       = ($pre+((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -298,16 +323,21 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "( total de horas frente a grupo por profesores de base por periodo semestral por academia/  cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia)";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Total de horas frente a grupo por profesores de base por periodo semestral por academia";
+		$tercer['var2'] = "Cantidad de horas frente a grupo por profesores de base por reglamento  por periodo semestral por academia";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->docentes->getDocentesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->TotalHorasBase;
+$tercer['val2'] = $tercer['val2']+$row->TotalHorasReglamento;
 			$pre       = ($pre+((($row->TotalHorasBase)/($row->TotalHorasReglamento))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -340,16 +370,21 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica/total de docentes contratados por asignatura  por unidad académica)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número docentes contratados por asignatura activos en el sector productivo en coincidencia con el programa académico en el que intervienen, por unidad académica";
+		$tercer['var2'] = "Total de docentes contratados por asignatura  por unidad académica";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->docentes->getDocentesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->DocentesActivosProductivo;
+$tercer['val2'] = $tercer['val2']+$row->TotalDocentesContratadosAsignatura;
 			$pre       = ($pre+((($row->DocentesActivosProductivo)/($row->TotalDocentesContratadosAsignatura))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -382,16 +417,21 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de profesores formados para la docencia con por lo menos una acción de formación   por año por unidad académica / total de la planta docente)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de profesores formados para la docencia con por lo menos una acción de formación   por año por unidad académica";
+		$tercer['var2'] = "Total de la planta docente";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->docentes->getDocentesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->ProfesoresParaDocencias;
+$tercer['val2'] = $tercer['val2']+$row->TotalProfesores;
 			$pre       = ($pre+((($row->ProfesoresParaDocencias)/($row->TotalProfesores))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -424,16 +464,21 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de profesores con por  lo menos una acción de actualización en su área disciplinar  / total de los profesores)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de profesores con por  lo menos una acción de actualización en su área disciplinar";
+		$tercer['var2'] = "Total de los profesores";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->docentes->getDocentesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->ProfesoresActualizados;
+$tercer['val2'] = $tercer['val2']+$row->TotalPrefesores;
 			$pre       = ($pre+((($row->ProfesoresActualizados)/($row->TotalPrefesores))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -500,15 +545,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de programas académicos acreditados por organismos externos por unidad académica/Número de programas académicos ofertados por Unidad Académica) *100 ";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de programas académicos acreditados por organismos externos por unidad académica";
+		$tercer['var2'] = "Número de programas académicos ofertados por unidad académica";
 
 		// EL INDICADOR SI APLICA
 		$bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BProgramasAcedAcred;
+$tercer['val2'] = $tercer['val2']+$row->BProgramasAcedAcredT;
 			$pre       = ($pre+((($row->BProgramasAcedAcred)/($row->BProgramasAcedAcredT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -541,15 +591,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de programas de estudio actualizados/Total de programas de estudio de los programas académicos de la Unidad Académica) *100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de programas de estudio actualizados";
+		$tercer['var2'] = "Total de programas de estudio de los programas académicos de la unidad académica";
 
 		// EL INDICADOR SI APLICA
 		$bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BProgramasAcualizados;
+$tercer['val2'] = $tercer['val2']+$row->BProgramasAcualizadosT;
 			$pre       = ($pre+((($row->BProgramasAcualizados)/($row->BProgramasAcualizadosT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -603,15 +658,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Capacidad instalada de atención en laboratorios y talleres por el total de semestres, identificando la capacidad del taller o laboratorio con menor capacidad)";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Capacidad instalada de atención en laboratorios y talleres por el total de semestres, identificando la capacidad del taller o laboratorio con menor capacidad";
+		$tercer['var2'] = "";
 
 		// EL INDICADOR SI APLICA
 		$bloque = $this->infraestructura->getInfraSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->CapacidadInstalada;
+$tercer['val2'] = 0;
 			$pre       = ($pre+((($row->CapacidadInstalada))));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -644,15 +704,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de aulas equipadas por unidad académica/el total de aulas)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de aulas equipadas por unidad académica";
+		$tercer['var2'] = "Total de aulas";
 
 		// EL INDICADOR SI APLICA
 		$bloque = $this->infraestructura->getInfraSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->NumeroAulas;
+$tercer['val2'] = $tercer['val2']+$row->TotalAulas;
 			$pre       = ($pre+((($row->NumeroAulas)/($row->TotalAulas))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -685,15 +750,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de laboratorios equipados conforme currícula por programa académico / total de laboratorios por programa académico)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de laboratorios equipados conforme currícula por programa académico";
+		$tercer['var2'] = "Total de laboratorios por programa académico";
 
 		// EL INDICADOR SI APLICA
 		$bloque = $this->infraestructura->getInfraSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->NumeroLaboratorios;
+$tercer['val2'] = $tercer['val2']+$row->TotalLaboratorios;
 			$pre       = ($pre+((($row->NumeroLaboratorios)/($row->TotalLaboratorios))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -755,15 +825,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos beneficiados con  algún tipo de beca  registrada en el SIBA, por año y unidad académica/matrícula total por unidad académica)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos beneficiados con  algun tipo de beca  rgistrada den el SIBA, por año y unidad académica";
+		$tercer['var2'] = "Matrícula total por unidad académica";
 
 		// EL INDICADOR SI APLICA
 		$bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BBecas;
+$tercer['val2'] = $tercer['val2']+$row->BBecasT;
 			$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -817,15 +892,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos tutorados por periodo escolar / matrícula total )*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos tutorados por periodo escolar";
+		$tercer['var2'] = "Matrícula total";
 
 		// EL INDICADOR SI APLICA
 		$bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BALumnosTutorados;
+$tercer['val2'] = $tercer['val2']+$row->BALumnosTutoradosT;
 			if(($row->BALumnosTutoradosT)>0){
 				$pre       = ($pre+((($row->BALumnosTutorados)/($row->BALumnosTutoradosT))*100));
 			}else{
@@ -883,16 +963,21 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de títulos actualizados impresos o digitales por programa académico / Total del acervo bibliográfico por programa académico)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de títulos actualizados impresos o digitales por programa académico";
+		$tercer['var2'] = " Total del acervo bibliográfico por programa académico";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->apoyoserv->getApoyoSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->LibrosActualizados;
+$tercer['val2'] = $tercer['val2']+$row->TotalAcervoLibros;
 			$pre       = ($pre+((($row->LibrosActualizados)/($row->TotalAcervoLibros))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -925,16 +1010,21 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de servicios atendidos / Total servicios solicitados o programados por semestre)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de servicios atendidos";
+		$tercer['var2'] = "Total servicios solicitados o programados por semestre";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->apoyoserv->getApoyoSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->MantenimientoAtendido;
+$tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
 			$pre       = ($pre+((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -967,16 +1057,21 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de servicios atendidos / Total servicios programados por semestre)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de servicios atendidos";
+		$tercer['var2'] = "Total servicios programados por semestre";
 
 		// EL INDICADOR NO APLICA
 
 		$bloque = $this->apoyoserv->getApoyoSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->LimpiezaAtendida;
+$tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			$pre       = ($pre+((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1037,15 +1132,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos participando en servicio social  por programa académico por año  / total de alumnos que deben hacer servicio social por programa académico)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos participando en sevicio social  por programa académico por año";
+		$tercer['var2'] = "Total de alumnos que deben hacer servicio social por programa académico";
 
 		// EL INDICADOR SI APLICA
 		$bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosSerSoc;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosSerSocT;
 			$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1099,15 +1199,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de alumnos realizando prácticas profesionales  por programa académico por año/total de alumnos que deben hacer prácticas profesionales por programa académico)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de alumnos realizando prácticas profesionales  por programa académico por año";
+		$tercer['var2'] = "Total de alumnos que deben hacer prácticas profesionales por programa académico";
 
 		// EL INDICADOR SI APLICA
 		$bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->BAlumnosPractProf;
+$tercer['val2'] = $tercer['val2']+$row->BAlumnosPractProfT;
 			if(($row->BAlumnosPractProfT)>0){
 				$pre       = ($pre+((($row->BAlumnosPractProf)/($row->BAlumnosPractProfT))*100));
 			}else{
@@ -1165,15 +1270,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de proyectos vinculados por unidad académica por año/ Número de proyectos vinculados por unidad académica en el año inmediato anterior)-1)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de proyectos vinculados por unidad académica por año";
+		$tercer['var2'] = "Número de proyectos vinculados por unidad académica en el año inmediato anterior";
 
 		// EL INDICADOR NO APLICA
 		$bloque = $this->modelvinculacion->getVinculadosSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->ProyectosVinculadosAct;
+$tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
 			if(($row->ProyectosVinculadosAnt)>0){
 				$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
 			}else{
@@ -1240,15 +1350,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Profesores contratados con dictamen de carrera que participan en Proyectos de Investigación avalados por la SIP/Total de Profesores de carrera de la Unidad Académica)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Profesores contratados con dictamén de carrera que participan en Proyectos de Investigación avalados por la SIP";
+		$tercer['var2'] = "Total de Profesoress de carrera de la Unidad Académica";
 
 		// EL INDICADOR NO APLICA
 		$bloque = $this->investigacionmodel->getInvestigacionSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->DocentesInvestigacion;
+$tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 			$pre       = ($pre+((($row->DocentesInvestigacion)/($row->TotalDocentes))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
@@ -1303,16 +1418,22 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año/ el total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior) -1)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Número de innovaciones educativas identificadas,  incubadas o escaladas por unidad académica y por año";
+		$tercer['var2'] = "El total de innovaciones educativas identificadas, incubadas o escaladas por unidad académica del año inmediato anterior";
 
 		// EL INDICADOR NO APLICA
 		$bloque = $this->investigacionmodel->getInnovacionSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+
 			if(($row->InnovacionesIncubadasAnt)>0){
+				$tercer['val1'] = $tercer['val1']+$row->InnovacionesIncubadas;
+				$tercer['val2'] = $tercer['val2']+$row->InnovacionesIncubadasAnt;
 				$pre       = ($pre+((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100));
 			}else{
 				$pre = ($pre+0-1)*100;
@@ -1377,15 +1498,20 @@ class Consultasup extends CI_Controller {
 		$tercer['metodo']       = "(Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo / total de los recursos autogenerados anualmente)*100";
 		$tercer['calculo']      = 0;
 		$tercer['calificacion'] = 0;
+		$tercer['var1'] = "Recursos ejercidos en las partidas de mantenimiento de inmuebles y equipo";
+		$tercer['var2'] = "Total de los recursos autogenerados anualmente";
 
 		// EL INDICADOR NO APLICA
 		$bloque = $this->recursos->getRecursosSup($evaluacionid);
 
 		// EL CALCULO SE PROMEDIA
+		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+$tercer['val1'] = $tercer['val1']+$row->RecursosEjercidos;
+$tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 			$pre       = ($pre+((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100));
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
