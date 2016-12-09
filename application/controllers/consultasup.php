@@ -86,7 +86,9 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BAlumnosRegulares;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
-			if($row->BAlumnosRegularesT>0){$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100))};
+			if($row->BAlumnosRegularesT>0){
+				$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100));
+			}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -131,7 +133,9 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BEficienciaTerminal;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
-			if($row->BAlumnosRegularesT>0){$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100))};
+			if($row->BAlumnosRegularesT>0){
+				$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100));
+			}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -390,7 +394,7 @@ $tercer['val2'] = $tercer['val2']+$row->TotalHorasReglamento;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->DocentesActivosProductivo;
 $tercer['val2'] = $tercer['val2']+$row->TotalDocentesContratadosAsignatura;
-			if($row->TotalDocentesContratadosAsignatura>0){$pre       = ($pre+((($row->DocentesActivosProductivo)/($row->TotalDocentesContratadosAsignatura))*100))};
+			if($row->TotalDocentesContratadosAsignatura>0){$pre       = ($pre+((($row->DocentesActivosProductivo)/($row->TotalDocentesContratadosAsignatura))*100));}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -846,7 +850,7 @@ $tercer['val2'] = $tercer['val2']+$row->TotalLaboratorios;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BBecas;
 $tercer['val2'] = $tercer['val2']+$row->BBecasT;
-			if($row->BBecasT>0){$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100))};
+			if($row->BBecasT>0){$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100));}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -1153,7 +1157,7 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BAlumnosSerSoc;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosSerSocT;
-			if($row->BAlumnosSerSocT>0){$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100))};
+			if($row->BAlumnosSerSocT>0){$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100));}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
