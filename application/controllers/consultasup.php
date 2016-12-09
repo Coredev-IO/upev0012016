@@ -86,7 +86,7 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BAlumnosRegulares;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
-			$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100));
+			if($row->BAlumnosRegularesT>0){$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100))};
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -131,7 +131,7 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BEficienciaTerminal;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
-			$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100));
+			if($row->BAlumnosRegularesT>0){$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100))};
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -178,7 +178,9 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
-			$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
+			if($row->BAlumnosTituladosT>0){
+				$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
+			}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -266,9 +268,11 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRiesgoAbandonoT;
 		$tamanoRow = 0;
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BRecienEgresados;
-$tercer['val2'] = $tercer['val2']+$row->BRecienEgresadosT;
-			$pre       = ($pre+((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100));
+			$tercer['val1'] = $tercer['val1']+$row->BRecienEgresados;
+			$tercer['val2'] = $tercer['val2']+$row->BRecienEgresadosT;
+			if($row->BRecienEgresadosT>0){
+				$pre       = ($pre+((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100));
+			}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -386,7 +390,7 @@ $tercer['val2'] = $tercer['val2']+$row->TotalHorasReglamento;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->DocentesActivosProductivo;
 $tercer['val2'] = $tercer['val2']+$row->TotalDocentesContratadosAsignatura;
-			$pre       = ($pre+((($row->DocentesActivosProductivo)/($row->TotalDocentesContratadosAsignatura))*100));
+			if($row->TotalDocentesContratadosAsignatura>0){$pre       = ($pre+((($row->DocentesActivosProductivo)/($row->TotalDocentesContratadosAsignatura))*100))};
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -606,7 +610,9 @@ $tercer['val2'] = $tercer['val2']+$row->BProgramasAcedAcredT;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BProgramasAcualizados;
 $tercer['val2'] = $tercer['val2']+$row->BProgramasAcualizadosT;
+		if($row->BProgramasAcualizadosT>0){
 			$pre       = ($pre+((($row->BProgramasAcualizados)/($row->BProgramasAcualizadosT))*100));
+		}
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -840,7 +846,7 @@ $tercer['val2'] = $tercer['val2']+$row->TotalLaboratorios;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BBecas;
 $tercer['val2'] = $tercer['val2']+$row->BBecasT;
-			$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100));
+			if($row->BBecasT>0){$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100))};
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
@@ -1147,7 +1153,7 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BAlumnosSerSoc;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosSerSocT;
-			$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100));
+			if($row->BAlumnosSerSocT>0){$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100))};
 		}
 		$tercer['calculo'] = $pre/$tamanoRow;
 
