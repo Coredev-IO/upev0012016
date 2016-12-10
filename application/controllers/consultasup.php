@@ -44,6 +44,7 @@ class Consultasup extends CI_Controller {
 		$data['urldata'] = $this->uri->segment(2).'/'.$this->uri->segment(3);
 		// echo "<br>";
 		$idUnidad = $this->evaluacion->getIdUnidadSup($evaluacionid);
+		$carreras = $this->evaluacion->getBloque($idUnidad);
 		// $idUnidad  = 12;
 
 		//SE CREA OBJETO CONTENEDOR
@@ -1565,7 +1566,10 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 
                 $data['calculo'] = $calculo;
                 $data['resumen'] = $resumenBloques;
-                $data['unidad']       = $this->unidades->getUnidad($idUnidad);
+								$escolar = array();
+								$escolar['unidad'] = $this->unidades->getUnidad($idUnidad);
+								$escolar['carreras'] = $carreras;
+                $data['unidad']       = $escolar;
 
                 $resultaSuma = 0;
                 foreach ($resumenBloques as $row) {
@@ -1603,7 +1607,7 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 
 
                 $data['main_cont'] = 'consultasup/resultados';
-		$this->load->view('includes/template_consultasup', $data);
+		$this->load->view('includes/template_consultasup2', $data);
 		//**************************************************************************************************************************************************************************************************//
 
 	}

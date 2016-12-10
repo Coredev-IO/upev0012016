@@ -291,7 +291,34 @@ h1{
   margin-bottom: 80px;
 }
 
+
+.conttable-pdf{
+  font-size: 6px;
+  margin-bottom: 40px;
+}
+
 .titulos{
   background-color: #f8f8f8;
   padding: 10px;
+}
+
+.color-bg{
+  background: #f6f6f6;
+}
+
+.tb-rigth{
+  text-align: right;
+  font-weight: bold;
+}
+
+.tb-h1{
+    font-size: 20px;
+}
+
+.tb-h2{
+    font-size: 12px;
+}
+
+.pdftext{
+  font-size: 7px;
 }

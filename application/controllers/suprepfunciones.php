@@ -45,6 +45,7 @@ class Suprepfunciones extends CI_Controller {
 		// echo $evaluacionid;
 		// echo "<br>";
 		$idUnidad = $this->evaluacion->getIdUnidadSup($evaluacionid);
+		$carreras = $this->evaluacion->getBloque($idUnidad);
 
 		//SE CREA OBJETO CONTENEDOR
 		$calculo = array();
@@ -1555,7 +1556,10 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 
                 $data['calculo'] = $calculo;
                 $data['resumen'] = $resumenBloques;
-                $data['unidad']       = $this->unidades->getUnidad($idUnidad);
+								$escolar = array();
+								$escolar['unidad'] = $this->unidades->getUnidad($idUnidad);
+								$escolar['carreras'] = $carreras;
+                $data['unidad']       = $escolar;
 
                 $resultaSuma = 0;
                 foreach ($resumenBloques as $row) {

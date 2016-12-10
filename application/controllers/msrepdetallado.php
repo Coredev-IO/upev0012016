@@ -48,6 +48,7 @@ class Msrepdetallado extends CI_Controller {
 		// echo $evaluacionid;
 		// echo "<br>";
 		$idUnidad = $this->evaluacion->getIdUnidadMed($evaluacionid);
+		$carreras = $this->evaluacion->getBloque($idUnidad);
 
 		//SE CREA OBJETO CONTENEDOR
 		$calculo = array();
@@ -1531,7 +1532,10 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 
 								$data['calculo'] = $calculo;
                 $data['resumen'] = $resumenBloques;
-                $data['unidad']       = $this->unidades->getUnidad($idUnidad);
+								$escolar = array();
+								$escolar['unidad'] = $this->unidades->getUnidad($idUnidad);
+								$escolar['carreras'] = $carreras;
+                $data['unidad']       = $escolar;
 
                 $resultaSuma = 0;
                 foreach ($resumenBloques as $row) {
@@ -1569,9 +1573,10 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 
 
                 $data['main_cont'] = 'reportes/ms/detallado';
-								$html=$this->load->view('includes/template_reportes', $data, true);
+								$html=$this->load->view('includes/template_reportes2', $data, true);
 								$pdfFilePath = "detallado.pdf";
 								$this->load->library('m_pdf');
+								// $this->m_pdf->pdf->AddPage('L','', '', '', '',5);
 								$this->m_pdf->pdf->WriteHTML($html);
 								$this->m_pdf->pdf->Output($pdfFilePath, "D");
 		//**************************************************************************************************************************************************************************************************//
