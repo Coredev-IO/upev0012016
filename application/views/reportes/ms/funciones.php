@@ -1,9 +1,11 @@
 <div class="row">
         <div class="col-md-12">
-        <?php //echo "<label>".$unidad[0]->NombreUnidad."</label>";?>
+          <?php
+            echo "<label>".$unidad[0]->NombreUnidad." - ".$unidad[0]->Siglas."</label>";
+            ?>
         </div>
 </div>
-<!-- <hr> -->
+<hr>
 
 <div class="row">
 

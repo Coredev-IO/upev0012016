@@ -1,6 +1,29 @@
 <?php
 Class Evaluacion extends CI_Model {
 
+	function getIdUnidadSup($id) {
+		$this->db->select('idUnidad');
+		$this->db->from('IndicadorSup');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		$resultado = $query->result();
+		return $resultado[0]->idUnidad;
+	}
+
+
+
+	function getIdUnidadMed($id) {
+		$this->db->select('idUnidad');
+		$this->db->from('IndicadorMs');
+		$this->db->where('idEvaluacion', $id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		$resultado = $query->result();
+		return $resultado[0]->idUnidad;
+	}
+
+
 	function getEvaluaciones() {
 		$this->db->select('');
 		$this->db->from('Evaluacion');

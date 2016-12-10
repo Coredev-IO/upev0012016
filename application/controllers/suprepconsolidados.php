@@ -44,6 +44,7 @@ class Suprepconsolidados extends CI_Controller {
 		$data['urldata'] = $this->uri->segment(2).'/'.$this->uri->segment(3);
 		// echo $evaluacionid;
 		// echo "<br>";
+		$idUnidad = $this->evaluacion->getIdUnidadSup($evaluacionid);
 
 		//SE CREA OBJETO CONTENEDOR
 		$calculo = array();
@@ -1554,7 +1555,7 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 
                 $data['calculo'] = $calculo;
                 $data['resumen'] = $resumenBloques;
-                $data['unidad']       = $this->unidades->getUnidad($this->uri->segment(3));
+                $data['unidad']       = $this->unidades->getUnidad($idUnidad);
 
                 $resultaSuma = 0;
                 foreach ($resumenBloques as $row) {
