@@ -197,7 +197,9 @@ class Consultasup extends CI_Controller {
 			}
 			$objPuente['var1'] = $row->BAlumnosTitulados;
 			$objPuente['var2'] = $row->BAlumnosTituladosT;
-			$objPuente['calculo'] = ((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100);
+			if($row->BAlumnosTituladosT>0){
+				$objPuente['calculo'] = ((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100);
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -658,10 +660,11 @@ class Consultasup extends CI_Controller {
 			$tercer['val2'] = $tercer['val2']+$row->BProgramasAcualizadosT;
 			if($row->BProgramasAcualizadosT>0){
 				$pre       = ($pre+((($row->BProgramasAcualizados)/($row->BProgramasAcualizadosT))*100));
+				$objPuente['calculo'] = ((($row->BProgramasAcualizados)/($row->BProgramasAcualizadosT))*100);
 			}
 			$objPuente['var1'] = $row->BProgramasAcualizados;
 			$objPuente['var2'] = $row->BProgramasAcualizadosT;
-			$objPuente['calculo'] = ((($row->BProgramasAcualizados)/($row->BProgramasAcualizadosT))*100);
+
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1379,10 +1382,11 @@ class Consultasup extends CI_Controller {
 			$tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
 			if(($row->ProyectosVinculadosAnt)>0){
 				$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
+				$objPuente['calculo'] = ((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100);
 			}
 			$objPuente['var1'] = $row->ProyectosVinculadosAct;
 			$objPuente['var2'] = $row->ProyectosVinculadosAnt;
-			$objPuente['calculo'] = ((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100);
+
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1534,10 +1538,11 @@ class Consultasup extends CI_Controller {
 				$tercer['val1'] = $tercer['val1']+$row->InnovacionesIncubadas;
 				$tercer['val2'] = $tercer['val2']+$row->InnovacionesIncubadasAnt;
 				$pre       = ($pre+((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100));
+				$objPuente['calculo'] = ((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100);
 			}
 			$objPuente['var1'] = $row->InnovacionesIncubadas;
 			$objPuente['var2'] = $row->InnovacionesIncubadasAnt;
-			$objPuente['calculo'] = ((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100);
+
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
