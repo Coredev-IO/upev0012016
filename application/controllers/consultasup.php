@@ -1543,7 +1543,7 @@ class Consultasup extends CI_Controller {
 		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-
+			$objPuente['calculo'] = 0;
 			if(($row->InnovacionesIncubadasAnt)>0){
 				$tercer['val1'] = $tercer['val1']+$row->InnovacionesIncubadas;
 				$tercer['val2'] = $tercer['val2']+$row->InnovacionesIncubadasAnt;
