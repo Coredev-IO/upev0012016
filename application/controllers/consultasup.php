@@ -298,12 +298,14 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->BRecienEgresados;
 			$tercer['val2'] = $tercer['val2']+$row->BRecienEgresadosT;
+			$objPuente['calculo'] = 0;
 			if($row->BRecienEgresadosT>0){
 				$pre       = ($pre+((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100));
+				$objPuente['calculo'] = ((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100);
 			}
 			$objPuente['var1'] = $row->BRecienEgresados;
 			$objPuente['var2'] = $row->BRecienEgresadosT;
-			$objPuente['calculo'] = ((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100);
+
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -920,10 +922,14 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->BBecas;
 			$tercer['val2'] = $tercer['val2']+$row->BBecasT;
-			if($row->BBecasT>0){$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100));}
+			$objPuente['calculo'] = 0;
+			if($row->BBecasT>0){
+				$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100));
+				$objPuente['calculo'] = ((($row->BBecas)/($row->BBecasT))*100);
+			}
 			$objPuente['var1'] = $row->BBecas;
 			$objPuente['var2'] = $row->BBecasT;
-			$objPuente['calculo'] = ((($row->BBecas)/($row->BBecasT))*100);
+
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1245,10 +1251,14 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->BAlumnosSerSoc;
 			$tercer['val2'] = $tercer['val2']+$row->BAlumnosSerSocT;
-			if($row->BAlumnosSerSocT>0){$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100));}
+			$objPuente['calculo'] = 0;
+			if($row->BAlumnosSerSocT>0){
+				$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100));
+				$objPuente['calculo'] = ((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100);
+			}
 			$objPuente['var1'] = $row->BAlumnosSerSoc;
 			$objPuente['var2'] = $row->BAlumnosSerSocT;
-			$objPuente['calculo'] = ((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100);
+
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1316,12 +1326,14 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->BAlumnosPractProf;
 			$tercer['val2'] = $tercer['val2']+$row->BAlumnosPractProfT;
+			$objPuente['calculo'] = 0;
 			if(($row->BAlumnosPractProfT)>0){
 				$pre       = ($pre+((($row->BAlumnosPractProf)/($row->BAlumnosPractProfT))*100));
+				$objPuente['calculo'] = ((($row->BAlumnosPractProf)/($row->BAlumnosPractProfT))*100);
 			}
 			$objPuente['var1'] = $row->BAlumnosPractProf;
 			$objPuente['var2'] = $row->BAlumnosPractProfT;
-			$objPuente['calculo'] = ((($row->BAlumnosPractProf)/($row->BAlumnosPractProfT))*100);
+
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
