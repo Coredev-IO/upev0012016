@@ -205,7 +205,7 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
 			$objPuente['var1'] = $row->BAlumnosTitulados;
 			$objPuente['var2'] = $row->BAlumnosTituladosT;
 			$objPuente['calculo'] = 0;
-			if($row->BAlumnosTituladosT)>0){
+			if($row->BAlumnosTituladosT>0){
 				$objPuente['calculo'] = ((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100);
 				$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
 			}
