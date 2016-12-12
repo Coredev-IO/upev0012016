@@ -45,7 +45,7 @@ Class Evaluacion extends CI_Model {
 
 	function getEvaluacionesMed($id) {
 		$this->db->select('');
-		$this->db->from('IndicadorMS');
+		$this->db->from('IndicadorMs');
         $this->db->where('idEvaluacion', $id);
         $query = $this->db->get();
         return $query->result();
