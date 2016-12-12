@@ -173,46 +173,70 @@
 
 
                                 $i= 1;
-                                foreach ($carreras as $key => $object) {
-                                  if($i==1){
-                                    echo "<tr>";
-                                    echo "<td colspan='2' rowspan='".count($carreras)."'></td>";
-                                    echo "<td>";
-                                      print_r($object->Nombre);
-                                    echo "</td>";
-                                    echo "<td></td>";
-                                    echo "<td></td>";
-                                    echo "<td></td>";
-                                    echo "</tr>";
-                                  }else{
-                                    echo "<tr>";
-                                    echo "<td>";
-                                      print_r($object->Nombre);
-                                    echo "</td>";
-                                    echo "<td></td>";
-                                    echo "<td></td>";
-                                    echo "<td></td>";
-                                    echo "</tr>";
-                                  }
-                                  $i = $i+1;
+                                $j=0;
+                                $sumaRes = 0;
+                                if(count($row2['variables'])>1){
+                                  foreach ($carreras as $key => $object) {
+                                    if($i==1){
+                                      echo "<tr>";
+                                      echo "<td colspan='2' rowspan='".count($carreras)."'></td>";
+                                      echo "<td>";
+                                        print_r($object->Nombre);
+                                      echo "</td>";
+                                      echo "<td>".$row2['variables'][$j]['var1']."</td>";
+                                      echo "<td>".$row2['variables'][$j]['var2']."</td>";
+                                      echo "<td>".$row2['variables'][$j]['calculo']."</td>";
+                                      echo "</tr>";
+                                      $sumaRes = $sumaRes+$row2['variables'][$j]['calculo'];
+                                    }else{
+                                      echo "<tr>";
+                                      echo "<td>";
+                                        print_r($object->Nombre);
+                                      echo "</td>";
+                                      echo "<td>".$row2['variables'][$j]['var1']."</td>";
+                                      echo "<td>".$row2['variables'][$j]['var2']."</td>";
+                                      echo "<td>".$row2['variables'][$j]['calculo']."</td>";
+                                      echo "</tr>";
+                                      $sumaRes = $sumaRes+$row2['variables'][$j]['calculo'];
+                                    }
+                                    $i = $i+1;
+                                    $j = $j+1;
 
+
+                                  }
+                                }else{
+                                  echo "<tr>";
+                                  echo "<td colspan='2'></td>";
+                                  echo "<td>General</td>";
+                                  echo "<td>".$row2['variables'][0]['var1']."</td>";
+                                  echo "<td>".$row2['variables'][0]['var2']."</td>";
+                                  echo "<td>".$row2['variables'][0]['calculo']."</td>";
+                                  echo "</tr>";
+                                  $sumaRes = $row2['variables'][$j]['calculo'];
                                 }
 
 
+
                                 echo "<tr>";
-                                echo "<td class='color-bg tb-rigth' colspan='5'>SUMATORIA DEL INDICADOR</td>";
-                                echo "<td class='color-bg tb-h1'>56%</td>";
+                                echo "<td class='color-bg tb-rigth' colspan='5'>VALOR</td>";
+                                echo "<td class='color-bg tb-h1'>".$row2['calculo']."</td>";
+                                echo "</tr>";
+
+                                echo "<tr>";
+                                echo "<td class='color-bg tb-rigth' colspan='5'>CÁLCULO</td>";
+                                echo "<td class='color-bg tb-h1'>".$row2['calculoIndicador']."%</td>";
                                 echo "</tr>";
 
                                 echo "<tr>";
                                 echo "<td class='color-bg tb-rigth' colspan='5'>CALIFICACIÓN</td>";
-                                echo "<td class='color-bg tb-h1'>1</td>";
+                                echo "<td class='color-bg tb-h1'>".$row2['calificacion']."</td>";
                                 echo "</tr>";
 
                                 echo "<tr>";
                                 echo "<td class='color-bg tb-rigth' colspan='5'>RESULTADO</td>";
-                                echo "<td class='color-bg tb-h2'>BUENO</td>";
+                                echo "<td class='color-bg tb-h2'>".$row2['resultado']."</td>";
                                 echo "</tr>";
+
 
 
 

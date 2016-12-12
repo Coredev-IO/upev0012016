@@ -14,18 +14,18 @@ class Consultams extends CI_Controller {
         $this->load->model('evaluacion', '', TRUE);
 
         $this->load->model('niveles', '', TRUE);
-		$this->load->model('alumnos', '', TRUE);
-		$this->load->model('docentes', '', TRUE);
-		$this->load->helper(array('form', 'url'));
+				$this->load->model('alumnos', '', TRUE);
+				$this->load->model('docentes', '', TRUE);
+				$this->load->helper(array('form', 'url'));
 
-		$this->load->model('programas', '', TRUE);
-		$this->load->model('infraestructura', '', TRUE);
+				$this->load->model('programas', '', TRUE);
+				$this->load->model('infraestructura', '', TRUE);
 
-		$this->load->model('becas', '', TRUE);
-		$this->load->model('tutorias', '', TRUE);
-		$this->load->model('apoyoserv', '', TRUE);
+				$this->load->model('becas', '', TRUE);
+				$this->load->model('tutorias', '', TRUE);
+				$this->load->model('apoyoserv', '', TRUE);
 
-		$this->load->model('modelvinculacion', '', TRUE);
+				$this->load->model('modelvinculacion', '', TRUE);
         $this->load->model('investigacionmodel', '', TRUE);
         $this->load->model('recursos', '', TRUE);
 
@@ -88,14 +88,19 @@ class Consultams extends CI_Controller {
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BAlumnosRegulares;
-$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
+			$tercer['val1'] = $tercer['val1']+$row->BAlumnosRegulares;
+			$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 			$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100));
+			$objPuente['var1'] = $row->BAlumnosRegulares;
+			$objPuente['var2'] = $row->BAlumnosRegularesT;
+			$objPuente['calculo'] = (($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100;
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+
 
         $objeto = array();
         $objeto[0] = array();
@@ -134,14 +139,18 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BEficienciaTerminal;
-$tercer['val2'] = $tercer['val2']+$row->BEficienciaTerminalT;
+			$tercer['val1'] = $tercer['val1']+$row->BEficienciaTerminal;
+			$tercer['val2'] = $tercer['val2']+$row->BEficienciaTerminalT;
 			$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BEficienciaTerminalT))*100));
+			$objPuente['var1'] = $row->BEficienciaTerminal;
+			$objPuente['var2'] = $row->BEficienciaTerminalT;
+			$objPuente['calculo'] = ((($row->BEficienciaTerminal)/($row->BEficienciaTerminalT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
                 $objeto = array();
                 $objeto[0] = array();
@@ -180,14 +189,18 @@ $tercer['val2'] = $tercer['val2']+$row->BEficienciaTerminalT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
 			$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
+			$objPuente['var1'] = $row->BAlumnosTitulados;
+			$objPuente['var2'] = $row->BAlumnosTituladosT;
+			$objPuente['calculo'] = ((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -225,14 +238,18 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BPromocionNS;
 $tercer['val2'] = $tercer['val2']+$row->BPromocionNST;
 			$pre       = ($pre+((($row->BPromocionNS)/($row->BPromocionNST))*100));
+			$objPuente['var1'] = $row->BPromocionNS;
+			$objPuente['var2'] = $row->BPromocionNST;
+			$objPuente['calculo'] = ((($row->BPromocionNS)/($row->BPromocionNST))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -291,14 +308,18 @@ $tercer['val2'] = $tercer['val2']+$row->BPromocionNST;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BHorasFrenteGrupo;
 $tercer['val2'] = $tercer['val2']+$row->BHorasFrenteGrupoT;
-			$pre       = ($pre+((($row->BHorasFrenteGrupo)/($row->BHorasFrenteGrupoT))));
+			$pre       = ($pre+((($row->BHorasFrenteGrupo)/($row->BHorasFrenteGrupoT))*100));
+			$objPuente['var1'] = $row->BHorasFrenteGrupo;
+			$objPuente['var2'] = $row->BHorasFrenteGrupoT;
+			$objPuente['calculo'] = ((($row->BHorasFrenteGrupo)/($row->BHorasFrenteGrupoT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -336,14 +357,18 @@ $tercer['val2'] = $tercer['val2']+$row->BHorasFrenteGrupoT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BProfesoresActivos;
 $tercer['val2'] = $tercer['val2']+$row->BProfesoresActivosT;
 			$pre       = ($pre+((($row->BProfesoresActivos)/($row->BProfesoresActivosT))*100));
+			$objPuente['var1'] = $row->BProfesoresActivos;
+			$objPuente['var2'] = $row->BProfesoresActivosT;
+			$objPuente['calculo'] = ((($row->BProfesoresActivos)/($row->BProfesoresActivosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -381,14 +406,18 @@ $tercer['val2'] = $tercer['val2']+$row->BProfesoresActivosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BProfesoresActualizados;
 $tercer['val2'] = $tercer['val2']+$row->BProfesoresActualizadosT;
 			$pre       = ($pre+((($row->BProfesoresActualizados)/($row->BProfesoresActualizadosT))*100));
+			$objPuente['var1'] = $row->BProfesoresActualizados;
+			$objPuente['var2'] = $row->BProfesoresActualizadosT;
+			$objPuente['calculo'] = ((($row->BProfesoresActualizados)/($row->BProfesoresActualizadosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -426,14 +455,18 @@ $tercer['val2'] = $tercer['val2']+$row->BProfesoresActualizadosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BEvaluacionesIndividuales;
 $tercer['val2'] = $tercer['val2']+$row->BEvaluacionesIndividualesT;
 			$pre       = ($pre+((($row->BEvaluacionesIndividuales)/($row->BEvaluacionesIndividualesT))*100));
+			$objPuente['var1'] = $row->BEvaluacionesIndividuales;
+			$objPuente['var2'] = $row->BEvaluacionesIndividualesT;
+			$objPuente['calculo'] = ((($row->BEvaluacionesIndividuales)/($row->BEvaluacionesIndividualesT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -502,14 +535,18 @@ $tercer['val2'] = $tercer['val2']+$row->BEvaluacionesIndividualesT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BProgramasAcademicos;
 $tercer['val2'] = $tercer['val2']+$row->BProgramasAcademicosT;
 			$pre       = ($pre+((($row->BProgramasAcademicos)/($row->BProgramasAcademicosT))*100));
+			$objPuente['var1'] = $row->BProgramasAcademicos;
+			$objPuente['var2'] = $row->BProgramasAcademicosT;
+			$objPuente['calculo'] = ((($row->BProgramasAcademicos)/($row->BProgramasAcademicosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -572,14 +609,18 @@ Suma de Capacidad instalada de atención en laboratorios y talleres por el total
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->AlumnosInscritos;
 $tercer['val2'] = $tercer['val2']+$row->CapacidadInstalada;
 			$pre       = ($pre+((($row->AlumnosInscritos)/($row->CapacidadInstalada))*100));
+			$objPuente['var1'] = $row->AlumnosInscritos;
+			$objPuente['var2'] = $row->CapacidadInstalada;
+			$objPuente['calculo'] = ((($row->AlumnosInscritos)/($row->CapacidadInstalada))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -619,14 +660,18 @@ $tercer['val2'] = $tercer['val2']+$row->CapacidadInstalada;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->AulasEquipadas;
 $tercer['val2'] = $tercer['val2']+$row->TotalAulas;
 			$pre       = ($pre+((($row->AulasEquipadas)/($row->TotalAulas))*100));
+			$objPuente['var1'] = $row->AulasEquipadas;
+			$objPuente['var2'] = $row->TotalAulas;
+			$objPuente['calculo'] = ((($row->AulasEquipadas)/($row->TotalAulas))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -666,14 +711,18 @@ $tercer['val2'] = $tercer['val2']+$row->TotalAulas;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BLaboratoriosEquipados;
 $tercer['val2'] = $tercer['val2']+$row->BLaboratoriosEquipadosT;
 			$pre       = ($pre+((($row->BLaboratoriosEquipados)/($row->BLaboratoriosEquipadosT))*100));
+			$objPuente['var1'] = $row->BLaboratoriosEquipados;
+			$objPuente['var2'] = $row->BLaboratoriosEquipadosT;
+			$objPuente['calculo'] = ((($row->BLaboratoriosEquipados)/($row->BLaboratoriosEquipadosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -740,14 +789,18 @@ $tercer['val2'] = $tercer['val2']+$row->BLaboratoriosEquipadosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->AlumnosBeca;
 $tercer['val2'] = $tercer['val2']+$row->TotalAlumnos;
 			$pre       = ($pre+((($row->AlumnosBeca)/($row->TotalAlumnos))*100));
+			$objPuente['var1'] = $row->AlumnosBeca;
+			$objPuente['var2'] = $row->TotalAlumnos;
+			$objPuente['calculo'] = ((($row->AlumnosBeca)/($row->TotalAlumnos))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -808,14 +861,18 @@ $tercer['val2'] = $tercer['val2']+$row->TotalAlumnos;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BAlumnosTutorados;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 			$pre       = ($pre+((($row->BAlumnosTutorados)/($row->BAlumnosTutoradosT))*100));
+			$objPuente['var1'] = $row->BAlumnosTutorados;
+			$objPuente['var2'] = $row->BAlumnosTutoradosT;
+			$objPuente['calculo'] = ((($row->BAlumnosTutorados)/($row->BAlumnosTutoradosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -876,14 +933,18 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BlibrosTitulosEditados;
 $tercer['val2'] = $tercer['val2']+$row->BlibrosTitulosEditadosT;
 			$pre       = ($pre+((($row->BlibrosTitulosEditados)/($row->BlibrosTitulosEditadosT))*100));
+			$objPuente['var1'] = $row->BlibrosTitulosEditados;
+			$objPuente['var2'] = $row->BlibrosTitulosEditadosT;
+			$objPuente['calculo'] = ((($row->BlibrosTitulosEditados)/($row->BlibrosTitulosEditadosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -923,14 +984,18 @@ $tercer['val2'] = $tercer['val2']+$row->BlibrosTitulosEditadosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BTotalEjemplares;
 $tercer['val2'] = $tercer['val2']+$row->BTotalEjemplaresT;
-			$pre       = ($pre+((($row->BTotalEjemplares)/($row->BTotalEjemplaresT))));
+			$pre       = ($pre+((($row->BTotalEjemplares)/($row->BTotalEjemplaresT))*100));
+			$objPuente['var1'] = $row->BTotalEjemplares;
+			$objPuente['var2'] = $row->BTotalEjemplaresT;
+			$objPuente['calculo'] = ((($row->BTotalEjemplares)/($row->BTotalEjemplaresT)))*100;
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -970,14 +1035,18 @@ $tercer['val2'] = $tercer['val2']+$row->BTotalEjemplaresT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->CapacidadInternet;
 $tercer['val2'] = $tercer['val2']+$row->UsuariosInternet;
 			$pre       = ($pre+((($row->CapacidadInternet)/($row->UsuariosInternet))*100));
+			$objPuente['var1'] = $row->CapacidadInternet;
+			$objPuente['var2'] = $row->UsuariosInternet;
+			$objPuente['calculo'] = ((($row->CapacidadInternet)/($row->UsuariosInternet))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1017,14 +1086,18 @@ $tercer['val2'] = $tercer['val2']+$row->UsuariosInternet;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->MantenimientoAtendido;
 $tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
 			$pre       = ($pre+((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100));
+			$objPuente['var1'] = $row->MantenimientoAtendido;
+			$objPuente['var2'] = $row->MantenimientoSolicitado;
+			$objPuente['calculo'] = ((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1064,14 +1137,18 @@ $tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->LimpiezaAtendida;
 $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			$pre       = ($pre+((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100));
+			$objPuente['var1'] = $row->LimpiezaAtendida;
+			$objPuente['var2'] = $row->LimpiezaProgramada;
+			$objPuente['calculo'] = ((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1138,14 +1215,18 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BAlumnosServicioSocial;
 $tercer['val2'] = $tercer['val2']+$row->BAlumnosServicioSocialT;
 			$pre       = ($pre+((($row->BAlumnosServicioSocial)/($row->BAlumnosServicioSocialT)-1)*100));
+			$objPuente['var1'] = $row->BAlumnosServicioSocial;
+			$objPuente['var2'] = $row->BAlumnosServicioSocialT;
+			$objPuente['calculo'] = ((($row->BAlumnosServicioSocial)/($row->BAlumnosServicioSocialT)-1)*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1206,14 +1287,18 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosServicioSocialT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->BALumnosVisitas;
 $tercer['val2'] = $tercer['val2']+$row->BALumnosVisitasT;
 			$pre       = ($pre+((($row->BALumnosVisitas)/($row->BALumnosVisitasT))*100));
+			$objPuente['var1'] = $row->BALumnosVisitas;
+			$objPuente['var2'] = $row->BALumnosVisitasT;
+			$objPuente['calculo'] = ((($row->BALumnosVisitas)/($row->BALumnosVisitasT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1273,14 +1358,18 @@ $tercer['val2'] = $tercer['val2']+$row->BALumnosVisitasT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->ProyectosVinculadosAct;
 $tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
 			$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
+			$objPuente['var1'] = $row->ProyectosVinculadosAct;
+			$objPuente['var2'] = $row->ProyectosVinculadosAnt;
+			$objPuente['calculo'] = ((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1347,14 +1436,18 @@ $tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->DocentesInvestigacion;
 $tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 			$pre       = ($pre+((($row->DocentesInvestigacion)/($row->TotalDocentes))*100));
+			$objPuente['var1'] = $row->DocentesInvestigacion;
+			$objPuente['var2'] = $row->TotalDocentes;
+			$objPuente['calculo'] = ((($row->DocentesInvestigacion)/($row->TotalDocentes))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1415,14 +1508,18 @@ $tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->AlumnosCoautores;
 $tercer['val2'] = $tercer['val2']+$row->ProfesoresConProyectos;
 			$pre       = ($pre+((($row->AlumnosCoautores)/($row->ProfesoresConProyectos))*100));
+			$objPuente['var1'] = $row->AlumnosCoautores;
+			$objPuente['var2'] = $row->ProfesoresConProyectos;
+			$objPuente['calculo'] = ((($row->AlumnosCoautores)/($row->ProfesoresConProyectos))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1489,14 +1586,18 @@ $tercer['val2'] = $tercer['val2']+$row->ProfesoresConProyectos;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 $tercer['val1'] = $tercer['val1']+$row->RecursosEjercidos;
 $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 			$pre       = ($pre+((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100));
+			$objPuente['var1'] = $row->RecursosEjercidos;
+			$objPuente['var2'] = $row->RecursosAutogenerados;
+			$objPuente['calculo'] = ((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();

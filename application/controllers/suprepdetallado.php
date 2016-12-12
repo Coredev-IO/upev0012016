@@ -42,10 +42,10 @@ class Suprepdetallado extends CI_Controller {
 		$data['datos'] = $this->session->userdata('logged_in');
 		$evaluacionid  = $this->uri->segment(3);
 		$data['urldata'] = $this->uri->segment(2).'/'.$this->uri->segment(3);
-		// echo $evaluacionid;
 		// echo "<br>";
 		$idUnidad = $this->evaluacion->getIdUnidadSup($evaluacionid);
 		$carreras = $this->evaluacion->getBloque($idUnidad);
+		// $idUnidad  = 12;
 
 		//SE CREA OBJETO CONTENEDOR
 		$calculo = array();
@@ -83,30 +83,36 @@ class Suprepdetallado extends CI_Controller {
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BAlumnosRegulares;
-$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
-			$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100));
+			$tercer['val1'] = $tercer['val1']+$row->BAlumnosRegulares;
+			$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
+			if($row->BAlumnosRegularesT>0){
+				$pre       = ($pre+((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100));
+			}
+			$objPuente['var1'] = $row->BAlumnosRegulares;
+			$objPuente['var2'] = $row->BAlumnosRegularesT;
+			$objPuente['calculo'] = ((($row->BAlumnosRegulares)/($row->BAlumnosRegularesT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	30	; $objeto[1][1]=	39.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	40	; $objeto[2][1]=	49.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -124,27 +130,33 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 		$tercer['var2'] = "Total de alumnos admitidos al programa académico en el cohorte A";
 
 		// EL INDICADOR APLICA
-                $bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
+								$bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BEficienciaTerminal;
-$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
-			$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100));
+			$tercer['val1'] = $tercer['val1']+$row->BEficienciaTerminal;
+			$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
+			if($row->BAlumnosRegularesT>0){
+				$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100));
+			}
+			$objPuente['var1'] = $row->BEficienciaTerminal;
+			$objPuente['var2'] = $row->BAlumnosRegularesT;
+			$objPuente['calculo'] = ((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	31.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	31.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	32	; $objeto[1][1]=	48.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	49	; $objeto[2][1]=	59.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	60	; $objeto[3][1]=	69.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
@@ -153,7 +165,7 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
 
 
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -171,34 +183,40 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 		$tercer['var2'] = "Total de la matrícula de egreso del mismo periodo por programa académico";
 
 		// EL INDICADOR APLICA
-                $bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
+								$bloque                = $this->evaluacion->getEvaluacionesSup($evaluacionid);
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
-$tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
-			$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
+			$tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
+			$tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
+			if($row->BAlumnosTituladosT>0){
+				$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
+			}
+			$objPuente['var1'] = $row->BAlumnosTitulados;
+			$objPuente['var2'] = $row->BAlumnosTituladosT;
+			$objPuente['calculo'] = ((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	30	; $objeto[1][1]=	39.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	40	; $objeto[2][1]=	49.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -220,30 +238,34 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BAlumnosRiesgoAbandono;
-$tercer['val2'] = $tercer['val2']+$row->BAlumnosRiesgoAbandonoT;
+			$tercer['val1'] = $tercer['val1']+$row->BAlumnosRiesgoAbandono;
+			$tercer['val2'] = $tercer['val2']+$row->BAlumnosRiesgoAbandonoT;
 			$pre       = ($pre+((($row->BAlumnosRiesgoAbandono)/($row->BAlumnosRiesgoAbandonoT))*100));
+			$objPuente['var1'] = $row->BAlumnosRiesgoAbandono;
+			$objPuente['var2'] = $row->BAlumnosRiesgoAbandonoT;
+			$objPuente['calculo'] = ((($row->BAlumnosRiesgoAbandono)/($row->BAlumnosRiesgoAbandonoT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	4.99	; $objeto[0][2]=	5	; $objeto[0][3] = "	Muy Bueno	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	4.99	; $objeto[0][2]=	5	; $objeto[0][3] = "	Muy Bueno	";
 		$objeto[1][0]=	5	; $objeto[1][1]=	9.99	; $objeto[1][2]=	4	; $objeto[1][3] = "	Bueno 	";
 		$objeto[2][0]=	10	; $objeto[2][1]=	14.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	15	; $objeto[3][1]=	19.99	; $objeto[3][2]=	2	; $objeto[3][3] = "	Suficiente	";
 		$objeto[4][0]=	20	; $objeto[4][1]=	100	; $objeto[4][2]=	1	; $objeto[4][3] = "	Malo	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -265,30 +287,36 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosRiesgoAbandonoT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BRecienEgresados;
-$tercer['val2'] = $tercer['val2']+$row->BRecienEgresadosT;
-			$pre       = ($pre+((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100));
+			$tercer['val1'] = $tercer['val1']+$row->BRecienEgresados;
+			$tercer['val2'] = $tercer['val2']+$row->BRecienEgresadosT;
+			if($row->BRecienEgresadosT>0){
+				$pre       = ($pre+((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100));
+			}
+			$objPuente['var1'] = $row->BRecienEgresados;
+			$objPuente['var2'] = $row->BRecienEgresadosT;
+			$objPuente['calculo'] = ((($row->BRecienEgresados)/($row->BRecienEgresadosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	39.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	39.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	40	; $objeto[1][1]=	49.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	50	; $objeto[2][1]=	59.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	60	; $objeto[3][1]=	69.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	70	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -296,8 +324,8 @@ $tercer['val2'] = $tercer['val2']+$row->BRecienEgresadosT;
 		//**************************************************************************************************************************************************************************************************//
 
 		// SE AGREGA AL OBJETO PRINCIPAL
-                // $nivel['segundobloque']['porcentaje'] = 50;
-                $sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
+								// $nivel['segundobloque']['porcentaje'] = 50;
+								$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 
 
@@ -336,30 +364,34 @@ $tercer['val2'] = $tercer['val2']+$row->BRecienEgresadosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->TotalHorasBase;
-$tercer['val2'] = $tercer['val2']+$row->TotalHorasReglamento;
+			$tercer['val1'] = $tercer['val1']+$row->TotalHorasBase;
+			$tercer['val2'] = $tercer['val2']+$row->TotalHorasReglamento;
 			$pre       = ($pre+((($row->TotalHorasBase)/($row->TotalHorasReglamento))*100));
+			$objPuente['var1'] = $row->TotalHorasBase;
+			$objPuente['var2'] = $row->TotalHorasReglamento;
+			$objPuente['calculo'] = ((($row->TotalHorasBase)/($row->TotalHorasReglamento))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	69.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	69.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	70	; $objeto[1][1]=	74.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	75	; $objeto[2][1]=	79.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	80	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -383,30 +415,34 @@ $tercer['val2'] = $tercer['val2']+$row->TotalHorasReglamento;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->DocentesActivosProductivo;
-$tercer['val2'] = $tercer['val2']+$row->TotalDocentesContratadosAsignatura;
-			$pre       = ($pre+((($row->DocentesActivosProductivo)/($row->TotalDocentesContratadosAsignatura))*100));
+			$tercer['val1'] = $tercer['val1']+$row->DocentesActivosProductivo;
+			$tercer['val2'] = $tercer['val2']+$row->TotalDocentesContratadosAsignatura;
+			if($row->TotalDocentesContratadosAsignatura>0){$pre       = ($pre+((($row->DocentesActivosProductivo)/($row->TotalDocentesContratadosAsignatura))*100));}
+			$objPuente['var1'] = $row->DocentesActivosProductivo;
+			$objPuente['var2'] = $row->TotalDocentesContratadosAsignatura;
+			$objPuente['calculo'] = ((($row->DocentesActivosProductivo)/($row->TotalDocentesContratadosAsignatura))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	50	; $objeto[1][1]=	59.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	60	; $objeto[2][1]=	69.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	70	; $objeto[3][1]=	79.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	80	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -430,30 +466,34 @@ $tercer['val2'] = $tercer['val2']+$row->TotalDocentesContratadosAsignatura;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->ProfesoresParaDocencias;
-$tercer['val2'] = $tercer['val2']+$row->TotalProfesores;
+			$tercer['val1'] = $tercer['val1']+$row->ProfesoresParaDocencias;
+			$tercer['val2'] = $tercer['val2']+$row->TotalProfesores;
 			$pre       = ($pre+((($row->ProfesoresParaDocencias)/($row->TotalProfesores))*100));
+			$objPuente['var1'] = $row->ProfesoresParaDocencias;
+			$objPuente['var2'] = $row->TotalProfesores;
+			$objPuente['calculo'] = ((($row->ProfesoresParaDocencias)/($row->TotalProfesores))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	30	; $objeto[1][1]=	39.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	40	; $objeto[2][1]=	49.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -477,30 +517,34 @@ $tercer['val2'] = $tercer['val2']+$row->TotalProfesores;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->ProfesoresActualizados;
-$tercer['val2'] = $tercer['val2']+$row->TotalPrefesores;
+			$tercer['val1'] = $tercer['val1']+$row->ProfesoresActualizados;
+			$tercer['val2'] = $tercer['val2']+$row->TotalPrefesores;
 			$pre       = ($pre+((($row->ProfesoresActualizados)/($row->TotalPrefesores))*100));
+			$objPuente['var1'] = $row->ProfesoresActualizados;
+			$objPuente['var2'] = $row->TotalPrefesores;
+			$objPuente['calculo'] = ((($row->ProfesoresActualizados)/($row->TotalPrefesores))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	29.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	30	; $objeto[1][1]=	39.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	40	; $objeto[2][1]=	49.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -514,14 +558,14 @@ $tercer['val2'] = $tercer['val2']+$row->TotalPrefesores;
 
 		//**************************************************************************************************************************************************************************************************//
 
-                $resumenBloques = array();
-                $resumenBloques['bloque'] = array();
+								$resumenBloques = array();
+								$resumenBloques['bloque'] = array();
 
-                $obtest = array();
-                $obtest['nombre'] = 'DESEMPEÑO';
-                $obtest['suma'] = $calculo[0]['segundobloque']['calculoDimension']+$calculo[1]['segundobloque']['calculoDimension'];
-                $obtest['total'] = ($calculo[0]['segundobloque']['calculoDimension']+$calculo[1]['segundobloque']['calculoDimension'])*(0.25);
-                array_push($resumenBloques['bloque'],$obtest);
+								$obtest = array();
+								$obtest['nombre'] = 'DESEMPEÑO';
+								$obtest['suma'] = $calculo[0]['segundobloque']['calculoDimension']+$calculo[1]['segundobloque']['calculoDimension'];
+								$obtest['total'] = ($calculo[0]['segundobloque']['calculoDimension']+$calculo[1]['segundobloque']['calculoDimension'])*(0.25);
+								array_push($resumenBloques['bloque'],$obtest);
 
 
 
@@ -557,30 +601,34 @@ $tercer['val2'] = $tercer['val2']+$row->TotalPrefesores;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BProgramasAcedAcred;
-$tercer['val2'] = $tercer['val2']+$row->BProgramasAcedAcredT;
+			$tercer['val1'] = $tercer['val1']+$row->BProgramasAcedAcred;
+			$tercer['val2'] = $tercer['val2']+$row->BProgramasAcedAcredT;
 			$pre       = ($pre+((($row->BProgramasAcedAcred)/($row->BProgramasAcedAcredT))*100));
+			$objPuente['var1'] = $row->BProgramasAcedAcred;
+			$objPuente['var2'] = $row->BProgramasAcedAcredT;
+			$objPuente['calculo'] = ((($row->BProgramasAcedAcred)/($row->BProgramasAcedAcredT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	74.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	74.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	""	; $objeto[1][1]=	""	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	75	; $objeto[2][1]=	99.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	""	; $objeto[3][1]=	""	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	100	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -603,30 +651,36 @@ $tercer['val2'] = $tercer['val2']+$row->BProgramasAcedAcredT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BProgramasAcualizados;
-$tercer['val2'] = $tercer['val2']+$row->BProgramasAcualizadosT;
-			$pre       = ($pre+((($row->BProgramasAcualizados)/($row->BProgramasAcualizadosT))*100));
+			$tercer['val1'] = $tercer['val1']+$row->BProgramasAcualizados;
+			$tercer['val2'] = $tercer['val2']+$row->BProgramasAcualizadosT;
+			if($row->BProgramasAcualizadosT>0){
+				$pre       = ($pre+((($row->BProgramasAcualizados)/($row->BProgramasAcualizadosT))*100));
+			}
+			$objPuente['var1'] = $row->BProgramasAcualizados;
+			$objPuente['var2'] = $row->BProgramasAcualizadosT;
+			$objPuente['calculo'] = ((($row->BProgramasAcualizados)/($row->BProgramasAcualizadosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	50	; $objeto[1][1]=	59.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	60	; $objeto[2][1]=	79.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -670,30 +724,34 @@ $tercer['val2'] = $tercer['val2']+$row->BProgramasAcualizadosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->CapacidadInstalada;
-$tercer['val2'] = 0;
+			$tercer['val1'] = $tercer['val1']+$row->CapacidadInstalada;
+			$tercer['val2'] = 0;
 			$pre       = ($pre+((($row->CapacidadInstalada))));
+			$objPuente['var1'] = $row->CapacidadInstalada;
+			$objPuente['var2'] = 0;
+			$objPuente['calculo'] = ((($row->CapacidadInstalada)));
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	74.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Muy Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	74.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Muy Malo	";
 		$objeto[1][0]=	75	; $objeto[1][1]=	94.99	; $objeto[1][2]=	3	; $objeto[1][3] = "	Regular	";
 		$objeto[2][0]=	95	; $objeto[2][1]=	105	; $objeto[2][2]=	5	; $objeto[2][3] = "	Muy Bueno	";
 		$objeto[3][0]=	105.01	; $objeto[3][1]=	120	; $objeto[3][2]=	2	; $objeto[3][3] = "	Malo	";
 		$objeto[4][0]=	120.01	; $objeto[4][1]=	200	; $objeto[4][2]=	1	; $objeto[4][3] = "	Muy Malo	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -716,30 +774,34 @@ $tercer['val2'] = 0;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->NumeroAulas;
-$tercer['val2'] = $tercer['val2']+$row->TotalAulas;
+			$tercer['val1'] = $tercer['val1']+$row->NumeroAulas;
+			$tercer['val2'] = $tercer['val2']+$row->TotalAulas;
 			$pre       = ($pre+((($row->NumeroAulas)/($row->TotalAulas))*100));
+			$objPuente['var1'] = $row->NumeroAulas;
+			$objPuente['var2'] = $row->TotalAulas;
+			$objPuente['calculo'] = ((($row->NumeroAulas)/($row->TotalAulas))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	49.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	50	; $objeto[1][1]=	59.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	60	; $objeto[2][1]=	69.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	70	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -762,30 +824,34 @@ $tercer['val2'] = $tercer['val2']+$row->TotalAulas;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->NumeroLaboratorios;
-$tercer['val2'] = $tercer['val2']+$row->TotalLaboratorios;
+			$tercer['val1'] = $tercer['val1']+$row->NumeroLaboratorios;
+			$tercer['val2'] = $tercer['val2']+$row->TotalLaboratorios;
 			$pre       = ($pre+((($row->NumeroLaboratorios)/($row->TotalLaboratorios))*100));
+			$objPuente['var1'] = $row->NumeroLaboratorios;
+			$objPuente['var2'] = $row->TotalLaboratorios;
+			$objPuente['calculo'] = ((($row->NumeroLaboratorios)/($row->TotalLaboratorios))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	79.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	79.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	80	; $objeto[1][1]=	84.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	85	; $objeto[2][1]=	89.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	90	; $objeto[3][1]=	94.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -797,11 +863,11 @@ $tercer['val2'] = $tercer['val2']+$row->TotalLaboratorios;
 
 		//**************************************************************************************************************************************************************************************************//
 
-                $obtest = array();
-                $obtest['nombre'] = 'OFERTA EDUCATIVA';
-                $obtest['suma'] = $calculo[2]['segundobloque']['calculoDimension']+$calculo[3]['segundobloque']['calculoDimension'];
-                $obtest['total'] = ($calculo[2]['segundobloque']['calculoDimension']+$calculo[3]['segundobloque']['calculoDimension'])*(0.25);
-                array_push($resumenBloques['bloque'],$obtest);
+								$obtest = array();
+								$obtest['nombre'] = 'OFERTA EDUCATIVA';
+								$obtest['suma'] = $calculo[2]['segundobloque']['calculoDimension']+$calculo[3]['segundobloque']['calculoDimension'];
+								$obtest['total'] = ($calculo[2]['segundobloque']['calculoDimension']+$calculo[3]['segundobloque']['calculoDimension'])*(0.25);
+								array_push($resumenBloques['bloque'],$obtest);
 
 
 
@@ -837,30 +903,34 @@ $tercer['val2'] = $tercer['val2']+$row->TotalLaboratorios;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BBecas;
-$tercer['val2'] = $tercer['val2']+$row->BBecasT;
-			$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100));
+			$tercer['val1'] = $tercer['val1']+$row->BBecas;
+			$tercer['val2'] = $tercer['val2']+$row->BBecasT;
+			if($row->BBecasT>0){$pre       = ($pre+((($row->BBecas)/($row->BBecasT))*100));}
+			$objPuente['var1'] = $row->BBecas;
+			$objPuente['var2'] = $row->BBecasT;
+			$objPuente['calculo'] = ((($row->BBecas)/($row->BBecasT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	20	; $objeto[1][1]=	29	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	30	; $objeto[2][1]=	39	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -904,34 +974,36 @@ $tercer['val2'] = $tercer['val2']+$row->BBecasT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BALumnosTutorados;
-$tercer['val2'] = $tercer['val2']+$row->BALumnosTutoradosT;
+			$tercer['val1'] = $tercer['val1']+$row->BALumnosTutorados;
+			$tercer['val2'] = $tercer['val2']+$row->BALumnosTutoradosT;
 			if(($row->BALumnosTutoradosT)>0){
 				$pre       = ($pre+((($row->BALumnosTutorados)/($row->BALumnosTutoradosT))*100));
-			}else{
-				$pre = ($pre+0)*100;
 			}
+			$objPuente['var1'] = $row->BALumnosTutorados;
+			$objPuente['var2'] = $row->BALumnosTutoradosT;
+			$objPuente['calculo'] = ((($row->BALumnosTutorados)/($row->BALumnosTutoradosT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	20	; $objeto[1][1]=	29	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	30	; $objeto[2][1]=	39	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -976,30 +1048,34 @@ $tercer['val2'] = $tercer['val2']+$row->BALumnosTutoradosT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->LibrosActualizados;
-$tercer['val2'] = $tercer['val2']+$row->TotalAcervoLibros;
+			$tercer['val1'] = $tercer['val1']+$row->LibrosActualizados;
+			$tercer['val2'] = $tercer['val2']+$row->TotalAcervoLibros;
 			$pre       = ($pre+((($row->LibrosActualizados)/($row->TotalAcervoLibros))*100));
+			$objPuente['var1'] = $row->LibrosActualizados;
+			$objPuente['var2'] = $row->TotalAcervoLibros;
+			$objPuente['calculo'] = ((($row->LibrosActualizados)/($row->TotalAcervoLibros))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	19	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	20	; $objeto[1][1]=	29	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	30	; $objeto[2][1]=	39	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1023,30 +1099,34 @@ $tercer['val2'] = $tercer['val2']+$row->TotalAcervoLibros;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->MantenimientoAtendido;
-$tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
+			$tercer['val1'] = $tercer['val1']+$row->MantenimientoAtendido;
+			$tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
 			$pre       = ($pre+((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100));
+			$objPuente['var1'] = $row->MantenimientoAtendido;
+			$objPuente['var2'] = $row->MantenimientoSolicitado;
+			$objPuente['calculo'] = ((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	79	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	79	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	80	; $objeto[1][1]=	84	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	85	; $objeto[2][1]=	89	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	90	; $objeto[3][1]=	94	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1070,30 +1150,34 @@ $tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->LimpiezaAtendida;
-$tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
+			$tercer['val1'] = $tercer['val1']+$row->LimpiezaAtendida;
+			$tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			$pre       = ($pre+((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100));
+			$objPuente['var1'] = $row->LimpiezaAtendida;
+			$objPuente['var2'] = $row->LimpiezaProgramada;
+			$objPuente['calculo'] = ((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	79	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	79	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	80	; $objeto[1][1]=	84	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	85	; $objeto[2][1]=	89	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	90	; $objeto[3][1]=	94	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1104,11 +1188,11 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
-                $obtest = array();
-                $obtest['nombre'] = 'APOYO';
-                $obtest['suma'] = $calculo[4]['segundobloque']['calculoDimension']+$calculo[5]['segundobloque']['calculoDimension']+$calculo[6]['segundobloque']['calculoDimension'];
-                $obtest['total'] = ($calculo[4]['segundobloque']['calculoDimension']+$calculo[5]['segundobloque']['calculoDimension']+$calculo[6]['segundobloque']['calculoDimension'])*(0.15);
-                array_push($resumenBloques['bloque'],$obtest);
+								$obtest = array();
+								$obtest['nombre'] = 'APOYO';
+								$obtest['suma'] = $calculo[4]['segundobloque']['calculoDimension']+$calculo[5]['segundobloque']['calculoDimension']+$calculo[6]['segundobloque']['calculoDimension'];
+								$obtest['total'] = ($calculo[4]['segundobloque']['calculoDimension']+$calculo[5]['segundobloque']['calculoDimension']+$calculo[6]['segundobloque']['calculoDimension'])*(0.15);
+								array_push($resumenBloques['bloque'],$obtest);
 
 
 
@@ -1144,30 +1228,34 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BAlumnosSerSoc;
-$tercer['val2'] = $tercer['val2']+$row->BAlumnosSerSocT;
-			$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100));
+			$tercer['val1'] = $tercer['val1']+$row->BAlumnosSerSoc;
+			$tercer['val2'] = $tercer['val2']+$row->BAlumnosSerSocT;
+			if($row->BAlumnosSerSocT>0){$pre       = ($pre+((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100));}
+			$objPuente['var1'] = $row->BAlumnosSerSoc;
+			$objPuente['var2'] = $row->BAlumnosSerSocT;
+			$objPuente['calculo'] = ((($row->BAlumnosSerSoc)/($row->BAlumnosSerSocT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	20	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	20	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	21	; $objeto[1][1]=	40	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	41	; $objeto[2][1]=	50	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	51	; $objeto[3][1]=	60	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	61	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1211,34 +1299,36 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosSerSocT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BAlumnosPractProf;
-$tercer['val2'] = $tercer['val2']+$row->BAlumnosPractProfT;
+			$tercer['val1'] = $tercer['val1']+$row->BAlumnosPractProf;
+			$tercer['val2'] = $tercer['val2']+$row->BAlumnosPractProfT;
 			if(($row->BAlumnosPractProfT)>0){
 				$pre       = ($pre+((($row->BAlumnosPractProf)/($row->BAlumnosPractProfT))*100));
-			}else{
-				$pre = ($pre+0)*100;
 			}
+			$objPuente['var1'] = $row->BAlumnosPractProf;
+			$objPuente['var2'] = $row->BAlumnosPractProfT;
+			$objPuente['calculo'] = ((($row->BAlumnosPractProf)/($row->BAlumnosPractProfT))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	20	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	20	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	21	; $objeto[1][1]=	40	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	41	; $objeto[2][1]=	50	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	51	; $objeto[3][1]=	60	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	61	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1282,34 +1372,36 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosPractProfT;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->ProyectosVinculadosAct;
-$tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
+			$tercer['val1'] = $tercer['val1']+$row->ProyectosVinculadosAct;
+			$tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
 			if(($row->ProyectosVinculadosAnt)>0){
 				$pre       = ($pre+((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100));
-			}else{
-				$pre = ($pre+0-1)*100;
 			}
+			$objPuente['var1'] = $row->ProyectosVinculadosAct;
+			$objPuente['var2'] = $row->ProyectosVinculadosAnt;
+			$objPuente['calculo'] = ((($row->ProyectosVinculadosAct)/($row->ProyectosVinculadosAnt)-1)*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	-100	; $objeto[0][1]=	-0.1	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	-100	; $objeto[0][1]=	-0.1	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	0	; $objeto[1][1]=	0	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	1	; $objeto[2][1]=	100	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	100.1	; $objeto[3][1]=	200	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	200.1	; $objeto[4][1]=	1000	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1321,11 +1413,11 @@ $tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
 
 		//**************************************************************************************************************************************************************************************************//
 
-                $obtest = array();
-                $obtest['nombre'] = 'VINCULACIÓN';
-                $obtest['suma'] = $calculo[7]['segundobloque']['calculoDimension']+$calculo[8]['segundobloque']['calculoDimension']+$calculo[9]['segundobloque']['calculoDimension'];
-                $obtest['total'] = ($calculo[7]['segundobloque']['calculoDimension']+$calculo[8]['segundobloque']['calculoDimension']+$calculo[9]['segundobloque']['calculoDimension'])*(0.15);
-                array_push($resumenBloques['bloque'],$obtest);
+								$obtest = array();
+								$obtest['nombre'] = 'VINCULACIÓN';
+								$obtest['suma'] = $calculo[7]['segundobloque']['calculoDimension']+$calculo[8]['segundobloque']['calculoDimension']+$calculo[9]['segundobloque']['calculoDimension'];
+								$obtest['total'] = ($calculo[7]['segundobloque']['calculoDimension']+$calculo[8]['segundobloque']['calculoDimension']+$calculo[9]['segundobloque']['calculoDimension'])*(0.15);
+								array_push($resumenBloques['bloque'],$obtest);
 
 
 
@@ -1362,30 +1454,34 @@ $tercer['val2'] = $tercer['val2']+$row->ProyectosVinculadosAnt;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->DocentesInvestigacion;
-$tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
+			$tercer['val1'] = $tercer['val1']+$row->DocentesInvestigacion;
+			$tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 			$pre       = ($pre+((($row->DocentesInvestigacion)/($row->TotalDocentes))*100));
+			$objPuente['var1'] = $row->DocentesInvestigacion;
+			$objPuente['var2'] = $row->TotalDocentes;
+			$objPuente['calculo'] = ((($row->DocentesInvestigacion)/($row->TotalDocentes))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	4.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	4.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	5	; $objeto[1][1]=	9.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	10	; $objeto[2][1]=	19.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	20	; $objeto[3][1]=	29.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	30	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1430,7 +1526,7 @@ $tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
 
@@ -1438,27 +1534,29 @@ $tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 				$tercer['val1'] = $tercer['val1']+$row->InnovacionesIncubadas;
 				$tercer['val2'] = $tercer['val2']+$row->InnovacionesIncubadasAnt;
 				$pre       = ($pre+((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100));
-			}else{
-				$pre = ($pre+0-1)*100;
 			}
+			$objPuente['var1'] = $row->InnovacionesIncubadas;
+			$objPuente['var2'] = $row->InnovacionesIncubadasAnt;
+			$objPuente['calculo'] = ((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	-100	; $objeto[0][1]=	19.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	-100	; $objeto[0][1]=	19.99	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	20	; $objeto[1][1]=	29.99	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	30	; $objeto[2][1]=	39.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	40	; $objeto[3][1]=	49.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1469,11 +1567,11 @@ $tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 		$sumatoria = 0;foreach ($nivel['tercerbloque'] as $row) {$sumatoria= $sumatoria+$row['calculoIndicador'];}$nivel['segundobloque']['TotalDimension'] =  $sumatoria;$nivel['segundobloque']['calculoDimension'] =  ($sumatoria)*($nivel['segundobloque']['porcentaje']/100);array_push($calculo, $nivel);
 
 		//**************************************************************************************************************************************************************************************************//
-                $obtest = array();
-                $obtest['nombre'] = 'INVESTIGACIÓN';
-                $obtest['suma'] = $calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'];
-                $obtest['total'] = ($calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'])*(0.10);
-                array_push($resumenBloques['bloque'],$obtest);
+								$obtest = array();
+								$obtest['nombre'] = 'INVESTIGACIÓN';
+								$obtest['suma'] = $calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'];
+								$obtest['total'] = ($calculo[10]['segundobloque']['calculoDimension']+$calculo[11]['segundobloque']['calculoDimension'])*(0.10);
+								array_push($resumenBloques['bloque'],$obtest);
 
 
 
@@ -1510,30 +1608,34 @@ $tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 		// EL CALCULO SE PROMEDIA
 		$tercer['val1'] = 0; $tercer['val2'] = 0;
 		$pre       = 0;
-		$tamanoRow = 0;
+		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->RecursosEjercidos;
-$tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
+			$tercer['val1'] = $tercer['val1']+$row->RecursosEjercidos;
+			$tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 			$pre       = ($pre+((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100));
+			$objPuente['var1'] = $row->RecursosEjercidos;
+			$objPuente['var2'] = $row->RecursosAutogenerados;
+			$objPuente['calculo'] = ((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100);
+			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
-        $objeto[0] = array();
-        $objeto[1] = array();
-        $objeto[2] = array();
-        $objeto[3] = array();
-        $objeto[4] = array();
+				$objeto[0] = array();
+				$objeto[1] = array();
+				$objeto[2] = array();
+				$objeto[3] = array();
+				$objeto[4] = array();
 
-        $objeto[0][0]=	0.01	; $objeto[0][1]=	9.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
+				$objeto[0][0]=	0.01	; $objeto[0][1]=	9.9	; $objeto[0][2]=	1	; $objeto[0][3] = "	Malo	";
 		$objeto[1][0]=	10	; $objeto[1][1]=	14.9	; $objeto[1][2]=	2	; $objeto[1][3] = "	Suficiente	";
 		$objeto[2][0]=	15	; $objeto[2][1]=	19.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	20	; $objeto[3][1]=	24.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	25	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
-        $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
+				$tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
 		// SE AGREGA EL TERCER BLOQUE A CADA NIVEL
 		array_push($nivel['tercerbloque'], $tercer);
@@ -1546,57 +1648,57 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 		//**************************************************************************************************************************************************************************************************//
 
 		$obtest = array();
-                $obtest['nombre'] = 'GESTION ADMINISTRATIVA';
-                $obtest['suma'] = $calculo[12]['segundobloque']['calculoDimension'];
-                $obtest['total'] = ($calculo[12]['segundobloque']['calculoDimension'])*(0.10);
-                array_push($resumenBloques['bloque'],$obtest);
+								$obtest['nombre'] = 'GESTION ADMINISTRATIVA';
+								$obtest['suma'] = $calculo[12]['segundobloque']['calculoDimension'];
+								$obtest['total'] = ($calculo[12]['segundobloque']['calculoDimension'])*(0.10);
+								array_push($resumenBloques['bloque'],$obtest);
 		// pegar aqui la linea de 5
 
 		//AL FINAL SE IMPRIME
 
-                $data['calculo'] = $calculo;
-                $data['resumen'] = $resumenBloques;
+								$data['calculo'] = $calculo;
+								$data['resumen'] = $resumenBloques;
 								$escolar = array();
 								$escolar['unidad'] = $this->unidades->getUnidad($idUnidad);
 								$escolar['carreras'] = $carreras;
-                $data['unidad']       = $escolar;
+								$data['unidad']       = $escolar;
 
-                $resultaSuma = 0;
-                foreach ($resumenBloques as $row) {
-                        # code...
-                        // print_r($row[0]['total']);
-                        $resultaSuma = $resultaSuma+ $row[0]['total'];
-                }
+								$resultaSuma = 0;
+								foreach ($resumenBloques as $row) {
+												# code...
+												// print_r($row[0]['total']);
+												$resultaSuma = $resultaSuma+ $row[0]['total'];
+								}
 
-                switch ($resultaSuma) {
-                    case ($resultaSuma>= 0 ||  $resultaSuma < 50):
-                        $data['resTexto'] = 'DEFICIENTE';
-                        $data['resComentario'] = 'Se identifican areas de atención urgente';
-                        break;
-                    case ($resultaSuma>= 50 ||  $resultaSuma < 75):
-                        $data['resTexto'] = 'REGULAR';
-                        $data['resComentario'] = 'Se necesitan mejorar controles';
-                        break;
-                    case ($resultaSuma>= 75 ||  $resultaSuma < 85):
-                        $data['resTexto'] = 'BUENO';
-                        $data['resComentario'] = 'Se sugiere implemetar acciones de mejora continua';
-                        break;
-                    case ($resultaSuma>= 85 ||  $resultaSuma < 95):
-                        $data['resTexto'] = 'MUY BUENO';
-                        $data['resComentario'] = 'Tomar medidas que permitan consolidar el aspecto';
-                        break;
-                    case ($resultaSuma>= 95 ||  $resultaSuma <= 100):
-                        $data['resTexto'] = 'EXCELENTE';
-                        $data['resComentario'] = 'Felicidades - compartir buenas practicas';
-                        break;
-                    default:
-                        $data['resTexto'] = 'SIN CLASIFICACIÓN';
-                        $data['resComentario'] = '';
-                        break;
-                }
+								switch ($resultaSuma) {
+										case ($resultaSuma>= 0 ||  $resultaSuma < 50):
+												$data['resTexto'] = 'DEFICIENTE';
+												$data['resComentario'] = 'Se identifican areas de atención urgente';
+												break;
+										case ($resultaSuma>= 50 ||  $resultaSuma < 75):
+												$data['resTexto'] = 'REGULAR';
+												$data['resComentario'] = 'Se necesitan mejorar controles';
+												break;
+										case ($resultaSuma>= 75 ||  $resultaSuma < 85):
+												$data['resTexto'] = 'BUENO';
+												$data['resComentario'] = 'Se sugiere implemetar acciones de mejora continua';
+												break;
+										case ($resultaSuma>= 85 ||  $resultaSuma < 95):
+												$data['resTexto'] = 'MUY BUENO';
+												$data['resComentario'] = 'Tomar medidas que permitan consolidar el aspecto';
+												break;
+										case ($resultaSuma>= 95 ||  $resultaSuma <= 100):
+												$data['resTexto'] = 'EXCELENTE';
+												$data['resComentario'] = 'Felicidades - compartir buenas practicas';
+												break;
+										default:
+												$data['resTexto'] = 'SIN CLASIFICACIÓN';
+												$data['resComentario'] = '';
+												break;
+								}
 
 
-
+						
 								$data['main_cont'] = 'reportes/sup/detallado';
 								$html=$this->load->view('includes/template_reportes2', $data, true);
 								$pdfFilePath = "detallado.pdf";
