@@ -199,9 +199,8 @@ class Consultams extends CI_Controller {
 		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
-$tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
-$tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
-			$
+			$tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
+			$tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
 			$objPuente['var1'] = $row->BAlumnosTitulados;
 			$objPuente['var2'] = $row->BAlumnosTituladosT;
 			$objPuente['calculo'] = 0;
