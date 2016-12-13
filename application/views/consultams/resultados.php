@@ -43,7 +43,7 @@
 
                                         Total<h1><?php echo $total?>%</h1><?php echo $resTexto.'<br>'.$resComentario; ?>
                                         <hr>
-                                        <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/msrepconsolidados/'.$urldata; ?>>IMPRIMIR</a>
+                                        <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/consultams/'.$urldata.'/reporteconsolidado'?>>IMPRIMIR</a>
 
 
                          </div>
@@ -107,7 +107,7 @@
                        ?>
                   </div>
                   <div class="card-footer text-muted">
-                      <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/msrepfunciones/'.$urldata; ?>>IMPRIMIR</a>
+                      <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/consultams/'.$urldata.'/reportefunciones'?>>IMPRIMIR</a>
                  </div>
         </div>
 </div>
@@ -276,7 +276,7 @@
                        ?>
                   </div>
                   <div class="card-footer text-muted">
-                      <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/msrepdetallado/'.$urldata; ?>>IMPRIMIR</a>
+                      <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/consultams/'.$urldata.'/reportedetallado'?>>IMPRIMIR</a>
                  </div>
         </div>
 </div>

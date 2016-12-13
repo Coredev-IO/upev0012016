@@ -49,7 +49,7 @@ if(count($evaluaciones)>0){
                                 echo '<a href="'.base_url().'index.php/consultasup/consulta1/'.$unidad[0]->idUnidad.'/'.$row->idEvaluacionSup.'" class="btn btn-outline-info">Seguir revisión</a>';
                                 break;
                         case "FIN":
-                                echo '<a href="'.base_url().'index.php/consultasup/calculo/'.$row->idEvaluacionSup.'" class="btn btn-outline-warning">Revisar resultados</a>';
+                                echo '<a href="'.base_url().'index.php/consultasup/calculo/'.$row->idEvaluacionSup.'/consulta" class="btn btn-outline-warning">Revisar resultados</a>';
                                 break;
                         case "RES":
                                 echo '<a href="#" class="btn btn-outline-success">Ver detalle</a>';

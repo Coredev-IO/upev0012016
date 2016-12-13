@@ -45,6 +45,7 @@ class Consultams extends CI_Controller {
 	public function calculo() {
 		$data['datos'] = $this->session->userdata('logged_in');
 		$evaluacionid  = $this->uri->segment(3);
+		$genTipo  = $this->uri->segment(4);
 		$data['urldata'] = $this->uri->segment(2).'/'.$this->uri->segment(3);
 		// echo $evaluacionid;
 		// echo "<br>";
@@ -1719,9 +1720,41 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                         break;
                 }
 
+								if($genTipo=="consulta"){
+									$data['main_cont'] = 'consultams/resultados';
+									$this->load->view('includes/template_consultams2', $data);
+								}
 
-                $data['main_cont'] = 'consultams/resultados';
-		$this->load->view('includes/template_consultams2', $data);
+
+								if($genTipo=="reportedetallado"){
+									$data['main_cont'] = 'reportes/ms/detallado';
+									$html=$this->load->view('includes/template_reportes2', $data, true);
+									$pdfFilePath = "detallado.pdf";
+									$this->load->library('m_pdf');
+									// $this->m_pdf->pdf->AddPage('L','', '', '', '',5);
+									$this->m_pdf->pdf->WriteHTML($html);
+									$this->m_pdf->pdf->Output($pdfFilePath, "D");
+								}
+
+								if($genTipo=="reporteconsolidado"){
+									$data['main_cont'] = 'reportes/ms/consolidados';
+									$html=$this->load->view('includes/template_reportes', $data, true);
+									$pdfFilePath = "consolidados.pdf";
+									$this->load->library('m_pdf');
+									$this->m_pdf->pdf->WriteHTML($html);
+									$this->m_pdf->pdf->Output($pdfFilePath, "D");
+								}
+
+								if($genTipo=="reportefunciones"){
+									$data['main_cont'] = 'reportes/ms/funciones';
+									$html=$this->load->view('includes/template_reportes', $data, true);
+									$pdfFilePath = "funciones.pdf";
+									$this->load->library('m_pdf');
+									$this->m_pdf->pdf->WriteHTML($html);
+									$this->m_pdf->pdf->Output($pdfFilePath, "D");
+								}
+
+
 		//**************************************************************************************************************************************************************************************************//
 
 	}

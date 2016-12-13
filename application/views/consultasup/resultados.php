@@ -42,7 +42,8 @@
 
                                         Total<h1><?php echo $total?>%</h1><?php echo $resTexto.'<br>'.$resComentario; ?>
                                         <hr>
-                                        <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/suprepconsolidados/'.$urldata; ?>>IMPRIMIR</a>
+                                        <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/consultasup/'.$urldata.'/reporteconsolidado'?>>IMPRIMIR</a>
+
                          </div>
                 </div>
 
@@ -99,7 +100,8 @@
                  ?>
             </div>
             <div class="card-footer text-muted">
-                <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/suprepfunciones/'.$urldata; ?>>IMPRIMIR</a>
+                <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/consultasup/'.$urldata.'/reportefunciones'?>>IMPRIMIR</a>
+
            </div>
   </div>
 </div>
@@ -270,7 +272,8 @@
                        ?>
                   </div>
                   <div class="card-footer text-muted">
-                      <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/suprepdetallado/'.$urldata; ?>>IMPRIMIR</a>
+                      <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/consultasup/'.$urldata.'/reportedetallado'?>>IMPRIMIR</a>
+
                  </div>
         </div>
 </div>
