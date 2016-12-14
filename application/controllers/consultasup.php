@@ -244,13 +244,13 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->BAlumnosTitulados;
 			$tercer['val2'] = $tercer['val2']+$row->BAlumnosTituladosT;
-			if($row->BAlumnosTituladosT>0){
-				$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
-			}
 			$objPuente['var1'] = $row->BAlumnosTitulados;
 			$objPuente['var2'] = $row->BAlumnosTituladosT;
+			$objPuente['calculo'] = 0;
 			if($row->BAlumnosTituladosT>0){
 				$objPuente['calculo'] = ((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100);
+				$pre       = ($pre+((($row->BAlumnosTitulados)/($row->BAlumnosTituladosT))*100));
+
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
@@ -297,10 +297,14 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->BAlumnosRiesgoAbandono;
 			$tercer['val2'] = $tercer['val2']+$row->BAlumnosRiesgoAbandonoT;
-			$pre       = ($pre+((($row->BAlumnosRiesgoAbandono)/($row->BAlumnosRiesgoAbandonoT))*100));
 			$objPuente['var1'] = $row->BAlumnosRiesgoAbandono;
 			$objPuente['var2'] = $row->BAlumnosRiesgoAbandonoT;
-			$objPuente['calculo'] = ((($row->BAlumnosRiesgoAbandono)/($row->BAlumnosRiesgoAbandonoT))*100);
+			$objPuente['calculo'] = 0;
+			if($row->BAlumnosRiesgoAbandonoT>0){
+				$objPuente['calculo'] = ((($row->BAlumnosRiesgoAbandono)/($row->BAlumnosRiesgoAbandonoT))*100);
+				$pre       = ($pre+((($row->BAlumnosRiesgoAbandono)/($row->BAlumnosRiesgoAbandonoT))*100));
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -425,10 +429,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->TotalHorasBase;
 			$tercer['val2'] = $tercer['val2']+$row->TotalHorasReglamento;
-			$pre       = ($pre+((($row->TotalHorasBase)/($row->TotalHorasReglamento))*100));
 			$objPuente['var1'] = $row->TotalHorasBase;
 			$objPuente['var2'] = $row->TotalHorasReglamento;
-			$objPuente['calculo'] = ((($row->TotalHorasBase)/($row->TotalHorasReglamento))*100);
+			$objPuente['calculo'] = 0;
+			if($row->TotalHorasReglamento>0){
+				$objPuente['calculo'] = ((($row->TotalHorasBase)/($row->TotalHorasReglamento))*100);
+				$pre       = ($pre+((($row->TotalHorasBase)/($row->TotalHorasReglamento))*100));
+
+			}
+
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -531,10 +540,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->ProfesoresParaDocencias;
 			$tercer['val2'] = $tercer['val2']+$row->TotalProfesores;
-			$pre       = ($pre+((($row->ProfesoresParaDocencias)/($row->TotalProfesores))*100));
 			$objPuente['var1'] = $row->ProfesoresParaDocencias;
 			$objPuente['var2'] = $row->TotalProfesores;
-			$objPuente['calculo'] = ((($row->ProfesoresParaDocencias)/($row->TotalProfesores))*100);
+			$objPuente['calculo'] = 0;
+			if($row->TotalProfesores>0){
+				$objPuente['calculo'] = ((($row->ProfesoresParaDocencias)/($row->TotalProfesores))*100);
+				$pre       = ($pre+((($row->ProfesoresParaDocencias)/($row->TotalProfesores))*100));
+
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -582,10 +596,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->ProfesoresActualizados;
 			$tercer['val2'] = $tercer['val2']+$row->TotalPrefesores;
-			$pre       = ($pre+((($row->ProfesoresActualizados)/($row->TotalPrefesores))*100));
 			$objPuente['var1'] = $row->ProfesoresActualizados;
 			$objPuente['var2'] = $row->TotalPrefesores;
-			$objPuente['calculo'] = ((($row->ProfesoresActualizados)/($row->TotalPrefesores))*100);
+			$objPuente['calculo'] = 0;
+			if($row->TotalPrefesores>0){
+				$objPuente['calculo'] = ((($row->ProfesoresActualizados)/($row->TotalPrefesores))*100);
+				$pre       = ($pre+((($row->ProfesoresActualizados)/($row->TotalPrefesores))*100));
+
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -666,10 +685,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->BProgramasAcedAcred;
 			$tercer['val2'] = $tercer['val2']+$row->BProgramasAcedAcredT;
-			$pre       = ($pre+((($row->BProgramasAcedAcred)/($row->BProgramasAcedAcredT))*100));
 			$objPuente['var1'] = $row->BProgramasAcedAcred;
 			$objPuente['var2'] = $row->BProgramasAcedAcredT;
-			$objPuente['calculo'] = ((($row->BProgramasAcedAcred)/($row->BProgramasAcedAcredT))*100);
+			$objPuente['calculo'] = 0;
+			if($row->BProgramasAcedAcredT>0){
+				$objPuente['calculo'] = ((($row->BProgramasAcedAcred)/($row->BProgramasAcedAcredT))*100);
+				$pre       = ($pre+((($row->BProgramasAcedAcred)/($row->BProgramasAcedAcredT))*100));
+
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -841,10 +865,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->NumeroAulas;
 			$tercer['val2'] = $tercer['val2']+$row->TotalAulas;
-			$pre       = ($pre+((($row->NumeroAulas)/($row->TotalAulas))*100));
 			$objPuente['var1'] = $row->NumeroAulas;
 			$objPuente['var2'] = $row->TotalAulas;
-			$objPuente['calculo'] = ((($row->NumeroAulas)/($row->TotalAulas))*100);
+			$objPuente['calculo'] = 0;
+			if($row->TotalAulas>0){
+				$objPuente['calculo'] = ((($row->NumeroAulas)/($row->TotalAulas))*100);
+				$pre       = ($pre+((($row->NumeroAulas)/($row->TotalAulas))*100));
+
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -891,10 +920,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->NumeroLaboratorios;
 			$tercer['val2'] = $tercer['val2']+$row->TotalLaboratorios;
-			$pre       = ($pre+((($row->NumeroLaboratorios)/($row->TotalLaboratorios))*100));
 			$objPuente['var1'] = $row->NumeroLaboratorios;
 			$objPuente['var2'] = $row->TotalLaboratorios;
-			$objPuente['calculo'] = ((($row->NumeroLaboratorios)/($row->TotalLaboratorios))*100);
+			$objPuente['calculo'] = 0;
+			if($row->TotalLaboratorios>0){
+				$objPuente['calculo'] = ((($row->NumeroLaboratorios)/($row->TotalLaboratorios))*100);
+				$pre       = ($pre+((($row->NumeroLaboratorios)/($row->TotalLaboratorios))*100));
+
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1045,12 +1079,14 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->BALumnosTutorados;
 			$tercer['val2'] = $tercer['val2']+$row->BALumnosTutoradosT;
+			$objPuente['calculo'] = 0;
 			if(($row->BALumnosTutoradosT)>0){
 				$pre       = ($pre+((($row->BALumnosTutorados)/($row->BALumnosTutoradosT))*100));
+				$objPuente['calculo'] = ((($row->BALumnosTutorados)/($row->BALumnosTutoradosT))*100);
+
 			}
 			$objPuente['var1'] = $row->BALumnosTutorados;
 			$objPuente['var2'] = $row->BALumnosTutoradosT;
-			$objPuente['calculo'] = ((($row->BALumnosTutorados)/($row->BALumnosTutoradosT))*100);
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1119,10 +1155,14 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->LibrosActualizados;
 			$tercer['val2'] = $tercer['val2']+$row->TotalAcervoLibros;
-			$pre       = ($pre+((($row->LibrosActualizados)/($row->TotalAcervoLibros))*100));
 			$objPuente['var1'] = $row->LibrosActualizados;
 			$objPuente['var2'] = $row->TotalAcervoLibros;
-			$objPuente['calculo'] = ((($row->LibrosActualizados)/($row->TotalAcervoLibros))*100);
+			$objPuente['calculo'] = 0;
+			if($row->TotalAcervoLibros>0){
+				$objPuente['calculo'] = ((($row->LibrosActualizados)/($row->TotalAcervoLibros))*100);
+				$pre       = ($pre+((($row->LibrosActualizados)/($row->TotalAcervoLibros))*100));
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1170,10 +1210,13 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->MantenimientoAtendido;
 			$tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
-			$pre       = ($pre+((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100));
 			$objPuente['var1'] = $row->MantenimientoAtendido;
 			$objPuente['var2'] = $row->MantenimientoSolicitado;
-			$objPuente['calculo'] = ((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100);
+			$objPuente['calculo'] = 0;
+			if($row->MantenimientoSolicitado>0){
+				$objPuente['calculo'] = ((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100);
+				$pre       = ($pre+((($row->MantenimientoAtendido)/($row->MantenimientoSolicitado))*100));
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1221,10 +1264,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->LimpiezaAtendida;
 			$tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
-			$pre       = ($pre+((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100));
 			$objPuente['var1'] = $row->LimpiezaAtendida;
 			$objPuente['var2'] = $row->LimpiezaProgramada;
-			$objPuente['calculo'] = ((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100);
+			$pre       = 0;
+			if($row->LimpiezaProgramada>0){
+				$objPuente['calculo'] = ((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100);
+				$pre       = ($pre+((($row->LimpiezaAtendida)/($row->LimpiezaProgramada))*100));
+
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1533,10 +1581,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->DocentesInvestigacion;
 			$tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
-			$pre       = ($pre+((($row->DocentesInvestigacion)/($row->TotalDocentes))*100));
 			$objPuente['var1'] = $row->DocentesInvestigacion;
 			$objPuente['var2'] = $row->TotalDocentes;
-			$objPuente['calculo'] = ((($row->DocentesInvestigacion)/($row->TotalDocentes))*100);
+			$objPuente['calculo'] = 0;
+			if($row->TotalDocentes>0){
+				$objPuente['calculo'] = ((($row->DocentesInvestigacion)/($row->TotalDocentes))*100);
+				$pre       = ($pre+((($row->DocentesInvestigacion)/($row->TotalDocentes))*100));
+
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
@@ -1603,10 +1656,11 @@ class Consultasup extends CI_Controller {
 		$tamanoRow = 0;$objCalculosIngresados = array();$objPuente = array();
 		foreach ($bloque as $row) {
 			$tamanoRow = count($bloque);
+			$tercer['val1'] = $tercer['val1']+$row->InnovacionesIncubadas;
+			$tercer['val2'] = $tercer['val2']+$row->InnovacionesIncubadasAnt;
+
 			$objPuente['calculo'] = 0;
 			if(($row->InnovacionesIncubadasAnt)>0){
-				$tercer['val1'] = $tercer['val1']+$row->InnovacionesIncubadas;
-				$tercer['val2'] = $tercer['val2']+$row->InnovacionesIncubadasAnt;
 				$pre       = ($pre+((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100));
 				$objPuente['calculo'] = ((($row->InnovacionesIncubadas)/($row->InnovacionesIncubadasAnt)-1)*100);
 			}
@@ -1688,10 +1742,15 @@ class Consultasup extends CI_Controller {
 			$tamanoRow = count($bloque);
 			$tercer['val1'] = $tercer['val1']+$row->RecursosEjercidos;
 			$tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
-			$pre       = ($pre+((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100));
 			$objPuente['var1'] = $row->RecursosEjercidos;
 			$objPuente['var2'] = $row->RecursosAutogenerados;
-			$objPuente['calculo'] = ((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100);
+			$objPuente['calculo'] = 0;
+			if($row->RecursosAutogenerados){
+				$objPuente['calculo'] = ((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100);
+				$pre       = ($pre+((($row->RecursosEjercidos)/($row->RecursosAutogenerados))*100));
+
+
+			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
 		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
