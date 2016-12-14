@@ -11,6 +11,17 @@
   <a href="<?=base_url()?>index.php/consultams/consulta6/<?=$datos['idUnidad']?>/<?=$datos['idEvaluacion']?>" class="list-group-item list-group-item-action">Gestión Administrativa</a>
 </div>
 
+
+<hr>
+
+
+<div class="card card-block">
+    <?php
+    echo '<a class="btn btn-info btn-100" href="'.base_url().'index.php/consultams/calculo/'.$datos['idEvaluacion'].'/previos">RRESULTADOS PREVIOS</a>';
+     ?>
+
+  </div>
+
 <hr>
 
 

@@ -41,6 +41,7 @@ class Consultasup extends CI_Controller {
 	public function calculo() {
 		$data['datos'] = $this->session->userdata('logged_in');
 		$evaluacionid  = $this->uri->segment(3);
+		$data['evaluacionid']  = $this->uri->segment(3);
 		$genTipo  = $this->uri->segment(4);
 		$data['urldata'] = $this->uri->segment(2).'/'.$this->uri->segment(3);
 		// echo "<br>";
@@ -1730,6 +1731,12 @@ class Consultasup extends CI_Controller {
 
 								if($genTipo=="consulta"){
 									$data['main_cont'] = 'consultasup/resultados';
+									$this->load->view('includes/template_consultasup2', $data);
+								}
+
+
+								if($genTipo=="previos"){
+									$data['main_cont'] = 'consultasup/previos';
 									$this->load->view('includes/template_consultasup2', $data);
 								}
 

@@ -45,6 +45,7 @@ class Consultams extends CI_Controller {
 	public function calculo() {
 		$data['datos'] = $this->session->userdata('logged_in');
 		$evaluacionid  = $this->uri->segment(3);
+		$data['evaluacionid']  = $this->uri->segment(3);
 		$genTipo  = $this->uri->segment(4);
 		$data['urldata'] = $this->uri->segment(2).'/'.$this->uri->segment(3);
 		// echo $evaluacionid;
@@ -1722,6 +1723,11 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 
 								if($genTipo=="consulta"){
 									$data['main_cont'] = 'consultams/resultados';
+									$this->load->view('includes/template_consultams2', $data);
+								}
+
+								if($genTipo=="previos"){
+									$data['main_cont'] = 'consultams/previos';
 									$this->load->view('includes/template_consultams2', $data);
 								}
 

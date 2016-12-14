@@ -29,16 +29,14 @@
 echo form_close();
 ?>
 
-<!-- <div class="card text-xs-center">
+<div class="card text-xs-center">
   <div class="card-header">
-    Featured
+    ESTATUS GENERAL DE EVALUACIONES
   </div>
   <div class="card-block">
-    <h4 class="card-title">Special title treatment</h4>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+
   </div>
   <div class="card-footer text-muted">
-    2 days ago
+    NO SE PUEDE GENERAR UN REPORTE GENERAL POR QUE NO SE HA CONCLUIDO EL PROCESO DE REVISIÓN PARA TODAS LAS UNIDADES
   </div>
-</div> -->
+</div>

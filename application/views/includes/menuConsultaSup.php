@@ -16,6 +16,17 @@
 
 
 <div class="card card-block">
+    <?php
+    echo '<a class="btn btn-info btn-100" href="'.base_url().'index.php/consultasup/calculo/'.$datos['idEvaluacion'].'/previos">RRESULTADOS PREVIOS</a>';
+     ?>
+
+  </div>
+
+<hr>
+
+
+
+<div class="card card-block">
   <p class="card-text">
           <div class="list-group">
                   <?php
