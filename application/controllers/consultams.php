@@ -37,6 +37,54 @@ class Consultams extends CI_Controller {
         public function index() {
                 $data['datos'] = $this->session->userdata('logged_in');
                 $data['unidades'] = $this->unidades->getUnidades('MED');
+								// $data['evaluaciones'] = $this->evaluacion->getEvaluaciones
+								//Unidades con su ultima evaluacion
+								$unidadesEv =  array();
+								foreach ($data['unidades'] as $row) {
+									$puente =  array();
+									$puente['idUnidad'] = $row->idUnidad;
+									$puente['NombreUnidad'] = $row->NombreUnidad;
+									$puente['Siglas'] = $row->Siglas;
+									$evaluacion = $this->evaluacion->getLastEvaluacion($row->idUnidad);
+									if(count($evaluacion)>0){
+										$puente['idEvaluacion'] = $evaluacion[0]->idEvaluacion;
+										$puente['fechaEvaluacion'] = $evaluacion[0]->CreateDate;
+										$estado = "";
+										switch ($evaluacion[0]->estado) {
+														case "ACT":
+																		$estado = "Proceso de captura";
+																		break;
+														case "REV":
+																		$estado = "Activa para revisión";
+																		break;
+														case "FIN":
+																		$estado = "Finalizada, generar resultados";
+																		break;
+														case "RES":
+																		$estado = "Revisar resultados";
+																		break;
+														case "CAN":
+																		$estado = "La evaluación ha sido cancelada";
+																		break;
+														default:
+																		$estado =  "ERROR";
+																		break;
+
+
+
+										}
+										$puente['estatusEvaluacion'] = $estado;
+									}else{
+										$puente['idEvaluacion'] = 0;
+										$puente['fechaEvaluacion'] = "";
+										$puente['estatusEvaluacion'] = "No hay evaluaciones";
+									}
+									array_push($unidadesEv,$puente);
+								}
+								// print_r($unidadesEv[10]);
+								$data['unidadesEv'] = $unidadesEv;
+
+
                 $data['main_cont'] = 'consultams/index';
                 $this->load->view('includes/template_consultams', $data);
         }
