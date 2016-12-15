@@ -74,9 +74,11 @@ class Consultams extends CI_Controller {
 
 										}
 										$puente['estatusEvaluacion'] = $estado;
+										$puente['estado'] = $evaluacion[0]->estado;
 									}else{
 										$puente['idEvaluacion'] = 0;
 										$puente['fechaEvaluacion'] = "";
+										$puente['estado'] = $evaluacion[0]->estado;
 										$puente['estatusEvaluacion'] = "No hay evaluaciones";
 									}
 									array_push($unidadesEv,$puente);

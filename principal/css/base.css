@@ -3370,4 +3370,19 @@ hr.on-light {
   pointer-events: none;
   color: #757575;
 }
-/*# sourceMappingURL=bootstrap-material-design.css.map 
+
+
+
+.tblAct{
+  background: #FFF5C2;
+}
+
+
+.tblcan{
+  background: #FFC8C2;
+}
+
+
+.tblfin{
+  background: #EBFFD6;
+}

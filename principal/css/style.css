@@ -322,3 +322,16 @@ h1{
 .pdftext{
   font-size: 7px;
 }
+
+.tblAct{
+  background: #FFF5C2;
+}
+
+.tblcan{
+  background: #FFC8C2;
+}
+
+
+.tblfin{
+  background: #EBFFD6;
+}

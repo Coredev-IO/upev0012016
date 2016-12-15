@@ -70,8 +70,10 @@ class Consultasup extends CI_Controller {
 
 				}
 				$puente['estatusEvaluacion'] = $estado;
+				$puente['estado'] = $evaluacion[0]->estado;
 			}else{
 				$puente['idEvaluacion'] = 0;
+				$puente['estado'] = $evaluacion[0]->estado;
 				$puente['fechaEvaluacion'] = "";
 				$puente['estatusEvaluacion'] = "No hay evaluaciones";
 			}

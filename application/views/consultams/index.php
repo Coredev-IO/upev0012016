@@ -15,15 +15,39 @@
                       <th></th>
                     </tr>
                   </thead>";
-                	foreach ($unidadesEv as $row) {
-                    echo "<tr><td>".$row['NombreUnidad']."</td>";
-                    echo "<td>".$row['Siglas']."</td>";
-                    echo "<td>".$row['fechaEvaluacion']."</td>";
-                    echo "<td>".$row['estatusEvaluacion']."</td>";
-                    echo "<td>";
-                    echo '<a href="'.base_url().'index.php/consultams/rev/'.$row['idUnidad'].'" class="btn btn-outline-info">CONSULTAR</a>';
+                  foreach ($unidadesEv as $row) {
+                    switch ($row['estado']) {
+                      case "ACT":
+                              $classtable = "tblAct";
+                              break;
+                      case "REV":
+                              $classtable = "tblNull";
+                              break;
+                      case "FIN":
+                              $classtable = "tblfin";
+                              break;
+                      case "RES":
+                              $classtable = "tblNull";
+                              break;
+                      case "CAN":
+                              $classtable = "tblcan";
+                              break;
+                      default:
+                              $classtable = "tblNull";
+                              break;
+                    }
+
+
+                    echo "<tr class='".$classtable."'><td class='".$classtable."'>".$row['NombreUnidad']."</td>";
+                    echo "<td class='".$classtable."'>".$row['Siglas']."</td>";
+                    echo "<td class='".$classtable."'>".$row['fechaEvaluacion']."</td>";
+                    echo "<td class='".$classtable."'>".$row['estatusEvaluacion']."</td>";
+                    echo "<td class='".$classtable."'>";
+                    echo '<a href="'.base_url().'index.php/consultaMS/rev/'.$row['idUnidad'].'" class="btn btn-outline-info">CONSULTAR</a>';
                     echo "</td></tr>";
-                	}
+
+
+                  }
                 	echo "</table>"
 
 
@@ -42,10 +66,14 @@
   <div class="card-header">
     ESTATUS GENERAL DE EVALUACIONES
   </div>
-  <div class="card-block">
+  <div class="card-footer text-muted">
+    PARA GENERAR RESULTADOS MÁS CONFIABLES ES NECESARIO FINALIZAR LA REVISÓN DE TODAS LAS EVALUACIONES
+    <br>
 
   </div>
-  <div class="card-footer text-muted">
-    NO SE PUEDE GENERAR UN REPORTE GENERAL POR QUE NO SE HA CONCLUIDO EL PROCESO DE REVISIÓN PARA TODAS LAS UNIDADES
+  <div class="col-md-12">
+    <?php
+    echo '<a href="'.base_url().'index.php/graficasms/" class="btn btn-info">CONSULTAR RESULTADOS</a>';
+     ?>
   </div>
 </div>
