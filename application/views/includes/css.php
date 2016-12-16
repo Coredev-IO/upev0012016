@@ -9,4 +9,4 @@
  <link href="<?=base_url()?>/principal/css/style.css" rel="stylesheet">
  <script src="<?=base_url()?>/principal/js/jquery-1.10.2.min.js"></script>
 
- <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+ <script src="<?=base_url()?>/principal/js/highcharts.js"></script>
