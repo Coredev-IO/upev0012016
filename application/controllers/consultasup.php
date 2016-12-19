@@ -148,7 +148,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -201,7 +201,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -256,7 +256,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -309,7 +309,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -362,7 +362,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -442,7 +442,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -497,7 +497,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -553,7 +553,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -609,7 +609,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -698,7 +698,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -752,7 +752,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -823,7 +823,7 @@ class Consultasup extends CI_Controller {
 			$objPuente['calculo'] = ((($row->CapacidadInstalada)));
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -878,7 +878,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -933,7 +933,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1016,7 +1016,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1091,7 +1091,7 @@ class Consultasup extends CI_Controller {
 			$objPuente['var2'] = $row->BALumnosTutoradosT;
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1167,7 +1167,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1221,7 +1221,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1277,7 +1277,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1359,7 +1359,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1434,7 +1434,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1509,7 +1509,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1594,7 +1594,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1671,7 +1671,7 @@ class Consultasup extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1755,7 +1755,7 @@ class Consultasup extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();

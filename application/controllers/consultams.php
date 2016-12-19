@@ -155,7 +155,7 @@ class Consultams extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
 		$tercer['variables'] = $objCalculosIngresados;
 
         $objeto = array();
@@ -209,7 +209,7 @@ class Consultams extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
                 $objeto = array();
                 $objeto[0] = array();
@@ -262,7 +262,7 @@ class Consultams extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -315,7 +315,7 @@ class Consultams extends CI_Controller {
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -389,7 +389,7 @@ class Consultams extends CI_Controller {
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -442,7 +442,7 @@ $tercer['val2'] = $tercer['val2']+$row->BProfesoresActivosT;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -495,7 +495,7 @@ $tercer['val2'] = $tercer['val2']+$row->BProfesoresActualizadosT;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -548,7 +548,7 @@ $tercer['val2'] = $tercer['val2']+$row->BProfesoresActualizadosT;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -632,7 +632,7 @@ $tercer['val2'] = $tercer['val2']+$row->BProgramasAcademicosT;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -710,7 +710,7 @@ $tercer['val2'] = $tercer['val2']+$row->CapacidadInstalada;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -765,7 +765,7 @@ $tercer['val2'] = $tercer['val2']+$row->TotalAulas;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -820,7 +820,7 @@ $tercer['val2'] = $tercer['val2']+$row->BLaboratoriosEquipadosT;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -902,7 +902,7 @@ $tercer['val2'] = $tercer['val2']+$row->TotalAlumnos;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -978,7 +978,7 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1054,7 +1054,7 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1109,7 +1109,7 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1164,7 +1164,7 @@ $tercer['val2'] = $tercer['val2']+$row->UsuariosInternet;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1219,7 +1219,7 @@ $tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1274,7 +1274,7 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1356,7 +1356,7 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = (($tercer['val1']/$tercer['val2'])-1)*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1432,7 +1432,7 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1506,7 +1506,7 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = (($tercer['val1']/$tercer['val2'])-1)*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1588,7 +1588,7 @@ $tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1663,7 +1663,7 @@ $tercer['val2'] = $tercer['val2']+$row->ProfesoresConProyectos;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1745,7 +1745,7 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 			}
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['calculo'] = $pre/$tamanoRow; $tercer['variables'] = $objCalculosIngresados;
+		if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;} $tercer['variables'] = $objCalculosIngresados;
 
 		$objeto = array();
         $objeto[0] = array();

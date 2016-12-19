@@ -1,4 +1,4 @@
-<?php $carreras =  $unidad['carreras'];?>
+<?php  $carreras =  $unidad['carreras'];?>
 <div class="row">
         <div class="col-md-12">
       <?php echo "<label>".$unidad['unidad'][0]->NombreUnidad." - ".$unidad['unidad'][0]->Siglas."</label>";?>
@@ -45,7 +45,6 @@
 
                                         Total<h1><?php echo $total?>%</h1><?php echo $resTexto.'<br>'.$resComentario; ?>
                                         <hr>
-                                        <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/suprepconsolidados/'.$urldata; ?>>IMPRIMIR</a>
                                         <a class="btn btn-info btn-100" href=<?php echo base_url().'/index.php/consultasup/'.$urldata.'/reporteconsolidado'?>>IMPRIMIR</a>
 
                          </div>
@@ -147,7 +146,7 @@
                               <div class='porcentaje'>PORCENTAJE GENERAL ESTABLECIDO</div>
                               <div class='porc'>".$varOb['porcentaje']."%</div></div>";
 
-                              echo "<table class='table table-bordered totaltable table-det'><tr><th width='10%'>DIMENSIÓN</th><th width='20%'>INDICADOR</th><th width='30%'>UNIDAD DE APRENDIZAJE</th><th width='15%'>VARIABLE 1</th><th width='15%'>VARIABLE 2</th><th width='10%'>CÁLCULO DE INDICADOR</th></tr><tbody>";
+                              echo "<table class='table table-bordered totaltable table-det'><tr><th width='10%'>DIMENSIÓN</th><th width='20%'>INDICADOR</th><th width='30%'>UNIDAD DE APRENDIZAJE</th><th width='15%'>VARIABLE 1</th><th width='15%'>VARIABLE 2</th></tr><tbody>";
 
                           foreach ($calculo as $row) {
                             if($row['nombre']==$funcion){
@@ -170,7 +169,7 @@
                                 echo "<td>";
                                 print_r($row2['var2']);
                                 echo "</td>";
-                                echo "<td></td>";
+                                // echo "<td></td>";
                                 // echo "<td>".round($row2['calculoIndicador'],2)."</td>";
                                 // echo "<td>".round($row2['calculo'],2)."</td>";
                                 // echo "<td>".round($row2['calificacion'],2)."</td>";
@@ -191,7 +190,7 @@
                                       echo "</td>";
                                       echo "<td>".$row2['variables'][$j]['var1']."</td>";
                                       echo "<td>".$row2['variables'][$j]['var2']."</td>";
-                                      echo "<td>".$row2['variables'][$j]['calculo']."</td>";
+                                      // echo "<td>".$row2['variables'][$j]['calculo']."</td>";
                                       echo "</tr>";
                                       $sumaRes = $sumaRes+$row2['variables'][$j]['calculo'];
                                     }else{
@@ -201,7 +200,7 @@
                                       echo "</td>";
                                       echo "<td>".$row2['variables'][$j]['var1']."</td>";
                                       echo "<td>".$row2['variables'][$j]['var2']."</td>";
-                                      echo "<td>".$row2['variables'][$j]['calculo']."</td>";
+                                      // echo "<td>".$row2['variables'][$j]['calculo']."</td>";
                                       echo "</tr>";
                                       $sumaRes = $sumaRes+$row2['variables'][$j]['calculo'];
                                     }
@@ -216,7 +215,7 @@
                                   echo "<td>General</td>";
                                   echo "<td>".$row2['variables'][0]['var1']."</td>";
                                   echo "<td>".$row2['variables'][0]['var2']."</td>";
-                                  echo "<td>".$row2['variables'][0]['calculo']."</td>";
+                                  // echo "<td>".$row2['variables'][0]['calculo']."</td>";
                                   echo "</tr>";
                                   $sumaRes = $row2['variables'][$j]['calculo'];
                                 }
@@ -224,22 +223,22 @@
 
 
                                 echo "<tr>";
-                                echo "<td class='color-bg tb-rigth' colspan='5'>VALOR</td>";
+                                echo "<td class='color-bg tb-rigth' colspan='4'>VALOR</td>";
                                 echo "<td class='color-bg tb-h1'>".$row2['calculo']."</td>";
                                 echo "</tr>";
 
                                 echo "<tr>";
-                                echo "<td class='color-bg tb-rigth' colspan='5'>CÁLCULO</td>";
+                                echo "<td class='color-bg tb-rigth' colspan='4'>CÁLCULO</td>";
                                 echo "<td class='color-bg tb-h1'>".$row2['calculoIndicador']."%</td>";
                                 echo "</tr>";
 
                                 echo "<tr>";
-                                echo "<td class='color-bg tb-rigth' colspan='5'>CALIFICACIÓN</td>";
+                                echo "<td class='color-bg tb-rigth' colspan='4'>CALIFICACIÓN</td>";
                                 echo "<td class='color-bg tb-h1'>".$row2['calificacion']."</td>";
                                 echo "</tr>";
 
                                 echo "<tr>";
-                                echo "<td class='color-bg tb-rigth' colspan='5'>RESULTADO</td>";
+                                echo "<td class='color-bg tb-rigth' colspan='4'>RESULTADO</td>";
                                 echo "<td class='color-bg tb-h2'>".$row2['resultado']."</td>";
                                 echo "</tr>";
 
