@@ -50,6 +50,7 @@ if(count($evaluaciones)>0){
                                 break;
                         case "FIN":
                                 echo '<a href="'.base_url().'index.php/consultams/calculo/'.$row->idEvaluacion.'/consulta" class="btn btn-outline-warning">Revisar resultados</a>';
+                                echo '<a href="'.base_url().'index.php/consultams/calculo/'.$row->idEvaluacion.'/excel" class="btn btn-info">Generar Excel</a>';
                                 break;
                         case "RES":
                                 echo '<a href="#" class="btn btn-outline-success">Ver detalle</a>';
