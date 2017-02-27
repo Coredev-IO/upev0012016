@@ -171,6 +171,8 @@ class Consultams extends CI_Controller {
         $objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
         $objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
         $tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -223,6 +225,8 @@ class Consultams extends CI_Controller {
                 $objeto[2][0]=	35	; $objeto[2][1]=	44.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
                 $objeto[3][0]=	45	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
                 $objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+                $tercer['limites'] = $objeto;
 
 
                 $tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
@@ -277,6 +281,8 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -329,6 +335,8 @@ class Consultams extends CI_Controller {
 		$objeto[2][0]=	60	; $objeto[2][1]=	69.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	70	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -404,6 +412,8 @@ class Consultams extends CI_Controller {
 		$objeto[3][0]=	80	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -456,6 +466,8 @@ $tercer['val2'] = $tercer['val2']+$row->BProfesoresActivosT;
 		$objeto[2][0]=	60	; $objeto[2][1]=	69.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	70	; $objeto[3][1]=	79.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	80	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -510,6 +522,8 @@ $tercer['val2'] = $tercer['val2']+$row->BProfesoresActualizadosT;
 		$objeto[3][0]=	50	; $objeto[3][1]=	59.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	60	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -562,6 +576,8 @@ $tercer['val2'] = $tercer['val2']+$row->BProfesoresActualizadosT;
 		$objeto[2][0]=	80	; $objeto[2][1]=	84.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	85	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -647,6 +663,8 @@ $tercer['val2'] = $tercer['val2']+$row->BProgramasAcademicosT;
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -725,6 +743,8 @@ $tercer['val2'] = $tercer['val2']+$row->CapacidadInstalada;
 		$objeto[3][0]=	105.01	; $objeto[3][1]=	120	; $objeto[3][2]=	2	; $objeto[3][3] = "	Malo	";
 		$objeto[4][0]=	120.01	; $objeto[4][1]=	200	; $objeto[4][2]=	1	; $objeto[4][3] = "	Muy Malo	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -780,6 +800,8 @@ $tercer['val2'] = $tercer['val2']+$row->TotalAulas;
 		$objeto[3][0]=	70	; $objeto[3][1]=	84.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -834,6 +856,8 @@ $tercer['val2'] = $tercer['val2']+$row->BLaboratoriosEquipadosT;
 		$objeto[2][0]=	85	; $objeto[2][1]=	89.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	90	; $objeto[3][1]=	94.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	95	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -917,6 +941,8 @@ $tercer['val2'] = $tercer['val2']+$row->TotalAlumnos;
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -992,6 +1018,8 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 		$objeto[2][0]=	30	; $objeto[2][1]=	39	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -1069,6 +1097,8 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 		$objeto[3][0]=	40	; $objeto[3][1]=	49	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	50	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -1123,6 +1153,8 @@ $tercer['val2'] = $tercer['val2']+$row->BAlumnosTutoradosT;
 		$objeto[2][0]=	4	; $objeto[2][1]=	7.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	8	; $objeto[3][1]=	11.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	12	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -1179,6 +1211,8 @@ $tercer['val2'] = $tercer['val2']+$row->UsuariosInternet;
 		$objeto[3][0]=	75	; $objeto[3][1]=	84	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	85	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -1234,6 +1268,8 @@ $tercer['val2'] = $tercer['val2']+$row->MantenimientoSolicitado;
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -1288,6 +1324,8 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 		$objeto[2][0]=	4	; $objeto[2][1]=	7.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	8	; $objeto[3][1]=	11.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	12	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -1371,6 +1409,8 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 		$objeto[3][0]=	5	; $objeto[3][1]=	14.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	15	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -1447,6 +1487,8 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 		$objeto[3][0]=	30	; $objeto[3][1]=	39.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	40	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -1520,6 +1562,8 @@ $tercer['val2'] = $tercer['val2']+$row->LimpiezaProgramada;
 		$objeto[2][0]=	1	; $objeto[2][1]=	100	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	100.1	; $objeto[3][1]=	200	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	200.1	; $objeto[4][1]=	1000	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -1603,6 +1647,8 @@ $tercer['val2'] = $tercer['val2']+$row->TotalDocentes;
 		$objeto[3][0]=	20	; $objeto[3][1]=	29.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	30	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
 
+        $tercer['limites'] = $objeto;
+
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
 
@@ -1677,6 +1723,8 @@ $tercer['val2'] = $tercer['val2']+$row->ProfesoresConProyectos;
 		$objeto[2][0]=	70	; $objeto[2][1]=	79.9	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.9	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -1759,6 +1807,8 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 		$objeto[2][0]=	60	; $objeto[2][1]=	79.99	; $objeto[2][2]=	3	; $objeto[2][3] = "	Regular	";
 		$objeto[3][0]=	80	; $objeto[3][1]=	89.99	; $objeto[3][2]=	4	; $objeto[3][3] = "	Bueno 	";
 		$objeto[4][0]=	90	; $objeto[4][1]=	100	; $objeto[4][2]=	5	; $objeto[4][3] = "	Muy Bueno	";
+
+        $tercer['limites'] = $objeto;
 
 		$tercer['calificacion'] = $this->limites->calcula($objeto, $tercer['calculo']); $tercer['calculoIndicador'] = (($tercer['calificacion']*($tercer['porcentaje']/100))/5)*100;
         $tercer['resultado'] = $this->limites->texto($objeto, $tercer['calculo']);
@@ -1867,11 +1917,30 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                                     // print_r($data['calculo']);
                                     foreach ($data['calculo'] as $key => $value) {
                                         // echo $value['nombre']." ".$value['porcentaje']." ".$value['segundobloque']['nombre']." ".$value['segundobloque']['porcentaje'];
-                                        print_r($value['tercerbloque']);
-                                        // foreach ($value['tercerbloque'] as $key => $value) {
-                                        //     echo $value['nombre'];
-                                        //     echo "<br>";
-                                        // }
+                                        // print_r($value['tercerbloque']);
+
+                                        foreach ($value['tercerbloque'] as $key => $value2) {
+                                            echo $value['nombre']." -- ".$value['segundobloque']['nombre']." --  ".$value2['nombre'];
+                                            echo "<br>";
+                                            print_r($value2['calculo']);
+                                            echo "<br>";
+                                            print_r($value2['calificacion']);
+                                            echo "<br>";
+                                            print_r($value2['calculoIndicador']);
+                                            echo "<br>";
+                                            print_r($value2['resultado']);
+                                            echo "<br>";
+											foreach ($value2['limites'] as $key => $value3) {
+												// echo $value3[0]." -- ".$value3[1]." -- ".$value3[2]."  -- "$value3[3];
+												// print_r($value3);
+												foreach ($value3 as $key => $value4) {
+													echo $value4."  ";
+												}
+												echo "<br>";
+											}
+											echo "<br>";
+											echo '<hr>';
+                                        }
                                         // print_r($value['segundobloque']);
                                         echo "<br>";
                                     }
@@ -1965,16 +2034,47 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                                             $this->excel->getActiveSheet()->SetCellValue('H'.$rowex, $value2['metodo']);
                                             $this->excel->getActiveSheet()->SetCellValue('I'.$rowex, $value2['var1']);
                                             $this->excel->getActiveSheet()->SetCellValue('J'.$rowex, $value2['var2']);
+                                            $this->excel->getActiveSheet()->SetCellValue('M'.$rowex, $value2['calculoIndicador']);
+                                            $this->excel->getActiveSheet()->SetCellValue('N'.$rowex, $value2['calculo']);
+                                            $this->excel->getActiveSheet()->SetCellValue('O'.$rowex, $value2['calificacion']);
+
+                                            foreach ($value2['limites'] as $key => $value3) {
+												// echo $value3[0]." -- ".$value3[1]." -- ".$value3[2]."  -- "$value3[3];
+												// print_r($value3);
+                                                $limitevar = 1;
+												foreach ($value3 as $key => $value4) {
+                                                    if ($limitevar==1) {
+                                                        $this->excel->getActiveSheet()->SetCellValue('P'.$rowex, $value4);
+                                                    }
+                                                    if ($limitevar==2) {
+                                                        $this->excel->getActiveSheet()->SetCellValue('Q'.$rowex, $value4);
+                                                    }
+                                                    if ($limitevar==3) {
+                                                        $this->excel->getActiveSheet()->SetCellValue('R'.$rowex, $value4);
+                                                    }
+                                                    if ($limitevar==4) {
+                                                        $this->excel->getActiveSheet()->SetCellValue('S'.$rowex, $value4);
+                                                        if ($value2['resultado']==$value4) {
+                                                            $this->excel->getActiveSheet()->getStyle('P'.$rowex.':'.'S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '792a55'))));
+                                                            $style = array('font' => array('bold' => true,'color' => array('rgb' => 'ffffff')));
+                                                            $this->excel->getActiveSheet()->getStyle('P'.$rowex.':'.'S'.$rowex)->applyFromArray($style);
+                                                        }
+                                                    }
+                                                    $limitevar=$limitevar+1;
+
+												}
+                                                $rowex=$rowex+1;
+											}
                                             // echo $value2['nombre'];
                                             // echo "<br>";
 
 
-                                            $rowex=$rowex+1;//nuevo renglon
+                                            // $rowex=$rowex+1;//nuevo renglon
                                         }
 
                                         $r = $contadorExc+$rowex2-1;
 
-                                        $this->excel->getActiveSheet()->mergeCells('B'.$rowex2.':B'.$r);
+                                        // $this->excel->getActiveSheet()->mergeCells('B'.$rowex2.':B'.$r);
                                         $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "TOTAL ".$value['segundobloque']['nombre']);
                                         $this->excel->getActiveSheet()->mergeCells('B'.$rowex.':D'.$rowex);
                                         $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(30);
@@ -1998,12 +2098,15 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->getAlignment()->setTextRotation(90);
+                                            $style = array('font' => array('size' => 22,'bold' => true));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->applyFromArray($style);
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
                                         }
                                         if ($contadorseg==4) {
-                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "OFERTA EDUCATIVA");
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL OFERTA EDUCATIVA");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
                                             $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
@@ -2011,13 +2114,16 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->getAlignment()->setTextRotation(90);
+                                            $style = array('font' => array('size' => 22,'bold' => true));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->applyFromArray($style);
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
 
                                         }
                                         if ($contadorseg==7) {
-                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "APOYO");
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL APOYO");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
                                             $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
@@ -2025,13 +2131,16 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->getAlignment()->setTextRotation(90);
+                                            $style = array('font' => array('size' => 22,'bold' => true));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->applyFromArray($style);
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
 
                                         }
                                         if ($contadorseg==10) {
-                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "VINCULACIÓN");
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL VINCULACIÓN");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
                                             $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
@@ -2039,13 +2148,16 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->getAlignment()->setTextRotation(90);
+                                            $style = array('font' => array('size' => 22,'bold' => true));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->applyFromArray($style);
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
 
                                         }
                                         if ($contadorseg==12) {
-                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "INVESTIGACIÓN");
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL INVESTIGACIÓN");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
                                             $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
@@ -2053,13 +2165,16 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->getAlignment()->setTextRotation(90);
+                                            $style = array('font' => array('size' => 22,'bold' => true));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->applyFromArray($style);
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
 
                                         }
                                         if ($contadorseg==13) {
-                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "GESTIÓN ADMINISTRATIVA");
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL GESTIÓN ADMINISTRATIVA");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
                                             $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
@@ -2067,6 +2182,9 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->getAlignment()->setTextRotation(90);
+                                            $style = array('font' => array('size' => 22,'bold' => true));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex3)->applyFromArray($style);
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
