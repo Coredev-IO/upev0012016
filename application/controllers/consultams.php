@@ -1861,32 +1861,230 @@ $tercer['val2'] = $tercer['val2']+$row->RecursosAutogenerados;
 									$this->m_pdf->pdf->Output($pdfFilePath, "D");
 								}
 
+                                if($genTipo=="data"){
+                                    //load our new PHPExcel library
+                                    // name the worksheet
+                                    // print_r($data['calculo']);
+                                    foreach ($data['calculo'] as $key => $value) {
+                                        // echo $value['nombre']." ".$value['porcentaje']." ".$value['segundobloque']['nombre']." ".$value['segundobloque']['porcentaje'];
+                                        print_r($value['tercerbloque']);
+                                        // foreach ($value['tercerbloque'] as $key => $value) {
+                                        //     echo $value['nombre'];
+                                        //     echo "<br>";
+                                        // }
+                                        // print_r($value['segundobloque']);
+                                        echo "<br>";
+                                    }
+                                }
+
                                 if($genTipo=="excel"){
                                     //load our new PHPExcel library
                                     $this->load->library('excel');
                                     // name the worksheet
+                                    // print_r($data['calculo']);
+
                                     $this->excel->getProperties()->setCreator("");
                                     $this->excel->getProperties()->setLastModifiedBy("");
                                     $this->excel->getProperties()->setTitle("");
                                     $this->excel->getProperties()->setSubject("");
                                     $this->excel->getProperties()->setDescription("");
-                                    $this->excel->getActiveSheet()->setTitle('test worksheet');
+                                    $this->excel->getActiveSheet()->setTitle($escolar['unidad'][0]->Siglas);
                                     // //activate worksheet number 1
                                     $this->excel->setActiveSheetIndex(0);
                                     // //set cell A1 content with some text
-                                    $this->excel->getActiveSheet()->SetCellValue('A1', 'Task ID');
-                                    // //change the font size
-                                    $this->excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(14);
-                                    $this->excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-                                    $this->excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
+                                    $this->excel->getActiveSheet()->SetCellValue('A1', 'FUNCIÓN');
+                                    $this->excel->getActiveSheet()->SetCellValue('B1', 'DIMENSIÓN');
+                                    $this->excel->getActiveSheet()->SetCellValue('C1', 'CÁLCULO DE DIMENSIÓN %');
+                                    $this->excel->getActiveSheet()->SetCellValue('D1', 'ELEMENTOS');
+                                    $this->excel->getActiveSheet()->SetCellValue('E1', 'CÁLCULO ELEMENTO %');
+                                    $this->excel->getActiveSheet()->SetCellValue('F1', 'INDICADORES');
+                                    $this->excel->getActiveSheet()->SetCellValue('G1', 'DESCRIPCIÓN DEL INDICADOR');
+                                    $this->excel->getActiveSheet()->SetCellValue('H1', 'MÉTODO DE CÁLCULO');
+                                    $this->excel->getActiveSheet()->SetCellValue('I1', 'VARIABLE 1');
+                                    $this->excel->getActiveSheet()->SetCellValue('J1', 'VARIABLE 2');
+                                    $this->excel->getActiveSheet()->SetCellValue('K1', 'V1');
+                                    $this->excel->getActiveSheet()->SetCellValue('L1', 'V2');
+                                    $this->excel->getActiveSheet()->SetCellValue('M1', 'CÁLCULO DE INDICADOR');
+                                    $this->excel->getActiveSheet()->SetCellValue('N1', 'VALOR');
+                                    $this->excel->getActiveSheet()->SetCellValue('O1', 'CALIFICACIÓN');
+                                    $this->excel->getActiveSheet()->SetCellValue('P1', 'LIMITES');
+                                    $this->excel->getActiveSheet()->mergeCells('P1:S1');
 
-                                    $this->excel->getActiveSheet()->SetCellValue('A2', 'Datos');
+                                    $this->excel->getActiveSheet()->getRowDimension('1')->setRowHeight(60);
+                                    $this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(40);
+                                    $this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(40);
+                                    $this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('F')->setWidth(40);
+                                    $this->excel->getActiveSheet()->getColumnDimension('G')->setWidth(40);
+                                    $this->excel->getActiveSheet()->getColumnDimension('H')->setWidth(40);
+                                    $this->excel->getActiveSheet()->getColumnDimension('I')->setWidth(40);
+                                    $this->excel->getActiveSheet()->getColumnDimension('J')->setWidth(40);
+                                    $this->excel->getActiveSheet()->getColumnDimension('K')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('L')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('M')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('N')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('O')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('P')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('Q')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('R')->setWidth(20);
+                                    $this->excel->getActiveSheet()->getColumnDimension('S')->setWidth(20);
+
+                                    $this->excel->getActiveSheet()->getStyle('A1:S1')->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '792a55'))));
+                                    $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                    $this->excel->getActiveSheet()->getStyle('A1:S1')->applyFromArray($style);
+
+
+                                    $this->excel->getActiveSheet()->getStyle('A1:S999')->getAlignment()->setWrapText(true);
+
+
+                                    $this->excel->getActiveSheet()->getStyle('A1:S999')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+                                    $this->excel->getActiveSheet()->getStyle('A1:S999')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                                    $this->excel->getActiveSheet()->getStyle('A1:S1')->getFont()->setSize(14);
+                                    $this->excel->getActiveSheet()->getStyle('A1:S1')->getFont()->setBold(true);
+
+                                    $rowex = 2;
+                                    $rowex2 = 2;//mantiene el estatus de en que rengln va cada bloque
+                                    $rowex3 = 2;//mantiene el estatus de en que rengln va cada bloque
+
+                                    $contadorseg = 0;
+
+                                    foreach ($data['calculo'] as $key => $value) {
+                                        // print_r($value['nombre']);
+                                        $contadorseg = $contadorseg+1;
+                                        $contadorExc = 0;
+                                        $contadorExc = count($value['tercerbloque']);
+
+                                        foreach ($value['tercerbloque'] as $key => $value2) {
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, $value['nombre']." ".$value['porcentaje']."%");
+                                            $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, $value['segundobloque']['nombre']." ".$value['segundobloque']['porcentaje']."%");
+                                            $this->excel->getActiveSheet()->SetCellValue('F'.$rowex, $value2['nombre']);
+                                            $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, $value2['nombre']." ".$value2['porcentaje']."%");
+                                            $this->excel->getActiveSheet()->SetCellValue('G'.$rowex, $value2['descripcion']);
+                                            $this->excel->getActiveSheet()->SetCellValue('H'.$rowex, $value2['metodo']);
+                                            $this->excel->getActiveSheet()->SetCellValue('I'.$rowex, $value2['var1']);
+                                            $this->excel->getActiveSheet()->SetCellValue('J'.$rowex, $value2['var2']);
+                                            // echo $value2['nombre'];
+                                            // echo "<br>";
+
+
+                                            $rowex=$rowex+1;//nuevo renglon
+                                        }
+
+                                        $r = $contadorExc+$rowex2-1;
+
+                                        $this->excel->getActiveSheet()->mergeCells('B'.$rowex2.':B'.$r);
+                                        $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "TOTAL ".$value['segundobloque']['nombre']);
+                                        $this->excel->getActiveSheet()->mergeCells('B'.$rowex.':D'.$rowex);
+                                        $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(30);
+                                        $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'dedede'))));
+
+
+
+
+                                        $rowex2 = $rowex2+$contadorExc+1;
+
+                                        $rowex=$rowex+1;//nuevo renglon
+
+                                        //ESto varia de superior a medio superior RENGLON DE TotalES
+
+                                        if ($contadorseg==2) {
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL DESEMPEÑO");
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
+                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
+                                            $finbloque = $rowex-1;
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $rowex=$rowex+1;
+                                            $rowex2=$rowex2+1;
+                                            $rowex3=$finbloque+2;
+                                        }
+                                        if ($contadorseg==4) {
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "OFERTA EDUCATIVA");
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
+                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
+                                            $finbloque = $rowex-1;
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $rowex=$rowex+1;
+                                            $rowex2=$rowex2+1;
+                                            $rowex3=$finbloque+2;
+
+                                        }
+                                        if ($contadorseg==7) {
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "APOYO");
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
+                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
+                                            $finbloque = $rowex-1;
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $rowex=$rowex+1;
+                                            $rowex2=$rowex2+1;
+                                            $rowex3=$finbloque+2;
+
+                                        }
+                                        if ($contadorseg==10) {
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "VINCULACIÓN");
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
+                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
+                                            $finbloque = $rowex-1;
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $rowex=$rowex+1;
+                                            $rowex2=$rowex2+1;
+                                            $rowex3=$finbloque+2;
+
+                                        }
+                                        if ($contadorseg==12) {
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "INVESTIGACIÓN");
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
+                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
+                                            $finbloque = $rowex-1;
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $rowex=$rowex+1;
+                                            $rowex2=$rowex2+1;
+                                            $rowex3=$finbloque+2;
+
+                                        }
+                                        if ($contadorseg==13) {
+                                            $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "GESTIÓN ADMINISTRATIVA");
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
+                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
+                                            $finbloque = $rowex-1;
+                                            $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
+                                            $rowex=$rowex+1;
+                                            $rowex2=$rowex2+1;
+                                            $rowex3=$finbloque+2;
+
+                                        }
+
+
+
+                                    }
+
+                                    // $this->excel->getActiveSheet()->getStyle('A2')->getAlignment()->setTextRotation(90);
+                                    // $this->excel->getActiveSheet()->mergeCells('A2:A7');
                                     //
                                     $filename=$escolar['unidad'][0]->Siglas.'.xls'; //save our workbook as this file name
                                     header('Content-Type: application/vnd.ms-excel'); //mime type
                                     header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name
                                     header('Cache-Control: max-age=0'); //no cache
-                                    
+
                                     // //save it to Excel5 format (excel 2003 .XLS file), change this to 'Excel2007' (and adjust the filename extension, also the header mime type)
                                     // //if you want to save it as .XLSX Excel 2007 format
                                     $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
