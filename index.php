@@ -35,7 +35,7 @@ if (defined('ENVIRONMENT'))
 		case 'development':
 			error_reporting(E_ALL);
 		break;
-	
+
 		case 'testing':
 		case 'production':
 			error_reporting(0);
@@ -45,6 +45,11 @@ if (defined('ENVIRONMENT'))
 			exit('The application environment is not set correctly.');
 	}
 }
+
+if( ! ini_get('date.timezone') )
+{
+   date_default_timezone_set('GMT');
+} 
 
 /*
  *---------------------------------------------------------------
