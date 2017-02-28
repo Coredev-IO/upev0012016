@@ -43,7 +43,7 @@
                     echo "<td class='".$classtable."'>".$row['fechaEvaluacion']."</td>";
                     echo "<td class='".$classtable."'>".$row['estatusEvaluacion']."</td>";
                     echo "<td class='".$classtable."'>";
-                    echo '<a href="'.base_url().'index.php/consultaMS/rev/'.$row['idUnidad'].'" class="btn btn-outline-info">CONSULTAR</a>';
+                    echo '<a href="'.base_url().'index.php/consultams/rev/'.$row['idUnidad'].'" class="btn btn-outline-info">CONSULTAR</a>';
                     echo "</td></tr>";
 
 
