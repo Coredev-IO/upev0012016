@@ -196,15 +196,15 @@ class Consultasup extends CI_Controller {
 			$tercer['val2'] = $tercer['val2']+$row->BAlumnosRegularesT;
 			$objPuente['calculo'] = 0;
 			if($row->BAlumnosRegularesT>0){
-				$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100));
-				$objPuente['calculo'] = ((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))*100);
+				$pre       = ($pre+((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT))));
+				$objPuente['calculo'] = ((($row->BEficienciaTerminal)/($row->BAlumnosRegularesT)));
 			}
 			$objPuente['var1'] = $row->BEficienciaTerminal;
 			$objPuente['var2'] = $row->BAlumnosRegularesT;
 
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2']);}else{$tercer['calculo']=0;}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -856,7 +856,7 @@ class Consultasup extends CI_Controller {
 			$objPuente['calculo'] = ((($row->CapacidadInstalada)));
 			array_push($objCalculosIngresados, $objPuente);
 		}
-		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=0;}
+		$tercer['variables'] = $objCalculosIngresados; if($tercer['val2']>0){$tercer['calculo'] = ($tercer['val1']/$tercer['val2'])*100;}else{$tercer['calculo']=$tercer['val1'];}
 
 		$objeto = array();
         $objeto[0] = array();
@@ -1957,6 +1957,8 @@ class Consultasup extends CI_Controller {
                                     foreach ($data['calculo'] as $key => $value) {
                                         // echo $value['nombre']." ".$value['porcentaje']." ".$value['segundobloque']['nombre']." ".$value['segundobloque']['porcentaje'];
                                         // print_r($value['tercerbloque']);
+                                        print_r($value['segundobloque']);
+
 
                                         foreach ($value['tercerbloque'] as $key => $value2) {
                                             echo $value['nombre']." -- ".$value['segundobloque']['nombre']." --  ".$value2['nombre'];
@@ -2057,6 +2059,7 @@ class Consultasup extends CI_Controller {
                                     $rowex3 = 2;//mantiene el estatus de en que rengln va cada bloque
 
                                     $contadorseg = 0;
+                                    $sumaseccion = 0;
 
                                     foreach ($data['calculo'] as $key => $value) {
                                         // print_r($value['nombre']);
@@ -2064,18 +2067,33 @@ class Consultasup extends CI_Controller {
                                         $contadorExc = 0;
                                         $contadorExc = count($value['tercerbloque']);
 
+                                        $sumacalculo =0;
+
+                                        $mergeall1 = $rowex;
+                                        $mergeallFin1 = 0;
+
+                                        $mergeall = 0;
+                                        $mergeallFin = 0;
+
                                         foreach ($value['tercerbloque'] as $key => $value2) {
+                                            $mergeall = $rowex;
                                             $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, $value['nombre']." ".$value['porcentaje']."%");
                                             $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, $value['segundobloque']['nombre']." ".$value['segundobloque']['porcentaje']."%");
+                                            $this->excel->getActiveSheet()->SetCellValue('C'.$rowex, $value['segundobloque']['calculoDimension']."%");
                                             $this->excel->getActiveSheet()->SetCellValue('F'.$rowex, $value2['nombre']);
                                             $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, $value2['nombre']." ".$value2['porcentaje']."%");
                                             $this->excel->getActiveSheet()->SetCellValue('G'.$rowex, $value2['descripcion']);
                                             $this->excel->getActiveSheet()->SetCellValue('H'.$rowex, $value2['metodo']);
                                             $this->excel->getActiveSheet()->SetCellValue('I'.$rowex, $value2['var1']);
                                             $this->excel->getActiveSheet()->SetCellValue('J'.$rowex, $value2['var2']);
-                                            $this->excel->getActiveSheet()->SetCellValue('M'.$rowex, $value2['calculoIndicador']);
+											$this->excel->getActiveSheet()->SetCellValue('K'.$rowex, $value2['val1']);
+                                            $this->excel->getActiveSheet()->SetCellValue('L'.$rowex, $value2['val2']);
+                                            $this->excel->getActiveSheet()->SetCellValue('M'.$rowex, $value2['calculoIndicador']."%");
+											$this->excel->getActiveSheet()->SetCellValue('E'.$rowex, $value2['calculoIndicador']."%");
                                             $this->excel->getActiveSheet()->SetCellValue('N'.$rowex, $value2['calculo']);
                                             $this->excel->getActiveSheet()->SetCellValue('O'.$rowex, $value2['calificacion']);
+                                            $sumacalculo= $sumacalculo+$value2['calculoIndicador'];
+
 
                                             foreach ($value2['limites'] as $key => $value3) {
 												// echo $value3[0]." -- ".$value3[1]." -- ".$value3[2]."  -- "$value3[3];
@@ -2100,6 +2118,8 @@ class Consultasup extends CI_Controller {
                                                         }
                                                     }
 
+                                                    $mergeallFin = $rowex;
+
                                                     $limitevar=$limitevar+1;
 
 												}
@@ -2108,6 +2128,19 @@ class Consultasup extends CI_Controller {
                                             // echo $value2['nombre'];
                                             // echo "<br>";
 
+                                            $this->excel->getActiveSheet()->mergeCells('D'.$mergeall.':D'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('E'.$mergeall.':E'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('F'.$mergeall.':F'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('G'.$mergeall.':G'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('H'.$mergeall.':H'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('I'.$mergeall.':I'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('J'.$mergeall.':J'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('K'.$mergeall.':K'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('L'.$mergeall.':L'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('M'.$mergeall.':M'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('N'.$mergeall.':N'.$mergeallFin);
+                                            $this->excel->getActiveSheet()->mergeCells('O'.$mergeall.':O'.$mergeallFin);
+
 
                                             // $rowex=$rowex+1;//nuevo renglon
                                         }
@@ -2115,9 +2148,27 @@ class Consultasup extends CI_Controller {
                                         $r = $contadorExc+$rowex2-1;
 
                                         // $this->excel->getActiveSheet()->mergeCells('B'.$rowex2.':B'.$r);
+
+
+                                        $mergeallFin1 = $rowex-1;
+
                                         $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "TOTAL ".$value['segundobloque']['nombre']);
+                                        $this->excel->getActiveSheet()->mergeCells('B'.$mergeall1.':B'.$mergeallFin1);
+                                        $this->excel->getActiveSheet()->mergeCells('C'.$mergeall1.':C'.$mergeallFin1);
+                                        $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => '000000')));
+                                        $style2 = array('font' => array('size' => 14,'bold' => true,'color' => array('rgb' => '000000')));
+                                        $this->excel->getActiveSheet()->getStyle('B'.$mergeall1.':'.'B'.$mergeallFin1)->applyFromArray($style2);
+                                        $this->excel->getActiveSheet()->getStyle('C'.$mergeall1.':'.'C'.$mergeallFin1)->applyFromArray($style);
+
+                                        $sumaseccion = $sumaseccion+$value['segundobloque']['calculoDimension'];
+
+
+
+                                        $this->excel->getActiveSheet()->SetCellValue('E'.$rowex, $sumacalculo."%");
                                         $this->excel->getActiveSheet()->mergeCells('B'.$rowex.':D'.$rowex);
-                                        $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(30);
+                                        $style = array('font' => array('size' => 17,'bold' => true,'color' => array('rgb' => '000000')));
+                                        $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
+                                        $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(35);
                                         $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'dedede'))));
 
 
@@ -2129,12 +2180,15 @@ class Consultasup extends CI_Controller {
 
                                         //ESto varia de superior a medio superior RENGLON DE TotalES
 
+
+
                                         if ($contadorseg==2) {
                                             $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL DESEMPEÑO");
+                                            $this->excel->getActiveSheet()->SetCellValue('E'.$rowex, $sumaseccion."%");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
-                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(50);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
-                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $style = array('font' => array('size' => 18,'bold' => true,'color' => array('rgb' => 'ffffff')));
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
@@ -2144,13 +2198,15 @@ class Consultasup extends CI_Controller {
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
+                                            $sumaseccion = 0;
                                         }
                                         if ($contadorseg==4) {
                                             $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL OFERTA EDUCATIVA");
+                                            $this->excel->getActiveSheet()->SetCellValue('E'.$rowex, $sumaseccion."%");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
-                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(50);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
-                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $style = array('font' => array('size' => 18,'bold' => true,'color' => array('rgb' => 'ffffff')));
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
@@ -2160,14 +2216,16 @@ class Consultasup extends CI_Controller {
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
+                                            $sumaseccion = 0;
 
                                         }
                                         if ($contadorseg==7) {
                                             $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL APOYO");
+                                            $this->excel->getActiveSheet()->SetCellValue('E'.$rowex, $sumaseccion."%");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
-                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(50);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
-                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $style = array('font' => array('size' => 18,'bold' => true,'color' => array('rgb' => 'ffffff')));
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
@@ -2177,14 +2235,16 @@ class Consultasup extends CI_Controller {
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
+                                            $sumaseccion = 0;
 
                                         }
                                         if ($contadorseg==10) {
                                             $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL VINCULACIÓN");
+                                            $this->excel->getActiveSheet()->SetCellValue('E'.$rowex, $sumaseccion."%");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
-                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(50);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
-                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $style = array('font' => array('size' => 18,'bold' => true,'color' => array('rgb' => 'ffffff')));
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
@@ -2194,14 +2254,16 @@ class Consultasup extends CI_Controller {
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
+                                            $sumaseccion = 0;
 
                                         }
                                         if ($contadorseg==12) {
                                             $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL INVESTIGACIÓN");
+                                            $this->excel->getActiveSheet()->SetCellValue('E'.$rowex, $sumaseccion."%");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
-                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(50);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
-                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $style = array('font' => array('size' => 18,'bold' => true,'color' => array('rgb' => 'ffffff')));
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
@@ -2211,14 +2273,16 @@ class Consultasup extends CI_Controller {
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
+                                            $sumaseccion = 0;
 
                                         }
                                         if ($contadorseg==13) {
                                             $this->excel->getActiveSheet()->SetCellValue('A'.$rowex, "TOTAL GESTIÓN ADMINISTRATIVA");
+                                            $this->excel->getActiveSheet()->SetCellValue('E'.$rowex, $sumaseccion."%");
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex.':D'.$rowex);
-                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(50);
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
-                                            $style = array('font' => array('size' => 16,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                            $style = array('font' => array('size' => 18,'bold' => true,'color' => array('rgb' => 'ffffff')));
                                             $this->excel->getActiveSheet()->getStyle('A'.$rowex.':S'.$rowex)->applyFromArray($style);
                                             $finbloque = $rowex-1;
                                             $this->excel->getActiveSheet()->mergeCells('A'.$rowex3.':A'.$finbloque);
@@ -2228,12 +2292,105 @@ class Consultasup extends CI_Controller {
                                             $rowex=$rowex+1;
                                             $rowex2=$rowex2+1;
                                             $rowex3=$finbloque+2;
+                                            $sumaseccion = 0;
 
                                         }
 
 
 
                                     }
+
+
+                                    //IMPRIME RESULTADO
+
+                                    $rowex = $rowex+4;
+                                    $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "FUNCIONES");
+                                    $this->excel->getActiveSheet()->mergeCells('B'.$rowex.':C'.$rowex);
+                                    $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, "TOTAL");
+                                    $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
+                                    $style = array('font' => array('size' => 19,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+                                    $rowex = $rowex+1;
+                                    $total = 0;
+                                    $valrow = true;
+                                    foreach ($data['resumen']['bloque'] as $row) {
+                                            $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, $row['nombre']);
+                                            $this->excel->getActiveSheet()->mergeCells('B'.$rowex.':C'.$rowex);
+                                            $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, $row['total'].'%');
+                                            $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(30);
+                                            if($valrow==true){
+                                                $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'ffffff'))));
+                                                $valrow = false;
+                                            }else{
+                                                $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'dedede'))));
+                                                $valrow = true;
+                                            }
+                                            $style = array('font' => array('size' => 17,'bold' => true));
+                                            $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+                                            $total = $total+$row['total'];
+                                            $rowex = $rowex+1;
+                                    }
+                                    $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "TOTAL");
+                                    $this->excel->getActiveSheet()->mergeCells('B'.$rowex.':C'.$rowex);
+                                    $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, $total."%");
+                                    $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '792a55'))));
+                                    $style = array('font' => array('size' => 19,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+
+
+                                    //IMPRIME PLAN DE ACCION
+
+                                    $rowex = $rowex+4;
+                                    $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "Plan de acciones de acuerdo con el resultado");
+                                    $this->excel->getActiveSheet()->mergeCells('B'.$rowex.':D'.$rowex);
+                                    $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(40);
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => '393939'))));
+                                    $style = array('font' => array('size' => 19,'bold' => true,'color' => array('rgb' => 'ffffff')));
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+                                    $rowex = $rowex+1;
+                                    $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "0-50");
+                                    $this->excel->getActiveSheet()->SetCellValue('C'.$rowex, "DEFICIENTE");
+                                    $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, "Identificar áreas de atención urgente y  a través del análisis de causa efecto,  implementar acciones correctivas a corto plazo.");
+                                    $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(100);
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'FFFFFF'))));
+                                    $style = array('font' => array('size' => 15,'bold' => false,'color' => array('rgb' => '393939')));
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+                                    $rowex = $rowex+1;
+                                    $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "50-75");
+                                    $this->excel->getActiveSheet()->SetCellValue('C'.$rowex, "REGULAR");
+                                    $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, "Identificar desviaciones y  a través del análisis de causa efecto, implementar acciones correctivas.");
+                                    $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(100);
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'FFFFFF'))));
+                                    $style = array('font' => array('size' => 15,'bold' => false,'color' => array('rgb' => '393939')));
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+                                    $rowex = $rowex+1;
+                                    $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "75-85");
+                                    $this->excel->getActiveSheet()->SetCellValue('C'.$rowex, "BUENO");
+                                    $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, "Identificar posibles desviaciones y a través del análisis de causa efecto  implementar acciones preventivas.");
+                                    $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(100);
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'FFFFFF'))));
+                                    $style = array('font' => array('size' => 15,'bold' => false,'color' => array('rgb' => '393939')));
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+                                    $rowex = $rowex+1;
+                                    $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "85-95");
+                                    $this->excel->getActiveSheet()->SetCellValue('C'.$rowex, "MUY BUENO");
+                                    $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, "Identificar áreas de oportunidad y  través del análisis de causa efecto implementar acciones de mejora.");
+                                    $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(100);
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'FFFFFF'))));
+                                    $style = array('font' => array('size' => 15,'bold' => false,'color' => array('rgb' => '393939')));
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+                                    $rowex = $rowex+1;
+                                    $this->excel->getActiveSheet()->SetCellValue('B'.$rowex, "95-100");
+                                    $this->excel->getActiveSheet()->SetCellValue('C'.$rowex, "EXCELENTE");
+                                    $this->excel->getActiveSheet()->SetCellValue('D'.$rowex, "Continuar con el seguimiento y mejora continua. ");
+                                    $this->excel->getActiveSheet()->getRowDimension($rowex)->setRowHeight(100);
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray(array('fill' => array('type' => PHPExcel_Style_Fill::FILL_SOLID,'color' => array('rgb' => 'FFFFFF'))));
+                                    $style = array('font' => array('size' => 15,'bold' => false,'color' => array('rgb' => '393939')));
+                                    $this->excel->getActiveSheet()->getStyle('B'.$rowex.':D'.$rowex)->applyFromArray($style);
+                                    $rowex = $rowex+1;
+
 
                                     // $this->excel->getActiveSheet()->getStyle('A2')->getAlignment()->setTextRotation(90);
                                     // $this->excel->getActiveSheet()->mergeCells('A2:A7');
